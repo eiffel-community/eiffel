@@ -5,6 +5,8 @@ This repository contains the Eiffel framework vocabulary, descriptions, guides a
 
 __IMPORTANT NOTICE:__ The contents of this repository currectly reflects a __DRAFT__. The Eiffel framework has been used in production with Ericsson for several years to great effect. What is presented here is a revision and evolution of that framework - an evolution that is currently ongoing. In other words, anything in this repository should be regarded as tentative and subject to change. It is published here to allow early access and trial and to solicit early feedback.
 
+The contents of this repository are licensed under the [Apache License 2.0](./LICENSE)
+
 ## Contents
 
 1. Introduction
