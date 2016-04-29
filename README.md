@@ -3,11 +3,9 @@ The Eiffel framework enables technology agnostic enterprise scale continuous int
 
 This repository contains the Eiffel framework vocabulary, descriptions, guides and schemas along with links to relevant implementation repositories.
 
-__IMPORTANT NOTICE:__ The contents of this repository currectly reflects a __DRAFT__. The Eiffel framework has been used in production with Ericsson for several years to great effect. What is presented here is a revision and evolution of that framework - an evolution that is currently ongoing. In other words, anything in this repository should be regarded as tentative and subject to change. It is published here to allow early access and trial and to solicit early feedback.
+Eiffel is licensed under the [Apache License 2.0](./LICENSE).
 
-## Licensing and Contribution
-* The contents of this repository are licensed under the [Apache License 2.0](./LICENSE)
-* Contributors understand and accept that all contributions are made to this repository with the explicit understanding that contributors only contribute their original work and transfer all rights, privileges and copyrights associated with these contributions to Ericsson AB.
+__IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAFT__. The Eiffel framework has been used in production within Ericsson for several years to great effect; what is presented here is a revision and evolution of that framework - an evolution that is currently ongoing. In other words, anything in this repository should be regarded as tentative and subject to change. It is published here to allow early access and trial and to solicit early feedback.
 
 ## Contents
 1. Introduction
