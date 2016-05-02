@@ -6,6 +6,3 @@ The EiffelActivityDequeuedEvent signals that an activity previously queued for e
 __Type:__ String  
 __Required:__ No  
 __Description:__ Any human readable information as to the reason for dequeueing.
-
-## Schema
-TBD
