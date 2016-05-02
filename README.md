@@ -29,11 +29,11 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
 1. The Eiffel Vocabulary
    1. [EiffelActivityQueuedEvent](./eiffel-vocabulary/EiffelActivityQueuedEvent.md)
    1. [EiffelActivityDequeuedEvent](./eiffel-vocabulary/EiffelActivityDequeuedEvent.md)
-   1. EiffelActivityStartedEvent
-   1. EiffelActivityFinished
-   1. EiffelArtifactCreatedEvent
-   1. EiffelConfidenceLevelModifiedEvent
-   1. EiffelArtifactPublishedEvent
+   1. [EiffelActivityStartedEvent](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
+   1. [EiffelActivityFinished](./eiffel-vocabulary/EiffelActivityFinished.md)
+   1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+   1. [EiffelArtifactPublishedEvent](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
+   1. [EiffelConfidenceLevelModifiedEvent](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
    1. EiffelDocumentationCreatedEvent
    1. EiffelEnvironmentDefinedEvent
    1. EiffelCompositionDefinedEvent
