@@ -35,7 +35,7 @@ __Optional in:__ None
 __Legal targets:__ [EiffelActivityQueuedEvent](../eiffel-vocabulary/EiffelActivityQueuedEvent.md)  
 __Description:__ Declares the activity execution the event relates to. In other words, [EiffelActivityQueuedEvent](../eiffel-vocabulary/EiffelActivityQueuedEvent.md) acts as a handle for the activity execution.
 
-### links.previous
+### links.previousVersions
 __Type:__ String[]  
 __Required in:__ None
 __Optional in:__ [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md), 
