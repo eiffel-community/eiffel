@@ -12,8 +12,11 @@ __Description:__ The name of the confidence level. It is recommended for confide
 ### data.value
 __Type:__ String  
 __Required:__ Yes  
-__Legal values:__ SUCCESS, FAILURE  
-__Description:__ The value of the confidence level.
+__Legal values:__ SUCCESS, FAILURE, INCONCLUSIVE  
+__Description:__ The value of the confidence level.  
+SUCCESS signifies that the confidence level has been successfully achieved.  
+FAILURE signifies that the confidence level could not be achieved.
+INCONCLUSIVE signifies that achievement of the confidence level could not be determined.
 
 ### data.issuer
 __Type:__ Object  

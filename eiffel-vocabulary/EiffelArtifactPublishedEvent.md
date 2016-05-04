@@ -11,7 +11,11 @@ __Description:__ A list of locations at which the artifact may be retrieved.
 __Type:__ String  
 __Required:__ Yes  
 __Legal values:__ ARTIFACTORY, NEXUS, PLAIN, OTHER  
-__Description:__ The type of location. May be used by (automated) readers to understand the method of retrieval, particularly with regards to authentication.
+__Description:__ The type of location. May be used by (automated) readers to understand the method of retrieval, particularly with regards to authentication.  
+ARTIFACTORY signifies an [Artifactory](https://www.jfrog.com/artifactory/)  
+NEXUS signifies a [Nexus](http://www.sonatype.org/nexus/)  
+PLAIN signifies a plain HTTP GET request.  
+OTHER signifies other methods of retrieval. Note that using this type likely requires some foreknowledge on part of the reader in order to fetch the artifact.
 
 #### data.locations.uri
 __Type:__ String  

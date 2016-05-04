@@ -22,8 +22,13 @@ __Description:__ The circumstances triggering the activity.
 #### data.trigger.type
 __Type:__ String  
 __Required:__ Yes  
-__Legal values:__ MANUAL, EIFFEL_EVENT, REBUILD, SOURCE_CHANGE, TIMER, OTHER  
-__Description:__ The type of trigger.
+__Legal values:__ MANUAL, EIFFEL_EVENT, SOURCE_CHANGE, TIMER, OTHER  
+__Description:__ The type of trigger.  
+MANUAL signifies that the activity was manually triggered.  
+EIFFEL_EVENT signifies that the activity was triggered by one or more Eiffel events. These events should be represented in __links.causes__.  
+SOURCE_CHANGE signifies that the activity was triggered as a consequence of a detected source change __not__ represented by Eiffel events.  
+TIMER signifies that the activity was triggered by a timer.  
+OTHER signifies any other triggering cause.
 
 #### data.trigger.description
 __Type:__ String  
