@@ -15,7 +15,7 @@ __Description:__ A terse standardized verdict of the activity, designed to be ma
 SUCCESS signifies that the activity was concluded and the outcome matched expectations.  
 ??? signifies that the activity was concluded, but the outcome did not match expectations. To exemplify, a compilation job was successfully invoked, but compilation failed.  
 ???? signifies that the activity could not be successfully executed. To exemplify, a compilation could not be invoked, e.g. due to misconfiguration or environment issues.  
-ABORTED signifies that the activity could aborted before it could be concluded.  
+ABORTED signifies that the activity was aborted before it could be concluded.  
 TIMEOUT signifies that the activity did not conclude within the allowed time frame.  
 INCONCLUSIVE signifies that the outcome of the activity could not be determined.
 
