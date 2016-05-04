@@ -69,7 +69,7 @@ __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifac
 __Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
 __Description:__ Identifies the environment in which an event occurred, e.g. in which environment an artifact was built.
 
-### links.environment
+### links.artifact
 __Type:__ String  
 __Required in:__ [EiffelArtifactPublishedEvent](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)  
 __Optional in:__ None  
