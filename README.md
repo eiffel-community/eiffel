@@ -8,17 +8,7 @@ Eiffel is licensed under the [Apache License 2.0](./LICENSE).
 __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAFT__. The Eiffel framework has been used in production within Ericsson for several years to great effect; what is presented here is a revision and evolution of that framework - an evolution that is currently ongoing. In other words, anything in this repository should be regarded as tentative and subject to change. It is published here to allow early access and trial and to solicit early feedback.
 
 ## Contents
-1. Introduction
-   1. Why Eiffel?
-   1. What is Eiffel?
-   1. Who Developed Eiffel?
-   1. Who Should use Eiffel?
-   1. How do I Get Started?
-   1. How is Eiffel Technology Agnostic?
-   1. How does Eiffel Achieve Scalability?
-   1. How does Eiffel Achieve Flexibility?
-   1. How does Eiffel Achieve Traceability?
-   1. How do I Make Sense of Events?
+1. [Introduction](./introduction/introduction.md)
 1. Eiffel Syntax and Usage
    1. Eiffel Event Design Guidelines
    1. Notes on Custom Events
