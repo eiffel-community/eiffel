@@ -14,12 +14,12 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The category of the activity. This can be used to group multiple similar activities for analysis and visualization purposes. Example usage is to label the similar but unique build activities of all the components of system X as "System X Component Build" (whereas the name would be e.g. "System X Component Y Build").
 
-### data.trigger
-__Type:__ Object  
+### data.triggers
+__Type:__ Object[]  
 __Required:__ No  
 __Description:__ The circumstances triggering the activity.
 
-#### data.trigger.type
+#### data.triggers.type
 __Type:__ String  
 __Required:__ Yes  
 __Legal values:__ MANUAL, EIFFEL_EVENT, SOURCE_CHANGE, TIMER, OTHER  
@@ -30,7 +30,7 @@ SOURCE_CHANGE signifies that the activity was triggered as a consequence of a de
 TIMER signifies that the activity was triggered by a timer.  
 OTHER signifies any other triggering cause.
 
-#### data.trigger.description
+#### data.triggers.description
 __Type:__ String  
 __Required:__ No  
 __Description:__ A description of the trigger.

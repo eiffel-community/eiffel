@@ -30,7 +30,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelActivityQueuedEvent](./eiffel-vocabulary/EiffelActivityQueuedEvent.md)
    1. [EiffelActivityDequeuedEvent](./eiffel-vocabulary/EiffelActivityDequeuedEvent.md)
    1. [EiffelActivityStartedEvent](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
-   1. [EiffelActivityFinished](./eiffel-vocabulary/EiffelActivityFinished.md)
+   1. [EiffelActivityFinishedEvent](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
    1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
    1. [EiffelArtifactPublishedEvent](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
    1. [EiffelConfidenceLevelModifiedEvent](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
