@@ -38,9 +38,9 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelAnnouncementEvent
    1. EiffelConfigurationChangedEvent
 1. Implementations
-   1. Event Persistence
-   1. Event Aggregation and Analysis
+   1. [Event Persistence](./implementations/event-persistence.md)
+   1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
    1. Activity Orchestration
    1. Event Transport and Routing
-   1. Event Dispatch
-   1. Visualization
+   1. [Event Dispatch](./implementations/event-dispatch.md)
+   1. [Visualization](./implementations/visualization.md)
