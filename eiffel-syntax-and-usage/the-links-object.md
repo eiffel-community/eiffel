@@ -149,15 +149,13 @@ __Description:__ Identifies the Test Execution Recipe Collection dictating the e
 __Type:__ String  
 __Required in:__ None  
 __Optional in:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md)  
-__Legal targets:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md),
-[EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Legal targets:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md)  
 __Description:__ Identifies an announcement of which this event represents an update or modification, if any. Example usage is to declare the end to a previously announced situation.
 
 ### links.subConfidenceLevels
 __Type:__ String  
 __Required in:__ None  
 __Optional in:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
-__Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md),
-[EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
 __Description:__ Used in events summarizing multiple confidence levels. Example use case: the confidence level "allTestsOk" summarizes the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk", and consequently links to them using this field. This is intended for purely descriptive, rather than prescriptive, use.
 
