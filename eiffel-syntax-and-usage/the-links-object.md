@@ -35,18 +35,23 @@ __Optional in:__ None
 __Legal targets:__ [EiffelActivityQueuedEvent](../eiffel-vocabulary/EiffelActivityQueuedEvent.md)  
 __Description:__ Declares the activity execution the event relates to. In other words, [EiffelActivityQueuedEvent](../eiffel-vocabulary/EiffelActivityQueuedEvent.md) acts as a handle for the activity execution. This differs from __links.context__. In __links.activityExecution__ the source carries information pertaining to the target (i.e. the activity started, finished or was dequeued). In __links.context__, on the other hand, the source constitutes a subset of the target (e.g. this test case was executed as part of that activity or test suite).
 
+### links.previousActivityExecution
+__Type:__ String  
+__Required in:__ None  
+__Optional in:__ [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md)  
+__Legal targets:__ [EiffelActivityQueuedEvent](../eiffel-vocabulary/EiffelActivityQueuedEvent.md)  
+__Description:__ Identifies the latest previous execution of the activity.
+
 ### links.previousVersions
 __Type:__ String[]  
-__Required in:__ None
-__Optional in:__ [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md), 
-[EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
+__Required in:__ None  
+__Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
 [EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md), 
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), 
 [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md), 
 [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), 
 [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
-__Legal targets:__ [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md),
-[EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
 [EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md), 
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), 
 [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md), 
