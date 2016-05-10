@@ -1,5 +1,5 @@
 # EiffelActivityFinishedEvent
-The EiffelActivityFinishedEvent declares that a previously queued activity (declared by [EiffelActivityQueuedEvent](./EiffelActivityQueuedEvent.md)) has finished.
+The EiffelActivityFinishedEvent declares that a previously started activity (declared by [EiffelActivityQueuedEvent](./EiffelActivityQueuedEvent.md) followed by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)) has finished.
 
 ## Data Members
 ### data.outcome
