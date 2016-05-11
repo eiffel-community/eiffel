@@ -153,7 +153,7 @@ __Legal targets:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnounce
 __Description:__ Identifies an announcement of which this event represents an update or modification, if any. Example usage is to declare the end to a previously announced situation.
 
 ### links.subConfidenceLevels
-__Type:__ String  
+__Type:__ String[]  
 __Required in:__ None  
 __Optional in:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
 __Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
