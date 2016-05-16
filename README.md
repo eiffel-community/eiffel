@@ -17,8 +17,8 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
    1. User Examples
 1. The Eiffel Vocabulary
-   1. [EiffelActivityQueuedEvent](./eiffel-vocabulary/EiffelActivityQueuedEvent.md)
-   1. [EiffelActivityDequeuedEvent](./eiffel-vocabulary/EiffelActivityDequeuedEvent.md)
+   1. [EiffelActivityTriggeredEvent](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
+   1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCancledEvent.md)
    1. [EiffelActivityStartedEvent](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
    1. [EiffelActivityFinishedEvent](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
    1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)

@@ -1,7 +1,7 @@
-# EiffelActivityQueuedEvent
-The EiffelActivityQueuedEvent declares that a certain activity - typically a build, test or analysis activity - has been queued for execution. This implies that it has been triggered by some factor, and the event serves the dual purpose of identifying this triggering factor.
+# EiffelActivityTriggeredEvent
+The EiffelActivityTriggeredEvent declares that a certain activity - typically a build, test or analysis activity - has been triggered by some factor. Note that this is crucially different from the activity execution having _started_ (as declared by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)).
 
-Many systems to not employ any queuing mechanism: an activity is simply started straight away when its triggering criteria are fulfilled. For coherence and consistency, the EiffelActivityQueuedEvent shall still be used: simply send the subsequent [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md) immediately after.
+In a situation where execution follows immediately upon triggering these two events should be sent together. Where that is not the case (e.g. due to queuing) the time delta between EiffelActivityTriggeredEvent and EiffelActivityStartedEvent constitutes the queue time.
 
 ## Data Members
 ### data.name
@@ -40,3 +40,6 @@ __Type:__ String
 __Required:__ No  
 __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER  
 __Description:__ The type of execution (often related to, but ultimately separate from, __data.trigger.type__).
+
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelActivityTriggeredEvent/simple.json)

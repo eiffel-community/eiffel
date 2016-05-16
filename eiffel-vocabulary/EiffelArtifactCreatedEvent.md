@@ -42,3 +42,5 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The command used to build the artifact within the identified environment. Used for reproducability purposes.
 
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelArtifactCreatedEvent/simple.json)
