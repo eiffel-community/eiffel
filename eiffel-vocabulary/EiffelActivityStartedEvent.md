@@ -1,5 +1,5 @@
 # EiffelActivityStartedEvent
-The EiffelActivityStartedEvent declares that a triggered queued activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md)) has started.
+The EiffelActivityStartedEvent declares that a previously triggered activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md)) has started.
 
 ## Data Members
 ### data.executionUri
