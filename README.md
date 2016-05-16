@@ -18,7 +18,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. User Examples
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
-   1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCancledEvent.md)
+   1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
    1. [EiffelActivityStartedEvent](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
    1. [EiffelActivityFinishedEvent](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
    1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
