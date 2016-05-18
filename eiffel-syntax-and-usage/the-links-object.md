@@ -28,9 +28,9 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 
 ### links.activityExecution
 __Type:__ String  
-__Required in:__ [EiffelActivityCanceledEvent](../eiffel-vocabulary/EiffelActivityCanceledEvent), 
-[EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent), 
-[EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent)  
+__Required in:__ [EiffelActivityCanceledEvent](../eiffel-vocabulary/EiffelActivityCanceledEvent.md), 
+[EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md), 
+[EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md)  
 __Optional in:__ None  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
 __Description:__ Declares the activity execution the event relates to. In other words, [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) acts as a handle for the activity execution. This differs from __links.context__. In __links.activityExecution__ the source carries information pertaining to the target (i.e. the activity started, finished or was canceled). In __links.context__, on the other hand, the source constitutes a subset of the target (e.g. this test case was executed as part of that activity or test suite).
