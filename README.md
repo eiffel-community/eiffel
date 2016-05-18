@@ -15,7 +15,6 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
-   1. User Examples
 1. The Eiffel Vocabulary
    1. [EiffelActivityQueuedEvent](./eiffel-vocabulary/EiffelActivityQueuedEvent.md)
    1. [EiffelActivityDequeuedEvent](./eiffel-vocabulary/EiffelActivityDequeuedEvent.md)
@@ -37,6 +36,8 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelTestExecutionRecipeCollectionCreated
    1. EiffelAnnouncementEvent
    1. EiffelConfigurationChangedEvent
+1. Usage Examples
+   1. (Confidence Level Joining)[./usage-examples/confidence-level-joining.md]
 1. Implementations
    1. [Event Persistence](./implementations/event-persistence.md)
    1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
