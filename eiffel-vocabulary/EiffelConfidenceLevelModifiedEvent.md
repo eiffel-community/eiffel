@@ -42,3 +42,6 @@ __Description:__ Any identity, alias or handle of the issuer, such as a corporat
 __Type:__ String  
 __Required:__ No  
 __Description:__ Any group, such as a development team, committee or test group, to which the issuer belongs.
+
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelConfidenceLevelModifiedEvent/simple.json)

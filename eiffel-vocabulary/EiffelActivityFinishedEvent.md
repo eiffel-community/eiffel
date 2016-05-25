@@ -1,5 +1,5 @@
 # EiffelActivityFinishedEvent
-The EiffelActivityFinishedEvent declares that a previously started activity (declared by [EiffelActivityQueuedEvent](./EiffelActivityQueuedEvent.md) followed by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)) has finished.
+The EiffelActivityFinishedEvent declares that a previously started activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md) followed by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)) has finished.
 
 ## Data Members
 ### data.outcome
@@ -38,3 +38,6 @@ __Description:__ The name of the log file.
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The URI at which the log can be retrieved.
+
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelActivityFinishedEvent/simple.json)

@@ -21,3 +21,6 @@ OTHER signifies other methods of retrieval. Note that using this type likely req
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The URI at which the artifact can be retrieved.
+
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelArtifactPublishedEvent/simple.json)

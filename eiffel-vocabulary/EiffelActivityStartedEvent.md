@@ -1,5 +1,5 @@
 # EiffelActivityStartedEvent
-The EiffelActivityStartedEvent declares that a previously queued activity (declared by [EiffelActivityQueuedEvent](./EiffelActivityQueuedEvent.md)) has started.
+The EiffelActivityStartedEvent declares that a previously triggered activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md)) has started.
 
 ## Data Members
 ### data.executionUri
@@ -21,3 +21,6 @@ __Description:__ The name of the log file.
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The URI at which the log can be retrieved.
+
+## Examples
+* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelActivityStartedEvent/simple.json)
