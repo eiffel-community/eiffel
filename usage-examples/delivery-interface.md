@@ -41,6 +41,7 @@ Analysis of the events provided in this example (and the external data sources r
 * Which requirements, tasks and/or features have been implemented between __ArtC1__ and __ArtC2__.
 
 Let's take a closer look at answering the last question by going through the process one step at a time.
+
 1. Identify the two artifact versions to be compared: __ArtC2__ and __ArtC1__.
 1. Build a list of constituent EiffelSourceChangeSubmittedEvents of the newer artifact (__ArtC2__):
    1. Identify the composition of the artifact (__CDef3__).
