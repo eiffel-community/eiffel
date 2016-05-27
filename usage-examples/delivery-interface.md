@@ -42,7 +42,7 @@ Analysis of the events provided in this example (and the external data sources r
 
 Let's take a closer look at answering the last question by going through the process one step at a time.
 
-1. Identify the two artifact versions to be compared: __ArtC2__ and __ArtC1__.
+1. Identify the two artifact versions to be compared. Depending on the use case, the versions to be compared can either be explicit or implicit: "I want to compare __ArtC2__ and __ArtC1__" or "I want to compare __ArtC2__ to its previous version". In the latter case, __links.previousVersions__ can be traced to the object of interest.
 1. Build a list of constituent EiffelSourceChangeSubmittedEvents of the newer artifact (__ArtC2__):
    1. Identify the composition of the artifact (__CDef3__).
    1. Append any EiffelSourceChangeSubmittedEvents referenced via __links.elements__ (__SCS3__).
