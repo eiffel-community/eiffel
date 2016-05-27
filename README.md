@@ -38,6 +38,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelConfigurationChangedEvent
 1. Usage Examples
    1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
+   1. [Delivery Interface](./usage-examples/delivery-interface.md)
 1. Implementations
    1. [Event Persistence](./implementations/event-persistence.md)
    1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
