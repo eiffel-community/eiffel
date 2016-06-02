@@ -41,15 +41,15 @@ The first solution is a pragmatic one: let __CDefC1__ and __CDefC2__ determine w
         {
           "name": "aIsAffected",
           "value": "true"
-        }
+        },
         {
           "name": "bIsAffected",
           "value": "false"
-        }
+        },
         {
           "name": "cIsAffected",
           "value": "false"
-        },
+        }
         ...
       ]
     }
