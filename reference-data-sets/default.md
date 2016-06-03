@@ -1,5 +1,5 @@
 # Default Reference Data Set
-This is a description of the "Default" reference data set found [here](https://github.com/Ericsson/eiffel-examples/blob/master/reference-data-sets/default.json), created by the [default-reference-set generator](https://github.com/Ericsson/eiffel-examples/blob/master/generators/default-reference-data-set.py).
+This is a description of the "Default" reference data set found [here](https://github.com/Ericsson/eiffel-examples/blob/master/reference-data-sets/default.zip), created by the [default-reference-set generator](https://github.com/Ericsson/eiffel-examples/blob/master/generators/default-reference-data-set.py).
 
 The purpose of a reference data set is to serve as supporting documentation, but also to allow for functional and non-functional testing as well as benchmarking of implementations.
 
