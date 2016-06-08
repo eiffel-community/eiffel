@@ -8,32 +8,21 @@ Eiffel is licensed under the [Apache License 2.0](./LICENSE).
 __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAFT__. The Eiffel framework has been used in production within Ericsson for several years to great effect; what is presented here is a revision and evolution of that framework - an evolution that is currently ongoing. In other words, anything in this repository should be regarded as tentative and subject to change. It is published here to allow early access and trial and to solicit early feedback.
 
 ## Contents
-1. Introduction
-   1. Why Eiffel?
-   1. What is Eiffel?
-   1. Who Developed Eiffel?
-   1. Who Should use Eiffel?
-   1. How do I Get Started?
-   1. How is Eiffel Technology Agnostic?
-   1. How does Eiffel Achieve Scalability?
-   1. How does Eiffel Achieve Flexibility?
-   1. How does Eiffel Achieve Traceability?
-   1. How do I Make Sense of Events?
+1. [Introduction](./introduction/introduction.md)
 1. Eiffel Syntax and Usage
    1. Eiffel Event Design Guidelines
    1. Notes on Custom Events
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
-   1. User Examples
 1. The Eiffel Vocabulary
-   1. [EiffelActivityQueuedEvent](./eiffel-vocabulary/EiffelActivityQueuedEvent.md)
-   1. [EiffelActivityDequeuedEvent](./eiffel-vocabulary/EiffelActivityDequeuedEvent.md)
-   1. EiffelActivityStartedEvent
-   1. EiffelActivityFinished
-   1. EiffelArtifactCreatedEvent
-   1. EiffelConfidenceLevelModifiedEvent
-   1. EiffelArtifactPublishedEvent
+   1. [EiffelActivityTriggeredEvent](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
+   1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
+   1. [EiffelActivityStartedEvent](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
+   1. [EiffelActivityFinishedEvent](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
+   1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+   1. [EiffelArtifactPublishedEvent](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
+   1. [EiffelConfidenceLevelModifiedEvent](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
    1. EiffelDocumentationCreatedEvent
    1. EiffelEnvironmentDefinedEvent
    1. EiffelCompositionDefinedEvent
@@ -47,10 +36,15 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelTestExecutionRecipeCollectionCreated
    1. EiffelAnnouncementEvent
    1. EiffelConfigurationChangedEvent
+1. Usage Examples
+   1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
+   1. [Delivery Interface](./usage-examples/delivery-interface.md)
+1. Reference Data Sets
+   1. [Default](./reference-data-sets/default.md)
 1. Implementations
-   1. Event Persistence
-   1. Event Aggregation and Analysis
+   1. [Event Persistence](./implementations/event-persistence.md)
+   1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
    1. Activity Orchestration
    1. Event Transport and Routing
-   1. Event Dispatch
-   1. Visualization
+   1. [Event Dispatch](./implementations/event-dispatch.md)
+   1. [Visualization](./implementations/visualization.md)
