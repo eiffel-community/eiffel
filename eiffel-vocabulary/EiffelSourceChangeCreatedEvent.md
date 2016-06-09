@@ -146,10 +146,10 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The branch of the change.
 
-#### data.ccCompositeIdentifier.configSpecPath
+#### data.ccCompositeIdentifier.configSpec
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ Path to the relevant config spec.
+__Description:__ The URI of the relevant ClearCase config spec.
 
 ### data.hgIdentifier
 __Type:__ Object  
