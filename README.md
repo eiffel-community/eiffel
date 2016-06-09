@@ -25,7 +25,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelConfidenceLevelModifiedEvent](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
    1. EiffelDocumentationCreatedEvent
    1. EiffelEnvironmentDefinedEvent
-   1. EiffelCompositionDefinedEvent
+   1. [EiffelCompositionDefinedEvent](./eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
    1. EiffelSourceChangeCreatedEvent
    1. EiffelSourceChangeSubmittedEvent
    1. EiffelFlowContextDefinedEvent
