@@ -1,7 +1,7 @@
 # Confidence Level Joining Example
 This example illustrates how [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) can be used to capture and summarize a larger body of lower level results, such as test suite verdicts, effectively _joining_ multiple flows in the continuous integration and delivery system.
 
-A JSON array of all events used in this example can be found [here](https://github.com/Ericsson/eiffel-examples/blob/master/flows/confidence-level-join/events.json).
+A JSON array of all events used in this example can be found [here](https://github.com/Ericsson/eiffel-examples/blob/master/flows/confidence-level-joining/events.json).
 
 ## Introduction
 A common use case in continuous integration and delivery systems is to join many separate (and disparate) tests into a larger entity, providing a stamp of approval to the item under test. In Eiffel, such stamps are provided by [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md). This not only serves the purpose of raising the level of abstraction, thereby facilitating analysis and release decisions, but also provides a pragmatic extension point of the production pipeline: an external listener (e.g. a product looking to integrate the item under test) is not interested in tracking individual test case results, particularly as they may well change over time or even from execution to execution, but simply wants to know "Is this artifact good enough for me to pick up?".
