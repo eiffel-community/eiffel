@@ -1,11 +1,11 @@
 # The Links Object
-The __links__ object contains trace links to other Eiffel events. These trace links by definition always reference backwards in time – it is only possible to reference an event that has already occured. The value is always a UUID or array of UUIDs, corresponding to the __meta.id__ of the target(s), on String (or String array) format.
+The __links__ object contains trace links to other Eiffel events. These trace links by definition always reference backwards in time – it is only possible to reference an event that has already occured. The value a list of key-value pairs where key is a type of the link and value is a UUID of the corresponding event.
 
 Every trace link type has a set of possible source event types, and a set of possible target event types.
 
-## Links Members
-### links.causes
-__Type:__ String[]  
+## Links types
+### links.cause
+__Type:__ String
 __Required in:__ None  
 __Optional in:__ Any  
 __Legal targets:__ Any  
@@ -42,8 +42,8 @@ __Optional in:__ [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivit
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
 __Description:__ Identifies the latest previous execution of the activity.
 
-### links.previousVersions
-__Type:__ String[]  
+### links.previousVersion
+__Type:__ String
 __Required in:__ None  
 __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
 [EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md), 
@@ -81,7 +81,7 @@ __Optional in:__ None
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Description:__ Identifies the artifact that was published.
 
-### links.subjects
+### links.subject
 __Type:__ String[]  
 __Required in:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
 __Optional in:__ None  
@@ -92,7 +92,7 @@ __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCo
 [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Description:__ Identifies the subject(s) of the confidence level.
 
-### links.elements
+### links.element
 __Type:__ String[]  
 __Required in:__ None  
 __Optional in:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
@@ -152,7 +152,7 @@ __Optional in:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnounceme
 __Legal targets:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md)  
 __Description:__ Identifies an announcement of which this event represents an update or modification, if any. Example usage is to declare the end to a previously announced situation.
 
-### links.subConfidenceLevels
+### links.subConfidenceLevel
 __Type:__ String[]  
 __Required in:__ None  
 __Optional in:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
