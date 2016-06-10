@@ -14,22 +14,22 @@ __Description:__ The agent (individual, group or machine) submitting the change.
 #### data.submitter.name
 __Type:__ String  
 __Required:__ No  
-__Description:__ The name of the author.
+__Description:__ The name of the submitter.
 
 #### data.submitter.email
 __Type:__ String  
 __Required:__ No  
-__Description:__ The email address of the author.
+__Description:__ The email address of the submitter.
 
 #### data.submitter.id
 __Type:__ String  
 __Required:__ No  
-__Description:__ Any identity, username or alias of the author.
+__Description:__ Any identity, username or alias of the submitter.
 
 #### data.submitter.group
 __Type:__ String  
 __Required:__ No  
-__Description:__ Any group or organization to which the contributor belongs.
+__Description:__ Any group or organization to which the submitter belongs.
 
 ### data.gitIdentifier
 __Type:__ Object  
