@@ -2,12 +2,6 @@
 The __meta__ object contains meta-information describing the event: when it was created, where it came from, its type et cetera. The __meta__ object contains the same members regardless of __meta.type__<sup>[1](#footnote1)</sup>, with the caveat that certain members are optional and the tendency to use them may vary with event type.
 
 ## Meta Members
-### meta.domainId
-__Type:__ String  
-__Format:__ Free text  
-__Required:__ Yes  
-__Description:__ Identifies the domain in which the event was produced. A domain is an infrastructure topological concept, which may or may not correspond to organization or product structures.
-
 ### meta.id
 __Type:__ String  
 __Format:__ [UUID](http://tools.ietf.org/html/rfc4122)  
@@ -43,6 +37,12 @@ __Type:__ Object
 __Format:__  
 __Required:__ No  
 __Description:__ A description of the event sender. Primarily for traceability purposes.
+
+#### meta.domainId
+__Type:__ String  
+__Format:__ Free text  
+__Required:__ Yes  
+__Description:__ Identifies the domain in which the event was produced. A domain is an infrastructure topological concept, which may or may not correspond to organization or product structures.
 
 #### meta.source.host
 __Type:__ String  
