@@ -38,7 +38,7 @@ __Format:__
 __Required:__ No  
 __Description:__ A description of the event sender. Primarily for traceability purposes.
 
-#### meta.domainId
+#### meta.source.domainId
 __Type:__ String  
 __Format:__ Free text  
 __Required:__ Yes  
