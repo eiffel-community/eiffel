@@ -35,14 +35,14 @@ __Description:__ Any tags or keywords associated with the events, for searchabil
 ### meta.source
 __Type:__ Object  
 __Format:__  
-__Required:__ No  
+__Required:__ Yes
 __Description:__ A description of the event sender. Primarily for traceability purposes.
 
 #### meta.source.domainId
 __Type:__ String  
 __Format:__ Free text  
 __Required:__ Yes  
-__Description:__ Identifies the domain in which the event was produced. A domain is an infrastructure topological concept, which may or may not correspond to organization or product structures.
+__Description:__ Identifies the domain that produced an event. A domain is an infrastructure topological concept, which may or may not corresponds to an organization or product structures. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Also, keep in mind, that division names, as well as product/component names, tends to change. That is why it might be a good idea to pick coded names that do not directly reflect current naming in the organization. Think of flower names as names for sites or simply site1, site2, site3 instead of Sweden, Denmark, Norway.
 
 #### meta.source.host
 __Type:__ String  
