@@ -10,7 +10,7 @@ __Required:__ No
 __Description:__ A product context which other events can relate to (e.g. "This activity is part of the Product X continuous integration system.").
 
 
-### data.product
+### data.project
 __Type:__ String  
 __Required:__ No  
 __Description:__ A project context which other events can relate to (e.g. "This test is part of the Killer Feature project.").
