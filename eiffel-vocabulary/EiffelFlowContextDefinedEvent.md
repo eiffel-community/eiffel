@@ -1,5 +1,5 @@
 # EiffelFlowContextDefined
-The EiffelFlowContextDefined describes the context of other events, answering questions such as "Which project is change part of?" or which "Which track does artifact belong to?". In this way it offers a method of classifying and structuring one's continuous integration and delivery system and thereby facilitaring traceability and searchability. 
+The EiffelFlowContextDefined describes the context of other events, answering questions such as "Which project is change part of?" or "Which track does artifact belong to?". In this way it offers a method of classifying and structuring one's continuous integration and delivery system and thereby facilitaring traceability and searchability. 
 
 The nature of the described context can vary. The event consequently offers a high degree of flexibility in its description, and none of its member fields are mandatory. Instead they can picked and mixed to fit the situation.
 
@@ -8,7 +8,6 @@ The nature of the described context can vary. The event consequently offers a hi
 __Type:__ String  
 __Required:__ No  
 __Description:__ A product context which other events can relate to (e.g. "This activity is part of the Product X continuous integration system.").
-
 
 ### data.project
 __Type:__ String  
