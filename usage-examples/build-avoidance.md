@@ -6,7 +6,7 @@ A common use case in continuous integration and delivery systems is avoidance of
 
 In a centralized scenario where everything is handled in a single orchestrating job, this is relatively straight forward: analyze the change, trigger the needed builds, wait for them to finish and package the result. In a decentralized continuous integration and delivery system based on descriptive - rather than prescriptive - principles a different approach is needed.
 
-Compared to many other examples, only a very small number of link types is included: __links.elements__, __links.previousVersions__ and __links.composition__. These three are the types relevant to the example; other link types are of course legal and feasible, but not included here. 
+Compared to many other examples, only a very small number of link types is included: __ELEMENT__, __PREVIOUS_VERSION__ and __COMPOSITION__. These three are the types relevant to the example; other link types are of course legal and feasible, but not included here. 
 
 A JSON array of all events used in this example can be found [here](https://github.com/Ericsson/eiffel-examples/blob/master/flows/build-avoidance/events.json).
 
@@ -18,7 +18,7 @@ A JSON array of all events used in this example can be found [here](https://gith
 The [EiffelSourceChangeSubmittedEvents](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md) signal that source changes have been submitted to a branch of interest (typically a shared development branch or "mainline"). They would normally point to [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) documenting the change in greater detail; for the sake of brevity this has been left out of the example. 
 
 ### CDefC1, CDefC2
-For each source change, a new [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) is emitted, including it in __links.elements__. Note that each composition references its predecessor via __links.previousVersions__.
+For each source change, a new [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) is emitted, including it in __ELEMENT__ links. Note that each composition references its predecessor via a __PREVIOUS_VERSION__ link.
 
 ### ArtCA1, ArtCB1, ArtCC1, ArtCD1, ArtCE1
 The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) representing the set of components (__A__, __B__, __C__, __D__ and __E__) built from __CDefC1__. In this example it is assumed that each component is built independently in a decentralized fashion, and that each such build determines whether a new artifact is needed. Strategies for making that decision are discussed below.
@@ -63,7 +63,7 @@ It is recommended to be very conservative with use of __data.optionalParameters_
 Note that the name of the optional parameters are "aIsAffected", "bIsAffected" et cetera, rather than e.g. "aNeedsToBeRebuilt". This is a minor point of little practical significance, but rather a gesture of adhering to the principle of descriptive events: it is not __CDefC2__'s job to prescribe the actions of downstream agents, but to provide them the information they need to make educated decisions.
 
 #### Solution 2
-The second solution does not make use of __data.optionalParameters__. Instead each component build activity determines whether to rebuild by following the __links.previous__ from __CDefC2__ to __CDefC1__ and comparing their respective [EiffelSourceChangeSubmittedEvents](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md).
+The second solution does not make use of __data.optionalParameters__. Instead each component build activity determines whether to rebuild by following the __PREVIOUS_VERSION__ link from __CDefC2__ to __CDefC1__ and comparing their respective [EiffelSourceChangeSubmittedEvents](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md).
 
 __CDefS1__ and __CdefS2__ similarly compare the changes in order to determine which component artifacts to include in the new composition, and consequently which artifacts to wait for.
 
