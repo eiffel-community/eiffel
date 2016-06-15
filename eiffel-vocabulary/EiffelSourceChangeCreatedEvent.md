@@ -49,6 +49,21 @@ __Type:__ String
 __Required:__ No  
 __Description:__ A URI to a list of files changed, on JSON String array format.
 
+#### data.change.details
+__Type:__ String  
+__Required:__ No  
+__Description:__ A URI to further details about the change. These details are not assumed to be on any standardized format, and may be intended for human and/or machine consumption. Examples include e.g. Gerrit patch set descriptions or GitHub commit pages. It is recommended to also include __data.change.tracker__ to provide a hint as to the nature of the linked details.
+
+#### data.change.tracker
+__Type:__ String  
+__Required:__ No  
+__Description:__ The name of the tracker, if any, of the change. Examples include e.g. Gerrit or GitHub.
+
+#### data.change.id
+__Type:__ String  
+__Required:__ No  
+__Description:__ The unique identity, if any, of the change (apart from what is expressed in the identifier object). Examples include e.g. Gerrit Change-Ids or GitHub Pull Requests. It is recommended to also include __data.change.tracker__ to provide a hint as to the nature of the identity.
+
 ### data.issues
 __Type:__ Object[]  
 __Required:__ No  
@@ -175,36 +190,6 @@ __Description:__ The name of the repo.
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The URI of the repo.
-
-### data.gerritIdentifier
-__Type:__ Object  
-__Required:__ No  
-__Description:__ Identifier of a Gerrit patch.
-
-#### data.gerritIdentifier.changeId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The Change-Id of the patch.
-
-#### data.gerritIdentifier.patchSet
-__Type:__ Integer  
-__Required:__ Yes  
-__Description:__ The Patch Set number.
-
-#### data.gerritIdentifier.project
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The name of the Gerrit project.
-
-#### data.gerritIdentifier.branch
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The branch of the patch.
-
-#### data.gerritIdentifier.uri
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The URI of the Gerrit change summary.
 
 ## Examples
 * [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelSourceChangeCreatedEvent/simple.json)
