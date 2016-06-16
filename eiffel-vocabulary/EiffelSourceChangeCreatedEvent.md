@@ -151,10 +151,10 @@ __Type:__ Object
 __Required:__ No  
 __Description:__ Identifier of a composite ClearCase change – in other words, not single file commit, but analogous of repository-wide commits of e.g. SVN or Git.
 
-#### data.ccCompositeIdentifier.vob
-__Type:__ String  
+#### data.ccCompositeIdentifier.vobs
+__Type:__ String[]  
 __Required:__ Yes  
-__Description:__ The ClearCase VOB name.
+__Description:__ The names of the changed ClearCase VOBs.
 
 #### data.ccCompositeIdentifier.branch
 __Type:__ String  
