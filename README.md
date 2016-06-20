@@ -11,10 +11,11 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
 1. [Introduction](./introduction/introduction.md)
 1. Eiffel Syntax and Usage
    1. Eiffel Event Design Guidelines
-   1. [Notes on Custom Events](./eiffel-syntax-and-usage/custom-events.md)
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
+1. Customization
+   1. [Notes on Custom Events](./eiffel-syntax-and-usage/custom-events.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
