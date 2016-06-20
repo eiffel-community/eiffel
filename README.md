@@ -14,8 +14,6 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
-1. Customization
-   1. [Notes on Custom Events](./eiffel-syntax-and-usage/custom-events.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
@@ -41,6 +39,8 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
    1. [Delivery Interface](./usage-examples/delivery-interface.md)
    1. [Build Avoidance](./usage-examples/build-avoidance.md)
+1. Customization
+   1. [Notes on Custom Events](./eiffel-syntax-and-usage/custom-events.md)
 1. Implementations
    1. [Event Persistence](./implementations/event-persistence.md)
    1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
