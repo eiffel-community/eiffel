@@ -26,7 +26,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelDocumentationCreatedEvent
    1. EiffelEnvironmentDefinedEvent
    1. [EiffelCompositionDefinedEvent](./eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
-   1. EiffelSourceChangeCreatedEvent
+   1. [EiffelSourceChangeCreatedEvent](./eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)
    1. [EiffelSourceChangeSubmittedEvent](./eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
    1. [EiffelFlowContextDefinedEvent](./eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)
    1. EiffelTestCaseStartedEvent
