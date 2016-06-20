@@ -1,4 +1,4 @@
-# Notes on Custom Events
+# Custom Events
 Eiffel offers a rich vocabulary designed to cover the vast majority of continuous integration and delivery use cases. Situations may arise where the defined events are not sufficient, however. In such circumstances, users are encouraged to spawn a discussion by [creating an Issue in the Eiffel repository](https://github.com/Ericsson/eiffel/issues) - perhaps the existing vocabulary can be used, or perhaps the new use case warrants changes to the Eiffel event definitions.
 
 That being said, users are free to send custom complementary events in parallel with Eiffel events. These events can be defined similarly to the standard vocabulary and may use __links__ to reference the standard Eiffel events. When defining such custom events, however, there are a few rules of conduct that users are strongly encouraged to observe:

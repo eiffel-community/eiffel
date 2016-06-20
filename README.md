@@ -40,7 +40,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Delivery Interface](./usage-examples/delivery-interface.md)
    1. [Build Avoidance](./usage-examples/build-avoidance.md)
 1. Customization
-   1. [Notes on Custom Events](./eiffel-syntax-and-usage/custom-events.md)
+   1. [Custom Events](./eiffel-syntax-and-usage/custom-events.md)
 1. Implementations
    1. [Event Persistence](./implementations/event-persistence.md)
    1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
