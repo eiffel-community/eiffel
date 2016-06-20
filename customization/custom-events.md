@@ -5,6 +5,6 @@ That being said, users are free to send custom complementary events in parallel 
 
 * Custom events are not allowed masquerade as standard Eiffel events, and shall therefore not be prefixed "Eiffel". To exemplify, a recommended custom event name would be "MyCustomEvent", but not "EiffelMyCustomEvent".
 * Use [Issues](https://github.com/Ericsson/eiffel/issues) and [Pull requests](https://github.com/Ericsson/eiffel/pulls) to stay in touch with the community to discuss why and how you define custom events. Others may find them useful, too!
-* Follow the [event design guidelines](./event-design-guidelines.md).
+* Follow the [event design guidelines](../eiffel-syntax-and-usage/event-design-guidelines.md).
 * Consider whether your need can be addressed by __data.customData__.
 * Users defining custom events are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events can not be expected, unless the custom events are proposed to and accepted into the standard Eiffel vocabulary (and consequently are no longer custom).
