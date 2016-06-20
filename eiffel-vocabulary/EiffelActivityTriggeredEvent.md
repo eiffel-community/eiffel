@@ -25,7 +25,7 @@ __Required:__ Yes
 __Legal values:__ MANUAL, EIFFEL_EVENT, SOURCE_CHANGE, TIMER, OTHER  
 __Description:__ The type of trigger.  
 MANUAL signifies that the activity was manually triggered.  
-EIFFEL_EVENT signifies that the activity was triggered by one or more Eiffel events. These events should be represented in __links.causes__.  
+EIFFEL_EVENT signifies that the activity was triggered by one or more Eiffel events. These events should be represented via __CAUSE__ links.  
 SOURCE_CHANGE signifies that the activity was triggered as a consequence of a detected source change __not__ represented by Eiffel events.  
 TIMER signifies that the activity was triggered by a timer.  
 OTHER signifies any other triggering cause.

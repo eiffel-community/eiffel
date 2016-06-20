@@ -15,7 +15,7 @@ A JSON array of all events used in this example can be found [here](https://gith
 ### SCC1, SCC2, SCC3, SCS1, SCS2, SCS3
 The [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) declare that changes have been made and describe what they entail, by referencing work items, requirements et cetera. This does not mean mean that the change has been merged onto the project mainline (or other relevant branch) - this is instead declared by The [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md). The distinction between the two is important when working with review processes, private repositories and/or pull requests. If none of that is applicable, the two events are simply sent at once.
 
-The structure of events shown in this example represents a common development branch, where changes are represented by __SCS1__, SCS2__ and __SCS3__. Each of these submitted changes references a EiffelSourceChangeCreatedEvent via __links.change__, and also points to the latest previously submitted version(s). This establishes an unbroken chain of source revisions along with a record of the process leading up to that submission.
+The structure of events shown in this example represents a common development branch, where changes are represented by __SCS1__, SCS2__ and __SCS3__. Each of these submitted changes references a EiffelSourceChangeCreatedEvent via __CHANGE__ links, and also points to the latest previously submitted version(s). This establishes an unbroken chain of source revisions along with a record of the process leading up to that submission.
 
 ### CDef1, CDef2, CDef3
 [EiffelCompositionDefinedEvents](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) declaring that new compositions are available to be built. Note that in this example not every composition leads to the creation of a new artifact. In industrial practice this is a common phenomenon, for which there may be a number of reasons - often there simply isn't sufficient time or resources to build each individual change.
@@ -42,19 +42,19 @@ Analysis of the events provided in this example (and the external data sources r
 
 Let's take a closer look at answering the last question by going through the process one step at a time.
 
-1. Identify the two artifact versions to be compared. Depending on the use case, the versions to be compared can either be explicit or implicit: "I want to compare __ArtC2__ and __ArtC1__" or "I want to compare __ArtC2__ to its previous version". In the latter case, __links.previousVersions__ can be traced to the object of interest.
+1. Identify the two artifact versions to be compared. Depending on the use case, the versions to be compared can either be explicit or implicit: "I want to compare __ArtC2__ and __ArtC1__" or "I want to compare __ArtC2__ to its previous version". In the latter case, the __PREVIOUS_VERSION__ link can be traced to the object of interest.
 1. Build a list of constituent EiffelSourceChangeSubmittedEvents of the newer artifact (__ArtC2__):
    1. Identify the composition of the artifact (__CDef3__).
-   1. Append any EiffelSourceChangeSubmittedEvents referenced via __links.elements__ (__SCS3__).
-   1. Recursively apply the process to any EiffelArtifactCreatedEvent or EiffelCompositionDefinedEvent referenced via __links.elements__ (none, in this example).
+   1. Append any EiffelSourceChangeSubmittedEvents referenced via __ELEMENT__ links (__SCS3__).
+   1. Recursively apply the process to any EiffelArtifactCreatedEvent or EiffelCompositionDefinedEvent referenced via __ELEMENT__ links (none, in this example).
 1. Repeat the process for the older artifact (__ArtC1__).
 1. Identify the delta of EiffelSourceChangeSubmittedEvents between the two lists ({__SCS3__} and {__SCS1__}, respectively):
    1. Remove any EiffelSourceChangeSubmittedEvents present in both lists (none, in this example).
    1. Include any remaining EiffelSourceChangeSubmittedEvents in the newer list (__SCS3__).
-   1. Recursively follow __links.previousVersions__ of these events, including everything up until anything in the list of the old version (in this example, yielding __SCS2__).
+   1. Recursively follow the __PREVIOUS_VERSION__ links of these events, including everything up until anything in the list of the old version (in this example, yielding __SCS2__).
    1. Any events in the list of the old version not hit upon represent deletions.
 1. The resulting delta is {__SCS3__, __SCS2__}.
-1. For each EiffelSourceChangeSubmittedEvent in the list, follow __links.change__ to its corresponding EiffelSourceChangeCreatedEvent.then append to the final output all elements of their __data.issues__ arrays ({__Req2__, __Req1__, __Task1__}). Note that these objects contain a field describing the _transition_ of the issue (i.e. what happened to it as a consequence of the source change - was it completed or removed?); for more information, see [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md).
+1. For each EiffelSourceChangeSubmittedEvent in the list, follow the __CHANGE__ link to its corresponding EiffelSourceChangeCreatedEvent.then append to the final output all elements of their __data.issues__ arrays ({__Req2__, __Req1__, __Task1__}). Note that these objects contain a field describing the _transition_ of the issue (i.e. what happened to it as a consequence of the source change - was it completed or removed?); for more information, see [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md).
 1. Repeat the process for the list of deletions and append any issues thus discovered, but inverting the transition.
 
 Following these steps we find that __Req2__, __Req1__ and __Task1__ were completed between __ArtC1__ and __ArtC2__. Furthermore, this information is propagated throughout the enterprise and persistently stored, regardless of the issue handling tools or processes used by the individual development unit.
