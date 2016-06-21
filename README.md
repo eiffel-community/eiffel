@@ -41,6 +41,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Build Avoidance](./usage-examples/build-avoidance.md)
 1. Customization
    1. [Custom Events](./customization/custom-events.md)
+   1. [Custom Data](./customization/custom-data.md)
 1. Implementations
    1. [Event Persistence](./implementations/event-persistence.md)
    1. [Event Aggregation and Analysis](./implementations/event-aggregation-and-analysis.md)
