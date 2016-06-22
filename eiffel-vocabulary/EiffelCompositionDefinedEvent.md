@@ -13,4 +13,4 @@ __Required:__ No
 __Description:__ The version of the composition, if any. This is in a sense redundant, as relationships between compositions can be tracked via the __PREVIOUS_VERSION__ link type, but can be used for improved clarity and semantics.
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelCompositionDefinedEvent/simple.json)
+* [Simple example](../examples/events/EiffelCompositionDefinedEvent/simple.json)

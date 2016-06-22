@@ -8,7 +8,7 @@ In a centralized scenario where everything is handled in a single orchestrating 
 
 Compared to many other examples, only a very small number of link types is included: __ELEMENT__, __PREVIOUS_VERSION__ and __COMPOSITION__. These three are the types relevant to the example; other link types are of course legal and feasible, but not included here. 
 
-A JSON array of all events used in this example can be found [here](https://github.com/Ericsson/eiffel-examples/blob/master/flows/build-avoidance/events.json).
+A JSON array of all events used in this example can be found [here](../examples/flows/build-avoidance/events.json).
 
 ## Event Graph
 ![alt text](./build-avoidance.png "Event Graph of Build Avoidance Example")

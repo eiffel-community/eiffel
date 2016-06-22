@@ -192,4 +192,4 @@ __Required:__ Yes
 __Description:__ The URI of the repo.
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelSourceChangeCreatedEvent/simple.json)
+* [Simple example](../examples/events/EiffelSourceChangeCreatedEvent/simple.json)

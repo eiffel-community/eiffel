@@ -8,4 +8,4 @@ __Required:__ No
 __Description:__ Any human readable information as to the reason for dequeueing.
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelActivityCanceledEvent/simple.json)
+* [Simple example](../examples/events/EiffelActivityCanceledEvent/simple.json)

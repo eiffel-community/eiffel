@@ -30,4 +30,4 @@ __Required:__ No
 __Description:__ A version context which other events can relate to. This member SHOULD be used in tandem with one of the other optional members - a version by itself is not very informative.
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelFlowContextDefinedEvent/simple.json)
+* [Simple example](../examples/events/EiffelFlowContextDefinedEvent/simple.json)

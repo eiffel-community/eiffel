@@ -23,4 +23,4 @@ __Required:__ Yes
 __Description:__ The URI at which the artifact can be retrieved.
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelArtifactPublishedEvent/simple.json)
+* [Simple example](../examples/events/EiffelArtifactPublishedEvent/simple.json)
