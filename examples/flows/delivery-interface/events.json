@@ -1,0 +1,348 @@
+[
+  {
+    "meta": {
+      "type": "EiffelSourceChangeSubmittedEvent",
+      "version": "1.0",
+      "time": 1000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelSourceChangeCreatedEvent",
+      "version": "1.0",
+      "time": 101000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "BASE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelSourceChangeCreatedEvent",
+      "version": "1.0",
+      "time": 102000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "BASE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      },
+      {
+        "type": "PREVIOUS_VERSION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelSourceChangeSubmittedEvent",
+      "version": "1.0",
+      "time": 103000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CHANGE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      },
+      {
+        "type": "PREVIOUS_VERSION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelSourceChangeCreatedEvent",
+      "version": "1.0",
+      "time": 201000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "BASE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      }
+    ]
+  },
+  {
+    "meta": {    
+      "type": "EiffelSourceChangeSubmittedEvent",
+      "version": "1.0",
+      "time": 202000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CHANGE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      },
+      {
+        "type": "PREVIOUS_VERSION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelCompositionDefinedEvent",
+      "version": "1.0",
+      "time": 2000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "ELEMENT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelCompositionDefinedEvent",
+      "version": "1.0",
+      "time": 104000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "ELEMENT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      },
+      {
+        "type": "PREVIOUS_VERSION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelCompositionDefinedEvent",
+      "version": "1.0",
+      "time": 203000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "ELEMENT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      },
+      {
+        "type": "PREVIOUS_VERSION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactCreatedEvent",
+      "version": "1.0",
+      "time": 3000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+    },
+    "data": {
+      "gav": {
+        "groupId": "com.mycompany.myproduct",
+        "artifactId": "artifact-name",
+        "version": "1.0.0"
+      },
+      "fileInformation": [
+        {
+          "classifier": "",
+          "extension": "jar"
+        }
+      ],
+      "buildCommand": "/my/build/command with arguments"
+    },
+    "links": [
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactCreatedEvent",
+      "version": "1.0",
+      "time": 204000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+    },
+    "data": {
+      "gav": {
+        "groupId": "com.mycompany.myproduct",
+        "artifactId": "artifact-name",
+        "version": "1.1.0"
+      },
+      "fileInformation": [
+        {
+          "classifier": "",
+          "extension": "jar"
+        }
+      ],
+      "buildCommand": "/my/build/command with arguments"
+    },
+    "links": [
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 4000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 205000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 5000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 206000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelConfidenceLevelModifiedEvent",
+      "version": "1.0",
+      "time": 6000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15"
+    },
+    "data": {
+      "name": "approvedForSystemIntegration",
+      "value": "SUCCESS"
+    },
+    "links": [
+      {
+        "type": "SUBJECT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelConfidenceLevelModifiedEvent",
+      "version": "1.0",
+      "time": 207000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee16"
+    },
+    "data": {
+      "name": "approvedForSystemIntegration",
+      "value": "SUCCESS"
+    },
+    "links": [
+      {
+        "type": "SUBJECT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      }
+    ]
+  }
+]

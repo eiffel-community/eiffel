@@ -1,0 +1,35 @@
+{
+  "meta": {
+    "type": "EiffelCompositionDefinedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "name": "myCompositionName",
+    "version": "42.0.7"
+  },
+  "links": [
+    {
+      "type": "ELEMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "ELEMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "ELEMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    },
+    {
+      "type": "ELEMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+    },
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+    }
+  ]
+}

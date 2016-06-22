@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "type": "EiffelFlowContextDefined",
+    "version": "1.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "product": "MyProduct",
+    "project": "NewImportantFeatures",
+    "program": "NewMarket",
+    "track": "CustomerXAdaptations",
+    "version": "4.3.0"
+  },
+  "links": [
+  ]
+}

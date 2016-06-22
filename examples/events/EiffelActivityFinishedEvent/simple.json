@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "type": "EiffelActivityFinishedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "outcome": {
+      "verdict": "TIMEOUT",
+      "description": "Compilation timed out."
+    },
+    "persistentLogs": [
+      {
+       "name": "firstLog",
+       "uri": "http://myHost.com/firstLog"
+      },
+      {
+       "name": "otherLog",
+       "uri": "isbn:0-486-27557-4"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "ACTIVITY_EXECUTION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}

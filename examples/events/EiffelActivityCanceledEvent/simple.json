@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "type": "EiffelActivityCanceledEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "reason": "Made irrelevant by newly scheduled execution."
+  },
+  "links": [
+    {
+      "type": "ACTIVITY_EXECUTION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    }
+	]
+}
