@@ -11,12 +11,15 @@ def applySchema(schemaFileName):
   schemas +=1
   eventTypeName = schemaFileName[:-5]
   eventTypeDirName = "examples/events/" + eventTypeName
-  with open("schemas/" + schemaFileName, "r") as f:
-    schema = json.load(f)
-  
-  for root, dirnames, filenames in os.walk(eventTypeDirName):
-    for exampleFileName in fnmatch.filter(filenames, "*.json"):
-      validateExample(schema, os.path.join(root, exampleFileName))
+  try:
+    with open("schemas/" + schemaFileName, "r") as f:
+      schema = json.load(f)
+    
+    for root, dirnames, filenames in os.walk(eventTypeDirName):
+      for exampleFileName in fnmatch.filter(filenames, "*.json"):
+        validateExample(schema, os.path.join(root, exampleFileName))
+  except Exception as e:
+    reportFailure(e)
       
 def validateExample(schema, exampleFilePath):
   print("    ... ", exampleFilePath)
@@ -30,10 +33,13 @@ def validateExample(schema, exampleFilePath):
     validate(example, schema)
     print("         PASS")
   except Exception as e:
+    reportFailure(e)
+    
+def reportFailure(exception):
     global failures
     failures += 1
-    print("         FAIL:", type(e).__name__)
-    print("        ", e)
+    print("         FAIL:", type(exception).__name__)
+    print("        ", exception)
 
 failures = 0
 schemas = 0
