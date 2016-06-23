@@ -1,0 +1,416 @@
+[
+  {
+    "meta": {
+      "type": "EiffelEnvironmentDefinedEvent",
+      "version": "1.0",
+      "time": 1000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelCompositionDefinedEvent",
+      "version": "1.0",
+      "time": 2000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactCreatedEvent",
+      "version": "1.0",
+      "time": 3000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    "data": {
+      "gav": {
+        "groupId": "com.mycompany.myproduct",
+        "artifactId": "artifact-name",
+        "version": "2.1.7"
+      },
+      "fileInformation": [
+        {
+          "classifier": "",
+          "extension": "jar"
+        }
+      ],
+      "buildCommand": "/my/build/command with arguments"
+    },
+    "links": [
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      },
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      },
+      {
+        "type": "ENVIRONMENT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactPublishedEvent",
+      "version": "1.0",
+      "time": 4000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    },
+    "data": {
+      "locations": [
+        {
+          "type": "PLAIN",
+          "uri": "https://myrepository.com/myArtifact"
+        }
+      ]
+    },
+    "links": [
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      },
+      {
+        "type": "ARTIFACT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityTriggeredEvent",
+      "version": "1.0",
+      "time": 5000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+    },
+    "data": {
+      "name": "Act1",
+      "category": "Test Activity",
+      "triggers": [
+        {
+          "type": "EIFFEL_EVENT"
+        }
+      ],
+      "executionType": "AUTOMATED"
+    },
+    "links": [
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityTriggeredEvent",
+      "version": "1.0",
+      "time": 6000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+    },
+    "data": {
+      "name": "Act2",
+      "category": "Test Activity",
+      "triggers": [
+        {
+          "type": "EIFFEL_EVENT"
+        }
+      ],
+      "executionType": "AUTOMATED"
+    },
+    "links": [
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityStartedEvent",
+      "version": "1.0",
+      "time": 7000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+    },
+    "data": {
+    },
+    "links": [
+      {
+        "type": "ACTIVITY_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityStartedEvent",
+      "version": "1.0",
+      "time": 8000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
+    },
+    "data": {
+    },
+    "links": [
+      {
+        "type": "ACTIVITY_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 9000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CONTEXT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      },
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 9000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CONTEXT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      },
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 9000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee10"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CONTEXT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      },
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0",
+      "time": 9000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "CONTEXT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      },
+      {
+        "type": "IUT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 19000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 14000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 16000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseFinishedEvent",
+      "version": "1.0",
+      "time": 15000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15"
+    },
+    "data": {
+      "placeholder": "The syntax of this event has not yet been defined."
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityFinishedEvent",
+      "version": "1.0",
+      "time": 20000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee16"
+    },
+    "data": {
+      "outcome": {
+        "conclusion": "UNSUCCESSFUL"
+      }
+    },
+    "links": [
+      {
+        "type": "ACTIVITY_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelActivityFinishedEvent",
+      "version": "1.0",
+      "time": 20000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee17"
+    },
+    "data": {
+      "outcome": {
+        "conclusion": "SUCCESS"
+      }
+    },
+    "links": [
+      {
+        "type": "ACTIVITY_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelConfidenceLevelModifiedEvent",
+      "version": "1.0",
+      "time": 21000,
+      "domainId": "example.domain",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee18"
+    },
+    "data": {
+      "name": "functionalComponentTestsPassed",
+      "value": "FAILURE",
+      "issuer": {
+        "name": "componentTestsListener"
+      }
+    },
+    "links": [
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13"
+      },
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14"
+      },
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15"
+      },
+      {
+        "type": "CAUSE",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee16"
+      },
+      {
+        "type": "SUBJECT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  }
+]

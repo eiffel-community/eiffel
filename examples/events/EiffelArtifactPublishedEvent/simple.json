@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "type": "EiffelArtifactPublishedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "locations": [
+      {
+        "type": "ARTIFACTORY",
+        "uri": "https://one.place"
+      },
+      {
+        "type": "PLAIN",
+        "uri": "http://another.com"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "ARTIFACT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    }
+  ]
+}

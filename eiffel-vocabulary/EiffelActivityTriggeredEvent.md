@@ -42,4 +42,4 @@ __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER
 __Description:__ The type of execution (often related to, but ultimately separate from, __data.trigger.type__).
 
 ## Examples
-* [Simple example](https://github.com/Ericsson/eiffel-examples/blob/master/events/EiffelActivityTriggeredEvent/simple.json)
+* [Simple example](../examples/events/EiffelActivityTriggeredEvent/simple.json)

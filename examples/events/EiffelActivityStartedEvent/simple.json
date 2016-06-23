@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "type": "EiffelActivityStartedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "executionUri": "https://my.jenkins.host/myJob/43",
+    "liveLogs": [
+      {
+       "name": "My build log",
+       "uri": "file:///tmp/logs/data.log"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "ACTIVITY_EXECUTION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "PREVIOUS_ACTIVITY_EXECUTION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    }
+  ]
+}

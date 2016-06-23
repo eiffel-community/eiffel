@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "type": "EiffelSourceChangeCreatedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "gitIdentifier": {
+      "commitId": "fd090b60a4aedc5161da9c035a49b14a319829b4",
+      "branch": "myBranch",
+      "repoName": "myPrivateRepo",
+      "repoUri": "https://github.com/johndoe/myPrivateRepo.git"
+    },
+    "author": {
+      "name": "John Doe",
+      "email": "john.doe@company.com",
+      "id": "johndoe",
+      "group": "Team Gophers"
+    },
+    "change": {
+      "files": "https://company.com/changes/fd090b60a4aedc5161da9c035a49b14a319829b4",
+      "insertions": 173,
+      "deletions": 79,
+      "tracker": "GitHub",
+      "details": "https://github.com/johndoe/myPrivateRepo/commit/fd090b60a4aedc5161da9c035a49b14a319829b4",
+      "id": "42"
+    },
+    "issues": [
+      {
+        "type": "BUG",
+        "tracker": "JIRA",
+        "id": "JIRA-1234",
+        "uri": "http://jira.company.com/browse/JIRA-1234",
+        "transition": "COMPLETE"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "BASE",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    }
+  ]
+}

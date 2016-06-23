@@ -6,7 +6,7 @@ A prime concern in designing delivery interfaces is to ensure traceability acros
 
 In this example the [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) __CLM1__ and __CLM2__ are used to signal that a new candidate is considered good enough to be integrated (__ArtC1__ and __ArtC2__), while the remaining events provide context and meta-data. 
 
-A JSON array of all events used in this example can be found [here](https://github.com/Ericsson/eiffel-examples/blob/master/flows/delivery-interface/events.json).
+A JSON array of all events used in this example can be found [here](../examples/flows/delivery-interface/events.json).
 
 ## Event Graph
 ![alt text](./delivery-interface.png "Event Graph of Delivery Interface Example")
