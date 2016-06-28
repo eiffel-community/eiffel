@@ -1,24 +1,55 @@
 #!/usr/bin/env python
-from __future__ import print_function
-import fnmatch
-import os
-import json
 import sys
+import json
+import os
+import fnmatch
+from jsonschema import validate
 
-print("Search for json files...")
-files = []
-for root, dirnames, filenames in os.walk('.'):
-    for filename in fnmatch.filter(filenames, '*.json'):
-        files.append(os.path.join(root, filename))
-
-for file in files:
-  print("Validating {}... ".format(file), end="")
-  with open(file, 'r') as myfile:
-    data=myfile.read()#.replace('\n', '')
+def applySchema(schemaFileName):
+  print("  - Applying", schemaFileName, "to ...")
+  global schemas
+  schemas +=1
+  eventTypeName = schemaFileName[:-5]
+  eventTypeDirName = "examples/events/" + eventTypeName
   try:
-    json.loads(data)
+    with open("schemas/" + schemaFileName, "r") as f:
+      schema = json.load(f)
+    
+    for root, dirnames, filenames in os.walk(eventTypeDirName):
+      for exampleFileName in fnmatch.filter(filenames, "*.json"):
+        validateExample(schema, os.path.join(root, exampleFileName))
   except Exception as e:
-    print("\n{}".format(data))
-    print(e)
-    sys.exit(1)
-  print("Ok")
+    reportFailure(e)
+      
+def validateExample(schema, exampleFilePath):
+  print("    ... ", exampleFilePath)
+  global examples
+  examples +=1
+  exception = False
+  try:
+    with open(exampleFilePath, "r") as f:
+      example = json.load(f)
+      
+    validate(example, schema)
+    print("         PASS")
+  except Exception as e:
+    reportFailure(e)
+    
+def reportFailure(exception):
+    global failures
+    failures += 1
+    print("         FAIL:", type(exception).__name__)
+    print("        ", exception)
+
+failures = 0
+schemas = 0
+examples = 0
+
+for root, dirNames, fileNames in os.walk("schemas"):
+    for schemaFileName in fnmatch.filter(fileNames, "*.json"):
+      applySchema(schemaFileName)
+
+print("Encountered", failures, "validation failures through application of", schemas, "schemas to", examples, "examples.")
+
+if failures > 0:
+  sys.exit("Validation failed.")
