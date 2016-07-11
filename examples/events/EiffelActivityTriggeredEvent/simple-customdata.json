@@ -1,10 +1,12 @@
 {
   "meta": {
-    "domainId": "domainId-test",
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
     "type": "EiffelActivityTriggeredEvent",
     "version": "1.0",
-    "time": 1234567890
+    "time": 1234567890,
+    "source": {
+      "domainId": "test-domainId"
+    }
   },
   "data": {
     "name": "Component X Build",
