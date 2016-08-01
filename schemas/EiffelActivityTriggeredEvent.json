@@ -61,7 +61,8 @@
         "id",
         "type",
         "version",
-        "time"
+        "time",
+        "source"
       ],
       "additionalProperties": false
     },

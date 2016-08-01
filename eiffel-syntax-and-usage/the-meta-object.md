@@ -42,7 +42,7 @@ __Description:__ A description of the event sender. Primarily for traceability p
 __Type:__ String  
 __Format:__ Free text  
 __Required:__ Yes  
-__Description:__ Identifies the domain that produced an event. A domain is an infrastructure topological concept, which may or may not corresponds to an organization or product structures. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Also, keep in mind, that division names, as well as product/component names, tends to change. That is why it might be a good idea to pick coded names that do not directly reflect current naming in the organization. Think of flower names as names for sites or simply site1, site2, site3 instead of Sweden, Denmark, Norway.
+__Description:__ Identifies the domain that produced an event. A domain is an infrastructure topological concept, which may or may not corresponds to an organization or product structures. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Also, keep in mind that all names are more or less prone to change. Particularly, it is recommended to avoid organizational names or site names, as organizations tend to be volatile and development is easily relocated. Relatively speaking, product and component names tend to be more stable and are therefore encouraged, while code names may be an option. You need to decide what is the most sensible option in your case.
 
 #### meta.source.host
 __Type:__ String  
