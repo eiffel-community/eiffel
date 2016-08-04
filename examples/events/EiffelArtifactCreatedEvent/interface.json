@@ -19,18 +19,7 @@
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "runtimeDependencies": {
-      "requiresImplementation": "AT_LEAST_ONE"
-    },
-    "buildDependencies": {
-      "dependsOn": [
-        {
-          "groupId": "com.mycompany.myproduct",
-          "artifactId": "common-definitions",
-          "version": "[1.5,)"
-        }
-      ]
-    }
+    "requiresImplementation": "AT_LEAST_ONE"
   },
   "links": [
     {

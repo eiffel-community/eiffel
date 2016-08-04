@@ -19,15 +19,13 @@
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "runtimeDependencies": {
-      "implements": [
-        {
-          "groupId": "com.mycompany.myproduct",
-          "artifactId": "my-interface",
-          "version": "[1.0,2.0)"
-        }
-      ]
-    }
+    "dependsOn": [
+      {
+        "groupId": "com.mycompany.myproduct",
+        "artifactId": "my-interface",
+        "version": "[1.0,2.0)"
+      }
+    ]
   },
   "links": [
     {
