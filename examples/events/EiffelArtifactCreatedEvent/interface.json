@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "type": "EiffelArtifactCreatedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "domainId": "example.domain",
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "gav": {
+      "groupId": "com.mycompany.myproduct",
+      "artifactId": "my-interface",
+      "version": "1.0.4"
+    },
+    "fileInformation": [
+      {
+        "classifier": "",
+        "extension": "jar"
+      }
+    ],
+    "buildCommand": "/my/build/command with arguments",
+    "runtimeDependencies": {
+      "requiresImplementation": "AT_LEAST_ONE"
+    },
+    "buildDependencies": {
+      "dependsOn": [
+        {
+          "groupId": "com.mycompany.myproduct",
+          "artifactId": "common-definitions",
+          "version": "[1.5,)"
+        }
+      ]
+    }
+  },
+  "links": [
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "COMPOSITION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "ENVIRONMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    }
+  ]
+}
