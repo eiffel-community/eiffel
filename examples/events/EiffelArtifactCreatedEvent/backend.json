@@ -9,7 +9,7 @@
   "data": {
     "gav": {
       "groupId": "com.mycompany.myproduct",
-      "artifactId": "my-dependent",
+      "artifactId": "my-backend",
       "version": "1.0.4"
     },
     "fileInformation": [
@@ -20,7 +20,7 @@
     ],
     "buildCommand": "/my/build/command with arguments",
     "runtimeDependencies": {
-      "dependsOn": [
+      "implements": [
         {
           "groupId": "com.mycompany.myproduct",
           "artifactId": "my-interface",
