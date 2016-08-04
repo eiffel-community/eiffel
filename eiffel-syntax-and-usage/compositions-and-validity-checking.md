@@ -9,7 +9,7 @@ In this straight forward example, the integration of a system requires the prese
 
 ![alt text](./composition-build-dependency-example.png "Dependency Checking Example")
 
-Here composition C2 is legal, but C1 is not. The reason is that B1 requires "com.example:a:[1.1.0,)" (that is, version 1.1.0 or later). In composition C1 there is no such artifact, but in composition C2 there is.
+Here composition C2 is legal, but C1 is not. The reason is that B1 requires version "[1.1.0,)" of com.example:a (that is, version 1.1.0 or later). In composition C1 there is no such artifact, but in composition C2 there is.
 
 ### Checking Backend Implementation Validity
 In this example we imagine a microservice setup. The service interface I has no implementation itself - instead it requires one or more implementations to which it can forward requests. There are multiple versions of the interface included, affording clients backwards compatibility.
