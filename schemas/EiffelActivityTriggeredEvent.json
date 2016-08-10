@@ -17,25 +17,25 @@
         "time": {
           "type": "integer"
         },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "source": {
           "type": "object",
           "properties": {
-            "domainId": {
-              "type": "string"
-            },
             "host": {
               "type": "string"
             },
             "name": {
               "type": "string"
             },
-            "uri": {
-              "type": "string"
-            },
             "serializer": {
               "type": "object",
               "properties": {
-                "group": {
+                "groupId": {
                   "type": "string"
                 },
                 "artifactId": {
@@ -46,14 +46,16 @@
                 }
               },
               "required": [
-                "group",
+                "groupId",
                 "artifactId",
                 "version"
               ],
               "additionalProperties": false
+            },
+            "uri": {
+              "type": "string"
             }
           },
-          "required": ["domainId"],
           "additionalProperties": false
         }
       },
