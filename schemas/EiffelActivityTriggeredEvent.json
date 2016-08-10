@@ -5,9 +5,6 @@
     "meta": {
       "type": "object",
       "properties": {
-        "domainId": {
-          "type": "string"
-        },
         "id": {
           "type": "string"
         },
@@ -19,14 +16,53 @@
         },
         "time": {
           "type": "integer"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "domainId": {
+              "type": "string"
+            },
+            "host": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string"
+            },
+            "serializer": {
+              "type": "object",
+              "properties": {
+                "group": {
+                  "type": "string"
+                },
+                "artifactId": {
+                  "type": "string"
+                },
+                "version": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "group",
+                "artifactId",
+                "version"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": ["domainId"],
+          "additionalProperties": false
         }
       },
       "required": [
-        "domainId",
         "id",
         "type",
         "version",
-        "time"
+        "time",
+        "source"
       ],
       "additionalProperties": false
     },

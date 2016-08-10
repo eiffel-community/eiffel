@@ -4,8 +4,10 @@
       "type": "EiffelSourceChangeSubmittedEvent",
       "version": "1.0",
       "time": 1000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
@@ -18,8 +20,10 @@
       "type": "EiffelSourceChangeSubmittedEvent",
       "version": "1.0",
       "time": 101000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
@@ -36,8 +40,10 @@
       "type": "EiffelCompositionDefinedEvent",
       "version": "1.0",
       "time": 2000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
@@ -54,8 +60,10 @@
       "type": "EiffelCompositionDefinedEvent",
       "version": "1.0",
       "time": 102000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
@@ -76,8 +84,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 3000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -105,8 +115,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 4000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -134,8 +146,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 5000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -163,8 +177,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 6000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -192,8 +208,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 7000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -221,8 +239,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 103000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -254,8 +274,10 @@
       "type": "EiffelArtifactCreatedEvent",
       "version": "1.0",
       "time": 104000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "gav": {
@@ -287,8 +309,10 @@
       "type": "EiffelCompositionDefinedEvent",
       "version": "1.0",
       "time": 8000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
@@ -321,8 +345,10 @@
       "type": "EiffelCompositionDefinedEvent",
       "version": "1.0",
       "time": 105000,
-      "domainId": "example.domain",
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12"
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12",
+      "source": {
+        "domainId": "example.domain"
+      }
     },
     "data": {
       "placeholder": "The syntax of this event has not yet been defined."
