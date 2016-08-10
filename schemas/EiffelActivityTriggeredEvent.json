@@ -5,6 +5,9 @@
     "meta": {
       "type": "object",
       "properties": {
+        "domainId": {
+          "type": "string"
+        },
         "id": {
           "type": "string"
         },
@@ -26,6 +29,9 @@
         "source": {
           "type": "object",
           "properties": {
+            "domainId": {
+              "type": "string"
+            },
             "host": {
               "type": "string"
             },
@@ -56,6 +62,9 @@
               "type": "string"
             }
           },
+          "required": [
+            "domainId"
+          ],
           "additionalProperties": false
         }
       },

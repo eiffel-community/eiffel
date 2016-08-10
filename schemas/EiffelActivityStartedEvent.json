@@ -29,6 +29,9 @@
         "source": {
           "type": "object",
           "properties": {
+            "domainId": {
+              "type": "string"
+            },
             "host": {
               "type": "string"
             },
@@ -59,15 +62,18 @@
               "type": "string"
             }
           },
+          "required": [
+            "domainId"
+          ],
           "additionalProperties": false
         }
       },
       "required": [
-        "domainId",
         "id",
         "type",
         "version",
-        "time"
+        "time",
+        "source"
       ],
       "additionalProperties": false
     },
