@@ -7,8 +7,10 @@
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
   },
   "data": {
-    "name": "My test suite",
-    "category": "Pre-release security tests",
+    "name": "Pre-release installation and security verification",
+    "categories": [
+      "Pre-release tests"
+    ],
     "types": [
       "INSTALLABILITY",
       "SECURITY"
