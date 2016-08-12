@@ -43,3 +43,4 @@ __Description:__ The type of execution (often related to, but ultimately separat
 
 ## Examples
 * [Simple example](../examples/events/EiffelActivityTriggeredEvent/simple.json)
+* [Example containing custom data](../examples/events/EiffelActivityTriggeredEvent/simple-customdata.json)
