@@ -13,7 +13,7 @@ __Description:__ The outcome of the test suite.
 __Type:__ String  
 __Required:__ No  
 __Legal values:__ PASSED, FAILED, INCONCLUSIVE  
-__Description:__ A terse standardized verdict on the item or items under test. Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method to summarize the verdict of the test suite as a whole, but may be skipped.
+__Description:__ A terse standardized verdict on the item or items under test. Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the verdict of the test suite as a whole, but may be skipped.  
 PASSED signifies that the item or items under test successfully passed the test suite.  
 FAILED signifies that the item or items under test failed to pass the test suite.  
 INCONCLUSIVE signifies that the verdict of the test suite was inconclusive. This SHOULD be the case if __data.outcome.conclusion__ is not __SUCCESSFUL__, but may in combination with a __SUCCESSFUL__ conclusion be used to represent unreliability or flakiness.
@@ -22,7 +22,7 @@ INCONCLUSIVE signifies that the verdict of the test suite was inconclusive. This
 __Type:__ String  
 __Required:__ No  
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
-__Description:__ A terse standardized conclusion of the test suite, designed to be machine readable.  Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method to summarize the conclusion of the test suite as a whole, but may be skipped.
+__Description:__ A terse standardized conclusion of the test suite, designed to be machine readable.  Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the conclusion of the test suite as a whole, but may be skipped.  
 SUCCESSFUL signifies that the test suite was successfully concluded. Note that this does not imply that the item under test passed the tests.  
 FAILED signifies that the test suite could not be successfully executed. To exemplify, one or more tests failued to run due to required environments being unavailable.  
 ABORTED signifies that the test suite was aborted before it could be concluded.  
