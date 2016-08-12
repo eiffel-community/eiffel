@@ -137,7 +137,10 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "outcome"
+      ]
     },
     "links": {
       "type": "array",
