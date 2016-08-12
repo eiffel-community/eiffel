@@ -72,8 +72,11 @@
         "name": {
           "type": "string"
         },
-        "category": {
-          "type": "string"
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "triggers": {
           "type": "array",

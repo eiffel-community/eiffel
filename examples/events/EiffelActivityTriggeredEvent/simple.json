@@ -10,7 +10,9 @@
   },
   "data": {
     "name": "Component X Build",
-    "category": "Component Build",
+    "categories": [
+      "Component Build"
+    ],
     "triggers": [
       {
         "type": "MANUAL",
