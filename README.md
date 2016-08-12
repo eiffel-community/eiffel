@@ -31,7 +31,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. EiffelTestCaseStartedEvent
    1. EiffelTestCaseFinishedEvent
    1. [EiffelTestSuiteStartedEvent](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
-   1. EiffelTestSuiteFinishedEvent
+   1. [EiffelTestSuiteFinishedEvent](./eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
    1. EiffelTestExecutionRecipeCollectionCreated
    1. EiffelAnnouncementEvent
    1. EiffelConfigurationChangedEvent
