@@ -6,7 +6,7 @@ Note that while similar, the __data.outcome__ object is different from that of [
 ## Data Members
 ### data.outcome
 __Type:__ Object  
-__Required:__ Yes  
+__Required:__ No  
 __Description:__ The outcome of the test suite.
 
 #### data.outcome.verdict
@@ -22,7 +22,7 @@ INCONCLUSIVE signifies that the verdict of the test suite was inconclusive. This
 __Type:__ String  
 __Required:__ No  
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
-__Description:__ A terse standardized conclusion of the test suite, designed to be machine readable.  Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the conclusion of the test suite as a whole, but may be skipped.  
+__Description:__ A terse standardized conclusion of the test suite, designed to be machine readable. Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the conclusion of the test suite as a whole, but may be skipped.  
 SUCCESSFUL signifies that the test suite was successfully concluded. Note that this does not imply that the item under test passed the tests.  
 FAILED signifies that the test suite could not be successfully executed. To exemplify, one or more tests failued to run due to required environments being unavailable.  
 ABORTED signifies that the test suite was aborted before it could be concluded.  
