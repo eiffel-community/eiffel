@@ -76,7 +76,7 @@ __Description:__ Identifies the composition from which an artifact was built.
 ### ENVIRONMENT
 __Required in:__ None  
 __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
-[EiffelArtifactTestCaseStartedEvent](../eiffel-vocabulary/EiffelArtifactTestCaseStartedEvent.md)  
+[EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)  
 __Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies the environment in which an event occurred, e.g. in which environment an artifact was built.
