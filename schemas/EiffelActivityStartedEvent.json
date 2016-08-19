@@ -77,32 +77,27 @@
     "data": {
       "type": "object",
       "properties": {
-        "name": {
+        "executionUri": {
           "type": "string"
         },
-        "category": {
-          "type": "string"
-        },
-        "triggers": {
+        "liveLogs": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "type": {
+              "name": {
                 "type": "string"
               },
-              "description": {
+              "uri": {
                 "type": "string"
               }
             },
             "required": [
-              "type"
+              "name",
+              "uri"
             ],
             "additionalProperties": false
           }
-        },
-        "executionType": {
-          "type": "string"
         },
         "customData": {
           "type": "array",
@@ -123,9 +118,6 @@
           }
         }
       },
-      "required": [
-        "name"
-      ],
       "additionalProperties": false
     },
     "links": {

@@ -77,32 +77,46 @@
     "data": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
+        "outcome": {
+          "type": "object",
+          "properties": {
+            "conclusion": {
+              "type": "string",
+              "enum": [
+                "SUCCESSFUL", 
+                "UNSUCCESSFUL", 
+                "FAILED", 
+                "ABORTED", 
+                "TIMED_OUT", 
+                "INCONCLUSIVE"
+              ]
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "conclusion"
+          ]
         },
-        "category": {
-          "type": "string"
-        },
-        "triggers": {
+        "persistentLogs": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "type": {
+              "name": {
                 "type": "string"
               },
-              "description": {
+              "uri": {
                 "type": "string"
               }
             },
             "required": [
-              "type"
+              "name",
+              "uri"
             ],
             "additionalProperties": false
           }
-        },
-        "executionType": {
-          "type": "string"
         },
         "customData": {
           "type": "array",
@@ -123,10 +137,10 @@
           }
         }
       },
+      "additionalProperties": false,
       "required": [
-        "name"
-      ],
-      "additionalProperties": false
+        "outcome"
+      ]
     },
     "links": {
       "type": "array",
