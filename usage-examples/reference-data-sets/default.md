@@ -1,5 +1,5 @@
 # Default Reference Data Set
-This is a description of the "Default" reference data set found [here](../../examples/reference-data-sets/default.zip).
+This is a description of the "Default" reference data set found [here](../../examples/reference-data-sets/default/events.zip).
 
 The purpose of a reference data set is to serve as supporting documentation, but also to allow for functional and non-functional testing as well as benchmarking of implementations.
 
