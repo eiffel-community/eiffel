@@ -6,26 +6,18 @@ import sys
 import random
 
 def generateGenericMeta(type, t, v):
-  return {"type": type, "id": str(uuid.uuid4()), "time": t, "domainId": "example.domain", "version": v}
+  return {"type": type, "id": str(uuid.uuid4()), "time": t, "source": {"domainId": "example.domain"}, "version": v}
 
-def link(source, target, name):
+def link(source, target, type):
   if not target:
     return
 
-  source["links"][name] = target["meta"]["id"]
-
-def linka(source, target, name):
-  if not target:
-    return
-  if not name in source["links"]:
-    source["links"][name] = []
-
-  source["links"][name].append(target["meta"]["id"])
+  source["links"].append({"type": type, "target": target["meta"]["id"]})
 
 def generateGenericMessage(type, t, v, name, iteration):
   meta = generateGenericMeta(type, t, v)
   data = {"optionalParameters": [{"name": "name", "value": name}, {"name": "iteration", "value": iteration}]}
-  links = {}
+  links = []
   msg = {}
   msg["meta"] = meta
   msg["data"] = data
@@ -40,20 +32,20 @@ def findLatestPrevious(iterationsMap, currentIteration, name):
 
 def randomizeVerdict(chanceOfSuccess):
   if random.random() < chanceOfSuccess:
-    return "SUCCESS"
+    return "PASSED"
   else:
-    return "FAILURE"
+    return "FAILED"
 
 def getOutcomeValuesFromVerdicts(testCaseFinishedEventsArray, positiveName, negativeName):
   for tcfEvent in testCaseFinishedEventsArray:
-    if tcfEvent["data"]["outcome"]["verdict"] != "SUCCESS":
+    if tcfEvent["data"]["outcome"]["verdict"] != "PASSED":
       return negativeName
 
   return positiveName
 
 def generateSCC1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelSourceChangeCreatedEvent", t, "1.0", "SCC1", iteration)
-  link(msg, findLatestPrevious(iterationsMap, iteration, "SCS1"), "base")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "SCS1"), "BASE")
 
   msg["data"]["gitIdentifier"] = {"commitId": "fd090b60a4aedc5161da9c035a49b14a319829c5", "branch": "topic-branch-" + str(iteration), "repoName": "myRepo", "repoUri": "https://repo.com"}
   msg["data"]["author"] = {"name": "John Doe", "email": "john.doe@company.com", "id": "johnxxx", "group": "Team Gophers"}
@@ -63,9 +55,9 @@ def generateSCC1(iterationsMap, iteration, t):
 
 def generateSCS1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelSourceChangeSubmittedEvent", t, "1.0", "SCS1", iteration)
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "SCS1"), "previousVersions")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "SCS1"), "PREVIOUS_VERSION")
   if "SCC1" in iterationsMap[iteration]:
-    link(msg, iterationsMap[iteration]["SCC1"], "change")
+    link(msg, iterationsMap[iteration]["SCC1"], "CHANGE")
 
   msg["data"]["gitIdentifier"] = {"commitId": "fd090b60a4aedc5161da9c035a49b14a319829b4", "branch": "master", "repoName": "myRepo", "repoUri": "https://repo.com"}
   msg["data"]["submitter"] = {"name": "John Doe", "email": "john.doe@company.com", "id": "johnxxx", "group": "Team Gophers"}
@@ -88,91 +80,91 @@ def generateArtC3(iterationsMap, iteration, t):
 
 def generateCDef1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelCompositionDefinedEvent", t, "1.0", "CDef1", iteration)
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "CDef1"), "previousVersions")
-  linka(msg, iterationsMap[iteration]["CLM2"], "causes")
-  linka(msg, iterationsMap[iteration]["ArtC2"], "elements")
-  linka(msg, iterationsMap[0]["ArtC3"], "elements")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "CDef1"), "PREVIOUS_VERSION")
+  link(msg, iterationsMap[iteration]["CLM2"], "CAUSE")
+  link(msg, iterationsMap[iteration]["ArtC2"], "ELEMENT")
+  link(msg, iterationsMap[0]["ArtC3"], "ELEMENT")
   return msg
 
 def generateCDef2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelCompositionDefinedEvent", t, "1.0", "CDef2", iteration)
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "CDef2"), "previousVersions")
-  link(msg, iterationsMap[iteration]["ActT4"], "context")
-  linka(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC1"), "elements")
-  linka(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC2"), "elements")
-  linka(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC3"), "elements")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "CDef2"), "PREVIOUS_VERSION")
+  link(msg, iterationsMap[iteration]["ActT4"], "CONTEXT")
+  link(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC1"), "ELEMENT")
+  link(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC2"), "ELEMENT")
+  link(msg, findLatestPrevious(iterationsMap, iteration + 1, "ArtCC3"), "ELEMENT")
   return msg
 
 def generateCDef3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelCompositionDefinedEvent", t, "1.0", "CDef3", iteration)
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "CDef3"), "previousVersions")
-  linka(msg, iterationsMap[iteration]["SCS1"], "elements")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "CDef3"), "PREVIOUS_VERSION")
+  link(msg, iterationsMap[iteration]["SCS1"], "ELEMENT")
   return msg
 
 def generateArtC1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0", "ArtC1", iteration)
-  link(msg, iterationsMap[iteration]["CDef1"], "composition")
-  link(msg, iterationsMap[0]["EDef1"], "environment")
-  linka(msg, iterationsMap[iteration]["CDef1"], "causes")
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "ArtC1"), "previousVersions")
+  link(msg, iterationsMap[iteration]["CDef1"], "COMPOSITION")
+  link(msg, iterationsMap[0]["EDef1"], "ENVIRONMENT")
+  link(msg, iterationsMap[iteration]["CDef1"], "CAUSE")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "ArtC1"), "PREVIOUS_VERSION")
   msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "complete-system", "version": "1." + str(iteration) + ".0"}
   msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
   return msg
 
 def generateArtC2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0", "ArtC2", iteration)
-  link(msg, iterationsMap[iteration]["CDef2"], "composition")
-  link(msg, iterationsMap[0]["EDef2"], "environment")
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "ArtC2"), "previousVersions")
-  link(msg, iterationsMap[iteration]["ActT4"], "context")
+  link(msg, iterationsMap[iteration]["CDef2"], "COMPOSITION")
+  link(msg, iterationsMap[0]["EDef2"], "ENVIRONMENT")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "ArtC2"), "PREVIOUS_VERSION")
+  link(msg, iterationsMap[iteration]["ActT4"], "CONTEXT")
   msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "sub-system", "version": "1." + str(iteration) + ".0"}
   msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
   return msg
 
 def generateArtCC1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0", "ArtCC1", iteration)
-  link(msg, iterationsMap[iteration]["CDef3"], "composition")
-  linka(msg, iterationsMap[iteration]["CDef3"], "causes")
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC1"), "previousVersions")
+  link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
+  link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC1"), "PREVIOUS_VERSION")
   msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-1", "version": "1." + str(iteration) + ".0"}
   msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
   return msg
 
 def generateArtCC2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0", "ArtCC2", iteration)
-  link(msg, iterationsMap[iteration]["CDef3"], "composition")
-  linka(msg, iterationsMap[iteration]["CDef3"], "causes")
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC2"), "previousVersions")
+  link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
+  link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC2"), "PREVIOUS_VERSION")
   msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-2", "version": "1." + str(iteration) + ".0"}
   msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
   return msg
 
 def generateArtCC3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0", "ArtCC3", iteration)
-  link(msg, iterationsMap[iteration]["CDef3"], "composition")
-  linka(msg, iterationsMap[iteration]["CDef3"], "causes")
-  linka(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC3"), "previousVersions")
+  link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
+  link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
+  link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC3"), "PREVIOUS_VERSION")
   msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-3", "version": "1." + str(iteration) + ".0"}
   msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
   return msg
 
 def generateArtP1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactPublishedEvent", t, "1.0", "ArtP1", iteration)
-  link(msg, iterationsMap[iteration]["ArtC1"], "artifact")
-  linka(msg, iterationsMap[iteration]["ArtC1"], "causes")
+  link(msg, iterationsMap[iteration]["ArtC1"], "ARTIFACT")
+  link(msg, iterationsMap[iteration]["ArtC1"], "CAUSE")
   msg["data"]["locations"] =  [{"type": "PLAIN", "uri": "https://myrepository.com/myCompleteSystemArtifact"}]
   return msg
 
 def generateArtP2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelArtifactPublishedEvent", t, "1.0", "ArtP2", iteration)
-  link(msg, iterationsMap[iteration]["ArtC2"], "artifact")
-  link(msg, iterationsMap[iteration]["ActT4"], "context")
+  link(msg, iterationsMap[iteration]["ArtC2"], "ARTIFACT")
+  link(msg, iterationsMap[iteration]["ActT4"], "CONTEXT")
   msg["data"]["locations"] =  [{"type": "PLAIN", "uri": "https://myrepository.com/mySubSystemArtifact"}]
   return msg
 
 def generateActT3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT3", iteration)
-  linka(msg, iterationsMap[iteration]["ArtP2"], "causes")
+  link(msg, iterationsMap[iteration]["ArtP2"], "CAUSE")
   msg["data"]["name"] = "Act3"
   msg["data"]["category"] = "Sub-system Test Activity"
   msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
@@ -181,12 +173,12 @@ def generateActT3(iterationsMap, iteration, t):
 
 def generateActS3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityStartedEvent", t, "1.0", "ActS3", iteration)
-  link(msg, iterationsMap[iteration]["ActT3"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT3"], "ACTIVITY_EXECUTION")
   return msg
 
 def generateActF3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityFinishedEvent", t, "1.0", "ActF3", iteration)
-  link(msg, iterationsMap[iteration]["ActT3"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT3"], "ACTIVITY_EXECUTION")
   msg["data"]["outcome"] = {"conclusion": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TSF1"]], "SUCCESSFUL", "UNSUCCESSFUL")}
 
   return msg
@@ -194,11 +186,11 @@ def generateActF3(iterationsMap, iteration, t):
 def generateActT4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT4", iteration)
   if "ArtCC1" in iterationsMap[iteration]:
-    linka(msg,  iterationsMap[iteration]["ArtCC1"], "causes")
+    link(msg,  iterationsMap[iteration]["ArtCC1"], "CAUSE")
   if "ArtCC2" in iterationsMap[iteration]:
-    linka(msg,  iterationsMap[iteration]["ArtCC2"], "causes")
+    link(msg,  iterationsMap[iteration]["ArtCC2"], "CAUSE")
   if "ArtCC3" in iterationsMap[iteration]:
-    linka(msg,  iterationsMap[iteration]["ArtCC3"], "causes")
+    link(msg,  iterationsMap[iteration]["ArtCC3"], "CAUSE")
   msg["data"]["name"] = "Act4"
   msg["data"]["category"] = "Sub-system Build Activity"
   msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
@@ -207,12 +199,12 @@ def generateActT4(iterationsMap, iteration, t):
 
 def generateActS4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityStartedEvent", t, "1.0", "ActS4", iteration)
-  link(msg, iterationsMap[iteration]["ActT4"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT4"], "ACTIVITY_EXECUTION")
   return msg
 
 def generateActF4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityFinishedEvent", t, "1.0", "ActF4", iteration)
-  link(msg, iterationsMap[iteration]["ActT4"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT4"], "ACTIVITY_EXECUTION")
   if "ArtC2" in iterationsMap[iteration]:
     msg["data"]["outcome"] = {"conclusion": "SUCCESSFUL"}
   else:
@@ -222,7 +214,7 @@ def generateActF4(iterationsMap, iteration, t):
 
 def generateActT1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT1", iteration)
-  linka(msg, iterationsMap[iteration]["ArtP1"], "causes")
+  link(msg, iterationsMap[iteration]["ArtP1"], "CAUSE")
   msg["data"]["name"] = "Act1"
   msg["data"]["category"] = "Test Activity"
   msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
@@ -231,43 +223,43 @@ def generateActT1(iterationsMap, iteration, t):
 
 def generateActS1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityStartedEvent", t, "1.0", "ActS1", iteration)
-  link(msg, iterationsMap[iteration]["ActT1"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT1"], "ACTIVITY_EXECUTION")
   return msg
 
 def generateActF1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityFinishedEvent", t, "1.0", "ActF1", iteration)
-  link(msg, iterationsMap[iteration]["ActT1"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT1"], "ACTIVITY_EXECUTION")
   msg["data"]["outcome"] = {"conclusion": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF1"], iterationsMap[iteration]["TCF2"]], "SUCCESSFUL", "UNSUCCESSFUL")}
 
   return msg
 
 def generateTCS1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS1", iteration)
-  link(msg, iterationsMap[iteration]["ActT1"], "context")
-  link(msg, iterationsMap[iteration]["ArtC1"], "iut")
+  link(msg, iterationsMap[iteration]["ActT1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
 def generateTCF1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF1", iteration)
-  link(msg, iterationsMap[iteration]["TCS1"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS1"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.95)}
   return msg
 
 def generateTCS2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS2", iteration)
-  link(msg, iterationsMap[iteration]["ActT1"], "context")
-  link(msg, iterationsMap[iteration]["ArtC1"], "iut")
+  link(msg, iterationsMap[iteration]["ActT1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
 def generateTCF2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF2", iteration)
-  link(msg, iterationsMap[iteration]["TCS2"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS2"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.95)}
   return msg
 
 def generateActT2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT2", iteration)
-  linka(msg, iterationsMap[iteration]["ArtP1"], "causes")
+  link(msg, iterationsMap[iteration]["ArtP1"], "CAUSE")
   msg["data"]["name"] = "Act2"
   msg["data"]["category"] = "Test Activity"
   msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
@@ -276,96 +268,96 @@ def generateActT2(iterationsMap, iteration, t):
 
 def generateActS2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityStartedEvent", t, "1.0", "ActS2", iteration)
-  link(msg, iterationsMap[iteration]["ActT2"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT2"], "ACTIVITY_EXECUTION")
   return msg
 
 def generateActF2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityFinishedEvent", t, "1.0", "ActF2", iteration)
-  link(msg, iterationsMap[iteration]["ActT2"], "activityExecution")
+  link(msg, iterationsMap[iteration]["ActT2"], "ACTIVITY_EXECUTION")
   msg["data"]["outcome"] = {"conclusion": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF3"], iterationsMap[iteration]["TCF4"]], "SUCCESSFUL", "UNSUCCESSFUL")}
   return msg
 
 def generateTCS3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS3", iteration)
-  link(msg, iterationsMap[iteration]["ActT2"], "context")
-  link(msg, iterationsMap[iteration]["ArtC1"], "iut")
+  link(msg, iterationsMap[iteration]["ActT2"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
 def generateTCF3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF3", iteration)
-  link(msg, iterationsMap[iteration]["TCS3"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS3"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.99)}
   return msg
 
 def generateTCS4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS4", iteration)
-  link(msg, iterationsMap[iteration]["ActT2"], "context")
-  link(msg, iterationsMap[iteration]["ArtC1"], "iut")
+  link(msg, iterationsMap[iteration]["ActT2"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
 def generateTCF4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF4", iteration)
-  link(msg, iterationsMap[iteration]["TCS4"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS4"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.90)}
   return msg
 
 def generateTCS5(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS5", iteration)
-  link(msg, iterationsMap[iteration]["TSS1"], "context")
-  link(msg, iterationsMap[iteration]["ArtC2"], "iut")
+  link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
 def generateTCF5(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF5", iteration)
-  link(msg, iterationsMap[iteration]["TCS5"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS5"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98)}
   return msg
 
 def generateTCS6(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS6", iteration)
-  link(msg, iterationsMap[iteration]["TSS1"], "context")
-  link(msg, iterationsMap[iteration]["ArtC2"], "iut")
+  link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
 def generateTCF6(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF6", iteration)
-  link(msg, iterationsMap[iteration]["TCS6"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS6"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98)}
   return msg
 
 def generateTCS7(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0", "TCS7", iteration)
-  link(msg, iterationsMap[iteration]["TSS1"], "context")
-  link(msg, iterationsMap[iteration]["ArtC2"], "iut")
+  link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
 def generateTCF7(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0", "TCF7", iteration)
-  link(msg, iterationsMap[iteration]["TCS7"], "testCaseExecution")
+  link(msg, iterationsMap[iteration]["TCS7"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98)}
   return msg
 
 def generateTSS1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestSuiteStartedEvent", t, "1.0", "TSS1", iteration)
-  link(msg, iterationsMap[iteration]["ActT3"], "context")
+  link(msg, iterationsMap[iteration]["ActT3"], "CONTEXT")
   msg["data"]["name"] = "My functional test suite"
-  msg["data"]["category"] = "Pre system integration tests"
-  msg["data"]["type"] = "FUNCTIONAL"
+  msg["data"]["categories"] = ["Pre system integration tests"]
+  msg["data"]["types"] = ["FUNCTIONAL"]
   return msg
 
 def generateTSF1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestSuiteFinishedEvent", t, "1.0", "TSF1", iteration)
-  msg["data"]["outcome"] = {"verdict": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF5"], iterationsMap[iteration]["TCF6"], iterationsMap[iteration]["TCF7"]], "SUCCESS", "FAILURE")}
-  link(msg, iterationsMap[iteration]["TSS1"], "testSuiteExecution")
+  msg["data"]["outcome"] = {"verdict": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF5"], iterationsMap[iteration]["TCF6"], iterationsMap[iteration]["TCF7"]], "PASSED", "FAILED")}
+  link(msg, iterationsMap[iteration]["TSS1"], "TEST_SUITE_EXECUTION")
   return msg
 
 def generateCLM1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelConfidenceLevelModifiedEvent", t, "1.0", "CLM1", iteration)
-  linka(msg, iterationsMap[iteration]["ArtC1"], "subjects")
-  linka(msg, iterationsMap[iteration]["TCF1"], "causes")
-  linka(msg, iterationsMap[iteration]["TCF2"], "causes")
-  linka(msg, iterationsMap[iteration]["TCF3"], "causes")
-  linka(msg, iterationsMap[iteration]["TCF4"], "causes")
+  link(msg, iterationsMap[iteration]["ArtC1"], "SUBJECT")
+  link(msg, iterationsMap[iteration]["TCF1"], "CAUSE")
+  link(msg, iterationsMap[iteration]["TCF2"], "CAUSE")
+  link(msg, iterationsMap[iteration]["TCF3"], "CAUSE")
+  link(msg, iterationsMap[iteration]["TCF4"], "CAUSE")
   msg["data"]["name"] = "readyForRelease"
   msg["data"]["value"] = getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF1"], iterationsMap[iteration]["TCF2"], iterationsMap[iteration]["TCF3"], iterationsMap[iteration]["TCF4"]], "SUCCESS", "FAILURE")
   return msg
@@ -374,8 +366,8 @@ def generateCLM2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelConfidenceLevelModifiedEvent", t, "1.0", "CLM2", iteration)
   msg["data"]["name"] = "readyForSystemIntegration"
   msg["data"]["value"] = getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TSF1"]], "SUCCESS", "FAILURE")
-  linka(msg, iterationsMap[iteration]["TSF1"], "causes")
-  linka(msg, iterationsMap[iteration]["ArtC2"], "subjects")
+  link(msg, iterationsMap[iteration]["TSF1"], "CAUSE")
+  link(msg, iterationsMap[iteration]["ArtC2"], "SUBJECT")
   return msg
 
 def buildMsgArrayFromiterationsMap(iterationsMap):
