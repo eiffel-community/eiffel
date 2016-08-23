@@ -5,51 +5,86 @@ import os
 import fnmatch
 from jsonschema import validate
 
-def applySchema(schemaFileName):
-  print("  - Applying", schemaFileName, "to ...")
-  global schemas
-  schemas +=1
-  eventTypeName = schemaFileName[:-5]
-  eventTypeDirName = "examples/events/" + eventTypeName
-  try:
-    with open("schemas/" + schemaFileName, "r") as f:
-      schema = json.load(f)
+def loadAllJsonObjects(dir):
+  objects = []
+  badFiles = []
+
+  for root, dirNames, fileNames in os.walk(dir):
+    for fileName in fnmatch.filter(fileNames, "*.json"):
+      try:
+        path = os.path.join(root, fileName)
+        with open(path, "r") as f:
+          loadedObject = json.load(f)
+          if(isinstance(loadedObject, list)):
+            for o in loadedObject:
+              objects.append((path, fileName, o))
+          else:
+            objects.append((path, fileName, loadedObject))
+      except Exception as e:
+        print(e)
+        badFiles.append(path)
+       
+  return objects, badFiles
+   
+def loadSchemas():
+  schemaTuples, badSchemaFiles = loadAllJsonObjects("schemas")
+  schemas = {}
+  for path, fileName, o in schemaTuples:
+    schemas[fileName[:-5]] = o
+  return schemas, badSchemaFiles
     
-    for root, dirnames, filenames in os.walk(eventTypeDirName):
-      for exampleFileName in fnmatch.filter(filenames, "*.json"):
-        validateExample(schema, os.path.join(root, exampleFileName))
-  except Exception as e:
-    reportFailure(e)
-      
-def validateExample(schema, exampleFilePath):
-  print("    ... ", exampleFilePath)
-  global examples
-  examples +=1
-  exception = False
-  try:
-    with open(exampleFilePath, "r") as f:
-      example = json.load(f)
-      
-    validate(example, schema)
-    print("         PASS")
-  except Exception as e:
-    reportFailure(e)
+def loadExamples():
+  exampleTuples, badExampleFiles = loadAllJsonObjects("examples")
+  examples = []
+  for path, fileName, o in exampleTuples:
+    examples.append((path, o["meta"]["type"], o))
+  return examples, badExampleFiles
     
-def reportFailure(exception):
-    global failures
-    failures += 1
-    print("         FAIL:", type(exception).__name__)
-    print("        ", exception)
+def validateExamples(examples, schemas):
+  failures = []
+  unchecked = []
+  
+  for path, type, json in examples:
+    if type in schemas:
+      try:
+        validate(json, schemas[type])
+      except Exception as e:
+        failures.append((path, type, e))
+    else:
+      unchecked.append((path, type, json))
+      
+  return failures, unchecked
 
-failures = 0
-schemas = 0
-examples = 0
+def report(unchecked,failures,badSchemaFiles,badExampleFiles):
+  for path, type, o in unchecked:
+    print("WARNING: Missing schema for type",type,"in file",path)
 
-for root, dirNames, fileNames in os.walk("schemas"):
-    for schemaFileName in fnmatch.filter(fileNames, "*.json"):
-      applySchema(schemaFileName)
+  for badSchemaFile in badSchemaFiles:
+    print("ERROR: Failed to load schema from file", badSchemaFile)
 
-print("Encountered", failures, "validation failures through application of", schemas, "schemas to", examples, "examples.")
+  for badExampleFile in badExampleFiles:
+    print("ERROR: Failed to load example from file", badExampleFile)
 
-if failures > 0:
+  for path, type, e in failures:
+    print("ERROR: Validation failed for", type, "in", path, ":", e)
+    
+  print("")
+  print("===SUMMARY===")
+  print("Bad schema files:  ", len(badSchemaFiles))
+  print("Bad example files: ", len(badExampleFiles))
+  print("Failed validations:", len(failures))
+  print("Unchecked examples:", len(unchecked))
+  print("=============")
+ 
+schemas, badSchemaFiles = loadSchemas()
+print("Loaded", len(schemas), "schemas.")
+
+examples, badExampleFiles = loadExamples()
+print("Loaded", len(examples), "examples.")
+
+failures, unchecked = validateExamples(examples, schemas)
+
+report(unchecked,failures,badSchemaFiles,badExampleFiles)
+
+if len(badSchemaFiles) > 0 or len(badExampleFiles) > 0 or len(failures) > 0:
   sys.exit("Validation failed.")
