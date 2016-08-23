@@ -46,7 +46,7 @@ __Description:__ The type of test case execution.
 ### data.liveLogs
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ An array of live log files available during execution. These shall not be presumed to be stored persistently; in other words, once the activity has finished there is no guarantee that these links are valid. Persistently stored logs shall be (re-)declared by [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md).
+__Description:__ An array of live log files available during execution. These shall not be presumed to be stored persistently; in other words, once the test case execution has finished there is no guarantee that these links are valid. Persistently stored logs shall be (re-)declared by [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md).
 
 #### data.liveLogs.name
 __Type:__ String  

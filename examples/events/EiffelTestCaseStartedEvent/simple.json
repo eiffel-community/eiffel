@@ -3,8 +3,10 @@
     "type": "EiffelTestCaseStartedEvent",
     "version": "1.0",
     "time": 1234567890,
-    "domainId": "example.domain",
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+    "source": {
+      "domainId": "example.domain"
+    }
   },
   "data": {
     "testCase": {
@@ -21,7 +23,7 @@
     "executionType": "AUTOMATED",
     "liveLogs": [
       {
-       "name": "My build log",
+       "name": "My test log",
        "uri": "file:///tmp/logs/data.log"
       }
     ]
@@ -37,11 +39,11 @@
     },
     {
       "type": "ENVIRONMENT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
     },
     {
       "type": "TERC",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
     }
   ]
 }
