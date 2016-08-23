@@ -37,27 +37,27 @@ def loadExamples():
   exampleTuples, badExampleFiles = loadAllJsonObjects("examples")
   examples = []
   for path, fileName, o in exampleTuples:
-    examples.append((path, o["meta"]["type"], o))
+    examples.append((path, o["meta"]["type"], o["meta"]["id"], o))
   return examples, badExampleFiles
     
 def validateExamples(examples, schemas):
   failures = []
   unchecked = []
   
-  for path, type, json in examples:
+  for path, type, id, json in examples:
     if type in schemas:
       try:
         validate(json, schemas[type])
       except Exception as e:
-        failures.append((path, type, e))
+        failures.append((path, type, id, e))
     else:
-      unchecked.append((path, type, json))
+      unchecked.append((path, type, id, json))
       
   return failures, unchecked
 
 def report(unchecked,failures,badSchemaFiles,badExampleFiles):
-  for path, type, o in unchecked:
-    print("WARNING: Missing schema for type",type,"in file",path)
+  for path, type, id, o in unchecked:
+    print("WARNING: Missing schema for " + id + "(" + type + ") in " + path + ".")
 
   for badSchemaFile in badSchemaFiles:
     print("ERROR: Failed to load schema from file", badSchemaFile)
@@ -65,8 +65,8 @@ def report(unchecked,failures,badSchemaFiles,badExampleFiles):
   for badExampleFile in badExampleFiles:
     print("ERROR: Failed to load example from file", badExampleFile)
 
-  for path, type, e in failures:
-    print("ERROR: Validation failed for", type, "in", path, ":", e)
+  for path, type, id, e in failures:
+    print("ERROR: Validation failed for " + id + "(" + type + ") in " + path + ": " + str(e))
     
   print("")
   print("===SUMMARY===")

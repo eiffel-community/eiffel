@@ -16,7 +16,7 @@ def link(source, target, type):
 
 def generateGenericMessage(type, t, v, name, iteration):
   meta = generateGenericMeta(type, t, v)
-  data = {"optionalParameters": [{"name": "name", "value": name}, {"name": "iteration", "value": iteration}]}
+  data = {"customData": [{"key": "name", "value": name}, {"key": "iteration", "value": iteration}]}
   links = []
   msg = {}
   msg["meta"] = meta
@@ -166,8 +166,8 @@ def generateActT3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT3", iteration)
   link(msg, iterationsMap[iteration]["ArtP2"], "CAUSE")
   msg["data"]["name"] = "Act3"
-  msg["data"]["category"] = "Sub-system Test Activity"
-  msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
+  msg["data"]["categories"] = ["Sub-system Test Activity"]
+  msg["data"]["triggers"] = [ {"type": "EIFFEL_EVENT"} ]
   msg["data"]["executionType"] = "AUTOMATED"
   return msg
 
@@ -192,8 +192,8 @@ def generateActT4(iterationsMap, iteration, t):
   if "ArtCC3" in iterationsMap[iteration]:
     link(msg,  iterationsMap[iteration]["ArtCC3"], "CAUSE")
   msg["data"]["name"] = "Act4"
-  msg["data"]["category"] = "Sub-system Build Activity"
-  msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
+  msg["data"]["categories"] = ["Sub-system Build Activity"]
+  msg["data"]["triggers"] = [ {"type": "EIFFEL_EVENT"} ]
   msg["data"]["executionType"] = "AUTOMATED"
   return msg
 
@@ -216,8 +216,8 @@ def generateActT1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT1", iteration)
   link(msg, iterationsMap[iteration]["ArtP1"], "CAUSE")
   msg["data"]["name"] = "Act1"
-  msg["data"]["category"] = "Test Activity"
-  msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
+  msg["data"]["categories"] = ["Test Activity"]
+  msg["data"]["triggers"] = [ {"type": "EIFFEL_EVENT"} ]
   msg["data"]["executionType"] = "AUTOMATED"
   return msg
 
@@ -261,8 +261,8 @@ def generateActT2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelActivityTriggeredEvent", t, "1.0", "ActT2", iteration)
   link(msg, iterationsMap[iteration]["ArtP1"], "CAUSE")
   msg["data"]["name"] = "Act2"
-  msg["data"]["category"] = "Test Activity"
-  msg["data"]["triggers"] = [{"type": "EIFFEL_EVENT"}],
+  msg["data"]["categories"] = ["Test Activity"]
+  msg["data"]["triggers"] = [ {"type": "EIFFEL_EVENT"} ]
   msg["data"]["executionType"] = "AUTOMATED"
   return msg
 
