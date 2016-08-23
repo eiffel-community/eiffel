@@ -17,7 +17,7 @@
     ],
     "liveLogs": [
       {
-       "name": "My build log",
+       "name": "My test log",
        "uri": "file:///tmp/logs/data.log"
       }
     ]
