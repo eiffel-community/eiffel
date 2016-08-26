@@ -26,7 +26,7 @@ __Required:__ Yes
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
 __Description:__ A terse standardized conclusion of the test case, designed to be machine readable.  
 SUCCESSFUL signifies that the test case was successfully concluded. Note that this does not imply that the item under test passed the tests.  
-FAILED signifies that the test case could not be successfully executed. To exemplify, one or more tests failued to run due to required environments being unavailable.  
+FAILED signifies that the test case could not be successfully executed. To exemplify, one or more tests failed to run due to required environments being unavailable.  
 ABORTED signifies that the test case was aborted before it could be concluded.  
 TIMED_OUT signifies that the test case did not conclude within the allowed time frame.  
 INCONCLUSIVE signifies that the outcome of the test case could not be determined.
