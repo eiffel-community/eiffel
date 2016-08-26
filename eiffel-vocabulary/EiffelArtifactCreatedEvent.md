@@ -45,11 +45,11 @@ __Description:__ The command used to build the artifact within the identified en
 ### data.requiresImplementation
 __Type:__ String  
 __Required:__ No  
-__Legal values:__ NONE, ANY, EXACTLY_ONE, AT_LEAST_ONE
+__Legal values:__ NONE, ANY, EXACTLY_ONE, AT_LEAST_ONE  
 __Description:__ Defines whether this artifact requires an implementing artifact. This is typically used for interfaces requiring some backend implementation, although the interface does not presume to define _which_ implementation. Implicitly interpreted as "ANY" if undefined.  
-NONE signifies that there SHALL no implementations of this artifact. In other words, a composition containing another artifact identifying it in __data.implements__ would be illegal.
-ANY signifies that there may or may not be implementations of this artifact.
-EXACTLY_ONE signifies that a legal composition must contain one and only one implementation of this artifact.
+NONE signifies that there SHALL no implementations of this artifact. In other words, a composition containing another artifact identifying it in __data.implements__ would be illegal.  
+ANY signifies that there may or may not be implementations of this artifact.  
+EXACTLY_ONE signifies that a legal composition must contain one and only one implementation of this artifact.  
 AT_LEAST_ONE signifies that a legal composition must contain one or more implementations of this artifact.
 
 ### data.implements
