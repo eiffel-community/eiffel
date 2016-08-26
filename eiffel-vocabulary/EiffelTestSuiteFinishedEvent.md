@@ -24,7 +24,7 @@ __Required:__ No
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
 __Description:__ A terse standardized conclusion of the test suite, designed to be machine readable. Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the conclusion of the test suite as a whole, but may be skipped.  
 SUCCESSFUL signifies that the test suite was successfully concluded. Note that this does not imply that the item under test passed the tests.  
-FAILED signifies that the test suite could not be successfully executed. To exemplify, one or more tests failued to run due to required environments being unavailable.  
+FAILED signifies that the test suite could not be successfully executed. To exemplify, one or more tests failed to run due to required environments being unavailable.  
 ABORTED signifies that the test suite was aborted before it could be concluded.  
 TIMED_OUT signifies that the test suite did not conclude within the allowed time frame.  
 INCONCLUSIVE signifies that the outcome of the test suite could not be determined.
