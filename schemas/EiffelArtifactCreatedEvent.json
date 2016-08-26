@@ -119,6 +119,61 @@
         "buildCommand": {
           "type": "string"
         },
+        "requiresImplementation": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "ANY", 
+            "EXACTLY_ONE", 
+            "AT_LEAST_ONE"
+          ]
+        },
+        "dependsOn": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "groupId": {
+                "type": "string"
+              },
+              "artifactId": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "groupId",
+              "artifactId",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "implements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "groupId": {
+                "type": "string"
+              },
+              "artifactId": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "groupId",
+              "artifactId",
+              "version"
+            ],
+            "additionalProperties": false
+          }
+        },
         "customData": {
           "type": "array",
           "items": {
