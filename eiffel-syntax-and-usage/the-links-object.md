@@ -147,10 +147,10 @@ __Description:__ Identifies the Item Under Test.
 
 ### TERC
 __Required in:__ None  
-__Optional in:__ [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)  
+__Optional in:__ [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
 __Legal targets:__ [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Test Execution Recipe Collection dictating the execution of the test case.
+__Description:__ When declared in an [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md), this link signifies that the test suite groups all test case executions resulting from the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
 
 ### MODIFIED_ANNOUNCEMENT
 __Required in:__ None  
