@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "type": "EiffelEnvironmentDefinedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+    "source": {
+      "domainId": "example.domain"
+    }
+  },
+  "data": {
+    "name": "John's Referenced Environment",
+    "version": "2.10.3",
+    "uri": "https://mynetwork.com/topology/jdoe/2.10.3"
+  },
+  "links": [
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}
