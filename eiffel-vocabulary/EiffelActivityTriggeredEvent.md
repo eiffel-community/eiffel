@@ -41,6 +41,11 @@ __Required:__ No
 __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER  
 __Description:__ The type of execution (often related to, but ultimately separate from, __data.trigger.type__).
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [Simple example](../examples/events/EiffelActivityTriggeredEvent/simple.json)
 * [Example containing custom data](../examples/events/EiffelActivityTriggeredEvent/simple-customdata.json)

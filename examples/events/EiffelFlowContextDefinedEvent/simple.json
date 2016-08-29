@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelFlowContextDefined",
-    "version": "1.0",
+    "version": "1.0.0",
     "time": 1234567890,
     "source": {
       "domainId": "example.domain"

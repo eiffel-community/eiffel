@@ -29,5 +29,10 @@ __Type:__ String
 __Required:__ No  
 __Description:__ A version context which other events can relate to. This member SHOULD be used in tandem with one of the other optional members - a version by itself is not very informative.
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [Simple example](../examples/events/EiffelFlowContextDefinedEvent/simple.json)
