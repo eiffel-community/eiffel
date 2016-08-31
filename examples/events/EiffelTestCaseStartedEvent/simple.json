@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "type": "EiffelTestCaseStartedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+    "source": {
+      "domainId": "example.domain"
+    }
+  },
+  "data": {
+    "testCase": {
+      "tracker": "My Test Management System",
+      "id": "TC-1234",
+      "uri": "http://tm.company.com/browse/TC-1234"
+    },
+    "executor": "My Test Framework",
+    "parameters": [
+      {
+        "name": "login",
+        "value": "admin"
+      }
+    ],
+    "executionType": "AUTOMATED",
+    "liveLogs": [
+      {
+       "name": "My test log",
+       "uri": "file:///tmp/logs/data.log"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "IUT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "ENVIRONMENT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    },
+    {
+      "type": "TERC",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+    }
+  ]
+}

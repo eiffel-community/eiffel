@@ -28,7 +28,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelSourceChangeCreatedEvent](./eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)
    1. [EiffelSourceChangeSubmittedEvent](./eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
    1. [EiffelFlowContextDefinedEvent](./eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)
-   1. EiffelTestCaseStartedEvent
+   1. [EiffelTestCaseStartedEvent](./eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
    1. EiffelTestCaseFinishedEvent
    1. [EiffelTestSuiteStartedEvent](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
    1. [EiffelTestSuiteFinishedEvent](./eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
