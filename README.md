@@ -30,7 +30,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelFlowContextDefinedEvent](./eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)
    1. EiffelTestCaseStartedEvent
    1. EiffelTestCaseFinishedEvent
-   1. EiffelTestSuiteStartedEvent
+   1. [EiffelTestSuiteStartedEvent](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
    1. EiffelTestSuiteFinishedEvent
    1. EiffelTestExecutionRecipeCollectionCreated
    1. EiffelAnnouncementEvent

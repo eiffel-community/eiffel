@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "type": "EiffelTestSuiteStartedEvent",
+    "version": "1.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "name": "Pre-release installation and security verification",
+    "categories": [
+      "Pre-release tests"
+    ],
+    "types": [
+      "INSTALLABILITY",
+      "SECURITY"
+    ],
+    "liveLogs": [
+      {
+       "name": "My test log",
+       "uri": "file:///tmp/logs/data.log"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}
