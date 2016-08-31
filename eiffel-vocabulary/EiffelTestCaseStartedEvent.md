@@ -9,7 +9,7 @@ __Description:__ Identification of the executed test case.
 
 #### data.testCase.tracker
 __Type:__ String  
-__Required:__ Yes  
+__Required:__ No  
 __Description:__ The name of the test case tracker - typically a test management system.
 
 #### data.testCase.id
@@ -21,6 +21,11 @@ __Description:__ The unique identity of the executed test case.
 __Type:__ String  
 __Required:__ No  
 __Description:__ A location where a description of the test case can be retrieved.
+
+### data.executor
+__Type:__ String  
+__Required:__ No  
+__Description:__ The name of the test case executor, if applicable. This property can be used to identify tests executed by a particular test framework.
 
 ### data.parameters
 __Type:__ Object[]  

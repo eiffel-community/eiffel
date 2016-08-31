@@ -14,6 +14,7 @@
       "id": "TC-1234",
       "uri": "http://tm.company.com/browse/TC-1234"
     },
+    "executor": "My Test Framework",
     "parameters": [
       {
         "name": "login",
