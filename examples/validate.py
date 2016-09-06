@@ -42,20 +42,22 @@ def loadExamples():
     
 def validateExamples(examples, schemas):
   failures = []
+  numberOfSuccessfulValidations = 0
   unchecked = []
   
   for path, type, id, json in examples:
     if type in schemas:
       try:
         validate(json, schemas[type])
+        numberOfSuccessfulValidations += 1
       except Exception as e:
         failures.append((path, type, id, e))
     else:
       unchecked.append((path, type, id, json))
       
-  return failures, unchecked
+  return failures, unchecked, numberOfSuccessfulValidations
 
-def report(unchecked,failures,badSchemaFiles,badExampleFiles):
+def report(unchecked,failures,badSchemaFiles,badExampleFiles,numberOfSuccessfulValidations):
   for path, type, id, o in unchecked:
     print("WARNING: Missing schema for " + id + "(" + type + ") in " + path + ".")
 
@@ -70,10 +72,11 @@ def report(unchecked,failures,badSchemaFiles,badExampleFiles):
     
   print("")
   print("===SUMMARY===")
-  print("Bad schema files:  ", len(badSchemaFiles))
-  print("Bad example files: ", len(badExampleFiles))
-  print("Failed validations:", len(failures))
-  print("Unchecked examples:", len(unchecked))
+  print("Bad schema files:        ", len(badSchemaFiles))
+  print("Bad example files:       ", len(badExampleFiles))
+  print("Successful validations:  ", numberOfSuccessfulValidations)
+  print("Failed validations:      ", len(failures))
+  print("Unchecked examples:      ", len(unchecked))
   print("=============")
  
 schemas, badSchemaFiles = loadSchemas()
@@ -82,9 +85,9 @@ print("Loaded", len(schemas), "schemas.")
 examples, badExampleFiles = loadExamples()
 print("Loaded", len(examples), "examples.")
 
-failures, unchecked = validateExamples(examples, schemas)
+failures, unchecked, numberOfSuccessfulValidations = validateExamples(examples, schemas)
 
-report(unchecked,failures,badSchemaFiles,badExampleFiles)
+report(unchecked, failures, badSchemaFiles, badExampleFiles, numberOfSuccessfulValidations)
 
 if len(badSchemaFiles) > 0 or len(badExampleFiles) > 0 or len(failures) > 0:
   sys.exit("Validation failed.")
