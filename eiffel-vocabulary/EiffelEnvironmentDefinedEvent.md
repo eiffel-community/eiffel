@@ -39,6 +39,11 @@ __Type:__ String
 __Required:__ No  
 __Description:__ A URI identifying the environment description. This is the catch-all method of environment descriptions. Eiffel does not concern itself with the format or nature of the description, but merely points to its location.
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [URI example](../examples/events/EiffelEnvironmentDefinedEvent/uri.json)
 * [Host example](../examples/events/EiffelEnvironmentDefinedEvent/host.json)
