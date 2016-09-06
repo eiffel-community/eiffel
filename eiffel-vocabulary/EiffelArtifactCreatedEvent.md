@@ -92,6 +92,11 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The version of the dependency. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is supported.
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [Simple example](../examples/events/EiffelArtifactCreatedEvent/simple.json)
 * [Interface example](../examples/events/EiffelArtifactCreatedEvent/interface.json)

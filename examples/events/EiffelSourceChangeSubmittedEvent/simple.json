@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelSourceChangeSubmittedEvent",
-    "version": "1.0",
+    "version": "1.0.0",
     "time": 1234567890,
     "domainId": "example.domain",
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"

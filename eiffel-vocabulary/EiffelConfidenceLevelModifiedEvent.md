@@ -43,5 +43,10 @@ __Type:__ String
 __Required:__ No  
 __Description:__ Any group, such as a development team, committee or test group, to which the issuer belongs.
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [Simple example](../examples/events/EiffelConfidenceLevelModifiedEvent/simple.json)

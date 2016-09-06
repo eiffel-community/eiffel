@@ -191,5 +191,11 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The URI of the repo.
 
+## Version History
+| Version   | Introducing Commit |
+| --------- | ------------------ |
+| 1.0.0     | _Current version_  |
+
 ## Examples
 * [Simple example](../examples/events/EiffelSourceChangeCreatedEvent/simple.json)
+

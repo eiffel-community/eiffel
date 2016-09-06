@@ -16,9 +16,9 @@ __Description:__ The type of event. This field is required by the recipient of t
 
 ### meta.version
 __Type:__ String  
-__Format:__ Semantic version excluding PATCH.  
+__Format:__ [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html)  
 __Required:__ Yes  
-__Description:__ The version of the event type. This field is required by the recipient of the event to interpret the contents.
+__Description:__ The version of the event type. This field is required by the recipient of the event to interpret the contents. Please see [Versioning](./versioning.md) for more information.
 
 ### meta.time
 __Type:__ Integer  

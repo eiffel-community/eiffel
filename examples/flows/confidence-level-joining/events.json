@@ -2,7 +2,7 @@
   {
     "meta": {
       "type": "EiffelEnvironmentDefinedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 1000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
       "source": {
@@ -18,7 +18,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 2000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1",
       "source": {
@@ -34,7 +34,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 3000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2",
       "source": {
@@ -73,7 +73,7 @@
   {
     "meta": {
       "type": "EiffelArtifactPublishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 4000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3",
       "source": {
@@ -102,7 +102,7 @@
   {
     "meta": {
       "type": "EiffelActivityTriggeredEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 5000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4",
       "source": {
@@ -129,7 +129,7 @@
   {
     "meta": {
       "type": "EiffelActivityTriggeredEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 6000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5",
       "source": {
@@ -156,7 +156,7 @@
   {
     "meta": {
       "type": "EiffelActivityStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 7000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6",
       "source": {
@@ -175,7 +175,7 @@
   {
     "meta": {
       "type": "EiffelActivityStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 8000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7",
       "source": {
@@ -194,7 +194,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 9000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8",
       "source": {
@@ -218,7 +218,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 9000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9",
       "source": {
@@ -242,7 +242,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 9000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee10",
       "source": {
@@ -266,7 +266,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 9000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
       "source": {
@@ -290,7 +290,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 19000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12",
       "source": {
@@ -310,7 +310,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 14000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13",
       "source": {
@@ -330,7 +330,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 16000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14",
       "source": {
@@ -350,7 +350,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 15000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15",
       "source": {
@@ -370,7 +370,7 @@
   {
     "meta": {
       "type": "EiffelActivityFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 20000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee16",
       "source": {
@@ -392,7 +392,7 @@
   {
     "meta": {
       "type": "EiffelActivityFinishedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 20000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee17",
       "source": {
@@ -414,7 +414,7 @@
   {
     "meta": {
       "type": "EiffelConfidenceLevelModifiedEvent",
-      "version": "1.0",
+      "version": "1.0.0",
       "time": 21000,
       "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee18",
       "source": {
