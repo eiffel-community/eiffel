@@ -16,7 +16,7 @@ __Required in:__ None
 __Optional in:__ Any  
 __Legal targets:__ Any  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+__Description:__ Identifies a cause of the event occurring. Should not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
 
 ### CONTEXT
 __Required in:__ None  
@@ -24,7 +24,7 @@ __Optional in:__ Any
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), 
 [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the activity or test suite of which the event constitutes a part. SHOULD not be used in conjunction with __CAUSE__, see above. Note that multiple layers may be modeled using __CONTEXT__, e.g. an activity being part of another activity.
+__Description:__ Identifies the activity or test suite of which the event constitutes a part. Should not be used in conjunction with __CAUSE__, see above. Note that multiple layers may be modeled using __CONTEXT__, e.g. an activity being part of another activity.
 
 ### FLOW_CONTEXT
 __Required in:__ None  
