@@ -10,7 +10,7 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelTriggeredFinishedEvent"]
+          "enum": ["EiffelActivityTriggeredEvent"]
         },
         "version": {
           "type": "string",
