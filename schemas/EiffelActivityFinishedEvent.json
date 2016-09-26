@@ -9,7 +9,8 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": ["EiffelActivityFinishedEvent"]
         },
         "version": {
           "type": "string",
@@ -84,11 +85,11 @@
             "conclusion": {
               "type": "string",
               "enum": [
-                "SUCCESSFUL", 
-                "UNSUCCESSFUL", 
-                "FAILED", 
-                "ABORTED", 
-                "TIMED_OUT", 
+                "SUCCESSFUL",
+                "UNSUCCESSFUL",
+                "FAILED",
+                "ABORTED",
+                "TIMED_OUT",
                 "INCONCLUSIVE"
               ]
             },

@@ -9,7 +9,8 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": ["EiffelArtifactCreatedEvent"]
         },
         "version": {
           "type": "string",
@@ -124,8 +125,8 @@
           "type": "string",
           "enum": [
             "NONE",
-            "ANY", 
-            "EXACTLY_ONE", 
+            "ANY",
+            "EXACTLY_ONE",
             "AT_LEAST_ONE"
           ]
         },
