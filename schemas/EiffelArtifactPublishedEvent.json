@@ -9,7 +9,8 @@
           "type": "string"
         },
         "type": {
-          "type": "string"
+          "type": "string",
+          "enum": ["EiffelArtifactPublishedEvent"]
         },
         "version": {
           "type": "string",
@@ -86,9 +87,9 @@
               "type": {
                 "type": "string",
                 "enum": [
-                  "ARTIFACTORY", 
-                  "NEXUS", 
-                  "PLAIN", 
+                  "ARTIFACTORY",
+                  "NEXUS",
+                  "PLAIN",
                   "OTHER"
                 ]
               },
