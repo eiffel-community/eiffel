@@ -1,7 +1,7 @@
 # Event Design Guidelines
 The design of Eiffel events is governed by the following guidelines:
 
-* __What to communicate is volitinal; how to communicate it is not:__ Users shall never be required to use the entire Eiffel vocabulary to derive benefit. The ability to use only a small subset to solve a particular problem shall always be safeguarded. How to communicate what is to be communicated, however, shall leave minimal room for interpretation.
+* __What to communicate is volitional; how to communicate it is not:__ Users shall never be required to use the entire Eiffel vocabulary to derive benefit. The ability to use only a small subset to solve a particular problem shall always be safeguarded. How to communicate what is to be communicated, however, shall leave minimal room for interpretation.
 * __Events as engineering artifact proxies:__ Eiffel events represent engineering artifacts - items generated in software development – particularly in the realm of continuous integration and delivery. In this way, they are designed to act as proxies and handles of those artifacts.
 * __Referencing over duplication:__ Whenever feasible, do not duplicate what could instead be referenced – both in the case of Eiffel entities and non-Eiffel entities.
 * __Event content and delivery are separate concerns:__ Do not include envelope details in the event contents, and do not introduce technology dependencies into event contents.
