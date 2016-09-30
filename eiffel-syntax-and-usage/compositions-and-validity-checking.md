@@ -11,6 +11,8 @@ In this straight forward example, the integration of a system requires the prese
 
 Here composition C2 is legal, but C1 is not. The reason is that B1 requires version "[1.1.0,)" of com.example:a (that is, version 1.1.0 or later). In composition C1 there is no such artifact, but in composition C2 there is.
 
+Note that the [Maven version range syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is used to express version ranges.
+
 ### Checking Backend Implementation Validity
 In this example we imagine a microservice setup. The service interface I has no implementation itself - instead it requires one or more implementations to which it can forward requests. There are multiple versions of the interface included, affording clients backwards compatibility.
 
@@ -23,7 +25,7 @@ Composition C2, on the other hand, is valid. It also contains two instances of A
 ### GAV vs event links
 Wherever feasible, the Eiffel framework promotes the usage of event references to link to other artifacts. It may seem like a reasonable option to use event links to declare dependencies, as well.
 
-The pragmatic reason for using GAVs in this particular case is version ranges: with event links there is no practical way of declaring ranges.
+The pragmatic reason for using GAVs (short for [groupId, artifactId and version](https://maven.apache.org/guides/mini/guide-naming-conventions.html)) in this particular case is version ranges: with event links there is no practical way of declaring ranges.
 
 There is also a conceptual reason why event links are not suitable, however. Event links are consistently used to reference historical engineering artifacts - things that have been created and exist. Dependency declarations - particularly dependencies on version ranges - are much more intangible in nature. They do not simply provide a description of something that ought to be present. For this reason they can not be used as trace links, and are unsuitable for event reference representation.
 
