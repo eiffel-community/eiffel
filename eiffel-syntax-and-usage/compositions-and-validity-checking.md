@@ -11,7 +11,7 @@ In this straight forward example, the integration of a system requires the prese
 
 Here composition C2 is legal, but C1 is not. The reason is that B1 requires version "[1.1.0,)" of com.example:a (that is, version 1.1.0 or later). In composition C1 there is no such artifact, but in composition C2 there is.
 
-Note that the [Maven version range syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is used to express version ranges.
+Note that the [Maven version range syntax](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html) is used to express version ranges.
 
 ### Checking Backend Implementation Validity
 In this example we imagine a microservice setup. The service interface I has no implementation itself - instead it requires one or more implementations to which it can forward requests. There are multiple versions of the interface included, affording clients backwards compatibility.
