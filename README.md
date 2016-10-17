@@ -1,7 +1,7 @@
 # Eiffel
 The Eiffel framework enables technology agnostic enterprise scale continuous integration and delivery with maintained scalability, flexibility and traceability. Eiffel is based on the concept of decentralized real time messaging, both to drive the continuous integration and delivery system and to document it.
 
-This repository contains the Eiffel framework vocabulary, descriptions, guides and schemas along with links to relevant implementation repositories.
+This repository contains the Eiffel framework vocabulary, descriptions, guides and schemas along with links to relevant implementation repositories. For news, discussions and questions, please visit the [Eiffel Community Google group](https://groups.google.com/forum/#!forum/eiffel-community).
 
 Eiffel is licensed under the [Apache License 2.0](./LICENSE).
 
