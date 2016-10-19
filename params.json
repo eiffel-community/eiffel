@@ -1,6 +1,6 @@
 {
   "name": "Eiffel",
   "tagline": "The Eiffel protocol for continuous integration and delivery",
-  "body": "### Welcome to Eiffel\r\nThis page is a placeholder.",
+  "body": "### Welcome to Eiffel\r\nThe Eiffel protocol enables technology agnostic enterprise scale continuous integration and delivery with maintained scalability, flexibility and traceability. Eiffel is based on the concept of decentralized real time messaging, both to drive the continuous integration and delivery system and to document it.\r\n\r\nThis repository contains the Eiffel framework vocabulary, descriptions, guides and schemas along with links to relevant implementation repositories.\r\n\r\n### Community Resources\r\n* [Eiffel Community Google group](https://groups.google.com/forum/#!forum/eiffel-community)\r\n* [Eiffel Community Youtube channel](https://www.youtube.com/channel/UC3Zx84ecQ1jyGSc9709xrZg)",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
