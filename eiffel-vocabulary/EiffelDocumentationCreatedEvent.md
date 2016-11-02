@@ -1,7 +1,7 @@
 # EiffelDocumentationCreatedEvent
-The EiffelDocumentationCreatedEvent signifies that a documentation item (or a new version of a documentation item) has been created. This is intended for situations where documentation is not stored and treated as any other source (in which case [EiffelSourceChangeCreatedEvent](EiffelSourceChangeCreatedEvent.md) and [EiffelSourceChangeSubmittedEvent](EiffelSourceChangeSubmittedEvent.md)) SHOULD be used instead of EiffelDocumentationCreatedEvent.
+The EiffelDocumentationCreatedEvent signifies that a documentation item (or a new version of a documentation item) has been created. This is intended for situations where documentation is not stored and treated as any other source (in which case [EiffelSourceChangeCreatedEvent](EiffelSourceChangeCreatedEvent.md) and [EiffelSourceChangeSubmittedEvent](EiffelSourceChangeSubmittedEvent.md) SHOULD be used instead of EiffelDocumentationCreatedEvent).
 
-While the mandatory properties of the event are technology agnostic, optional properties can be used to add further detail, e.g. enabling automated documentation assembly.
+While the mandatory properties of the event are technology agnostic, optional properties can be used to add further detail supporting specific documentation systems, e.g. enabling automated documentation assembly.
 
 ## Data Members
 ### data.name
