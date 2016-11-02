@@ -16,7 +16,7 @@
   },
   "links": [
     {
-      "type": "CONTEXT",
+      "type": "PREVIOUS_VERSION",
       "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
     }
   ]
