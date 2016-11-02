@@ -18,27 +18,10 @@
       "action": "MODIFIED",
       "uri": "https://my-ci-server.com/activities/MyBuildActivity/config.xml"
     }
-  }  
-
-
-  "name": "Pre-release installation and security verification",
-    "categories": [
-      "Pre-release tests"
-    ],
-    "types": [
-      "INSTALLABILITY",
-      "SECURITY"
-    ],
-    "liveLogs": [
-      {
-       "name": "My test log",
-       "uri": "file:///tmp/logs/data.log"
-      }
-    ]
   },
   "links": [
     {
-      "type": "CONTEXT",
+      "type": "CAUSE",
       "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
     }
   ]
