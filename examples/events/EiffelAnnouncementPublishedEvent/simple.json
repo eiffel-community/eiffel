@@ -11,12 +11,12 @@
   "data": {
     "heading": "Serious incident",
     "body": "The third floor of the office is being flooded by out-of-control cookies.",
-    "uri": "http://cookie-report.com"
+    "uri": "http://cookie-report.com",
     "severity": "CRITICAL",
-    "identifiers": [
+    "tasg": [
       "COOKIES",
       "OFFICE_INCIDENT"
-    ],
+    ]
   }
   "links": [
     {
