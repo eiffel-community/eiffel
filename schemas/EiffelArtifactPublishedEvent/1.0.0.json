@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelArtifactCreatedEvent"]
+          "enum": ["EiffelArtifactPublishedEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -79,99 +80,27 @@
     "data": {
       "type": "object",
       "properties": {
-        "gav": {
-          "type": "object",
-          "properties": {
-            "groupId": {
-              "type": "string"
-            },
-            "artifactId": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "groupId",
-            "artifactId",
-            "version"
-          ],
-          "additionalProperties": false
-        },
-        "fileInformation": {
+        "locations": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "classifier": {
-                "type": "string"
+              "type": {
+                "type": "string",
+                "enum": [
+                  "ARTIFACTORY",
+                  "NEXUS",
+                  "PLAIN",
+                  "OTHER"
+                ]
               },
-              "extension": {
+              "uri": {
                 "type": "string"
               }
             },
             "required": [
-              "classifier",
-              "extension"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "buildCommand": {
-          "type": "string"
-        },
-        "requiresImplementation": {
-          "type": "string",
-          "enum": [
-            "NONE",
-            "ANY",
-            "EXACTLY_ONE",
-            "AT_LEAST_ONE"
-          ]
-        },
-        "dependsOn": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "groupId": {
-                "type": "string"
-              },
-              "artifactId": {
-                "type": "string"
-              },
-              "version": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "groupId",
-              "artifactId",
-              "version"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "implements": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "groupId": {
-                "type": "string"
-              },
-              "artifactId": {
-                "type": "string"
-              },
-              "version": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "groupId",
-              "artifactId",
-              "version"
+              "type",
+              "uri"
             ],
             "additionalProperties": false
           }
@@ -196,7 +125,7 @@
         }
       },
       "required": [
-        "gav"
+        "locations"
       ],
       "additionalProperties": false
     },

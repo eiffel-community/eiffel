@@ -1,4 +1,4 @@
-{
+ {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
   "properties": {
@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelConfidenceLevelModifiedEvent"]
+          "enum": ["EiffelActivityCanceledEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -79,30 +80,8 @@
     "data": {
       "type": "object",
       "properties": {
-        "name": {
+        "reason": {
           "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "enum": ["SUCCESS", "FAILURE", "INCONCLUSIVE"]
-        },
-        "issuer": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
-            },
-            "email": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "group": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
         },
         "customData": {
           "type": "array",
@@ -123,10 +102,6 @@
           }
         }
       },
-      "required": [
-        "name",
-        "value"
-      ],
       "additionalProperties": false
     },
     "links": {
@@ -154,5 +129,5 @@
     "data",
     "links"
   ],
-  "additionalProperties": false
+  "additonalProperties": false
 }
