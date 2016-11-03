@@ -25,7 +25,7 @@
               "id": "TC-1234",
               "uri": "http://tm.company.com/browse/TC-1234"
             },
-            "constraints": "http://tm.company.com/recipes/4093f621-17e1-4c7a-9d5b-22b4233f6e8b"
+            "constraints": "http://tm.company.com/executionConstraints/4093f621-17e1-4c7a-9d5b-22b4233f6e8b"
           },
           {
             "testCase": {
@@ -33,7 +33,7 @@
               "id": "TC-1234",
               "uri": "http://tm.company.com/browse/TC-1234"
             },
-            "constraints": "http://tm.company.com/recipes/4093f621-17e1-4c7a-9d5b-22b4233f6e8c"
+            "constraints": "http://tm.company.com/executionConstraints/4093f621-17e1-4c7a-9d5b-22b4233f6e8c"
           }      
         ]
       }
