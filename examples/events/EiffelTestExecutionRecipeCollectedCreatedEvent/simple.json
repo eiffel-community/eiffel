@@ -1,0 +1,48 @@
+{
+  "meta": {
+    "type": "EiffelTestExecutionRecipeCollectionCreatedEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "selectionStrategy": {
+      "tracker": "My Test Selector",
+      "id": "TCSS-1234/5",
+      "uri": "http://tm.company.com/browse/TCSS-1234?version=5"
+    },
+    "batches": [
+      {
+        "name": "First batch",
+        "priority": 1,
+        "recipes": [
+          {
+            "testCase": {
+              "tracker": "My Test Management System",
+              "id": "TC-1234",
+              "uri": "http://tm.company.com/browse/TC-1234"
+            },
+            "constraints": "http://tm.company.com/recipes/4093f621-17e1-4c7a-9d5b-22b4233f6e8b"
+          },
+          {
+            "testCase": {
+              "tracker": "My Test Management System",
+              "id": "TC-1234",
+              "uri": "http://tm.company.com/browse/TC-1234"
+            },
+            "constraints": "http://tm.company.com/recipes/4093f621-17e1-4c7a-9d5b-22b4233f6e8c"
+          }      
+        ]
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}
