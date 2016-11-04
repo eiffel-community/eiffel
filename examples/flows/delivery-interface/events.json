@@ -268,7 +268,13 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "testCase": {
+        "tracker": "My Test Management System",
+        "id": "TC-1234",
+        "uri": "http://tm.company.com/browse/TC-1234"
+      },
+      "executor": "My Test Framework",
+      "executionType": "AUTOMATED"
     },
     "links": [
       {
@@ -288,7 +294,13 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "testCase": {
+        "tracker": "My Test Management System",
+        "id": "TC-1234",
+        "uri": "http://tm.company.com/browse/TC-1234"
+      },
+      "executor": "My Test Framework",
+      "executionType": "AUTOMATED"
     },
     "links": [
       {
