@@ -10,7 +10,9 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "name": "John's Docker Image",
+      "version": "2.10.3",
+      "image": "johndoe/docker-whale:2.10.3"
     },
     "links": [
     ]
