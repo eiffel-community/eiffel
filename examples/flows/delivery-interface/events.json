@@ -10,7 +10,14 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "hgIdentifier": {
+        "commitId": "f7744f53cf93",
+        "repoUri": "https://myrepo.com/hg"
+      },
+      "submitter": {
+        "name": "Jane Doe",
+        "email": "jane.doe@company.com"
+      }
     },
     "links": [
     ]
@@ -97,7 +104,14 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "hgIdentifier": {
+        "commitId": "f7744f53cf94",
+        "repoUri": "https://myrepo.com/hg"
+      },
+      "submitter": {
+        "name": "John Doe",
+        "email": "john.doe@company.com"
+      }
     },
     "links": [
       {
@@ -148,7 +162,14 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "hgIdentifier": {
+        "commitId": "f7744f53cf95",
+        "repoUri": "https://myrepo.com/hg"
+      },
+      "submitter": {
+        "name": "Jane Doe",
+        "email": "jane.doe@company.com"
+      }
     },
     "links": [
       {
