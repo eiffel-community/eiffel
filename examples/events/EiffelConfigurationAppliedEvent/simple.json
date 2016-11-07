@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "type": "EiffelConfigurationAppliedEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "items": [
+      {
+        "type": "Activity",
+        "name": "MyBuildActivity",
+        "uri": "https://my-ci-server.com/activities/MyBuildActivity"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "CONFIGURATION_SOURCE",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    }
+  ]
+}
