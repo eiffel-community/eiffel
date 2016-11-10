@@ -24,7 +24,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelArtifactCreatedEvent](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
    1. [EiffelArtifactPublishedEvent](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
    1. [EiffelConfidenceLevelModifiedEvent](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
-   1. EiffelDocumentationCreatedEvent
+   1. [EiffelDocumentationCreatedEvent](./eiffel-vocabulary/EiffelDocumentationCreatedEvent.md)
    1. [EiffelEnvironmentDefinedEvent](./eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)
    1. [EiffelCompositionDefinedEvent](./eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
    1. [EiffelSourceChangeCreatedEvent](./eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)

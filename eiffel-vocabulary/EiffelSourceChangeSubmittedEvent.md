@@ -126,6 +126,11 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The URI of the repo.
 
+### data.universalResourceIdentifier
+__Type:__ String  
+__Required:__ No  
+__Description:__ A URI identifying the source change. This is intended as a catch-all alternative, particularly in cases where an SCM system is not used (or an SCM system lacking a specialized identifier property). That being said, SCM system usage is strongly recommended practice for all types of sources. As with other identifiers, this SHALL not be included together with any other identifier.
+
 ## Version History
 | Version   | Introducing Commit |
 | --------- | ------------------ |
@@ -133,3 +138,4 @@ __Description:__ The URI of the repo.
 
 ## Examples
 * [Simple example](../examples/events/EiffelSourceChangeSubmittedEvent/simple.json)
+* [URI example](../examples/events/EiffelSourceChangeSubmittedEvent/uri.json)

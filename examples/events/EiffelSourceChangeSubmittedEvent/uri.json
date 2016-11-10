@@ -7,7 +7,12 @@
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
   },
   "data": {
-    "universalResourceIdentifier": "https://mystorage.com/myChange",
+    "svnIdentifier": {
+      "revision": 42,
+      "directory": "trunk",
+      "repoName": "Mainline",
+      "repoUri": "svn://repohost/mainline"
+    },
     "submitter": {
       "name": "Jane Doe",
       "email": "jane.doe@company.com",

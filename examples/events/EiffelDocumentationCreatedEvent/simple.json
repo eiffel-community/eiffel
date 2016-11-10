@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "type": "EiffelDocumentationCreated",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "name": "My function documentation",
+    "path": "/docs/myFunctionDocumentation.txt",
+    "ditaTopicId": "suy123456123456123456",
+    "ditaRev": "6"
+  },
+  "links": [
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}
