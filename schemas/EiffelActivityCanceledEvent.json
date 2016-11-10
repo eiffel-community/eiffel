@@ -127,5 +127,6 @@
     "meta",
     "data",
     "links"
-  ]
+  ],
+  "additonalProperties": false
 }
