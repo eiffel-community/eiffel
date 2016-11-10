@@ -10,7 +10,7 @@
   },
   "data": {
     "name": "My function documentation",
-    "uri": "https://my-doc-store.com/abcdef12345",
+    "path": "/docs/myFunctionDocumentation.txt",
     "ditaTopicId": "suy123456123456123456",
     "ditaRev": "6"
   },

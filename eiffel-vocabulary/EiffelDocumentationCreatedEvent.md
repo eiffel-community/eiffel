@@ -1,5 +1,5 @@
 # EiffelDocumentationCreatedEvent
-The EiffelDocumentationCreatedEvent signifies that a documentation item (or a new version of a documentation item) has been created. This is intended for situations where documentation is not stored and treated as any other source (in which case [EiffelSourceChangeCreatedEvent](EiffelSourceChangeCreatedEvent.md) and [EiffelSourceChangeSubmittedEvent](EiffelSourceChangeSubmittedEvent.md) SHOULD be used instead of EiffelDocumentationCreatedEvent).
+The EiffelDocumentationCreatedEvent signifies that a documentation item (or a new version of a documentation item) has been created. The event itself does not identify the location of the documentation, but rather relies on [EiffelSourceChangeSubmittedEvent](./[EiffelSourceChangeSubmittedEvent].md), similarly to e.g. [EiffelConfigurationAppliedEvent](./[EiffelConfigurationAppliedEvent].md) using the __DOCUMENTATION_SOURCE__ link type. While it is recommended practice to use source code management systems for storing documentation, this information model is still applicable as long as the document can be accessed via a URI.
 
 While the mandatory properties of the event are technology agnostic, optional properties can be used to add further detail supporting specific documentation systems, e.g. enabling automated documentation assembly.
 
@@ -9,10 +9,10 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The name of the documentation item.
 
-### data.uri
+### data.path
 __Type:__ String  
-__Required:__ Yes  
-__Description:__ The URI at which the documentation item can be retrieved.
+__Required:__ No  
+__Description:__ A relative path identifying the file(s) of the documentation item within an SCM system, if applicable. To exemplify, if the documentation is available in a Git repository (as identified via the linked [EiffelSourceChangeSubmittedEvent](./[EiffelSourceChangeSubmittedEvent].md)), this property can be used to point to the exact location (e.g. "/documentation/myFile.txt").
 
 ### data.ditaTopicId
 __Type:__ String  
