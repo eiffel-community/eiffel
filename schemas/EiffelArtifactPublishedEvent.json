@@ -152,5 +152,6 @@
     "meta",
     "data",
     "links"
-  ]
+  ],
+  "additionalProperties": false
 }
