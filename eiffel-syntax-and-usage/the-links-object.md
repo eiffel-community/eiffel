@@ -76,10 +76,11 @@ __Description:__ Identifies the composition from which an artifact declared by [
 ### ENVIRONMENT
 __Required in:__ None  
 __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
-[EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)  
+[EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md), 
+[EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md)  
 __Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the environment in which an event occurred, e.g. in which environment an artifact was built.
+__Description:__ Identifies the environment in which an event occurred, e.g. in which environment an artifact was built or an issue was verified.
 
 ### ARTIFACT
 __Required in:__ [EiffelArtifactPublishedEvent](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)  
@@ -138,12 +139,13 @@ __Multiple allowed:__ No
 __Description:__ Identifies the relevant test case execution. In other words, [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) acts as a handle for a particular test case execution.
 
 ### IUT
-__Required in:__ [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)  
+__Required in:__ [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md), 
+[EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md)  
 __Optional in:__ None  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Item Under Test.
+__Description:__ Identifies the Item Under Test: what has been tested and/or been verified to address an issue.
 
 ### TERC
 __Required in:__ None  
@@ -179,3 +181,10 @@ __Optional in:__ None
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ This link identifies the [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) that is reused; in other words, the artifact that is not rebuilt for a given composition.
+
+### BASIS
+__Required in:__ None  
+__Optional in:__ [EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md)  
+__Legal targets:__ [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare the basis on which the verification statement(s) of [EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) have been issued.
