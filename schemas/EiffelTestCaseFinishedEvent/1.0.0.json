@@ -91,7 +91,7 @@
                 "INCONCLUSIVE"
               ]
             },
-            "outcome": {
+            "conclusion": {
               "type": "string",
               "enum": [
                 "SUCCESSFUL",
@@ -107,7 +107,7 @@
           },
           "required": [
             "verdict",
-            "outcome"
+            "conclusion"
           ],
           "additionalProperties": false
         },

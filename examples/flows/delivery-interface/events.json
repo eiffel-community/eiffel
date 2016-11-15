@@ -310,7 +310,7 @@
     "data": {
       "outcome": {
         "verdict": "PASSED",
-        "outcome": "SUCCESSFUL",
+        "conclusion": "SUCCESSFUL",
         "description": "Splendid!"
       },
       "persistentLogs": [
@@ -344,7 +344,7 @@
     "data": {
       "outcome": {
         "verdict": "PASSED",
-        "outcome": "SUCCESSFUL",
+        "conclusion": "SUCCESSFUL",
         "description": "Splendid!"
       }
     },
