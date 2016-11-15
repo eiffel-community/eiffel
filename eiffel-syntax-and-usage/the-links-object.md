@@ -166,3 +166,9 @@ __Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/Eif
 __Multiple allowed:__ Yes  
 __Description:__ Used in events summarizing multiple confidence levels. Example use case: the confidence level "allTestsOk" summarizes the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk", and consequently links to them via __SUB_CONFIDENCE_LEVEL__. This is intended for purely descriptive, rather than prescriptive, use.
 
+### CONFIGURATION_SOURCE
+__Required in:__ None  
+__Optional in:__ [EiffelConfigurationAppliedEvent](../eiffel-vocabulary/EiffelConfigurationAppliedEvent.md)  
+__Legal targets:__ [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Used to identify the configuration that has been applied to an item.
