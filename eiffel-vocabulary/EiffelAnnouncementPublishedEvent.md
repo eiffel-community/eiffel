@@ -23,11 +23,6 @@ __Required:__ Yes
 __Legal values:__ MINOR, MAJOR, CRITICAL, BLOCKER, CLOSED, CANCELED  
 __Description:__ The severity of the announcement. The CLOSED and CANCELED values SHOULD only be used when following up a previous announcement, i.e. in conjunction with a __MODIFIED_ANNOUNCEMENT__ link.
 
-### data.tags
-__Type:__ String[]  
-__Required:__ No  
-__Description:__ A list of strings which can be used to tag the announcement as relating to some particular topic(s).
-
 ## Version History
 | Version   | Introducing Commit |
 | --------- | ------------------ |
