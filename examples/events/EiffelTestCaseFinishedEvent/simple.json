@@ -11,8 +11,8 @@
   "data": {
     "outcome": {
       "verdict": "PASSED",
-      "outcome": "SUCCESSFUL",
-      "description": "Splendid!"
+      "conclusion": "SUCCESSFUL",
+      "description": "Accidentally started a fire in the lab during execution."
     },
     "persistentLogs": [
       {
