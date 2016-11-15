@@ -154,8 +154,8 @@ __Description:__ When declared in an [EiffelTestSuiteStartedEvent](../eiffel-voc
 
 ### MODIFIED_ANNOUNCEMENT
 __Required in:__ None  
-__Optional in:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md)  
-__Legal targets:__ [EiffelAnnouncementEvent](../eiffel-vocabulary/EiffelAnnouncementEvent.md)  
+__Optional in:__ [EiffelAnnouncementPublishedEvent](../eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)  
+__Legal targets:__ [EiffelAnnouncementPublishedEvent](../eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies an announcement of which this event represents an update or modification, if any. Example usage is to declare the end to a previously announced situation.
 
