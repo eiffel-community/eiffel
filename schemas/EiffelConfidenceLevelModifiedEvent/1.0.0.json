@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelActivityTriggeredEvent"]
+          "enum": ["EiffelConfidenceLevelModifiedEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -82,32 +83,27 @@
         "name": {
           "type": "string"
         },
-        "categories": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "value": {
+          "type": "string",
+          "enum": ["SUCCESS", "FAILURE", "INCONCLUSIVE"]
         },
-        "triggers": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "type": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              }
+        "issuer": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
             },
-            "required": [
-              "type"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "executionType": {
-          "type": "string"
+            "email": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "group": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
         },
         "customData": {
           "type": "array",
@@ -129,7 +125,8 @@
         }
       },
       "required": [
-        "name"
+        "name",
+        "value"
       ],
       "additionalProperties": false
     },

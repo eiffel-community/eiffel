@@ -30,14 +30,18 @@ def loadSchemas():
   schemaTuples, badSchemaFiles = loadAllJsonObjects("schemas")
   schemas = {}
   for path, fileName, o in schemaTuples:
-    schemas[fileName[:-5]] = o
+    schemaName = os.path.basename(os.path.dirname(path))
+    versionName = fileName[:-5]
+    schemas[schemaName + "-" + versionName] = o
+  
   return schemas, badSchemaFiles
     
 def loadExamples():
   exampleTuples, badExampleFiles = loadAllJsonObjects("examples")
   examples = []
   for path, fileName, o in exampleTuples:
-    examples.append((path, o["meta"]["type"], o["meta"]["id"], o))
+    examples.append((path, o["meta"]["type"], o["meta"]["version"], o["meta"]["id"], o))
+
   return examples, badExampleFiles
     
 def validateExamples(examples, schemas):
@@ -45,10 +49,11 @@ def validateExamples(examples, schemas):
   numberOfSuccessfulValidations = 0
   unchecked = []
   
-  for path, type, id, json in examples:
-    if type in schemas:
+  for path, type, version, id, json in examples:
+    schemaKey = type + "-" + version
+    if schemaKey in schemas:
       try:
-        validate(json, schemas[type])
+        validate(json, schemas[schemaKey])
         numberOfSuccessfulValidations += 1
       except Exception as e:
         failures.append((path, type, id, e))
