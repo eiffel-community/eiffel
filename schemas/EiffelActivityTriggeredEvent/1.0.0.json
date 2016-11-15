@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelArtifactPublishedEvent"]
+          "enum": ["EiffelActivityTriggeredEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -79,30 +80,35 @@
     "data": {
       "type": "object",
       "properties": {
-        "locations": {
+        "name": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "triggers": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
               "type": {
-                "type": "string",
-                "enum": [
-                  "ARTIFACTORY",
-                  "NEXUS",
-                  "PLAIN",
-                  "OTHER"
-                ]
+                "type": "string"
               },
-              "uri": {
+              "description": {
                 "type": "string"
               }
             },
             "required": [
-              "type",
-              "uri"
+              "type"
             ],
             "additionalProperties": false
           }
+        },
+        "executionType": {
+          "type": "string"
         },
         "customData": {
           "type": "array",
@@ -124,7 +130,7 @@
         }
       },
       "required": [
-        "locations"
+        "name"
       ],
       "additionalProperties": false
     },

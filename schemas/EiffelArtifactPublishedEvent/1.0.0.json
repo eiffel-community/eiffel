@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelConfidenceLevelModifiedEvent"]
+          "enum": ["EiffelArtifactPublishedEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -79,30 +80,30 @@
     "data": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
-        },
-        "value": {
-          "type": "string",
-          "enum": ["SUCCESS", "FAILURE", "INCONCLUSIVE"]
-        },
-        "issuer": {
-          "type": "object",
-          "properties": {
-            "name": {
-              "type": "string"
+        "locations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "ARTIFACTORY",
+                  "NEXUS",
+                  "PLAIN",
+                  "OTHER"
+                ]
+              },
+              "uri": {
+                "type": "string"
+              }
             },
-            "email": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "group": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
+            "required": [
+              "type",
+              "uri"
+            ],
+            "additionalProperties": false
+          }
         },
         "customData": {
           "type": "array",
@@ -124,8 +125,7 @@
         }
       },
       "required": [
-        "name",
-        "value"
+        "locations"
       ],
       "additionalProperties": false
     },

@@ -10,11 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelActivityStartedEvent"]
+          "enum": ["EiffelActivityFinishedEvent"]
         },
         "version": {
           "type": "string",
-          "pattern": "^(\\d+\\.)(\\d+\\.)(\\d+)$"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -79,10 +80,29 @@
     "data": {
       "type": "object",
       "properties": {
-        "executionUri": {
-          "type": "string"
+        "outcome": {
+          "type": "object",
+          "properties": {
+            "conclusion": {
+              "type": "string",
+              "enum": [
+                "SUCCESSFUL",
+                "UNSUCCESSFUL",
+                "FAILED",
+                "ABORTED",
+                "TIMED_OUT",
+                "INCONCLUSIVE"
+              ]
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "conclusion"
+          ]
         },
-        "liveLogs": {
+        "persistentLogs": {
           "type": "array",
           "items": {
             "type": "object",
@@ -120,7 +140,10 @@
           }
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "required": [
+        "outcome"
+      ]
     },
     "links": {
       "type": "array",
