@@ -182,7 +182,7 @@ __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtif
 __Multiple allowed:__ No  
 __Description:__ This link identifies the [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) that is reused; in other words, the artifact that is not rebuilt for a given composition.
 
-### BASIS
+### VERIFICATION_BASIS
 __Required in:__ None  
 __Optional in:__ [EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md)  
 __Legal targets:__ [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  

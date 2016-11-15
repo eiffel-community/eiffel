@@ -21,7 +21,7 @@
   },
   "links": [
     {
-      "type": "BASIS",
+      "type": "VERIFICATION_BASIS",
       "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
     },
     {
