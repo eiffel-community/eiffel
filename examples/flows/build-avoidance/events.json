@@ -46,7 +46,8 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "name": "My Composition",
+      "version": "1.0"
     },
     "links": [
       {
@@ -66,7 +67,8 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "name": "My Composition",
+      "version": "1.1"
     },
     "links": [
       {
@@ -315,7 +317,8 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "name": "Other Composition",
+      "version": "A"
     },
     "links": [
       {
@@ -351,7 +354,8 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "name": "Other Composition",
+      "version": "B"
     },
     "links": [
       {
