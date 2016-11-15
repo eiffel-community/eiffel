@@ -301,7 +301,7 @@
       "outcome": {
         "verdict": "PASSED",
         "conclusion": "SUCCESSFUL",
-        "description": "Splendid!"
+        "description": "There were no warnings."
       },
       "persistentLogs": [
         {
@@ -335,7 +335,7 @@
       "outcome": {
         "verdict": "PASSED",
         "conclusion": "SUCCESSFUL",
-        "description": "Splendid!"
+        "description": "System crashed, but recovered as expected."
       },
       "persistentLogs": [
       ]

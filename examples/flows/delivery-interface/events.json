@@ -311,7 +311,7 @@
       "outcome": {
         "verdict": "PASSED",
         "conclusion": "SUCCESSFUL",
-        "description": "Splendid!"
+        "description": "Logged 531 warnings."
       },
       "persistentLogs": [
         {
@@ -345,7 +345,7 @@
       "outcome": {
         "verdict": "PASSED",
         "conclusion": "SUCCESSFUL",
-        "description": "Splendid!"
+        "description": "This went really well!"
       }
     },
     "links": [
