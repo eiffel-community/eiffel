@@ -308,7 +308,21 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL",
+        "description": "Logged 531 warnings."
+      },
+      "persistentLogs": [
+        {
+         "name": "firstLog",
+         "uri": "http://myHost.com/firstLog"
+        },
+        {
+         "name": "otherLog",
+         "uri": "isbn:0-486-27557-4"
+        }
+      ]
     },
     "links": [
       {
@@ -328,7 +342,11 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL",
+        "description": "This went really well!"
+      }
     },
     "links": [
       {

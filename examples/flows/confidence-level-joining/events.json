@@ -298,7 +298,21 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL",
+        "description": "There were no warnings."
+      },
+      "persistentLogs": [
+        {
+         "name": "firstLog",
+         "uri": "http://myHost.com/firstLog"
+        },
+        {
+         "name": "otherLog",
+         "uri": "isbn:0-486-27557-4"
+        }
+      ]
     },
     "links": [
       {
@@ -318,7 +332,13 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL",
+        "description": "System crashed, but recovered as expected."
+      },
+      "persistentLogs": [
+      ]
     },
     "links": [
       {
@@ -338,7 +358,10 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL"
+      }
     },
     "links": [
       {
@@ -358,7 +381,10 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "outcome": {
+        "verdict": "PASSED",
+        "conclusion": "SUCCESSFUL"
+      }
     },
     "links": [
       {
