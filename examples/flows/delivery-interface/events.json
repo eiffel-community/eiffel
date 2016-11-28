@@ -26,7 +26,21 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "gitIdentifier": {
+        "commitId": "fd090b60a4aedc5161da9c035a49b14a319829b4",
+        "branch": "myBranch",
+        "repoName": "myPrivateRepo",
+        "repoUri": "https://github.com/johndoe/myPrivateRepo.git"
+      },
+      "issues": [
+        {
+          "type": "BUG",
+          "tracker": "JIRA",
+          "id": "JIRA-1234",
+          "uri": "http://jira.company.com/browse/JIRA-1234",
+          "transition": "RESOLVED"
+        }
+      ]
     },
     "links": [
       {
@@ -46,7 +60,20 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "gitIdentifier": {
+        "commitId": "fd090b60a4aedc5161da9c035a49b14a319829b4",
+        "branch": "myBranch",
+        "repoName": "myPrivateRepo",
+        "repoUri": "https://github.com/johndoe/myPrivateRepo.git"
+      },
+      "author": {
+        "name": "John Doe",
+        "email": "john.doe@company.com",
+        "id": "johndoe",
+        "group": "Team Gophers"
+      },
+      "issues": [
+      ]
     },
     "links": [
       {
@@ -94,7 +121,14 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "svnIdentifier": {
+        "revision": 5,
+        "directory": "myBranch",
+        "repoUri": "https://mycompany.com/svn/myRepo"
+      },
+      "author": {
+        "id": "johndoe"
+      }
     },
     "links": [
       {
