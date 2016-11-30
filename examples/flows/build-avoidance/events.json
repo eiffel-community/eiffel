@@ -10,7 +10,12 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "svnIdentifier": {
+        "revision": 42,
+        "directory": "trunk",
+        "repoName": "Mainline",
+        "repoUri": "svn://repohost/mainline"
+      }
     },
     "links": [
     ]
@@ -26,7 +31,12 @@
       }
     },
     "data": {
-      "placeholder": "The syntax of this event has not yet been defined."
+      "svnIdentifier": {
+        "revision": 43,
+        "directory": "trunk",
+        "repoName": "Mainline",
+        "repoUri": "svn://repohost/mainline"
+      }
     },
     "links": [
       {
