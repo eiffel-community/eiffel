@@ -1,6 +1,6 @@
 {
   "meta": {
-    "type": "EiffelFlowContextDefined",
+    "type": "EiffelFlowContextDefinedEvent",
     "version": "1.0.0",
     "time": 1234567890,
     "source": {
