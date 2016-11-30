@@ -11,7 +11,7 @@
   "data": {
     "outcome": {
       "verdict": "FAILED",
-      "outcome": "SUCCESSFUL",
+      "conclusion": "SUCCESSFUL",
       "description": "16 test failures."
     },
     "persistentLogs": [
