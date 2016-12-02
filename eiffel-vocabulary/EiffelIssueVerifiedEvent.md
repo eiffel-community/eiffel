@@ -4,8 +4,8 @@ The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, ha
 ## Data Members
 ### data.issues
 __Type:__ Object[]  
-__Required:__ No  
-__Description:__ A list of issues addressed by the change.
+__Required:__ Yes  
+__Description:__ A list of verified (successfully or not) issues.
 
 #### data.issues.type
 __Type:__ String  
