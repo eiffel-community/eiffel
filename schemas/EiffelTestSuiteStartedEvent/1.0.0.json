@@ -1,24 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "javaType": "com.ericsson.eiffel.remrem.semantics.events.EiffelTestSuiteStartedEvent",
+  "extendsJavaClass": "com.ericsson.eiffel.remrem.semantics.events.Event",
   "properties": {
     "meta": {
       "type": "object",
+	"javaType": "com.ericsson.eiffel.remrem.semantics.events.Meta",
       "properties": {
         "id": {
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [ "EiffelTestSuiteStartedEvent" ]
+          "type": "string"
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
           "default": "1.0.0"
         },
         "time": {
-          "type": "integer"
+          "type": "integer","format":"utc-millisec"
         },
         "tags": {
           "type": "array",
@@ -28,6 +29,7 @@
         },
         "source": {
           "type": "object",
+	 	  "javaType": "com.ericsson.eiffel.remrem.semantics.events.Source",
           "properties": {
             "domainId": {
               "type": "string"
@@ -40,6 +42,7 @@
             },
             "serializer": {
               "type": "object",
+	       "javaType": "com.ericsson.eiffel.remrem.semantics.events.GAV",
               "properties": {
                 "groupId": {
                   "type": "string"
@@ -79,6 +82,7 @@
     },
     "data": {
       "type": "object",
+	"javaType": "com.ericsson.eiffel.remrem.semantics.events.TestSuiteStartedData",
       "properties": {
         "name": {
           "type": "string"
@@ -118,6 +122,7 @@
           "type": "array",
           "items": {
             "type": "object",
+	    	"javaType": "com.ericsson.eiffel.remrem.semantics.events.PersistentLog",
             "properties": {
               "name": {
                 "type": "string"
@@ -137,11 +142,13 @@
           "type": "array",
           "items": {
             "type": "object",
+	    "javaType": "com.ericsson.eiffel.remrem.semantics.events.CustomData",
             "properties": {
               "key": {
                 "type": "string"
               },
               "value": {
+				"type": "string"
               }
             },
             "required": [
@@ -161,6 +168,7 @@
       "type": "array",
       "items": {
         "type": "object",
+	"javaType": "com.ericsson.eiffel.remrem.semantics.events.Link",
         "properties": {
           "type": {
             "type": "string"

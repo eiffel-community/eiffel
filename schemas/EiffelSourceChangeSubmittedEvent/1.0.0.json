@@ -1,24 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
+  "javaType": "com.ericsson.eiffel.remrem.semantics.events.EiffelSourceChangeSubmittedEvent",
+  "extendsJavaClass": "com.ericsson.eiffel.remrem.semantics.events.Event",
   "properties": {
     "meta": {
       "type": "object",
+	  "javaType": "com.ericsson.eiffel.remrem.semantics.events.Meta",
       "properties": {
         "id": {
           "type": "string"
         },
         "type": {
-          "type": "string",
-          "enum": [ "EiffelSourceChangeSubmittedEvent" ]
+          "type": "string"
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
           "default": "1.0.0"
         },
         "time": {
-          "type": "integer"
+          "type": "integer","format":"utc-millisec"
         },
         "tags": {
           "type": "array",
@@ -28,6 +29,7 @@
         },
         "source": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.Source",
           "properties": {
             "domainId": {
               "type": "string"
@@ -40,6 +42,7 @@
             },
             "serializer": {
               "type": "object",
+			  "javaType": "com.ericsson.eiffel.remrem.semantics.events.GAV",
               "properties": {
                 "groupId": {
                   "type": "string"
@@ -79,9 +82,11 @@
     },
     "data": {
       "type": "object",
+	  "javaType": "com.ericsson.eiffel.remrem.semantics.events.SourceChangeSubmittedData",
       "properties": {
         "submitter": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.Submitter",
           "properties": {
             "name": {
               "type": "string"
@@ -100,6 +105,7 @@
         },
         "gitIdentifier": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.GitIdentifier",
           "properties": {
             "commitId": {
               "type": "string"
@@ -122,6 +128,7 @@
         },
         "svnIdentifier": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.SVNIdentifier",
           "properties": {
             "revision": {
               "type": "integer"
@@ -145,6 +152,7 @@
         },
         "ccCompositeIdentifier": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.CCCompositeIdentifier",
           "properties": {
             "vobs": {
               "type": "array",
@@ -168,6 +176,7 @@
         },
         "hgIdentifier": {
           "type": "object",
+		  "javaType": "com.ericsson.eiffel.remrem.semantics.events.HGIdentifier",
           "properties": {
             "commitId": {
               "type": "string"
@@ -192,11 +201,13 @@
           "type": "array",
           "items": {
             "type": "object",
+	      "javaType": "com.ericsson.eiffel.remrem.semantics.events.CustomData",
             "properties": {
               "key": {
                 "type": "string"
               },
               "value": {
+		"type": "string"
               }
             },
             "required": [
@@ -213,6 +224,7 @@
       "type": "array",
       "items": {
         "type": "object",
+		"javaType": "com.ericsson.eiffel.remrem.semantics.events.Link",
         "properties": {
           "type": {
             "type": "string"
