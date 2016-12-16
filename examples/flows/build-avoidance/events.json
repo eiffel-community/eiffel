@@ -374,15 +374,15 @@
       },
       {
         "type": "ELEMENT",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13"
       },
       {
         "type": "ELEMENT",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14"
       },
       {
         "type": "ELEMENT",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15"
       },
       {
         "type": "ELEMENT",
@@ -391,6 +391,75 @@
       {
         "type": "PREVIOUS_VERSION",
         "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactReusedEvent",
+      "version": "1.0.0",
+      "time": 102100,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee13",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+    },
+    "links": [
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      },
+      {
+        "type": "REUSED_ARTIFACT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee5"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactReusedEvent",
+      "version": "1.0.0",
+      "time": 102200,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee14",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+    },
+    "links": [
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      },
+      {
+        "type": "REUSED_ARTIFACT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee6"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelArtifactReusedEvent",
+      "version": "1.0.0",
+      "time": 102300,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee15",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+    },
+    "links": [
+      {
+        "type": "COMPOSITION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      },
+      {
+        "type": "REUSED_ARTIFACT",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee7"
       }
     ]
   }

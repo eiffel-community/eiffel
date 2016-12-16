@@ -67,11 +67,11 @@ __Multiple allowed:__ Yes
 __Description:__ Identifies a latest previous version (there may be more than one in case of merges) of the engineering artifact the event represents, e.g. the previous version of the artifact, the previous version of the composition etc. The target event type SHALL be the same as the source event type.
 
 ### COMPOSITION
-__Required in:__ None  
+__Required in:__ [EiffelArtifactReusedEvent](../eiffel-vocabulary/EiffelArtifactReusedEvent.md)  
 __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the composition from which an artifact was built.
+__Description:__ Identifies the composition from which an artifact declared by [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) was built, or the composition for which an already existing artifact is declared reused by [EiffelArtifactReusedEvent](../eiffel-vocabulary/EiffelArtifactReusedEvent.md).
 
 ### ENVIRONMENT
 __Required in:__ None  
@@ -172,3 +172,10 @@ __Optional in:__ [EiffelConfigurationAppliedEvent](../eiffel-vocabulary/EiffelCo
 __Legal targets:__ [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Used to identify the configuration that has been applied to an item.
+
+### REUSED_ARTIFACT
+__Required in:__ [EiffelArtifactReusedEvent](../eiffel-vocabulary/EiffelArtifactReusedEvent.md)    
+__Optional in:__ None  
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ This link identifies the [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) that is reused; in other words, the artifact that is not rebuilt for a given composition.
