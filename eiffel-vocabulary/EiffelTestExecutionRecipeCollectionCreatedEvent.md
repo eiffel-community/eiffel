@@ -5,9 +5,9 @@ Just as Eiffel is an opinionated protocol, EiffelTestExecutionRecipeCollectionCr
 
 How the test selection service generates the recipe collection is, from the point of view of the Eiffel protocol, irrelevant. It may very well be from a statically defined list of test cases, or from an elaborate test selection algorithm weighing together a host of factors to determine the optimal set of test cases to execute at any particular time, or a combination of the two.
 
-The __data__ object consists of two main parts. __data.selectionStrategy__ identifies the strategy used to select the test cases and generate the recipe collection, while __data.batches__ is an array of batches of recipes. Batches are used to control the order of execution of test cases. Every batch has a priority to let the test executor order them in sequence, but within each batch no assumptions are made as to the execution order the test cases. This way the recipe collection can either allow the executor a high degree of freedom in scheduling the test executions, and/or prescribe the exact sequential order in which they must be executed.
+The __data__ object consists of two main parts. __data.selectionStrategy__ identifies the strategy used to select the test cases and generate the recipe collection, while __data.batches__ or __data.batchesUri__ contain or reference, respectively, the recipes. The recipes are grouped in batches, which are used to control the order of execution of test cases. Every batch has a priority to let the test executor order them in sequence, but within each batch no assumptions are made as to the execution order the test cases. This way the recipe collection can either allow the executor a high degree of freedom in scheduling the test executions, and/or prescribe the exact sequential order in which they must be executed. Each event SHALL include one and only one of __data.batches__ and __data.batchesUri__.
 
-Finally, each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does not explicitly include those contraints as part of the event syntax, for two reasons. First, such constraints can be very comprehensive, resulting in very large events, particularly for collections of thousands of recipes. Second, the nature of the constraints are highly dependent on technology domain and test execution framework. There are three questions that typically need to be answered, however: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
+Finally, each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does control the syntax of these constraints, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
 
 ## Data Members
 ### data.selectionStrategy
@@ -30,10 +30,15 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The URI at which the the selection strategy that generated the test execution recipe collection can be retrieved.
 
+### data.batchesUri
+__Type:__ String  
+__Required:__ No  
+__Description:__ A URI at which at which the array of test execution batches can be fetched. The format of the document at this URI SHALL be on the format prescribed by __data.batches__ (i.e. ``` [ { "name": "Batch 1", ...}, {...}] ```). Each event SHALL include one and only one of __data.batches__ and __data.batchesUri__.
+
 ### data.batches
 __Type:__ Object[]  
-__Required:__ Yes  
-__Description:__ A list of batches of recipes.
+__Required:__ No  
+__Description:__ A list of batches of recipes. Each event SHALL include one and only one of __data.batches__ and __data.batchesUri__. In the interest of keeping message sizes small, it is recommended to use __data.batches__ only for limited numbers of test cases (on the order of ten executions). For larger numbers of executions, __data.batchesUri__ SHOULD be used instead.
 
 #### data.batches.name
 __Type:__ String  
@@ -71,9 +76,9 @@ __Required:__ No
 __Description:__ A location where a description of the test case can be retrieved.
 
 ##### data.batches.recipes.constraints
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ A URI identifying the constraints of the test execution recipe. Eiffel does not prescribe the format of the constraints document, but recognizes that the nature and syntax of such a document varies with technology domains and test execution frameworks. That being said, there are three questions that typically need to be answered in such a document: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+__Type:__ Object  
+__Required:__ No  
+__Description:__ Any constraints of the execution. The syntax of this object is not controlled, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
 
 ## Version History
 | Version   | Introducing Commit |

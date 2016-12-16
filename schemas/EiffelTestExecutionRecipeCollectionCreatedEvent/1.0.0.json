@@ -98,6 +98,9 @@
           ],
           "additionalProperties": false
         },
+        "batchesUri": {
+          "type": "string"
+        },
         "batches": {
           "type": "array",
           "items": {
@@ -133,7 +136,7 @@
                       "additionalProperties": false
                     },
                     "constraints": {
-                      "type": "string"
+                      "type": "object"
                     }
                   },
                   "required": [
@@ -171,8 +174,7 @@
         }
       },
       "required": [
-        "selectionStrategy",
-        "batches"
+        "selectionStrategy"
       ],
       "additionalProperties": false
     },
