@@ -55,6 +55,11 @@ __Type:__ Object[]
 __Required:__ Yes  
 __Description:__ The collection of test execution recipes within the batch.
 
+##### data.batches.recipes.id
+__Type:__ String  
+__Required:__ Yes  
+__Description:__ A UUID identifying the unique execution. Note that this is different from the id of a test case, in two ways. First, a test case is a (presumably) persistnent entity, whereas an execution is transient in nature. Second, a test case may be executed any number of times in any given recipe collection.
+
 ##### data.batches.recipes.testCase
 __Type:__ Object  
 __Required:__ Yes  
@@ -79,6 +84,21 @@ __Description:__ A location where a description of the test case can be retrieve
 __Type:__ Object  
 __Required:__ No  
 __Description:__ Any constraints of the execution. The syntax of this object is not controlled, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+
+#### data.batches.dependencies
+__Type:__ Object[]  
+__Required:__ No  
+__Description:__ A list of test case execution dependencies. Ideally, test cases are atomic and can be executed in isolation. In cases where a test case assumes that another test case has been executed previously in the same environment, however, this property can be used to specify that. It serves as an instruction to the test executor to place two executions subsequent to one another in the same environment.
+
+##### data.batches.dependencies.dependency
+__Type:__ String  
+__Required:__ Yes  
+__Description:__ The UUID of the dependency execution (__data.batches.recipes.id__), i.e. the execution that shall be performed prior to that of the dependent.
+
+##### data.batches.dependencies.dependent
+__Type:__ String  
+__Required:__ Yes  
+__Description:__ The UUID of the dependent execution (__data.batches.recipes.id__), i.e. the execution that shall be performed only after that of the dependency.
 
 ## Version History
 | Version   | Introducing Commit |
