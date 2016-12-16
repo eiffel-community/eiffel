@@ -10,7 +10,7 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestCaseFinishedEvent" ]
+          "enum": [ "EiffelIssueVerifiedEvent" ]
         },
         "version": {
           "type": "string",
@@ -80,70 +80,46 @@
     "data": {
       "type": "object",
       "properties": {
-        "outcome": {
-          "type": "object",
-          "properties": {
-            "verdict": {
-              "type": "string",
-              "enum": [
-                "PASSED",
-                "FAILED",
-                "INCONCLUSIVE"
-              ]
-            },
-            "conclusion": {
-              "type": "string",
-              "enum": [
-                "SUCCESSFUL",
-                "FAILED",
-                "ABORTED",
-                "TIMED_OUT",
-                "INCONCLUSIVE"
-              ]
-            },
-            "description": {
-              "type": "string"
-            },
-            "metrics": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "value": {
-                  }
-                },
-                "required": [
-                  "name",
-                  "value"
-                ],
-                "additionalProperties": false
-              }
-            }
-          },
-          "required": [
-            "verdict",
-            "conclusion"
-          ],
-          "additionalProperties": false
-        },
-        "persistentLogs": {
+        "issues": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "name": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "BUG",
+                  "IMPROVEMENT",
+                  "FEATURE",
+                  "WORK_ITEM",
+                  "REQUIREMENT",
+                  "OTHER"
+                ]
+              },
+              "tracker": {
+                "type": "string"
+              },
+              "id": {
                 "type": "string"
               },
               "uri": {
                 "type": "string"
+              },
+              "value": {
+                "type": "string",
+                "enum": [
+                  "SUCCESS",
+                  "FAILURE",
+                  "INCONCLUSIVE"
+                ]
               }
             },
             "required": [
-              "name",
-              "uri"
+              "type",
+              "tracker",
+              "id",
+              "uri",
+              "value"
             ],
             "additionalProperties": false
           }
@@ -168,7 +144,7 @@
         }
       },
       "required": [
-        "outcome"
+        "issues"
       ],
       "additionalProperties": false
     },

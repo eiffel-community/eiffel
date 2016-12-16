@@ -34,10 +34,10 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelTestCaseFinishedEvent](./eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)
    1. [EiffelTestSuiteStartedEvent](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
    1. [EiffelTestSuiteFinishedEvent](./eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
+   1. [EiffelIssueVerifiedEvent](./eiffel-vocabulary/EiffelIssueVerifiedEvent.md)
    1. EiffelTestExecutionRecipeCollectionCreated
    1. [EiffelAnnouncementPublishedEvent](./eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)
    1. [EiffelConfigurationAppliedEvent](./eiffel-vocabulary/EiffelConfigurationAppliedEvent.md)
-   1. EiffelConfigurationChangedEvent
 1. Usage Examples
    1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
    1. [Delivery Interface](./usage-examples/delivery-interface.md)
