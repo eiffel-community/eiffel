@@ -180,12 +180,6 @@
         "name": {
           "type": "string"
         },
-        "contentTypes": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
         "customData": {
           "type": "array",
           "items": {

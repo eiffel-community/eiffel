@@ -97,11 +97,6 @@ __Type:__ String
 __Required:__ No  
 __Description:__ Any (colloquial) name of the artifact. Unlike __data.gav__, this is not intended as an unambiguous identifier of the artifact, but as a descriptive and human readable name.
 
-### data.contentTypes
-__Type:__ String[]  
-__Required:__ No  
-__Description:__ Any types of content included in the artifact, such as sources, binaries, audio, video or various types of documentation. Because of the high degree of variance from one case to the next, the values of this property are not standardized. Hence, type naming conventions may vary.
-
 ## Version History
 | Version   | Introducing Commit |
 | --------- | ------------------ |
