@@ -36,6 +36,21 @@ __Type:__ String
 __Required:__ No  
 __Description:__ A verbose description of the test case outcome, designed to provide human readers with further information.
 
+#### data.outcome.metrics
+__Type:__ Object[]  
+__Required:__ No  
+__Description:__ A list of metrics collected during the test case execution. Note that while complete freedom is allowed in metrics names and value types, it is highly recommended to keep reported metrics concise and consistent. In other words, do not include excessive amounts of data (use __data.persistentLogs__ for that), and avoid unnecessary variations in value names or types over time.
+
+##### data.outcome.metrics.name
+__Type:__ String  
+__Required:__ No  
+__Description:__ The metrics name.
+
+##### data.outcome.metrics.value
+__Type:__ Any  
+__Required:__ No  
+__Description:__ The metrics value.
+
 ### data.persistentLogs
 __Type:__ Object[]  
 __Required:__ No  

@@ -12,7 +12,21 @@
     "outcome": {
       "verdict": "PASSED",
       "conclusion": "SUCCESSFUL",
-      "description": "Accidentally started a fire in the lab during execution."
+      "description": "Accidentally started a fire in the lab during execution.",
+      "metrics": [
+        {
+          "name": "myMetric",
+          "value": 5
+        },
+        {
+          "name": "throughput",
+          "value": 8.325
+        },
+        {
+          "name": "somethingElse",
+          "value": "hello"
+        }
+      ]
     },
     "persistentLogs": [
       {

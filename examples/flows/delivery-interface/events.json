@@ -414,7 +414,13 @@
       "outcome": {
         "verdict": "PASSED",
         "conclusion": "SUCCESSFUL",
-        "description": "This went really well!"
+        "description": "This went really well!",
+        "metrics": [
+          {
+            "name": "performance",
+            "value": 42
+          }
+        ]
       }
     },
     "links": [
