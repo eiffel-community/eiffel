@@ -177,6 +177,9 @@
             "additionalProperties": false
           }
         },
+        "name": {
+          "type": "string"
+        },
         "customData": {
           "type": "array",
           "items": {
