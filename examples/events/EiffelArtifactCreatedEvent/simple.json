@@ -38,7 +38,8 @@
         "extension": "exe"
       }
     ],
-    "buildCommand": "/my/build/command with arguments"
+    "buildCommand": "/my/build/command with arguments",
+    "name": "Full verbose artifact name"
   },
   "links": [
     {

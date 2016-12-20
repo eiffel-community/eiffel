@@ -92,6 +92,11 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The version of the dependency. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is supported.
 
+### data.name
+__Type:__ String  
+__Required:__ No  
+__Description:__ Any (colloquial) name of the artifact. Unlike __data.gav__, this is not intended as an unambiguous identifier of the artifact, but as a descriptive and human readable name.
+
 ## Version History
 | Version   | Introducing Commit |
 | --------- | ------------------ |
