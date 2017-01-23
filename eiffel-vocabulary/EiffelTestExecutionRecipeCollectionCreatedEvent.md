@@ -106,4 +106,5 @@ __Description:__ The UUID of the dependent execution (__data.batches.recipes.id_
 | 1.0.0     | _Current version_  |
 
 ## Examples
-* [Simple example](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/simple.json)
+* [Example using data.batches](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batches.json)
+* [Example using data.batchesUri](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batchesUri.json)
