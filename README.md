@@ -35,7 +35,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelTestSuiteStartedEvent](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
    1. [EiffelTestSuiteFinishedEvent](./eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
    1. [EiffelIssueVerifiedEvent](./eiffel-vocabulary/EiffelIssueVerifiedEvent.md)
-   1. EiffelTestExecutionRecipeCollectionCreated
+   1. [EiffelTestExecutionRecipeCollectionCreatedEvent](./eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)
    1. [EiffelAnnouncementPublishedEvent](./eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)
    1. [EiffelConfigurationAppliedEvent](./eiffel-vocabulary/EiffelConfigurationAppliedEvent.md)
 1. Usage Examples

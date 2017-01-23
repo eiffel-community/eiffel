@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "type": "EiffelTestExecutionRecipeCollectionCreatedEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "source": {
+      "domainId": "example.domain"
+    },
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "selectionStrategy": {
+      "tracker": "My Test Selector",
+      "id": "TCSS-1234/5",
+      "uri": "http://tm.company.com/browse/TCSS-1234?version=5"
+    },
+    "batches": [
+      {
+        "name": "First batch",
+        "priority": 1,
+        "recipes": [
+          {
+            "id": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee0",
+            "testCase": {
+              "tracker": "My Test Management System",
+              "id": "TC-1234",
+              "uri": "http://tm.company.com/browse/TC-1234"
+            },
+            "constraints": {
+              "load": 10000,
+              "environment": {
+                "os": "ubuntu-15.04",
+                "MY_PATH": "/home/lt-worf"
+              }
+            }
+          },
+          {
+            "id": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee1",
+            "testCase": {
+              "tracker": "My Test Management System",
+              "id": "TC-1234",
+              "uri": "http://tm.company.com/browse/TC-1234"
+            },
+            "constraints": {
+              "load": 500,
+              "environment": {
+                "os": "ubuntu-16.04.1",
+                "MY_PATH": "/home/cpt-picard"
+              }
+            }
+          }      
+        ],
+        "dependencies": [
+          {
+            "dependent": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee0",
+            "dependency": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee1"
+          }
+        ]
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    }
+  ]
+}
