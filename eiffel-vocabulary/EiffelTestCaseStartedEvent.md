@@ -1,4 +1,4 @@
-# EiffelTestCaseStartedEvent
+# EiffelTestCaseStartedEvent (TCS)
 The EiffelTestCaseStartedEvent declares that the execution of a test case has commenced. This can either be declared stand-alone or as part of an activity or test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively. 
 
 ## Data Members

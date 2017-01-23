@@ -1,4 +1,4 @@
-# EiffelConfigurationAppliedEvent
+# EiffelConfigurationAppliedEvent (CA)
 The EiffelConfigurationAppliedEvent signifies that the configuration of an item, typically an actor within the continuous integration and delivery pipeline, has changed.
 
 The event itself does not declare what the change is, only that it has been applied to an item. To identify the actual configuration source, the dedicated __CONFIGURATION_SOURCE__ link type is used, as described in the documentation of [the links object](../eiffel-syntax-and-usage/the-links-object.md).
