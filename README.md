@@ -36,7 +36,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelTestSuiteFinishedEvent (TSF)](./eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
    1. [EiffelIssueVerifiedEvent (IV)](./eiffel-vocabulary/EiffelIssueVerifiedEvent.md)
    1. [EiffelTestExecutionRecipeCollectionCreatedEvent (TERCC)](./eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)
-   1. [EiffelAnnouncementPublishedEvent (AP)](./eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)
+   1. [EiffelAnnouncementPublishedEvent (AnnP)](./eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)
    1. [EiffelConfigurationAppliedEvent (CA)](./eiffel-vocabulary/EiffelConfigurationAppliedEvent.md)
 1. Usage Examples
    1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
