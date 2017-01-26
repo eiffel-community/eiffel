@@ -1,4 +1,4 @@
-# EiffelArtifactCreatedEvent
+# EiffelArtifactCreatedEvent (ArtC)
 The EiffelArtifactCreatedEvent declares that a software artifact has been created, what its coordinates are, what it contains and how it was created.
 
 ## Data Members

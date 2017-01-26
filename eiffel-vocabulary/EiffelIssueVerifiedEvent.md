@@ -1,4 +1,4 @@
-# EiffelIssueVerifiedEvent
+# EiffelIssueVerifiedEvent (IV)
 The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, has been verified by some means. It is different from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md) in that multiple test case executions may serve as the basis for a single verification or, conversely, multiple issues may be verified based on a single test case execution.
 
 ## Data Members
