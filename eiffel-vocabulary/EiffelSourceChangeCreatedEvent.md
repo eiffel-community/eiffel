@@ -1,4 +1,4 @@
-# EiffelSourceChangeCreatedEvent
+# EiffelSourceChangeCreatedEvent (SCC)
 The EiffelSourceChangeCreatedEvent declares that a change to sources has been made, but not yet submitted (see [EiffelSourceChangeSubmittedEvent](./EiffelSourceChangeSubmittedEvent.md)). This can be used to represent a change done on a private branch, undergoing review or made in a forked repository. Unlike EiffelSourceChangeSubmittedEvent, EiffelSourceChangeCreatedEvent _describes the change_ in terms of who authored it and which issues it addressed.
 
 Where changes are integrated (or "submitted") directly on a shared branch of interest (e.g. "master", "dev" or "mainline") both EiffelSourceChangeCreatedEvent and EiffelSourceChangeSubmittedEvent are sent together.

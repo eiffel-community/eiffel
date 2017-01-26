@@ -1,4 +1,4 @@
-# EiffelSourceChangeSubmittedEvent
+# EiffelSourceChangeSubmittedEvent (SCS)
 The EiffelSourceChangeSubmittedEvent declares that a change has been integrated into to a shared source branch of interest (e.g. "master", "dev" or "mainline") as opposed to a private or local branch. Note that it does not describe what has changed, but instead uses the __CHANGE__ link type to reference [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md).
 
 Typical use cases for EiffelSourceChangeSubmittedEvent is to signal that a patch has passed code review and been submitted or that a feature/topic/team branch has been merged into the mainline/trunk/master. Where changes are made directly on the mainline, it is recommended to send both [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md) and EiffelSourceChangeSubmittedEvent together for information completeness.

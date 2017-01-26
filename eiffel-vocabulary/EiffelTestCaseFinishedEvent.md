@@ -1,4 +1,4 @@
-# EiffelTestCaseFinishedEvent
+# EiffelTestCaseFinishedEvent (TCF)
 The EiffelTestCaseFinishedEvent declares that a previously started test case (declared by [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) has finished and reports the outcome.
 
 Note that while similar, the __data.outcome__ object is different from that of [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md). The outcome of the test case reports not only the conclusion of the test case execution - whether the test case was successfully executed - but also passes a verdict on the item under test. To highlight this conceptual difference, both __data.outcome.verdict__ and __data.outcome.conclusion__ are included.

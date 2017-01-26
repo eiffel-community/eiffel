@@ -1,4 +1,4 @@
-# EiffelCompositionDefinedEvent
+# EiffelCompositionDefinedEvent (CD)
 The EiffelCompositionDefinedEvent declares a composition of items (artifacts, sources and other compositions) has been defined, typically with the purpose of enabling further downstream artifacts to be generated.
 
 ## Data Members

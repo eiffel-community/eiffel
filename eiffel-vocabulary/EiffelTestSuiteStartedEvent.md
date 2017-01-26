@@ -1,4 +1,4 @@
-# EiffelTestSuiteStartedEvent
+# EiffelTestSuiteStartedEvent (TSS)
 The EiffelTestSuiteStartedEvent declares that the execution of a test suite has started. This can either be declared stand-alone or as part of an activity or other test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively. 
 
 In Eiffel, a test suite is nothing more or less than a collection of test case executions (see [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) and/or other test suite executions. The executed test suite may be an ad-hoc transient grouping of test cases that were executed at a particular time or place or for a particular purpose or a persistent entity tracked in a test management system - Eiffel makes no distinction or assumptions either way.
