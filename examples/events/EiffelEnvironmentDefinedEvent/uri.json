@@ -5,7 +5,7 @@
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
     "source": {
-      "domainId": "example.domain"
+      "name": "Environment Manager"
     }
   },
   "data": {

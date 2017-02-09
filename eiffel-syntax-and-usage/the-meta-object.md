@@ -35,13 +35,13 @@ __Description:__ Any tags or keywords associated with the events, for searchabil
 ### meta.source
 __Type:__ Object  
 __Format:__  
-__Required:__ Yes  
-__Description:__ A description of the event sender. Primarily for traceability purposes.
+__Required:__ No  
+__Description:__ A description of the source of the event. This object is primarily for traceability purposes, and while optional, some form of identification of the source is __HIGHLY RECOMMENDED__. It offers multiple methods of identifying the source of the event, techniques which may be select from based on the technology domain and needs in any particular use case.
 
 #### meta.source.domainId
 __Type:__ String  
 __Format:__ Free text  
-__Required:__ Yes  
+__Required:__ No  
 __Description:__ Identifies the domain that produced an event. A domain is an infrastructure topological concept, which may or may not corresponds to an organization or product structures. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Also, keep in mind that all names are more or less prone to change. Particularly, it is recommended to avoid organizational names or site names, as organizations tend to be volatile and development is easily relocated. Relatively speaking, product and component names tend to be more stable and are therefore encouraged, while code names may be an option. You need to decide what is the most sensible option in your case.
 
 #### meta.source.host

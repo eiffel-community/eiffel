@@ -3,10 +3,7 @@
     "id": "e1e93f13-7c3c-4f17-9753-ebf0c86ff1c2",
     "type": "EiffelActivityTriggeredEvent",
     "version": "1.0.0",
-    "time": 1234567890,
-    "source": {
-      "domainId": "example.domain"
-    }
+    "time": 1234567890
   },
   "data": {
     "name": "Component X Build",

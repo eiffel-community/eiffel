@@ -62,9 +62,6 @@
               "type": "string"
             }
           },
-          "required": [
-            "domainId"
-          ],
           "additionalProperties": false
         }
       },
@@ -72,8 +69,7 @@
         "id",
         "type",
         "version",
-        "time",
-        "source"
+        "time"
       ],
       "additionalProperties": false
     },

@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "time": 1234567890,
     "source": {
-      "domainId": "example.domain"
+      "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
     },
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
   },

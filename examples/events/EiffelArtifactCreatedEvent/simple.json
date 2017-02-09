@@ -5,7 +5,6 @@
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
     "source": {
-      "domainId": "example.domain",
       "serializer": {
         "groupId": "com.mycompany.tools",
         "artifactId": "eiffel-serializer",
