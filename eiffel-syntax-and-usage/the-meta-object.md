@@ -35,7 +35,7 @@ __Description:__ Any tags or keywords associated with the events, for searchabil
 ### meta.source
 __Type:__ Object  
 __Format:__  
-__Required:__ Yes
+__Required:__ Yes  
 __Description:__ A description of the event sender. Primarily for traceability purposes.
 
 #### meta.source.domainId
