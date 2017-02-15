@@ -25,7 +25,7 @@ Example:
   * Derived: CL2(C1.v1) = SUCCESS, CL2(C2.v1) = FAILURE, CL2(C3.v1) = SUCCESS
   * ... where the derived confidence levels indicates the contexts A1.v1 has been used in.
 5. As there was a problem with C2 a new version, C2.v2, is created, using the same A.v1.
-6. V2.v2 passes the tests and get CL2(C2.v2) = SUCCESS
+6. C2.v2 passes the tests and get CL2(C2.v2) = SUCCESS
 7. At this point the total set of confidence levels on A1.v1 is
   * Direct: CL1(A.v1) = SUCCESS
   * Derived: CL2(C1.v1) = SUCCESS, CL2(C2.v1) = FAILURE, Cl2(C2.V2) = SUCCESS, CL2(C3.v1) = SUCCESS
