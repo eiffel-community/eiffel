@@ -27,6 +27,11 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The name of the test case executor, if applicable. This property can be used to identify tests executed by a particular test framework.
 
+### data.recipeId
+__Type:__ String  
+__Required:__ No  
+__Description:__ If this test case execution was the result of an Execution Recipe, as defined by an [EiffelTestExecutionRecipeCollectionCreatedEvent](./EiffelTestExecutionRecipeCollectionCreatedEvent.md), this UUID SHALL match the relevant __data.batches.recipes.id__ in that event.
+
 ### data.parameters
 __Type:__ Object[]  
 __Required:__ No  
