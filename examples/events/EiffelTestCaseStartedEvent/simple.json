@@ -12,6 +12,7 @@
       "uri": "http://tm.company.com/browse/TC-1234"
     },
     "executor": "My Test Framework",
+    "recipeId": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee0",
     "parameters": [
       {
         "name": "login",
