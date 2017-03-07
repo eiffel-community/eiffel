@@ -17,10 +17,15 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The unique identity of the executed test case.
 
+#### data.testCase.version
+__Type:__ String  
+__Required:__ No  
+__Description:__ The unique version of the executed test case identity.
+
 #### data.testCase.uri
 __Type:__ String  
 __Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved.
+__Description:__ A location where a description of the test case can be retrieved. Whether the uri includes the version of the test case or just its id is up to the user of the protocol to decide.
 
 ### data.executor
 __Type:__ String  
