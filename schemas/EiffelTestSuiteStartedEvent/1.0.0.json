@@ -10,11 +10,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestSuiteStartedEvent" ]
+          "enum": [
+            "EiffelTestSuiteStartedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
+          "enum": [
+            "1.0.0"
+          ],
           "default": "1.0.0"
         },
         "time": {
@@ -108,6 +112,27 @@
               "STABILITY",
               "USABILITY"
             ]
+          }
+        },
+        "testCases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tracker": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
           }
         },
         "liveLogs": {

@@ -3,24 +3,9 @@ The EiffelTestCaseStartedEvent declares that the execution of a test case has co
 
 ## Data Members
 ### data.testCase
-__Type:__ Object  
+__Type:__ [Test Case Object](../eiffel-syntax-and-usage/common-data-objects.md#test-case-object)  
 __Required:__ Yes  
 __Description:__ Identification of the executed test case.
-
-#### data.testCase.tracker
-__Type:__ String  
-__Required:__ No  
-__Description:__ The name of the test case tracker - typically a test management system.
-
-#### data.testCase.id
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The unique identity of the executed test case.
-
-#### data.testCase.uri
-__Type:__ String  
-__Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved.
 
 ### data.executor
 __Type:__ String  

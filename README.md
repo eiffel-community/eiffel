@@ -13,6 +13,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [Event Design Guidelines](./eiffel-syntax-and-usage/event-design-guidelines.md)
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
+   1. [Common Data Objects](./eiffel-syntax-and-usage/common-data-objects.md)
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
    1. [Versioning](./eiffel-syntax-and-usage/versioning.md)
    1. [Compositions and Validity Checking](./eiffel-syntax-and-usage/compositions-and-validity-checking.md)
