@@ -58,27 +58,13 @@ __Description:__ The collection of test execution recipes within the batch.
 ##### data.batches.recipes.id
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ A UUID identifying the unique execution. Note that this is different from the id of a test case, in two ways. First, a test case is a (presumably) persistnent entity, whereas an execution is transient in nature. Second, a test case may be executed any number of times in any given recipe collection.
+__Description:__ A UUID identifying the unique execution. Note that this is different from the id of a test case, in two ways. First, a test case is a (presumably) persistent entity, whereas an execution is transient in nature. Second, a test case may be executed any number of times in any given recipe collection.
 
 ##### data.batches.recipes.testCase
 __Type:__ Object  
+__Type:__ [Test Case Object](../eiffel-syntax-and-usage/common-data-objects.md#test-case-object)  
 __Required:__ Yes  
 __Description:__ The test case to be executed in this execution recipe.
-
-###### data.batches.recipes.testCase.tracker
-__Type:__ String  
-__Required:__ No  
-__Description:__ The name of the test case tracker - typically a test management system.
-
-###### data.batches.recipes.testCase.id
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The unique identity of the test case.
-
-###### data.batches.recipes.testCase.uri
-__Type:__ String  
-__Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved.
 
 ##### data.batches.recipes.constraints
 __Type:__ Object  

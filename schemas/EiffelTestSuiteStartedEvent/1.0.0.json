@@ -110,6 +110,27 @@
             ]
           }
         },
+        "testCases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tracker": {
+                "type": "string"
+              },
+              "id": {
+                "type": "string"
+              },
+              "uri": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id"
+            ],
+            "additionalProperties": false
+          }
+        },
         "liveLogs": {
           "type": "array",
           "items": {

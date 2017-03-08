@@ -14,10 +14,22 @@
       "INSTALLABILITY",
       "SECURITY"
     ],
+    "testCases": [
+      {
+        "tracker": "My Test Management System",
+        "id": "TC-12",
+        "uri": "http://tm.company.com/browse/TC-12"
+      },
+      {
+        "tracker": "My Test Management System",
+        "id": "TC-34",
+        "uri": "http://tm.company.com/browse/TC-34"
+      }
+    ],
     "liveLogs": [
       {
-       "name": "My test log",
-       "uri": "file:///tmp/logs/data.log"
+        "name": "My test log",
+        "uri": "file:///tmp/logs/data.log"
       }
     ]
   },

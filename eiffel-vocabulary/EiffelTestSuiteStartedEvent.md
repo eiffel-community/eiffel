@@ -20,6 +20,11 @@ __Required:__ No
 __Legal values:__ ACCESSIBILITY, BACKUP_RECOVERY, COMPATIBILITY, CONVERSION, DISASTER_RECOVERY, FUNCTIONAL, INSTALLABILITY, INTEROPERABILITY, LOCALIZATION, MAINTAINABILITY, PERFORMANCE, PORTABILITY, PROCEDURE, RELIABILITY, SECURITY, STABILITY, USABILITY  
 __Description:__ The type or types of testing performed by the test suite, as [defined by ISO 29119](http://www.softwaretestingstandard.org).
 
+### data.testCases
+__Type:__ [Test Case Object](../eiffel-syntax-and-usage/common-data-objects.md#test-case-object)[]  
+__Required:__ No  
+__Description:__ The lists of test cases that SHALL be executed in the scope of this test suite. It could be used by a visualization service to follow the progress of the test suite execution.
+
 ### data.liveLogs
 __Type:__ Object[]  
 __Required:__ No  

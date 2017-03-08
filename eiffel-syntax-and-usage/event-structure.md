@@ -9,7 +9,7 @@ __Description:__ This object contains fields common to all event types: meta-dat
 ## data
 __Type:__ Object  
 __Required:__ Yes  
-__Description:__ This object contains all fields specific to the event type – the payload of the event – including trace links to non-Eiffel entities. It is described in detail per event type.
+__Description:__ This object contains all fields specific to the event type - the payload of the event - including trace links to non-Eiffel entities. It is described in detail per event type. Some common data objects referenced by several Eiffel events are defined [here](./common-data-objects.md).
 
 ## links
 __Type:__ Object  
