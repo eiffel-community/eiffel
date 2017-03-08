@@ -6,7 +6,7 @@ Using Eiffel events to describe the execution of a test activity can be done in 
 
 The Eiffel protocol provides several events to use within a test activity. This example shows how to make use of most of the Eiffel events related to test activities, with the purpose to present how they all are related.
 
-To understand the example provided here, it is important to explain a few concepts. While Eiffel does not make any assumptions about the underlying infrastructure and/or testing methodology, it does encourage separation of concerns. In this view, it is not the responsibility of the activity orchestrator (e.g. the CI server) to determine the contents of the test scope, nor is it the responsibility of the test executor. Instead, the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) makes it possible for a third actor to determine the test scope, which is then handed off to a test executor. And a forth actor is used to provision and deploy a test environment, based on the environment needs described in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md), for the test to be executed towards, which is also then handed off to the test executor.
+To understand the example provided here, it is important to explain a few concepts (used in the sequence diagram below). While Eiffel does not make any assumptions about the underlying infrastructure and/or testing methodology, it does encourage separation of concerns. In this example, it is not the responsibility of the _Activity Orchestrator_ (e.g. the CI server) to determine the contents of the test scope, nor is it the responsibility of the _Test Executor_. Instead, the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) makes it possible for a third actor, the _Test Manager_, to determine the test scope. Then a fourth actor, _Environment Provider_, is used to provide a test environment based on the needs described in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md). The _Environment Provider_ has full control over all available test environments, and therefore the _Test Executor_ SHALL use the provided environment to run the tests towards.
 
 ## Event Graph
 ![alt text](./test-execution.png "Event Graph of Test Execution Example")
@@ -19,7 +19,7 @@ To understand the example provided here, it is important to explain a few concep
 The [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) event is sent to provide information about the contents of a test activity.
 
 ### TSS
-The [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) signal that the execution of a set of test cases have started. The test cases defined as recipes in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) can be grouped to an arbitrary number of test suites. There should anyway always be one main test suite encapsulating all test cases in the activity.
+The [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) signals that the execution of a set of test cases has started. The test cases defined as recipes in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) can be grouped to an arbitrary number of test suites. There should anyway always be one main test suite encapsulating all test cases in the activity.
 
 ### ED1, ED2
 Here we assume the test orchestrator has decided to split the complete set of test cases in two sub test suites, each requiring their own test environment.
@@ -42,7 +42,7 @@ Each sub test suite SHALL have a [EiffelTestSuiteStartedEvent](../eiffel-vocabul
 [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md) reporting that the execution of the main test suite is finished.
 
 ### IV2A, IV2B
-[EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) can be used to declare that the execution of a test case has verified a certain issue (e.g. a requirement or a trouble report) successfully or not.
+[EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) can be used to communicate the fact that the execution of a test case has verified a certain issue (e.g. a requirement or a bug report) successfully or not.
 
 ## Test Activity Execution Implementation
 To realize the event graph in this example, a sequence like this needed:
@@ -57,4 +57,4 @@ To realize the event graph in this example, a sequence like this needed:
 7. A test executor is called with the environment instance and the list of test cases to execute. The test executor executes the test cases and sends corresponding [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) for each of them. Whether the test suites are executed in parallel or in serial is of no interest to the Eiffel protocol. It's merely up to the test executor to handle it in the best way available.
 8. The test orchestrator listens to TCF events and when all are recieved it send a [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md). When done it sends a [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md) corresponding to the main test suite in this test activity.
 9. The used test environment is released.
-10. When the main test suite has finished, the complete activity is finished and an [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md) is sent to declare that.
+10. When the main test suite has finished, the complete activity is finished and an [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md) is sent to communicate this fact.
