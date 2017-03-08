@@ -85,6 +85,9 @@
             "id": {
               "type": "string"
             },
+            "version": {
+              "type": "string"
+            },
             "uri": {
               "type": "string"
             }
