@@ -20,12 +20,12 @@ __Description:__ The unique identity of the executed test case.
 #### data.testCase.version
 __Type:__ String  
 __Required:__ No  
-__Description:__ The unique version of the executed test case identity.
+__Description:__ The unique version of the executed test case identity. Where this property is not used it is assumed that test cases are not version controlled.
 
 #### data.testCase.uri
 __Type:__ String  
 __Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved. Whether the uri includes the version of the test case or just its id is up to the user of the protocol to decide.
+__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version executed.
 
 ### data.executor
 __Type:__ String  
