@@ -10,6 +10,7 @@ import shutil
 import time
 import getopt
 from jsonschema import validate
+from jsonschema.validators import RefResolver
 
 def extractArchives():
   extractionPaths = []
@@ -67,7 +68,18 @@ def loadExamples():
     examples.append((path, o["meta"]["type"], o["meta"]["version"], o["meta"]["id"], o))
 
   return examples, badExampleFiles
-    
+
+
+def fileUriHandler(uri):
+    filePath = uri[8:]
+    try:
+        with open(filePath) as fileHandle:
+            return json.load(fileHandle)
+    except Exception as e:
+        print("Could not open or load file - {}".format(e))
+        return None
+
+
 def validateExamples(examples, schemas, maxExamples, shuffle):
   failures = []
   numberOfSuccessfulValidations = 0
@@ -82,7 +94,9 @@ def validateExamples(examples, schemas, maxExamples, shuffle):
     schemaKey = type + "-" + version
     if schemaKey in schemas:
       try:
-        validate(json, schemas[schemaKey])
+        myResolver = RefResolver('#', schemas[schemaKey],
+                                 handlers={'file': fileUriHandler})
+        validate(json, schemas[schemaKey], resolver=myResolver)
         numberOfSuccessfulValidations += 1
       except Exception as e:
         failures.append((path, type, id, e))
