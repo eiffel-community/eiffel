@@ -17,10 +17,15 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The unique identity of the executed test case.
 
+#### data.testCase.version
+__Type:__ String  
+__Required:__ No  
+__Description:__ The unique version of the executed test case identity. Where this property is not used it is assumed that test cases are not version controlled.
+
 #### data.testCase.uri
 __Type:__ String  
 __Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved.
+__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version executed.
 
 ### data.executor
 __Type:__ String  
