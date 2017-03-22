@@ -15,7 +15,7 @@ Also, keep in mind that just as anyone is welcome to propose a change, anyone is
 An Issue can be closed by any member of the [Eiffel team](https://github.com/orgs/Ericsson/teams/eiffel). This can happen in various ways, for varying reasons:
 1. Issues without conclusion and no activity for at least 14 days may be closed, as a mere housekeeping activity. For instance, an Issue met with requests for further clarification, but left unanswered by the original author, may simply be removed.
 1. Issues may simply be rejected if found unfeasible or undesirable. In such cases they shall also be responded to, providing a polite and concise explanation as to why the proposal is rejected.
-1. Issues may be closed because they are implemented. Following the successful submission of a pull request addressing an Issue, it will be closed.
+1. Issues may be closed because they are implemented. Following the successful merging of a pull request addressing an Issue, it will be closed.
 
 ## Proposing Solutions
 While we welcome requests for changes (in the form of Issues), we absolutely love ready solutions (in the form of Pull Requests). The best requests are the ones with a Pull Request to go along with it. For more information on how to contribute a Pull Request, please see [How to Contribute](./how-to-contribute.md).
