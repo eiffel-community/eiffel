@@ -1,3 +1,19 @@
+<!---
+   Copyright 2017 Ericsson AB.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--->
+
 # Custom Data
 Eiffel events are designed to be generalizable to a wide array of cases and applications. To that end they often contain a number of optional data members and links which may or may not be used, depending on the level of detail required and/or feasible in any given situation. The underlying principle is that _what_ one communicates is volitional, but not _how_ one communicates it. This is to minimize the need for local dialects and thereby provide the best possible conditions for a non-initiated event consumer to make sense of any given set of events.
 

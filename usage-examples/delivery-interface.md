@@ -1,3 +1,19 @@
+<!---
+   Copyright 2017 Ericsson AB.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--->
+
 # Delivery Interface Example
 Eiffel messaging can favorably be used to implement software delivery interfaces between products and organizations. This is typically achieved by a system placing requirements on the events its constituent parts must use to communicate that they offer a new candidate for integration, and then driving that integration by reacting to those events. The Eiffel vocabulary offers considerable freedom in the level of detail of such interfaces - as always, an important principle is freedom in _what_ you communicate, but not in _how_ you communicate it. Consequently what is presented here is an example of the event usage a system may require from its constituent parts in order to ensure a satisfactory level of traceability; actual implementations may require more or less, but the essential building blocks are the same.
 
