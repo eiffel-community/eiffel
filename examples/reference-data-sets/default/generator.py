@@ -260,29 +260,39 @@ def generateActF1(iterationsMap, iteration, t):
 
   return msg
 
-def generateTCS1(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS1", iteration)
+def generateTCT1(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT1", iteration)
   msg["data"]["testCase"] = {"tracker": "My First Test Management System", "id": "TC1", "uri": "http://tm.company.com/browse/TC1"}
   link(msg, iterationsMap[iteration]["ActT1"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
+def generateTCS1(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS1", iteration)
+  link(msg, iterationsMap[iteration]["TCT1"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF1(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF1", iteration)
-  link(msg, iterationsMap[iteration]["TCS1"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT1"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.95), "conclusion": "SUCCESSFUL"}
   return msg
 
-def generateTCS2(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS2", iteration)
+def generateTCT2(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT2", iteration)
   msg["data"]["testCase"] = {"tracker": "My First Test Management System", "id": "TC2", "uri": "http://tm.company.com/browse/TC2"}
   link(msg, iterationsMap[iteration]["ActT1"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
+def generateTCS2(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS2", iteration)
+  link(msg, iterationsMap[iteration]["TCT2"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF2(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF2", iteration)
-  link(msg, iterationsMap[iteration]["TCS2"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT2"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.95), "conclusion": "SUCCESSFUL"}
   return msg
 
@@ -306,68 +316,93 @@ def generateActF2(iterationsMap, iteration, t):
   msg["data"]["outcome"] = {"conclusion": getOutcomeValuesFromVerdicts([iterationsMap[iteration]["TCF3"], iterationsMap[iteration]["TCF4"]], "SUCCESSFUL", "UNSUCCESSFUL")}
   return msg
 
-def generateTCS3(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS3", iteration)
+def generateTCT3(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT3", iteration)
   msg["data"]["testCase"] = {"tracker": "My First Test Management System", "id": "TC3", "uri": "http://tm.company.com/browse/TC3"}
   link(msg, iterationsMap[iteration]["ActT2"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
+def generateTCS3(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS3", iteration)
+  link(msg, iterationsMap[iteration]["TCT3"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF3(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF3", iteration)
-  link(msg, iterationsMap[iteration]["TCS3"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT3"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.99), "conclusion": "SUCCESSFUL"}
   return msg
 
-def generateTCS4(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS4", iteration)
+def generateTCT4(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT4", iteration)
   msg["data"]["testCase"] = {"tracker": "My First Test Management System", "id": "TC4", "uri": "http://tm.company.com/browse/TC4"}
   link(msg, iterationsMap[iteration]["ActT2"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC1"], "IUT")
   return msg
 
+def generateTCS4(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS4", iteration)
+  link(msg, iterationsMap[iteration]["TCT4"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF4(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF4", iteration)
-  link(msg, iterationsMap[iteration]["TCS4"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT4"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.90), "conclusion": "SUCCESSFUL"}
   return msg
 
-def generateTCS5(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS5", iteration)
+def generateTCT5(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT5", iteration)
   msg["data"]["testCase"] = {"tracker": "My Other Test Management System", "id": "TC5", "uri": "https://other-tm.company.com/testCase/TC5"}
   link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
+def generateTCS5(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS5", iteration)
+  link(msg, iterationsMap[iteration]["TCT5"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF5(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF5", iteration)
-  link(msg, iterationsMap[iteration]["TCS5"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT5"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98), "conclusion": "SUCCESSFUL"}
+  return msg
+
+def generateTCT6(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT6", iteration)
+  msg["data"]["testCase"] = {"tracker": "My Other Test Management System", "id": "TC6", "uri": "https://other-tm.company.com/testCase/TC6"}
+  link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
+  link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
 def generateTCS6(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS6", iteration)
-  msg["data"]["testCase"] = {"tracker": "My Other Test Management System", "id": "TC6", "uri": "https://other-tm.company.com/testCase/TC6"}
-  link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
-  link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
+  link(msg, iterationsMap[iteration]["TCT6"], "TEST_CASE_EXECUTION")
   return msg
 
 def generateTCF6(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF6", iteration)
-  link(msg, iterationsMap[iteration]["TCS6"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT6"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98), "conclusion": "SUCCESSFUL"}
   return msg
 
-def generateTCS7(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS7", iteration)
+def generateTCT7(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseTriggeredEvent", t, "1.0.0", "TCT7", iteration)
   msg["data"]["testCase"] = {"tracker": "My Other Test Management System", "id": "TC6", "uri": "https://other-tm.company.com/testCase/TC6"}
   link(msg, iterationsMap[iteration]["TSS1"], "CONTEXT")
   link(msg, iterationsMap[iteration]["ArtC2"], "IUT")
   return msg
 
+def generateTCS7(iterationsMap, iteration, t):
+  msg = generateGenericMessage("EiffelTestCaseStartedEvent", t, "1.0.0", "TCS7", iteration)
+  link(msg, iterationsMap[iteration]["TCT7"], "TEST_CASE_EXECUTION")
+  return msg
+
 def generateTCF7(iterationsMap, iteration, t):
   msg = generateGenericMessage("EiffelTestCaseFinishedEvent", t, "1.0.0", "TCF7", iteration)
-  link(msg, iterationsMap[iteration]["TCS7"], "TEST_CASE_EXECUTION")
+  link(msg, iterationsMap[iteration]["TCT7"], "TEST_CASE_EXECUTION")
   msg["data"]["outcome"] = {"verdict": randomizeVerdict(0.98), "conclusion": "SUCCESSFUL"}
   return msg
 
@@ -487,6 +522,12 @@ def generateSubSystemTestEvents(iterationsMap, iteration, t):
   t += 2000
   iterationsMap[iteration]["TSS1"] = generateTSS1(iterationsMap, iteration, t)
   t += 100
+  iterationsMap[iteration]["TCT5"] = generateTCT5(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT6"] = generateTCT6(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT7"] = generateTCT7(iterationsMap, iteration, t)
+  t += 1
   iterationsMap[iteration]["TCS5"] = generateTCS5(iterationsMap, iteration, t)
   t += 2
   iterationsMap[iteration]["TCS6"] = generateTCS6(iterationsMap, iteration, t)
@@ -520,6 +561,10 @@ def generateSystemIntegrationEvents(iterationsMap, iteration, t):
   iterationsMap[iteration]["ActS1"] = generateActS1(iterationsMap, iteration, t)
   t += 50
   iterationsMap[iteration]["ActT2"] = generateActT2(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT1"] = generateTCT1(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT2"] = generateTCT2(iterationsMap, iteration, t)
   t += 1000
   iterationsMap[iteration]["TCS1"] = generateTCS1(iterationsMap, iteration, t)
   t += 100
@@ -532,10 +577,14 @@ def generateSystemIntegrationEvents(iterationsMap, iteration, t):
   iterationsMap[iteration]["ActF1"] = generateActF1(iterationsMap, iteration, t)
   t += 100000
   iterationsMap[iteration]["ActS2"] = generateActS2(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT3"] = generateTCT3(iterationsMap, iteration, t)
   t += 200
   iterationsMap[iteration]["TCS3"] = generateTCS3(iterationsMap, iteration, t)
   t += 10000
   iterationsMap[iteration]["TCF3"] = generateTCF3(iterationsMap, iteration, t)
+  t += 1
+  iterationsMap[iteration]["TCT4"] = generateTCT4(iterationsMap, iteration, t)
   t += 100
   iterationsMap[iteration]["TCS4"] = generateTCS4(iterationsMap, iteration, t)
   t += 120000
