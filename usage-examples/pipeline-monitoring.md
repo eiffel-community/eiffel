@@ -49,8 +49,8 @@ Note that EiffelCompositionDefinedEvents may reference any number of elements: o
 ### ArtC1, ArtC2
 The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) representing new versions of the built software.
 
-### TCS1, TCS2, TCF1, TCF2
-[EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) representing one test execution per artifact (__ArtC1__ and __ArtC2__, respectively). Note that management of test cases per se is not within the scope of Eiffel, but like many events EiffelTestCaseStarted is able to reference external entities. Furthermore, it is assumed in this example that these externally managed test case descriptions in turn are able to reference any requirements they verify (which is arguably good practice in any context). With those references in place, these events can be used to answer the question "Which requirements have been verified in which version of the product, and what was the outcome?".
+### TCT1, TCT2, TCS1, TCS2, TCF1, TCF2
+[EiffelTestCaseTriggeredEvents](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md), [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) representing one test execution per artifact (__ArtC1__ and __ArtC2__, respectively). Note that management of test cases per se is not within the scope of Eiffel, but like many events EiffelTestCaseTriggered is able to reference external entities. Furthermore, it is assumed in this example that these externally managed test case descriptions in turn are able to reference any requirements they verify (which is arguably good practice in any context). With those references in place, these events can be used to answer the question "Which requirements have been verified in which version of the product, and what was the outcome?". This can in turn be explicitly represented via [EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md).
 
 ### CLM1, CLM2
 [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) signaling that a new version of this component or part of the system is deemed ready for delivery. In this example, this is the event that the next tier of the system hierarchy reacts to, and proceeds to pick up the referenced artifact (__ArtC1__ and __ArtC2__, respectively) to integrate it.
@@ -76,7 +76,7 @@ Using Eiffel, this can be done as follows:
 
 ### Test Duration
 Measuring test duration is similar to measuring build duration, and driven by similar needs. Indeed, if one is interested in the duration of a set of tests wrapped by a set of of [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent), [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent) and [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent) one can employ the exact same method. Assuming one is interested in studying the execution time of a particular test case, however, one can use the following method:
-1. For every [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), follow its __TEST_CASE_EXECUTION__ link to its corresponding [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md).
+1. For every [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), find any [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) sharing the same __TEST_CASE_EXECUTION__ link target.
 1. Compare __meta.time__ of the two events.
 
 ### Lead Time from Source Change Submission to Successfully Tested Artifact
@@ -112,6 +112,13 @@ Related to the question above of build and test durations, it is sometimes impor
 
 Using Eiffel, this can be done as follows:
 1. For every relevant [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent) follow its __ACTIVITY_EXECUTION__ link to its corresponding [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent).
+1. Compare __meta.time__ of the two events.
+
+### Test Queuing Times
+Measuring the time it takes from a test execution is triggered until it commences is an important metric to monitor test efficiency and resource availability.
+
+Using Eiffel, this can be done as follows:
+1. For every [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md), follow its __TEST_CASE_EXECUTION__ link to its corresponding [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md).
 1. Compare __meta.time__ of the two events.
 
 ## A Note on Levels of Abstraction
