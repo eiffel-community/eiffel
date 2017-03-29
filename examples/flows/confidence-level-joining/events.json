@@ -195,10 +195,10 @@
   },
   {
     "meta": {
-      "type": "EiffelTestCaseStartedEvent",
+      "type": "EiffelTestCaseTriggeredEvent",
       "version": "1.0.0",
       "time": 9000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea8",
       "source": {
         "domainId": "example.domain"
       }
@@ -209,7 +209,6 @@
         "id": "TC-1234",
         "uri": "http://tm.company.com/browse/TC-1234"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
@@ -227,8 +226,28 @@
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
       "version": "1.0.0",
+      "time": 9001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea8"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseTriggeredEvent",
+      "version": "1.0.0",
       "time": 9000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea9",
       "source": {
         "domainId": "example.domain"
       }
@@ -239,7 +258,6 @@
         "id": "TC-1235",
         "uri": "http://tm.company.com/browse/TC-1235"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
@@ -257,8 +275,28 @@
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
       "version": "1.0.0",
+      "time": 9001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea9"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseTriggeredEvent",
+      "version": "1.0.0",
       "time": 9000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee10",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea10",
       "source": {
         "domainId": "example.domain"
       }
@@ -269,7 +307,6 @@
         "id": "TC-1236",
         "uri": "http://tm.company.com/browse/TC-1236"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
@@ -287,8 +324,28 @@
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
       "version": "1.0.0",
+      "time": 9001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee10",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea10"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseTriggeredEvent",
+      "version": "1.0.0",
       "time": 9000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea11",
       "source": {
         "domainId": "example.domain"
       }
@@ -299,7 +356,6 @@
         "id": "TC-1237",
         "uri": "http://tm.company.com/browse/TC-1237"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
@@ -310,6 +366,26 @@
       {
         "type": "IUT",
         "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0.0",
+      "time": 9001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea11"
       }
     ]
   },
@@ -343,7 +419,7 @@
     "links": [
       {
         "type": "TEST_CASE_EXECUTION",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee8"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea8"
       }
     ]
   },
@@ -369,7 +445,7 @@
     "links": [
       {
         "type": "TEST_CASE_EXECUTION",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee9"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeea9"
       }
     ]
   },
@@ -392,7 +468,7 @@
     "links": [
       {
         "type": "TEST_CASE_EXECUTION",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea10"
       }
     ]
   },
@@ -415,7 +491,7 @@
     "links": [
       {
         "type": "TEST_CASE_EXECUTION",
-        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea10"
       }
     ]
   },

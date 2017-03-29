@@ -316,10 +316,10 @@
   },
   {
     "meta": {
-      "type": "EiffelTestCaseStartedEvent",
+      "type": "EiffelTestCaseTriggeredEvent",
       "version": "1.0.0",
       "time": 4000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea11",
       "source": {
         "domainId": "example.domain"
       }
@@ -330,7 +330,6 @@
         "id": "TC-1234",
         "uri": "http://tm.company.com/browse/TC-1234"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
@@ -344,8 +343,28 @@
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
       "version": "1.0.0",
+      "time": 4001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee11",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea11"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseTriggeredEvent",
+      "version": "1.0.0",
       "time": 205000,
-      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12",
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea12",
       "source": {
         "domainId": "example.domain"
       }
@@ -356,13 +375,32 @@
         "id": "TC-1234",
         "uri": "http://tm.company.com/browse/TC-1234"
       },
-      "executor": "My Test Framework",
       "executionType": "AUTOMATED"
     },
     "links": [
       {
         "type": "IUT",
         "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee10"
+      }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelTestCaseStartedEvent",
+      "version": "1.0.0",
+      "time": 205001,
+      "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeee12",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "executor": "My Test Framework"
+    },
+    "links": [
+      {
+        "type": "TEST_CASE_EXECUTION",
+        "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeea12"
       }
     ]
   },
