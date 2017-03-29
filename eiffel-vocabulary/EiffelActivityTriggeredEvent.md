@@ -56,7 +56,7 @@ __Description:__ A description of the trigger.
 __Type:__ String  
 __Required:__ No  
 __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER  
-__Description:__ The type of execution (often related to, but ultimately separate from, __data.trigger.type__).
+__Description:__ The type of execution (often related to, but ultimately separate from, __data.triggers.type__).
 
 ## Version History
 | Version   | Introducing Commit |

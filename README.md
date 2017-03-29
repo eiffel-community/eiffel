@@ -50,6 +50,8 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelSourceChangeCreatedEvent (SCC)](./eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)
    1. [EiffelSourceChangeSubmittedEvent (SCS)](./eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
    1. [EiffelFlowContextDefinedEvent (FCD)](./eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)
+   1. [EiffelTestCaseTriggeredEvent (TCT)](./eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)
+   1. [EiffelTestCaseCanceledEvent (TCC)](./eiffel-vocabulary/EiffelTestCaseCanceledEvent.md)
    1. [EiffelTestCaseStartedEvent (TCS)](./eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
    1. [EiffelTestCaseFinishedEvent (TCF)](./eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)
    1. [EiffelTestSuiteStartedEvent (TSS)](./eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)

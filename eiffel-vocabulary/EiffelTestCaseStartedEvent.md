@@ -16,58 +16,13 @@
 --->
 
 # EiffelTestCaseStartedEvent (TCS)
-The EiffelTestCaseStartedEvent declares that the execution of a test case has commenced. This can either be declared stand-alone or as part of an activity or test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively. 
+The EiffelTestCaseStartedEvent declares that the execution of a test case has commenced. This event SHALL be preceded by a [EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md), and appropriately linked to via __TEST_CASE_EXECUTION__.
 
 ## Data Members
-### data.testCase
-__Type:__ Object  
-__Required:__ Yes  
-__Description:__ Identification of the executed test case.
-
-#### data.testCase.tracker
-__Type:__ String  
-__Required:__ No  
-__Description:__ The name of the test case tracker - typically a test management system.
-
-#### data.testCase.id
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The unique identity of the executed test case.
-
-#### data.testCase.version
-__Type:__ String  
-__Required:__ No  
-__Description:__ The unique version of the executed test case identity. Where this property is not used it is assumed that test cases are not version controlled.
-
-#### data.testCase.uri
-__Type:__ String  
-__Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version executed.
-
 ### data.executor
 __Type:__ String  
 __Required:__ No  
 __Description:__ The name of the test case executor, if applicable. This property can be used to identify tests executed by a particular test framework.
-
-### data.recipeId
-__Type:__ String  
-__Required:__ No  
-__Description:__ If this test case execution was the result of an Execution Recipe, as defined by an [EiffelTestExecutionRecipeCollectionCreatedEvent](./EiffelTestExecutionRecipeCollectionCreatedEvent.md), this UUID SHALL match the relevant __data.batches.recipes.id__ in that event.
-
-### data.parameters
-__Type:__ Object[]  
-__Required:__ No  
-__Description:__ A list of parameters passed to the test case execution.
-
-#### data.parameters.name
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The name of the parameter.
-
-#### data.parameters.value
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The value of the parameter.
 
 ### data.executionType
 __Type:__ String  
