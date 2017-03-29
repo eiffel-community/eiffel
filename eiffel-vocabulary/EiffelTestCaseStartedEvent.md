@@ -24,12 +24,6 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The name of the test case executor, if applicable. This property can be used to identify tests executed by a particular test framework.
 
-### data.executionType
-__Type:__ String  
-__Required:__ No  
-__Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER  
-__Description:__ The type of test case execution.
-
 ### data.liveLogs
 __Type:__ Object[]  
 __Required:__ No  

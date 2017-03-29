@@ -10,7 +10,7 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestCaseStartedEvent" ]
+          "enum": [ "EiffelTestCaseCanceledEvent" ]
         },
         "version": {
           "type": "string",
@@ -63,28 +63,6 @@
             }
           },
           "additionalProperties": false
-        },
-        "security": {
-          "type": "object",
-          "properties": {
-            "sdm": {
-              "type": "object",
-              "properties": {
-                "authorIdentity": {
-                  "type": "string"
-                },
-                "encryptedDigest": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "authorIdentity",
-                "encryptedDigest"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
@@ -98,27 +76,8 @@
     "data": {
       "type": "object",
       "properties": {
-        "executor": {
+        "reason": {
           "type": "string"
-        },
-        "liveLogs": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "uri": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name",
-              "uri"
-            ],
-            "additionalProperties": false
-          }
         },
         "customData": {
           "type": "array",

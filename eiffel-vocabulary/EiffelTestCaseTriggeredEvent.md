@@ -55,6 +55,12 @@ __Type:__ String
 __Required:__ No  
 __Description:__ A description of the trigger.
 
+### data.executionType
+__Type:__ String  
+__Required:__ No  
+__Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER  
+__Description:__ The type of execution (often related to, but ultimately separate from, __data.triggers.type__).
+
 ### data.parameters
 __Type:__ Object[]  
 __Required:__ No  

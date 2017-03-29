@@ -10,7 +10,7 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestCaseStartedEvent" ]
+          "enum": [ "EiffelTestCaseTriggeredEvent" ]
         },
         "version": {
           "type": "string",
@@ -63,28 +63,6 @@
             }
           },
           "additionalProperties": false
-        },
-        "security": {
-          "type": "object",
-          "properties": {
-            "sdm": {
-              "type": "object",
-              "properties": {
-                "authorIdentity": {
-                  "type": "string"
-                },
-                "encryptedDigest": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "authorIdentity",
-                "encryptedDigest"
-              ],
-              "additionalProperties": false
-            }
-          },
-          "additionalProperties": false
         }
       },
       "required": [
@@ -98,24 +76,72 @@
     "data": {
       "type": "object",
       "properties": {
-        "executor": {
-          "type": "string"
+        "testCase": {
+          "type": "object",
+          "properties": {
+            "tracker": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
-        "liveLogs": {
+        "recipeId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "triggers": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
+              "type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "executionType": {
+          "type": "string",
+          "enum": [
+            "MANUAL",
+            "SEMI_AUTOMATED",
+            "AUTOMATED",
+            "OTHER"
+          ]
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "properties": {
               "name": {
                 "type": "string"
               },
-              "uri": {
+              "value": {
                 "type": "string"
               }
             },
             "required": [
               "name",
-              "uri"
+              "value"
             ],
             "additionalProperties": false
           }
@@ -139,6 +165,9 @@
           }
         }
       },
+      "required": [
+        "testCase"
+      ],
       "additionalProperties": false
     },
     "links": {
