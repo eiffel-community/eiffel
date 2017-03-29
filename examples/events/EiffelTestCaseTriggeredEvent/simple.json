@@ -1,0 +1,43 @@
+{
+  "meta": {
+    "type": "EiffelTestCaseTriggeredEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "testCase": {
+      "tracker": "My Test Management System",
+      "id": "TC-1234",
+      "version": "42",
+      "uri": "http://tm.company.com/browse/TC-1234/42"
+    },
+    "recipeId": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee0",
+    "parameters": [
+      {
+        "name": "login",
+        "value": "admin"
+      }
+    ],
+    "triggers": [
+      {
+        "type": "TIMER",
+        "description": "Nightly test timer."
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "CONTEXT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "IUT",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "TERC",
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+    }
+  ]
+}
