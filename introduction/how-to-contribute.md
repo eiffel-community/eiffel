@@ -32,3 +32,24 @@ Pull requests can be merged by members of the [Eiffel team](https://github.com/o
 1. A Pull Request should be approved by at least two Eiffel team members (including the one doing the merging). For this to function well, the above point on participation is critical.
 1. Do not feel any pressure to merge Pull Requests. Unless you feel confident about what you are doing, don't press that big green button. Instead, ask a more senior member to make the decision.
 1. When squashing and merging, ensure that the description reflects the change. Detailing every individual commit in the Pull Request is unnecessary, as they are squashed anyway. Instead, describe the change as a single thing. That description should always include an Issue reference, and should focus on WHY the change was made, to provide the reader with context. See [this excellent guide](https://chris.beams.io/posts/git-commit) on writing good commit messages.
+
+## License Management
+To be accepted into the repository, contributions must be licensed under the Apache License 2.0. Consequently, a license notice shall be included in suitable comment syntax where applicable. This license notice shall state the copyright holder(s) and point to the commit history for a full list of individual contributors, on the following format:
+
+> Copyright <Year(s)> <Copyright holder of original contribution [and others].>  
+> For a full list of individual contributors, please see the commit history.
+
+The copyright holder is either the individual contributor if they act on their own behalf, or any organization on whose behalf they contribute. When multiple copyright holders have contributed to the same file, the copyright notice shall be appended "and others". The copyright year(s) shall reflect the year(s) of contribution(s) and be updated accordingly when new contributions are made to the file. To exemplify, the copyright notice of an original contribution made by Jane Doe acting on behalf of Ericsson AB may read:
+
+> Copyright 2017 Ericsson AB.  
+> For a full list of individual contributors, please see the commit history.
+
+When John Doe, acting on his own behalf, makes a subsequent addition to the same file, the notice will be updated accordingly:
+
+> Copyright 2017 Ericsson AB and others.  
+> For a full list of individual contributors, please see the commit history.
+
+When John Doe makes a subsequent contribution the following year, the notice will again be updated:
+
+> Copyright 2017-2018 Ericsson AB and others.  
+> For a full list of individual contributors, please see the commit history.
