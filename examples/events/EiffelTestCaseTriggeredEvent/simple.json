@@ -35,10 +35,6 @@
     {
       "type": "IUT",
       "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
-    },
-    {
-      "type": "TERC",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
     }
   ]
 }

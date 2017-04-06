@@ -162,7 +162,7 @@ __Optional in:__ None
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Item Under Test: what is being tested and/or been verified to address an issue.
+__Description:__ Identifies the Item Under Test: what is about to be tested and/or has been verified to address an issue, respectively.
 
 ### TERC
 __Required in:__ None  

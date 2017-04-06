@@ -7,7 +7,7 @@ This event is used to communicate intent, and thereby serves a similar purpose t
 ### data.testCase
 __Type:__ Object  
 __Required:__ Yes  
-__Description:__ Identification of the executed test case.
+__Description:__ Identification of the test case to be executed.
 
 #### data.testCase.tracker
 __Type:__ String  
@@ -17,17 +17,17 @@ __Description:__ The name of the test case tracker - typically a test management
 #### data.testCase.id
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ The unique identity of the executed test case.
+__Description:__ The unique identity of the test case to be executed.
 
 #### data.testCase.version
 __Type:__ String  
 __Required:__ No  
-__Description:__ The unique version of the executed test case identity. Where this property is not used it is assumed that test cases are not version controlled.
+__Description:__ The unique version of the identified test case to be executed. Where this property is not used it is assumed that test cases are not version controlled.
 
 #### data.testCase.uri
 __Type:__ String  
 __Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version executed.
+__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version to be executed.
 
 ### data.recipeId
 __Type:__ String  
@@ -64,7 +64,7 @@ __Description:__ The type of execution (often related to, but ultimately separat
 ### data.parameters
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ A list of parameters passed to the test case execution.
+__Description:__ A list of parameters to be passed to the test case execution.
 
 #### data.parameters.name
 __Type:__ String  
