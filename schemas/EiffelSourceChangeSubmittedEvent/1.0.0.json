@@ -63,6 +63,28 @@
             }
           },
           "additionalProperties": false
+        },
+        "security": {
+          "type": "object",
+          "properties": {
+            "sdm": {
+              "type": "object",
+              "properties": {
+                "authorIdentity": {
+                  "type": "string"
+                },
+                "encryptedDigest": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "authorIdentity",
+                "encryptedDigest"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [

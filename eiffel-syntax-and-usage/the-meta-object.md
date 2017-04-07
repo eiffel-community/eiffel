@@ -86,6 +86,29 @@ __Format:__ URI
 __Required:__ No  
 __Description:__ The URI of, related to or describing the event sender.
 
+### meta.security
+__Type:__ Object  
+__Format:__  
+__Required:__ No  
+__Description:__ An optional object for enclosing security related information, particularly supporting data integrity. See [Security](../eiffel-syntax-and-usage/security.md) for further information.
+
+#### meta.security.sdm
+__Type:__ Object  
+__Format:__  
+__Required:__ No  
+__Description:__ An optional object for properties supporting the [Strong Distribution Model](http://www.cryptnet.net/fdp/crypto/strong_distro.html). Note that this only addressed the _integrity_ of the Eiffel event, not its _confidentiality_ or _availability_.
+
+##### meta.security.sdm.authorIdentity
+__Type:__ String  
+__Format:__  
+__Required:__ Yes  
+__Description:__ The identity of the author of the event. This property is intended to enable the recipient to look up the appropriate public key for decrypting the digest and thereby verifying author identity and data integrity. The format of the author identity varies depending on the key infrastructure solution used. Note that this requires the presence of a Trusted Authority (TA) which the recipient can query for the correct public key. The identity and location of the TA must never be included in the event itself, as this would compromise the security of the solution.
+
+##### meta.security.sdm.encryptedDigest
+__Type:__ String  
+__Format:__  
+__Required:__ Yes  
+__Description:__ The encrypted digest. The cryptographic hash function and the decryption algorithm to use, similarly to the Trusted Authority (TA), must be known to the recipient. Note that the digest of the entire event is affected by the value of this property. For this reason the input to the hash function SHALL be the entire event unaltered in all parts except for this property, which SHALL be replaced by an empty string.
 
 &nbsp;
 &nbsp;
@@ -93,4 +116,4 @@ __Description:__ The URI of, related to or describing the event sender.
 ------------------
 &nbsp;
 
-<a name="footnote1">1</a>: Event types are versioned independently from one another. There are three important consequences of this. First, any change to __meta__ requires all events to be updated. Second, any schema of a specific version of an event must also include the __meta__ object – specifically as it is defined for that version of the event. Third, consumers should be prepared to receive events of varying __meta__ contents. The exception to this are the __meta.type__ and __meta.version__ fields, which are always assumed to be present change. 
+<a name="footnote1">1</a>: Event types are versioned independently from one another. There are three important consequences of this. First, any change to __meta__ requires all events to be updated. Second, any schema of a specific version of an event must also include the __meta__ object – specifically as it is defined for that version of the event. Third, consumers should be prepared to receive events of varying __meta__ contents. The exception to this are the __meta.type__ and __meta.version__ fields, which are always assumed to be present change.
