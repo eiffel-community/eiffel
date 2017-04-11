@@ -18,6 +18,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [The Links Object](./eiffel-syntax-and-usage/the-links-object.md)
    1. [Versioning](./eiffel-syntax-and-usage/versioning.md)
    1. [Compositions and Validity Checking](./eiffel-syntax-and-usage/compositions-and-validity-checking.md)
+   1. [Security](./eiffel-syntax-and-usage/security.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent (ActT)](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent (ActC)](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
