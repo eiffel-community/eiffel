@@ -40,9 +40,9 @@ __Required:__ Yes
 __Description:__ The URI at which the log can be retrieved.
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelActivityStartedEvent/simple.json)

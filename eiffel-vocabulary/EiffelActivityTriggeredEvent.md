@@ -59,9 +59,9 @@ __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER
 __Description:__ The type of execution (often related to, but ultimately separate from, __data.triggers.type__).
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelActivityTriggeredEvent/simple.json)

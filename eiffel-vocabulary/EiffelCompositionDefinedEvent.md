@@ -30,9 +30,9 @@ __Required:__ No
 __Description:__ The version of the composition, if any. This is in a sense redundant, as relationships between compositions can be tracked via the __PREVIOUS_VERSION__ link type, but can be used for improved clarity and semantics.
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelCompositionDefinedEvent/simple.json)

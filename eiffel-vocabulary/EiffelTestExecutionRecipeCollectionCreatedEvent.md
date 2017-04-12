@@ -118,9 +118,9 @@ __Required:__ Yes
 __Description:__ The UUID of the dependent execution (__data.batches.recipes.id__), i.e. the execution that shall be performed only after that of the dependency.
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Example using data.batches](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batches.json)

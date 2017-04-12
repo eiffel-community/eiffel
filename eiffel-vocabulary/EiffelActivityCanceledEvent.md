@@ -25,9 +25,9 @@ __Required:__ No
 __Description:__ Any human readable information as to the reason for dequeueing.
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelActivityCanceledEvent/simple.json)
