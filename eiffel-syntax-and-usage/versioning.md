@@ -26,5 +26,10 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 
 | Edition   | Tag |
 | --------- | ------------------ |
-| Bordeaux  | _First edition. Not yet finished. Planned for end of [Drop 4](https://github.com/Ericsson/eiffel/milestone/4)._  |
+| Arica  | _Reserved for future use._  |
+| Lyon  | _Reserved for future use._  |
+| Paris  | _Reserved for future use._  |
+| Agen  | _Reserved for future use._  |
+| Toulouse  | _Reserved for future use._  |
+| Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  |
 
