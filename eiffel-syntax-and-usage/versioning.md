@@ -24,12 +24,12 @@ The independent versioning of event types, as opposed to a protocol-wide version
 
 That being said, to facilitate compatibility and consistency, the Eiffel protocol as described in this repository is released in named and internally coherent _editions_. Each of these editions is represented as a GitHub [release](https://github.com/Ericsson/eiffel/releases). A history of Eiffel editions is available below.
 
-| Edition   | Tag |
-| --------- | ------------------ |
-| Arica  | _Reserved for future use._  |
-| Lyon  | _Reserved for future use._  |
-| Paris  | _Reserved for future use._  |
-| Agen  | _Reserved for future use._  |
-| Toulouse  | _Reserved for future use._  |
-| Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  |
+| Edition   | Tag                                                 | Changes                                          |
+| --------- | --------------------------------------------------- | ------------------------------------------------ |
+| Arica  | _Reserved for future use._  | |
+| Lyon  | _Reserved for future use._  | |
+| Paris  | _Reserved for future use._  | |
+| Agen  | _Reserved for future use._  | |
+| Toulouse  | _Reserved for future use._  | |
+| Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  | Initial edition. |
 
