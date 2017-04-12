@@ -41,9 +41,9 @@ __Legal values:__ MINOR, MAJOR, CRITICAL, BLOCKER, CLOSED, CANCELED
 __Description:__ The severity of the announcement. The CLOSED and CANCELED values SHOULD only be used when following up a previous announcement, i.e. in conjunction with a __MODIFIED_ANNOUNCEMENT__ link.
 
 ## Version History
-| Version   | Introducing Commit |
-| --------- | ------------------ |
-| 1.0.0     | _Current version_  |
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelAnnouncementPublishedEvent/simple.json)
