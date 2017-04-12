@@ -6,21 +6,7 @@
     "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
   },
   "data": {
-    "testCase": {
-      "tracker": "My Test Management System",
-      "id": "TC-1234",
-      "version": "42",
-      "uri": "http://tm.company.com/browse/TC-1234/42"
-    },
     "executor": "My Test Framework",
-    "recipeId": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee0",
-    "parameters": [
-      {
-        "name": "login",
-        "value": "admin"
-      }
-    ],
-    "executionType": "AUTOMATED",
     "liveLogs": [
       {
        "name": "My test log",
@@ -30,20 +16,8 @@
   },
   "links": [
     {
-      "type": "CONTEXT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
-    },
-    {
-      "type": "IUT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
-    },
-    {
       "type": "ENVIRONMENT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
-    },
-    {
-      "type": "TERC",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee4"
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
     }
   ]
 }

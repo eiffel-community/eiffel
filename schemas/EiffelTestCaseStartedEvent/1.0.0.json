@@ -98,60 +98,8 @@
     "data": {
       "type": "object",
       "properties": {
-        "testCase": {
-          "type": "object",
-          "properties": {
-            "tracker": {
-              "type": "string"
-            },
-            "id": {
-              "type": "string"
-            },
-            "version": {
-              "type": "string"
-            },
-            "uri": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "id"
-          ],
-          "additionalProperties": false
-        },
         "executor": {
           "type": "string"
-        },
-        "recipeId": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
-        },
-        "parameters": {
-          "type": "array",
-          "items": {
-            "properties": {
-              "name": {
-                "type": "string"
-              },
-              "value": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "name",
-              "value"
-            ],
-            "additionalProperties": false
-          }
-        },
-        "executionType": {
-          "type": "string",
-          "enum": [
-            "MANUAL",
-            "SEMI_AUTOMATED",
-            "AUTOMATED",
-            "OTHER"
-          ]
         },
         "liveLogs": {
           "type": "array",
@@ -191,9 +139,6 @@
           }
         }
       },
-      "required": [
-        "testCase"
-      ],
       "additionalProperties": false
     },
     "links": {

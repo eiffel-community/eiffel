@@ -126,7 +126,13 @@
           }
         },
         "executionType": {
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "MANUAL",
+            "SEMI_AUTOMATED",
+            "AUTOMATED",
+            "OTHER"
+          ]
         },
         "customData": {
           "type": "array",
