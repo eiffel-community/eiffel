@@ -12,6 +12,7 @@
     "selectionStrategy": {
       "tracker": "My Test Selector",
       "id": "TCSS-1234/5",
+	  "name": "My Selection Strategy",
       "uri": "http://tm.company.com/browse/TCSS-1234?version=5"
     },
     "batchesUri": "http://tm.company.com/recipeBatches/4093f621-17e1-4c7a-9d5b-22b4233f6e8b"

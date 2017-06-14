@@ -107,6 +107,9 @@
             "id": {
               "type": "string"
             },
+			"name": {
+              "type": "string"
+            },
             "uri": {
               "type": "string"
             }
