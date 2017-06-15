@@ -42,6 +42,11 @@ __Type:__ String
 __Required:__ Yes  
 __Description:__ The unique identity of the selection strategy that generated the test execution recipe collection.
 
+#### data.selectionStrategy.name
+__Type:__ String  
+__Required:__ No  
+__Description:__ The name of the selection strategy that generated the test execution recipe collection.
+
 #### data.selectionStrategy.uri
 __Type:__ String  
 __Required:__ No  
