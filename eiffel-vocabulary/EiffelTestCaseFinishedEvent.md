@@ -60,12 +60,12 @@ __Description:__ A list of metrics collected during the test case execution. Not
 
 ##### data.outcome.metrics.name
 __Type:__ String  
-__Required:__ No  
+__Required:__ Yes  
 __Description:__ The metrics name.
 
 ##### data.outcome.metrics.value
 __Type:__ Any  
-__Required:__ No  
+__Required:__ Yes  
 __Description:__ The metrics value.
 
 ### data.persistentLogs
@@ -86,7 +86,7 @@ __Description:__ The URI at which the log can be retrieved.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
+| 1.0.1     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Current version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelTestCaseFinishedEvent/simple.json)

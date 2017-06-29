@@ -163,8 +163,7 @@
                   },
                   "required": [
                     "id",
-                    "testCase",
-                    "constraints"
+                    "testCase"
                   ],
                   "additionalProperties": false
                 }

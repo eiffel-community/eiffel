@@ -14,7 +14,7 @@
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
+          "enum": [ "1.0.0", "1.0.1" ],
           "default": "1.0.0"
         },
         "time": {
