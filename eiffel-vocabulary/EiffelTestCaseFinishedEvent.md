@@ -86,7 +86,9 @@ __Description:__ The URI at which the log can be retrieved.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.1     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Current version.                        |
+| 1.0.1     | Current version                                        | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version. |
+
 
 ## Examples
 * [Simple example](../examples/events/EiffelTestCaseFinishedEvent/simple.json)
