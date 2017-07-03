@@ -14,8 +14,8 @@
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.1" ],
-          "default": "1.0.1"
+          "enum": [ "1.0.0" ],
+          "default": "1.0.0"
         },
         "time": {
           "type": "integer"
@@ -133,10 +133,6 @@
                   "value": {
                   }
                 },
-                "required": [
-                  "name",
-                  "value"
-                ],
                 "additionalProperties": false
               }
             }
