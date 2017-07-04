@@ -133,10 +133,6 @@
                   "value": {
                   }
                 },
-                "required": [
-                  "name",
-                  "value"
-                ],
                 "additionalProperties": false
               }
             }

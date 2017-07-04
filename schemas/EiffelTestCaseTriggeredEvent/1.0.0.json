@@ -129,7 +129,14 @@
             "type": "object",
             "properties": {
               "type": {
-                "type": "string"
+                "type": "string",
+                "enum": [
+                  "MANUAL",
+                  "EIFFEL_EVENT",
+                  "SOURCE_CHANGE",
+                  "TIMER",
+                  "OTHER"
+                ]
               },
               "description": {
                 "type": "string"
@@ -153,6 +160,7 @@
         "parameters": {
           "type": "array",
           "items": {
+            "type": "object",
             "properties": {
               "name": {
                 "type": "string"

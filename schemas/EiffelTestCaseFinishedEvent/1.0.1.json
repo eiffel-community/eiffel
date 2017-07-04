@@ -10,12 +10,12 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelActivityTriggeredEvent"]
+          "enum": [ "EiffelTestCaseFinishedEvent" ]
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
-          "default": "1.0.0"
+          "enum": [ "1.0.1" ],
+          "default": "1.0.1"
         },
         "time": {
           "type": "integer"
@@ -98,48 +98,73 @@
     "data": {
       "type": "object",
       "properties": {
-        "name": {
-          "type": "string"
+        "outcome": {
+          "type": "object",
+          "properties": {
+            "verdict": {
+              "type": "string",
+              "enum": [
+                "PASSED",
+                "FAILED",
+                "INCONCLUSIVE"
+              ]
+            },
+            "conclusion": {
+              "type": "string",
+              "enum": [
+                "SUCCESSFUL",
+                "FAILED",
+                "ABORTED",
+                "TIMED_OUT",
+                "INCONCLUSIVE"
+              ]
+            },
+            "description": {
+              "type": "string"
+            },
+            "metrics": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "value": {
+                  }
+                },
+                "required": [
+                  "name",
+                  "value"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "verdict",
+            "conclusion"
+          ],
+          "additionalProperties": false
         },
-        "categories": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "triggers": {
+        "persistentLogs": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "type": {
-                "type": "string",
-                "enum": [
-                  "MANUAL",
-                  "EIFFEL_EVENT",
-                  "SOURCE_CHANGE",
-                  "TIMER",
-                  "OTHER"
-                ]
+              "name": {
+                "type": "string"
               },
-              "description": {
+              "uri": {
                 "type": "string"
               }
             },
             "required": [
-              "type"
+              "name",
+              "uri"
             ],
             "additionalProperties": false
           }
-        },
-        "executionType": {
-          "type": "string",
-          "enum": [
-            "MANUAL",
-            "SEMI_AUTOMATED",
-            "AUTOMATED",
-            "OTHER"
-          ]
         },
         "customData": {
           "type": "array",
@@ -161,7 +186,7 @@
         }
       },
       "required": [
-        "name"
+        "outcome"
       ],
       "additionalProperties": false
     },
