@@ -147,7 +147,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["ACTIVITY_EXECUTION", "PREVIOUS_ACTIVITY_EXECUTION", "CAUSE", "FLOW_CONTEXT", "CONTEXT"]
           },
           "target": {
             "type": "string"

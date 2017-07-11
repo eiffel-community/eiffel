@@ -172,7 +172,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["IUT", "VERIFICATION_BASIS", "ENVIRONMENT", "CAUSE", "FLOW_CONTEXT", "CONTEXT"]
           },
           "target": {
             "type": "string"

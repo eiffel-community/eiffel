@@ -300,7 +300,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["BASE", "PREVIOUS_VERSION", "CAUSE", "FLOW_CONTEXT", "CONTEXT"]
           },
           "target": {
             "type": "string"

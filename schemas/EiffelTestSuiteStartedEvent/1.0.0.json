@@ -181,7 +181,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["TERC", "CAUSE", "FLOW_CONTEXT", "CONTEXT"]
           },
           "target": {
             "type": "string"

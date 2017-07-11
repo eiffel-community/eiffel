@@ -154,7 +154,8 @@
         "type": "object",
         "properties": {
           "type": {
-            "type": "string"
+            "type": "string",
+            "enum": ["SUBJECT", "SUB_CONFIDENCE_LEVEL", "CAUSE", "FLOW_CONTEXT", "CONTEXT"]
           },
           "target": {
             "type": "string"
