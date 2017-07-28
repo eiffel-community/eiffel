@@ -69,13 +69,11 @@ __Description:__ Identifies the latest previous execution of the activity.
 ### PREVIOUS_VERSION
 __Required in:__ None  
 __Optional in:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
-[EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md), 
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), 
 [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md), 
 [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), 
 [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), 
-[EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md), 
 [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), 
 [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md), 
 [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), 
@@ -111,7 +109,6 @@ __Required in:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/Eiffe
 __Optional in:__ None  
 __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md),
 [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),
-[EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md),
 [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md),
 [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ Yes  
@@ -122,8 +119,7 @@ __Required in:__ None
 __Optional in:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
 __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md),
 [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md),
-[EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),
-[EiffelDocumentationCreatedEvent](../eiffel-vocabulary/EiffelDocumentationCreatedEvent.md)  
+[EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies an element and/or sub-composition of the composition. The latter is particularly useful for documenting large and potentially decentralized compositions, and may be used to reduce the need to repeat large compositions in which only small parts are subject to frequent change.
 
