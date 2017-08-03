@@ -1,9 +1,9 @@
 {
   "meta": {
     "type": "EiffelTestExecutionRecipeCollectionCreatedEvent",
-    "version": "2.0.0",
+    "version": "1.0.0",
     "time": 1234567890,
-    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
   },
   "data": {
     "selectionStrategy": {
@@ -23,19 +23,13 @@
               "id": "TC-1234",
               "uri": "http://tm.company.com/browse/TC-1234"
             },
-            "constraints": [
-              {
-                "key": "load",
-                "value": 10000
-              },
-              {
-                "key": "environment",
-                "value": {
-                  "os": "ubuntu-15.04",
-                  "MY_PATH": "/home/lt-worf"
-                }
+            "constraints": {
+              "load": 10000,
+              "environment": {
+                "os": "ubuntu-15.04",
+                "MY_PATH": "/home/lt-worf"
               }
-            ]
+            }
           },
           {
             "id": "aaaaaaaa-bbbb-5ccc-addd-eeeeeeeeeee1",
@@ -44,19 +38,13 @@
               "id": "TC-1234",
               "uri": "http://tm.company.com/browse/TC-1234"
             },
-            "constraints": [
-              {
-                "key": "load",
-                "value": 500
-              },
-              {
-                "key": "environment",
-                "value": {
-                  "os": "ubuntu-16.04.1",
-                  "MY_PATH": "/home/cpt-picard"
-                }
+            "constraints": {
+              "load": 500,
+              "environment": {
+                "os": "ubuntu-16.04.1",
+                "MY_PATH": "/home/cpt-picard"
               }
-            ]
+            }
           }      
         ],
         "dependencies": [
@@ -71,7 +59,7 @@
   "links": [
     {
       "type": "CONTEXT",
-      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
     }
   ]
 }
