@@ -3,7 +3,7 @@
     "type": "EiffelArtifactReusedEvent",
     "version": "1.0.0",
     "time": 1234567890,
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "source": {
       "domainId": "example.domain",
       "serializer": {
@@ -12,7 +12,7 @@
         "version": "1.0.3"
       }
     },
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0",
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "tags": [
       "fast-track",
       "customer-a"
@@ -23,15 +23,15 @@
   "links": [
     {
       "type": "CONTEXT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     },
     {
       "type": "REUSED_ARTIFACT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
     },
     {
       "type": "COMPOSITION",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
     }
   ]
 }

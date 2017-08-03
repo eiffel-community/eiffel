@@ -3,7 +3,7 @@
     "type": "EiffelSourceChangeCreatedEvent",
     "version": "1.0.0",
     "time": 1234567890,
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
     "gitIdentifier": {
@@ -39,11 +39,11 @@
   "links": [
     {
       "type": "BASE",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     },
     {
       "type": "PREVIOUS_VERSION",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
     }
   ]
 }

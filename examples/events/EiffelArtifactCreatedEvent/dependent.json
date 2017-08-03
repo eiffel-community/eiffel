@@ -6,7 +6,7 @@
     "source": {
       "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
     },
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
     "gav": {
@@ -32,19 +32,19 @@
   "links": [
     {
       "type": "CAUSE",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     },
     {
       "type": "PREVIOUS_VERSION",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee2"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
     },
     {
       "type": "COMPOSITION",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     },
     {
       "type": "ENVIRONMENT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee3"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
     }
   ]
 }

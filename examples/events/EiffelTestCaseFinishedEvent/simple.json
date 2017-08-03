@@ -3,7 +3,7 @@
     "type": "EiffelTestCaseFinishedEvent",
     "version": "1.0.1",
     "time": 1234567890,
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
     "outcome": {
@@ -39,7 +39,7 @@
   "links": [
     {
       "type": "TEST_CASE_EXECUTION",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     }
   ]
 }
