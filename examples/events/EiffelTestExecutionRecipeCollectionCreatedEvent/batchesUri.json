@@ -6,7 +6,7 @@
     "source": {
       "domainId": "example.domain"
     },
-    "id": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee0"
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
     "selectionStrategy": {
@@ -19,7 +19,7 @@
   "links": [
     {
       "type": "CONTEXT",
-      "target": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee1"
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     }
   ]
 }
