@@ -28,6 +28,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
 1. [Introduction](./introduction/introduction.md)
    1. [How to Propose Changes](./introduction/how-to-propose-changes.md)
    1. [How to Contribute](./introduction/how-to-contribute.md)
+   1. [Code of Conduct](./CODE_OF_CONDUCT.md)
 1. Eiffel Syntax and Usage
    1. [Event Design Guidelines](./eiffel-syntax-and-usage/event-design-guidelines.md)
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
