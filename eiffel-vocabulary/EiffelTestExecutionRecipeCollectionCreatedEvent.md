@@ -98,9 +98,19 @@ __Required:__ No
 __Description:__ A location where a description of the test case can be retrieved.
 
 ##### data.batches.recipes.constraints
-__Type:__ Object  
+__Type:__ Object[]  
 __Required:__ No  
-__Description:__ Any constraints of the execution. The syntax of this object is not controlled, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+__Description:__ Any constraints of the execution. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+
+###### data.batches.recipes.constraints.key
+__Type:__ String  
+__Required:__ Yes  
+__Description:__ The key name of constraint.
+
+###### data.batches.recipes.constraints.value
+__Type:__ Any  
+__Required:__ Yes  
+__Description:__ The value of the constraint.
 
 #### data.batches.dependencies
 __Type:__ Object[]  
@@ -120,8 +130,10 @@ __Description:__ The UUID of the dependent execution (__data.batches.recipes.id_
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 2.0.0     | Current version.                                       | Changed syntax of data.batches.recipes.constraints from an uncontrolled object to a list of key-value pairs to comply with design guidelines. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Example using data.batches](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batches.json)
+* [Example using data.batches (1.0.0 syntax)](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batches-1.0.0.json)
 * [Example using data.batchesUri](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batchesUri.json)
