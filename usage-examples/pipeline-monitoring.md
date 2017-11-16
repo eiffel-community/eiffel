@@ -44,7 +44,7 @@ The structure of events shown in this example represents a common development br
 Note that EiffelCompositionDefinedEvents may reference any number of elements: often a composition doesn't just consist of the one source revision, but a large collection of sources, binaries and third party libraries.
 
 ### ActT1, ActT2, ActS1, ActS2, ActF1, ActF2
-[EiffelActivityTriggeredEvents](../eiffel-vocabulary/EiffelActivityTriggeredEvent), [EiffelActivityStartedEvents](../eiffel-vocabulary/EiffelActivityStartedEvent) and [EiffelActivityFinishedEvents](../eiffel-vocabulary/EiffelActivityFinishedEvent), in this example representing build activities. Using its __CONTEXT__ link, the [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) __ArtC1__ and __ArtC2__ declare that they are part of the activity.
+[EiffelActivityTriggeredEvents](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelActivityStartedEvents](../eiffel-vocabulary/EiffelActivityStartedEvent.md) and [EiffelActivityFinishedEvents](../eiffel-vocabulary/EiffelActivityFinishedEvent.md), in this example representing build activities. Using its __CONTEXT__ link, the [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) __ArtC1__ and __ArtC2__ declare that they are part of the activity.
 
 ### ArtC1, ArtC2
 The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) representing new versions of the built software.
@@ -68,14 +68,14 @@ Using Eiffel, this can be done as follows:
 This gives provides the lead time from the final version of the source change to its submission. If one would rather analyze the time from the first version, this can be done by following any PREVIOUS_VERSION link in [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md).
 
 ### Build Duration
-In the example above, the artifacts (represented by __ArtC1__ and __ArtC2__) are built in activities, represented by sets of [EiffelActivityTriggeredEvents](../eiffel-vocabulary/EiffelActivityTriggeredEvent), [EiffelActivityStartedEvents](../eiffel-vocabulary/EiffelActivityStartedEvent) and [EiffelActivityFinishedEvents](../eiffel-vocabulary/EiffelActivityFinishedEvent). It is often important to study how long such build activities take, and study the trends of such execution times.
+In the example above, the artifacts (represented by __ArtC1__ and __ArtC2__) are built in activities, represented by sets of [EiffelActivityTriggeredEvents](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelActivityStartedEvents](../eiffel-vocabulary/EiffelActivityStartedEvent.md) and [EiffelActivityFinishedEvents](../eiffel-vocabulary/EiffelActivityFinishedEvent.md). It is often important to study how long such build activities take, and study the trends of such execution times.
 
 Using Eiffel, this can be done as follows:
-1. For every [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent), search for its corresponding [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent) having the same __ACTIVITY_EXECUTION__ link.
+1. For every [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md), search for its corresponding [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) having the same __ACTIVITY_EXECUTION__ link.
 1. Compare __meta.time__ of the two events.
 
 ### Test Duration
-Measuring test duration is similar to measuring build duration, and driven by similar needs. Indeed, if one is interested in the duration of a set of tests wrapped by a set of of [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent), [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent) and [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent) one can employ the exact same method. Assuming one is interested in studying the execution time of a particular test case, however, one can use the following method:
+Measuring test duration is similar to measuring build duration, and driven by similar needs. Indeed, if one is interested in the duration of a set of tests wrapped by a set of of [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) and [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md) one can employ the exact same method. Assuming one is interested in studying the execution time of a particular test case, however, one can use the following method:
 1. For every [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), find any [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) sharing the same __TEST_CASE_EXECUTION__ link target.
 1. Compare __meta.time__ of the two events.
 
@@ -111,7 +111,7 @@ Using Eiffel, this can be done as follows:
 Related to the question above of build and test durations, it is sometimes important to monitor queuing times. Where resources are scarce, activities may end up in queue for long periods of time before they can be executed.
 
 Using Eiffel, this can be done as follows:
-1. For every relevant [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent) follow its __ACTIVITY_EXECUTION__ link to its corresponding [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent).
+1. For every relevant [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) follow its __ACTIVITY_EXECUTION__ link to its corresponding [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md).
 1. Compare __meta.time__ of the two events.
 
 ### Test Queuing Times
