@@ -8,8 +8,12 @@ The Eiffel protocol provides several events to use within a test activity. This 
 
 To understand the example provided here, it is important to explain a few concepts (used in the sequence diagram below). While Eiffel does not make any assumptions about the underlying infrastructure and/or testing methodology, it does encourage separation of concerns. In this example, it is not the responsibility of the _Activity Orchestrator_ (e.g. the CI server) to determine the contents of the test scope, nor is it the responsibility of the _Test Executor_. Instead, the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) makes it possible for a third actor, the _Test Manager_, to determine the test scope. A fourth actor, _Environment Provider_, is used to provide a test environment based on the needs described in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md). The _Environment Provider_ has full control over all available test environments, and therefore the _Test Executor_ SHALL use the provided environment to run the tests towards.
 
+## About the Example
+In the example outlined here we assume that one test suite (a set of test cases) is to be executed in two different environments within the same test activity. The test suite consists of only two test cases, A and B, to keep the complexity of the event graph down. For the same reason issue verification is only performed for the test cases in environment 2.
+
 ## Event Graph
 ![alt text](./test-execution.png "Event Graph of Test Execution Example")
+Dashed event links are optional and solid event links are mandatory.
 
 ## Event-by-Event Explanation
 ### ActT, ActS, ActF
@@ -29,8 +33,11 @@ Here we assume that the test orchestrator has decided to split the complete set 
 
 For each test environment set up and/or created an [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) event SHALL be sent. The environments could be static and thereby reused between a lot of test activities, or they could be created in runtime for every test activity. The latter is the typical case when testing in a cloud environment. The information needed to set up or create a test environment could be given in the TERCC event.
 
+### ArtC/CDef
+To track what item is being tested there SHALL be a link to either an [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) or to an [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) from each test case triggered. What the ArtC/CDef event links to is left out from this example, but it could for example be a __CAUSE__ link to another activity.
+
 ### TCTx
-To signal that a test case is about to be executed an [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) can be sent. The TCT events in this example link to the [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) to enable tracking of the context in which the test cases are to be executed. In this example only a very small number of test cases are executed - in reality, these events tend to be very numerous.
+To signal that a test case is about to be executed an [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) can be sent. The TCT events in this example link to the [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) to enable tracking of the context in which the test cases are to be executed.
 
 ### TCSx
 [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) declare that test case executions have started. They should link to the environment in which they are executed.
@@ -40,6 +47,9 @@ To signal that a test case is about to be executed an [EiffelTestCaseTriggeredEv
 
 ### IVx
 [EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) are used to communicate the fact that a certain issue (e.g. a requirement or a bug report) has been verified successfully or not. The verification is in this example linked to a [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) to describe what test  case that was used to verify this issue. Just as for [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md), the IV events should link to the environment in which the issue is verified (it must not be the same environment as the linked test case).
+
+### CLM
+A [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) is sent to declare what level of confidence was reached for the given item under test. It COULD link to the executed test suite to track what tests where performed to achieve the given confidence level.
 
 ## Test Activity Execution Implementation
 To realize the event graph in this example, a sequence like the following is needed:
