@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2018 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -29,7 +29,7 @@ __Type:__ String
 __Required:__ Yes  
 __Legal values:__ BUG, IMPROVEMENT, FEATURE, WORK_ITEM, REQUIREMENT, OTHER  
 __Description:__ The type of issue.
-  
+
 #### data.issues.tracker
 __Type:__ String  
 __Required:__ Yes  
@@ -53,6 +53,46 @@ __Description:__ The value of the verification.
 SUCCESS signifies that the issue was successfully verified.  
 FAILURE signifies that verification of the issue failed.
 INCONCLUSIVE signifies that the verification of the issue was inconclusive.
+
+## Links
+### IUT
+__Required:__ Yes  
+__Optional in:__ None  
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),
+[EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the Item Under Test; in other words, the entity for which the issue has been verified.
+
+### VERIFICATION_BASIS
+__Required:__ No  
+__Legal targets:__ [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare the basis on which the verification statement(s) of this event have been issued.
+
+### ENVIRONMENT
+__Required:__ No  
+__Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the environment in which the issue was verified.
+
+### CAUSE
+__Required:__ No  
+__Legal targets:__ Any  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+
+### CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
+[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+
+### FLOW_CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |

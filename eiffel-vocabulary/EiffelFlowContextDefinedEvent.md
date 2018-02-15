@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2018 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,7 +16,7 @@
 --->
 
 # EiffelFlowContextDefined (FCD)
-The EiffelFlowContextDefined describes the context of other events, answering questions such as "Which project is change part of?" or "Which track does artifact belong to?". In this way it offers a method of classifying and structuring one's continuous integration and delivery system and thereby facilitaring traceability and searchability. 
+The EiffelFlowContextDefined describes the context of other events, answering questions such as "Which project is change part of?" or "Which track does artifact belong to?". In this way it offers a method of classifying and structuring one's continuous integration and delivery system and thereby facilitaring traceability and searchability.
 
 The nature of the described context can vary. The event consequently offers a high degree of flexibility in its description, and none of its member fields are mandatory. Instead they can picked and mixed to fit the situation.
 
@@ -45,6 +45,26 @@ __Description:__ A track context which other events can relate to (e.g. "This fe
 __Type:__ String  
 __Required:__ No  
 __Description:__ A version context which other events can relate to. This member SHOULD be used in tandem with one of the other optional members - a version by itself is not very informative.
+
+## Links
+### CAUSE
+__Required:__ No  
+__Legal targets:__ Any  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+
+### CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
+[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+
+### FLOW_CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |

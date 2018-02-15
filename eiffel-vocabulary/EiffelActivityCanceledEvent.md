@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2018 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,6 +23,32 @@ The EiffelActivityCanceledEvent signals that a previously triggered activity exe
 __Type:__ String  
 __Required:__ No  
 __Description:__ Any human readable information as to the reason for dequeueing.
+
+## Links
+### ACTIVITY_EXECUTION
+__Required:__ Yes  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Declares the activity execution that was canceled. In other words, [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) acts as a handle for the activity execution. This differs from __CONTEXT__. In __ACTIVITY_EXECUTION__ the source carries information pertaining to the target (i.e. the activity started, finished or was canceled). In __CONTEXT__, on the other hand, the source constitutes a subset of the target (e.g. this test case was executed as part of that activity or test suite).
+
+### CAUSE
+__Required:__ No  
+__Legal targets:__ Any  
+__Multiple allowed:__ Yes  
+__Description:__ While for most events it is recommended that __CAUSE__ SHOULD not be used in conjunction with __CONTEXT__, EiffelActivityCanceledEvent is a special case as it represents a deviation from previous intention. Therefore it is recommended that __CAUSE__ always be included where applicable.
+
+### CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
+[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+
+### FLOW_CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |

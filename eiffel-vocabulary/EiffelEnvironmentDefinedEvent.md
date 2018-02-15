@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2018 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -55,6 +55,32 @@ __Description:__ The user name on the host.
 __Type:__ String  
 __Required:__ No  
 __Description:__ A URI identifying the environment description. This is the catch-all method of environment descriptions. Eiffel does not concern itself with the format or nature of the description, but merely points to its location.
+
+## Links
+### PREVIOUS_VERSION
+__Required:__ No  
+__Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies a latest previous version (there may be more than one in case of merges) of the environment.
+
+### CAUSE
+__Required:__ No  
+__Legal targets:__ Any  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+
+### CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
+[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+
+### FLOW_CONTEXT
+__Required:__ No  
+__Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
