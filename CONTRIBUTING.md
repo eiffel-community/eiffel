@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2018 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,10 +18,9 @@
 # Contributing to Eiffel
 Thank you for contributing to the Eiffel protocol and its implementations!
 
-The following is a set of guidelines for contributing to the Eiffel protocol or any of its implementations. 
+The following is a set of guidelines for contributing to the Eiffel protocol or any of its implementations.
 
 ## How to Propose Changes
-
 Anyone is welcome to propose changes to the Eiffel protocol by creating a new [Issue](https://github.com/Ericsson/eiffel/issues) ticket in GitHub. These requests may concern anything contained in the repo: changes to documentation, changes to definitions, requests for additional information, additional event types, requests for additional examples et cetera.
 
 When posting a new issue, try to be as precise as possible and phrase your arguments for your request carefully. Keep in mind that defining a shared protocol is often an exercise in finding workable compromises between multiple and often conflicting needs. In particular, pay attention to the following:
@@ -68,15 +67,15 @@ To be accepted into the repository, contributions must be licensed under the Apa
 
 The copyright holder is either the individual contributor if they act on their own behalf, or any organization on whose behalf they contribute. When multiple copyright holders have contributed to the same file, the copyright notice shall be appended "and others". The copyright year(s) shall reflect the year(s) of contribution(s) and be updated accordingly when new contributions are made to the file. To exemplify, the copyright notice of an original contribution made by Jane Doe acting on behalf of Ericsson AB may read:
 
-> Copyright 2017 Ericsson AB.  
+> Copyright 2018 Ericsson AB.  
 > For a full list of individual contributors, please see the commit history.
 
 When John Doe, acting on his own behalf, makes a subsequent addition to the same file, the notice will be updated accordingly:
 
-> Copyright 2017 Ericsson AB and others.  
+> Copyright 2018 Ericsson AB and others.  
 > For a full list of individual contributors, please see the commit history.
 
 When John Doe makes a subsequent contribution the following year, the notice will again be updated:
 
-> Copyright 2017-2018 Ericsson AB and others.  
+> Copyright 2018-2019 Ericsson AB and others.  
 > For a full list of individual contributors, please see the commit history.
