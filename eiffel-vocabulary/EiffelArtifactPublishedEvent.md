@@ -27,7 +27,7 @@ __Description:__ A list of locations at which the artifact may be retrieved.
 #### data.locations.type
 __Type:__ String  
 __Required:__ Yes  
-__Legal values:__ ARTIFACTORY, NEXUS, PLAIN, OTHER  
+__Legal values:__ ARTIFACTORY, NEXUS, PLAIN, DOCKER_REGISTRY, OTHER  
 __Description:__ The type of location. May be used by (automated) readers to understand the method of retrieval, particularly with regards to authentication.  
 ARTIFACTORY signifies an [Artifactory](https://www.jfrog.com/artifactory/)  
 NEXUS signifies a [Nexus](http://www.sonatype.org/nexus/)  
@@ -42,6 +42,7 @@ __Description:__ The URI at which the artifact can be retrieved.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.1.0     | Current version.                                       | Added DOCKER_REGISTRY as valid value to data.locations.type. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
