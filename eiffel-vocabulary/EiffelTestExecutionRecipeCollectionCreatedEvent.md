@@ -144,7 +144,7 @@ __Description:__ Identifies the activity or test suite of which this event const
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
-__Multiple allowed:__ No  
+__Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Meta Members
@@ -259,7 +259,8 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 2.0.0     | Current version.                                       | Changed syntax of data.batches.recipes.constraints from an uncontrolled object to a list of key-value pairs to comply with design guidelines. |
+| 2.1.0     | Current version.                                       | Multiple links of type FLOW_CONTEXT allowed. |
+| 2.0.0     |                                                        | Changed syntax of data.batches.recipes.constraints from an uncontrolled object to a list of key-value pairs to comply with design guidelines. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples

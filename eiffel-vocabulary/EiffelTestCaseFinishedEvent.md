@@ -106,7 +106,7 @@ __Description:__ Identifies the activity or test suite of which this event const
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
-__Multiple allowed:__ No  
+__Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Meta Members
@@ -221,7 +221,8 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.1     | Current version                                        | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
+| 1.1.0     | Current version.                                       | Multiple links of type FLOW_CONTEXT allowed. |
+| 1.0.1     |                                                        | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version. |
 
 ## Examples

@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelTestCaseFinishedEvent",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
