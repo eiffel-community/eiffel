@@ -93,7 +93,7 @@ __Description:__ Identifies the activity or test suite of which this event const
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
-__Multiple allowed:__ No  
+__Multiple allowed:__ Yes   
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
 ## Meta Members
