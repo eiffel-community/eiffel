@@ -31,4 +31,4 @@ __Description:__ This object contains all fields specific to the event type – 
 ## links
 __Type:__ Object  
 __Required:__ Yes  
-__Description:__ This object contains all trace links to other Eiffel events. It is described in detail [here](./the-links-object.md).
+__Description:__ This object contains all types of links to other Eiffel events. Its usage and syntax is described [here](./the-links-object.md), while the full list of optional and required links is described in the documentation of each respective event type..
