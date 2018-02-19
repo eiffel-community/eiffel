@@ -57,7 +57,7 @@ __Description:__ The URI at which the log can be retrieved.
 __Required:__ No  
 __Legal targets:__ [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ When declared in an EiffelTestSuiteStartedEvent, this link signifies that the test suite groups all test case executions resulting from the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
+__Description:__ This link signifies that the test suite represented by this event groups all test case executions resulting from the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
 
 ### CAUSE
 __Required:__ No  
