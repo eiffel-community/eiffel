@@ -149,13 +149,8 @@ __Description:__ Identifies the activity or test suite of which this event const
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
-__Multiple allowed:__ No  
+__Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
-
-## Version History
-| Version   | Introduced in                                          | Changes                                 |
-| --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Meta Members
 ### meta.id
@@ -265,6 +260,12 @@ __Type:__ String
 __Format:__  
 __Required:__ Yes  
 __Description:__ The encrypted digest. The cryptographic hash function and the decryption algorithm to use, similarly to the Trusted Authority (TA), must be known to the recipient. Note that the digest of the entire event is affected by the value of this property. For this reason the input to the hash function SHALL be the entire event unaltered in all parts except for this property, which SHALL be replaced by an empty string.
+
+## Version History
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.1.0     | Current version.                                       | Multiple links of type FLOW_CONTEXT allowed. |
+| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
 ## Examples
 * [Simple example](../examples/events/EiffelArtifactCreatedEvent/simple.json)

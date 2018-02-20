@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelSourceChangeCreatedEvent",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
@@ -44,6 +44,14 @@
     {
       "type": "PREVIOUS_VERSION",
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "FLOW_CONTEXT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
+    },
+    {
+      "type": "FLOW_CONTEXT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4"
     }
   ]
 }
