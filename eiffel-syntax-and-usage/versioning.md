@@ -30,6 +30,5 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Lyon  | _Reserved for future use._  | |
 | Paris  | _Reserved for future use._  | |
 | Agen  | _Reserved for future use._  | |
-| Toulouse  | _Reserved for future use._  | |
+| Toulouse  | [edition-toulouse](../../../tree/edition-toulouse)  | Stepped major version of TERCC. Updated FLOW_CONTEXT link type, resulting in new minor version of all event types. |
 | Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  | Initial edition. |
-

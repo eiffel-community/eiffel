@@ -221,7 +221,7 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.1.0     | Current version.                                       | Multiple links of type FLOW_CONTEXT allowed. |
+| 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.1     | [0a2f9ef](../../../blob/0a2f9ef139fe6ead2493e5deddf1337ffb3dd4af/eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version. |
 
