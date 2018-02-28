@@ -2,7 +2,7 @@
 This example presents how Eiffel events sent as part of a test activity can be connected.
 
 ## Introduction
-Using Eiffel events to describe the execution of a test activity can be done in wide variety of ways. On one edge, a test activity can be described with Eiffel activity events only, and on the other edge a test activity can be expanded to send a big set of Eiffel events revealing the inner details of the test activity. Which way to choose depends on the complexity of your test execution system and on the need to describe and visualize the nitty-gritty details of the test activity.
+Using Eiffel events to describe the execution of a test activity can be done in wide variety of ways and with varying numbers of events. On one extreme, a test activity can be described with Eiffel activity events only, and on the other extreme a test activity can be expanded to send a big set of Eiffel events revealing the inner details of the test activity. Which way to choose depends on the complexity of your test execution system and on the need to describe and visualize the nitty-gritty details of the test activity.
 
 The Eiffel protocol provides several events to use within a test activity. This example shows how to make use of most of the Eiffel events related to test activities, with the purpose to present how they all are related.
 
