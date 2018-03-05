@@ -16,8 +16,8 @@
 --->
 
 # EiffelIssueStatusModifiedEvent (ISM)
-The EiffelIssueStatusUpdatedEvent declares that the status, or state, of an
-issue has been updated. This event shall only be emitted by the owner of the 
+The EiffelIssueStatusModifiedEvent declares that the status, or state, of an
+issue has been modified. This event shall only be emitted by the owner of the 
 data: the issue tracker itself. 
 
 
@@ -28,13 +28,14 @@ __Type:__ String
 __Required:__ Yes  
 __Legal values:__ OPEN, ACTIVE, RESOLVED  
 __Description:__ The new high-level state of the issue.  
-OPEN signifies that an issue has been declared, but no progress has yet
-started on the issue. This includes both newly defined issues as well as
-issues that were previously resolved and have been reopened.  
-ACTIVE represents any state in which progress has been made towards the
-resolution of an issue.  
-RESOLVED signifies that an issue is "complete," but can still be reopened
-later.
+OPEN signifies that an issue has been declared, but no work is currently
+being done on the issue. This includes newly created issues, issues for which
+progress has ceased and issues that were previously resolved and have been
+reopened.
+ACTIVE specifies that a contributor is currently making progress towards the
+resolution of the issue.
+RESOLVED signifies that work on an issue is "complete," but can still be
+reopened later.
 
 ### data.status
 __Type:__ String  
