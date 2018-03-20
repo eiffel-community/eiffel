@@ -16,7 +16,12 @@
 --->
 
 # EiffelIssueAssignedEvent (IA)
-
+The EiffelIssueAssignedEvent declares that an issue defined by an
+[EiffelIssueDefinedEvent](./EiffelIssueDefinedEvent.md) has been assigned to a
+contributor. The fields of an __assignee__ in this event are intended to mirror
+the fields of an __author__ in
+[EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md) to
+facilitate traceability.
 
 ## Data Members
 
