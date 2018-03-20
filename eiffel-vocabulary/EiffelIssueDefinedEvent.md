@@ -17,11 +17,13 @@
 
 # EiffelIssueDefinedEvent (ID)
 The EiffelIssueDefinedEvent declares that an issue has been created in some
-external issue management software. This provides provenance for an issue
-outside of an
-[EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent). Doing so
-improves tracibility by providing a definite beginning to the lifetime of an
-issue, where previously such knowledge would be impossible to obtain.
+external issue management software. This event provides provenance for an issue,
+and acts as a "handle" for future issue related events similarly to
+[EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md) and 
+[EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md). It provides
+a minimal amount of information necessary for this purpose and allows further
+data to be attached through later events, for example the 
+[EiffelIssueAssignedEvent](./EiffelIssueAssignedEvent).
 
 The EiffelIssueDefinedEvent serves as a means of providing context to a set of
 events in a manner that
@@ -31,9 +33,6 @@ convention to decide which field to use of the FlowContext, as well as that
 field's type: a URL, an id, a name, etc. Upgrading an issue to a first class
 object in Eiffel also allows the incorporation of information affecting the
 issue context outside the realm of source control changes. 
-
-The [EiffelIssueStatusModifiedEvent](./EiffelIssueStatusModifiedEvent) is used to
-transition the state of an issue.
 
 ## Data Members
 
