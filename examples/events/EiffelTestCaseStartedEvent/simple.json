@@ -18,6 +18,10 @@
     {
       "type": "ENVIRONMENT",
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "TEST_CASE_EXECUTION",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
     }
   ]
 }
