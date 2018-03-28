@@ -81,38 +81,6 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The unique identity, if any, of the change (apart from what is expressed in the identifier object). Examples include e.g. Gerrit Change-Ids or GitHub Pull Requests. It is recommended to also include __data.change.tracker__ to provide a hint as to the nature of the identity.
 
-### data.issues
-__Type:__ Object[]  
-__Required:__ No  
-__Description:__ A list of issues addressed by the change.
-
-#### data.issues.type
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ BUG, IMPROVEMENT, FEATURE, WORK_ITEM, REQUIREMENT, OTHER  
-__Description:__ The type of issue.
-
-#### data.issues.tracker
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The name of the issue tracker. This can unfortunately not be standardized, and is therefore context sensitive: though some trackers and ALM tools are more popular than others, an exhaustive enumeration is impossible, particularly when considering company specific internal solutions. Consequently one should not rely on the name as the primary method of retrieval, but rather __data.issues.uri__. __data.issues.tracker__ together with __data.issues.id__ is still useful for analysis and traceability, however, as long as it can be correctly interpreted.
-
-#### data.issues.id
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The identity of the issue. This is tracker dependent - most trackers have their own issue naming schemes.
-
-#### data.issues.uri
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The URI of the issue.
-
-#### data.issues.transition
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ RESOLVED, PARTIAL, REMOVED  
-__Description:__ The new state of the issue: does the change resolve it, partially resolve it or remove it?
-
 ### data.gitIdentifier
 __Type:__ Object  
 __Required:__ No  
@@ -220,6 +188,18 @@ __Required:__ No
 __Legal targets:__ [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies a latest previous version (there may be more than one in case of merges) of the created source change.
+
+### ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue that this event pertains to.
+
+### ADDRESSED_ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue that this event is claiming to address. This differs from a link of type _ISSUE_ in that _ISSUE_ simply references an issue to provide context. _ADDRESSED_ISSUE_ makes a claim that this event has done something that should result in the resolution of the issue. 
 
 ### CAUSE
 __Required:__ No  
