@@ -25,15 +25,6 @@ a minimal amount of information necessary for this purpose and allows further
 data to be attached through later events, for example the 
 [EiffelIssueAssignedEvent](./EiffelIssueAssignedEvent).
 
-The EiffelIssueDefinedEvent serves as a means of providing context to a set of
-events in a manner that
-[EiffelFlowContextDefinedEvent](./EiffelFlowContextDefinedEvent.md) cannot.
-Tracing an issue through an EiffelFlowContextDefinedEvent would require
-convention to decide which field to use of the FlowContext, as well as that
-field's type: a URL, an id, a name, etc. Upgrading an issue to a first class
-object in Eiffel also allows the incorporation of information affecting the
-issue context outside the realm of source control changes. 
-
 ## Data Members
 
 ### data.type
