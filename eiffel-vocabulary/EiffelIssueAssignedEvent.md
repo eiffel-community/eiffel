@@ -236,7 +236,7 @@ property, which SHALL be replaced by an empty string.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.0     |      |                         |
+| 1.0.0     | Current version                                        | Initial version.                        |
 
 ## Examples
 
