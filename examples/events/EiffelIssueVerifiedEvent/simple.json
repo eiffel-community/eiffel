@@ -32,6 +32,10 @@
     {
       "type": "ENVIRONMENT",
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4"
+    },
+    {
+      "type": "ISSUE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5"
     }
   ]
 }
