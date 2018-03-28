@@ -245,20 +245,6 @@ property, which SHALL be replaced by an empty string.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.0     |      |                         |
+| 1.0.0     | Current version                                        | Initial version                         |
 
 ## Examples
-
-
-Hi,
-
-Creating a shared architecture sounds interesting. I think that would warrant its own post outside of this thread for further discussion.
-
-Focusing on the the issue management protocol additions, I'm concerned that the introduction of IssueAddressedEvent results in an inconsistent stance on the separation of protocol and implementation architecture. I'm having difficulty reconciling
-
-- We should expect an event like EiffelIssueStatusUpdatedEvent to be emitted by the tracker itself. If you have other actors than the owner of the data emitting events as to changes in that data, you invite inconsistency and complicated dependencies. A cleaner solution - and in line with the intention of EiffelSourceChangeCreatedEvent
-.data.issues.transition - would be to introduce e.g. EiffelIssueAddressedEvent.
-
-and
-
-...as a principle, questions such as these have been left deliberately unanswered from a strict protocol stand-point: who sends messages and how is a question of implementation architecture...
