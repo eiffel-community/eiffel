@@ -25,16 +25,7 @@
       "tracker": "GitHub",
       "details": "https://github.com/johndoe/myPrivateRepo/commit/fd090b60a4aedc5161da9c035a49b14a319829b4",
       "id": "42"
-    },
-    "issues": [
-      {
-        "type": "BUG",
-        "tracker": "JIRA",
-        "id": "JIRA-1234",
-        "uri": "http://jira.company.com/browse/JIRA-1234",
-        "transition": "RESOLVED"
-      }
-    ]
+    }
   },
   "links": [
     {
@@ -52,6 +43,10 @@
     {
       "type": "FLOW_CONTEXT",
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4"
+    },
+    {
+      "type": "ADDRESSED_ISSUE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5"
     }
   ]
 }
