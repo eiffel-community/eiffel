@@ -233,3 +233,8 @@ must be known to the recipient. Note that the digest of the entire event is
 affected by the value of this property. For this reason the input to the hash
 function SHALL be the entire event unaltered in all parts except for this
 property, which SHALL be replaced by an empty string.
+
+## Version History
+| Version   | Introduced in                                          | Changes                                 |
+| --------- | ------------------------------------------------------ | --------------------------------------- |
+| 1.0.0     | Current version                                        | Initial version                         |
