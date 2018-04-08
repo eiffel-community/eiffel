@@ -238,3 +238,6 @@ property, which SHALL be replaced by an empty string.
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
 | 1.0.0     | Current version                                        | Initial version                         |
+
+## Examples
+* [Simple example](../examples/events/EiffelIssueStatusModifiedEvent/simple.json)
