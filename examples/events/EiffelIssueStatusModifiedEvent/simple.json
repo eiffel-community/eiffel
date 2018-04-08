@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "type": "EiffelIssueStatusModifiedEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
+  },
+  "data": {
+      "category": "RESOLVED",
+      "status": "DONE"
+  },
+  "links": [
+    {
+      "type": "ISSUE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5"
+    },
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee8"
+    }
+  ]
+}
