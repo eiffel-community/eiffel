@@ -189,17 +189,23 @@ __Legal targets:__ [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelS
 __Multiple allowed:__ Yes  
 __Description:__ Identifies a latest previous version (there may be more than one in case of merges) of the created source change.
 
-### ISSUE
+### PARTIALLY_RESOLVED_ISSUE
 __Required:__ No  
 __Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies an issue that this event pertains to.
+__Description:__ Identifies an issue that this event partially resolves. That is, this SCC introduces some change that has advanced an issue towards a resolved state, but not completely resolved.
 
-### ADDRESSED_ISSUE
+### RESOLVED_ISSUE
 __Required:__ No  
 __Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies an issue that this event is claiming to address. This differs from a link of type _ISSUE_ in that _ISSUE_ simply references an issue to provide context. _ADDRESSED_ISSUE_ makes a claim that this event has done something that should result in the resolution of the issue. 
+__Description:__ Identifies an issue that this SCC is claiming it has done enough to resolve. This is not an authoritative resolution, only a claim.
+
+### DERESOLVED_ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue that this SCC claims should no longer be resolved after the change this event introduces.
 
 ### CAUSE
 __Required:__ No  
