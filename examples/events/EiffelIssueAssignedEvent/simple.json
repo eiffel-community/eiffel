@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "type": "EiffelIssueAssignedEvent",
+    "version": "1.0.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "assignees": [
+      {
+        "name": "John Doe",
+        "email": "john.doe@company.com",
+        "id": "johndoe",
+        "group": "Team Gophers"
+      }
+    ]
+  },
+  "links": [
+    {
+      "type": "ISSUE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "FLOW_CONTEXT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
+    },
+    {
+      "type": "FLOW_CONTEXT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4"
+    }
+  ]
+}
