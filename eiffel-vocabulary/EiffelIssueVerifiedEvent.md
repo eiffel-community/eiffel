@@ -16,7 +16,7 @@
 --->
 
 # EiffelIssueVerifiedEvent (IV)
-The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, has been verified by some means. It is different from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md) in that multiple test case executions may serve as the basis for a single verification or, conversely, multiple issues may be verified based on a single test case execution. 
+The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, has been verified by some means. It is different from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md) in that multiple test case executions may serve as the basis for a single verification or, conversely, multiple issues may be verified based on a single test case execution.
 
 EiffelIssueVerifiedEvent has no data members, instead relying on its required link types. While "SUCCESSFUL_ISSUE", "FAILED_ISSUE", and "INCONCLUSIVE_ISSUE" are all marked as not required, at least one link of at least one of these types __must__ be present in an EiffelIssueVerifiedEvent.
 
