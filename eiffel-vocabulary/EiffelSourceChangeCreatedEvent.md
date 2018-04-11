@@ -205,7 +205,7 @@ __Description:__ Identifies an issue that this SCC is claiming it has done enoug
 __Required:__ No  
 __Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies an issue that this SCC claims should no longer be resolved after the change this event introduces.
+__Description:__ Identifies an issue which was previously resolved, but that this SCC claims it has made changes to warrant removing the resolved status. For example, if an issue "Feature X" was resolved, but this SCC removed the implmentation that led to "Feature X" being resolved, that issue should no longer be considered resolved.
 
 ### CAUSE
 __Required:__ No  
