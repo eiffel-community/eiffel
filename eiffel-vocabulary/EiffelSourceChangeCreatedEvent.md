@@ -199,7 +199,7 @@ __Description:__ Identifies an issue that this event partially resolves. That is
 __Required:__ No  
 __Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies an issue that this SCC is claiming it has done enough to resolve. This is not an authoritative resolution, only a claim.
+__Description:__ Identifies an issue that this SCC is claiming it has done enough to resolve. This is not an authoritative resolution, only a claim. The issue may or may not change status as a consequence this, e.g. through a [successful verification](../eiffel-vocabular/EiffelIssueVerifiedEvent.md) or a manual update on the issue tracker. 
 
 ### DERESOLVED_ISSUE
 __Required:__ No  
