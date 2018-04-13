@@ -99,15 +99,10 @@
     "data": {
       "type": "object",
       "properties": {
-        "category": {
-          "type": "string",
-          "enum": [
-            "OPEN",
-            "ACTIVE",
-            "RESOLVED"
-          ]
-        },
         "status": {
+          "type": "string"
+        },
+        "category": {
           "type": "string"
         },
         "customData": {
@@ -129,6 +124,9 @@
           }
         }
       },
+      "required": [
+        "status"
+      ],
       "additionalProperties": false
     },
     "links": {

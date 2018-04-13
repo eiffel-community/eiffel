@@ -18,38 +18,30 @@
 # EiffelIssueStatusModifiedEvent (ISM)
 The EiffelIssueStatusModifiedEvent declares that the status, or state, of an
 issue has been modified. This event shall only be emitted by the owner of the 
-data: the issue tracker itself. 
-
+data: the issue tracker itself.
 
 ## Data Members
 
-### data.category
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ OPEN, ACTIVE, RESOLVED  
-__Description:__ The new high-level state of the issue.  
-OPEN signifies that an issue has been declared, but no work is currently
-being done on the issue. This includes newly created issues, issues for which
-progress has ceased and issues that were previously resolved and have been
-reopened.
-ACTIVE specifies that a contributor is currently making progress towards the
-resolution of the issue.
-RESOLVED signifies that work on an issue is "complete," but can still be
-reopened later.
-
 ### data.status
 __Type:__ String  
-__Required:__ No  
-__Description:__ A finer grain description of an issue's status. Different
-issue trackers have varying levels of granularity for an issue status; some are
-simply binary open/closed, while others allow a totally arbitrary custom status.
-__data.status__ captures any "subtype" of the fields in __data.category__. 
-For example, STARTED and AWAITING_REVIEW may both be statuses in the ACTIVE
-category, and a bug may be transitioned to the RESOLVED category with a
-status of WONTFIX. __data.status__ is a free form string, as values are
-tracker dependent. However, SCREAMING_SNAKE_CASE is encouraged for this field
-to maintain consistency.
+__Required:__ Yes  
+__Description:__ The new status of the issue. Values are dependent on the
+`data.tracker` of the [EiffelIssueDefinedEvent](./EiffelIssueDefinedEvent)
+that this event references, and share the definitions/semantics. Different
+issue trackers have different granularities for the status of an issue. For
+example, GitHub issues would be either OPEN or CLOSED. This field is meant to
+be the most specific applicable status to an issue, for example "WONTFIX"
+would be preferred over "CLOSED" for a bug, given that both have clear
+definitions in the context of the issue tracker.
 
+### data.category
+__Type:__ String  
+__Required:__ No  
+__Description:__ A higher level "supertype" of __data.status__. Should conform
+to the guidelines of the issue tracker of the
+[EiffelIssueDefinedEvent](./EiffelIssueDefinedEvent) that this event
+references, and share the definitions/semantics. For example,
+"AWAITING_REVIEW" may be a status in the "IN_PROGRESS" category.
 
 ## Links
 
