@@ -23,11 +23,11 @@ EiffelIssueVerifiedEvent has no data members, instead relying on its required li
 ## Data Members
 
 ## Links
-### SUCCESFUL_ISSUE
+### SUCCESSFUL_ISSUE
 __Required:__ No  
 __Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies an issue that has been succesfully verified.
+__Description:__ Identifies an issue that has been successfully verified.
 
 ### FAILED_ISSUE
 __Required:__ No  
