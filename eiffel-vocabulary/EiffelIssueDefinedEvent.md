@@ -17,13 +17,9 @@
 
 # EiffelIssueDefinedEvent (ID)
 The EiffelIssueDefinedEvent declares that an issue has been created in some
-external issue management software. This event provides provenance for an issue,
-and acts as a "handle" for future issue related events similarly to
-[EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md) and
-[EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md). It provides
-a minimal amount of information necessary for this purpose and allows further
-data to be attached through later events, for example the 
-[EiffelIssueAssignedEvent](./EiffelIssueAssignedEvent).
+external issue management software. ID is semantically similar to
+[EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)
+and [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
 
 ## Data Members
 
