@@ -122,14 +122,6 @@
         "title": {
           "type": "string"
         },
-        "initialCategory": {
-          "type": "string",
-          "enum": ["OPEN", "ACTIVE", "RESOLVED"],
-          "default": "OPEN"
-        },
-        "initalStatus": {
-          "type": "string"
-        },
         "customData": {
           "type": "array",
           "items": {
@@ -153,8 +145,7 @@
         "type",
         "tracker",
         "id",
-        "uri",
-        "initialCategory"
+        "uri"
       ],
       "additionalProperties": false
     },

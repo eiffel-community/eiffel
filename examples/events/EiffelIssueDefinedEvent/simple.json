@@ -9,8 +9,7 @@
     "type": "BUG",
     "tracker": "github",
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
-    "uri": "https://github.com/my-user/my-repo/issues/3",
-    "initialCategory": "OPEN"
+    "uri": "https://github.com/my-user/my-repo/issues/3"
   },
   "links": [
     {

@@ -61,33 +61,6 @@ human when viewing a graph of Eiffel events than "1302". This is not meant
 to be a detailed description, as such information should be accessible by
 following __data.uri__.
 
-### data.initialCategory
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ OPEN, ACTIVE, RESOLVED  
-__Description:__ The initial high-level state of the issue.  
-OPEN signifies that an issue has been declared, but no work is currently
-being done on the issue. This includes newly created issues, issues for which
-progress has ceased and issues that were previously resolved and have been
-reopened.
-ACTIVE specifies that a contributor is currently making progress towards the
-resolution of the issue.
-RESOLVED signifies that work on an issue is "complete," but can still be
-reopened later.
-
-### data.initialStatus
-__Type:__ String  
-__Required:__ No  
-__Description:__ A finer grain description of an issue's status. Different
-issue trackers have varying levels of granularity for an issue status; some are
-simply binary open/closed, while others allow a totally arbitrary custom status.
-__data.status__ captures any "subtype" of the fields in __data.category__. 
-For example, STARTED and AWAITING_REVIEW may both be statuses in the ACTIVE
-category, and a bug may be transitioned to the RESOLVED category with a
-status of WONTFIX. __data.status__ is a free form string, as values are
-tracker dependent. However, SCREAMING_SNAKE_CASE is encouraged for this field
-to maintain consistency.
-
 ## Links
 
 ### CAUSE
