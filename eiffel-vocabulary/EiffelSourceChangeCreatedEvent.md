@@ -81,38 +81,6 @@ __Type:__ String
 __Required:__ No  
 __Description:__ The unique identity, if any, of the change (apart from what is expressed in the identifier object). Examples include e.g. Gerrit Change-Ids or GitHub Pull Requests. It is recommended to also include __data.change.tracker__ to provide a hint as to the nature of the identity.
 
-### data.issues
-__Type:__ Object[]  
-__Required:__ No  
-__Description:__ A list of issues addressed by the change.
-
-#### data.issues.type
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ BUG, IMPROVEMENT, FEATURE, WORK_ITEM, REQUIREMENT, OTHER  
-__Description:__ The type of issue.
-
-#### data.issues.tracker
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The name of the issue tracker. This can unfortunately not be standardized, and is therefore context sensitive: though some trackers and ALM tools are more popular than others, an exhaustive enumeration is impossible, particularly when considering company specific internal solutions. Consequently one should not rely on the name as the primary method of retrieval, but rather __data.issues.uri__. __data.issues.tracker__ together with __data.issues.id__ is still useful for analysis and traceability, however, as long as it can be correctly interpreted.
-
-#### data.issues.id
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The identity of the issue. This is tracker dependent - most trackers have their own issue naming schemes.
-
-#### data.issues.uri
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The URI of the issue.
-
-#### data.issues.transition
-__Type:__ String  
-__Required:__ Yes  
-__Legal values:__ RESOLVED, PARTIAL, REMOVED  
-__Description:__ The new state of the issue: does the change resolve it, partially resolve it or remove it?
-
 ### data.gitIdentifier
 __Type:__ Object  
 __Required:__ No  
@@ -220,6 +188,24 @@ __Required:__ No
 __Legal targets:__ [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies a latest previous version (there may be more than one in case of merges) of the created source change.
+
+### PARTIALLY_RESOLVED_ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue that this event partially resolves. That is, this SCC introduces some change that has advanced an issue towards a resolved state, but not completely resolved.
+
+### RESOLVED_ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue that this SCC is claiming it has done enough to resolve. This is not an authoritative resolution, only a claim. The issue may or may not change status as a consequence this, e.g. through a [successful verification](../eiffel-vocabular/EiffelIssueVerifiedEvent.md) or a manual update on the issue tracker. 
+
+### DERESOLVED_ISSUE
+__Required:__ No  
+__Legal targets:__ [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies an issue which was previously resolved, but that this SCC claims it has made changes to warrant removing the resolved status. For example, if an issue "Feature X" was resolved, but this SCC removed the implmentation that led to "Feature X" being resolved, that issue should no longer be considered resolved.
 
 ### CAUSE
 __Required:__ No  
@@ -352,6 +338,7 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 2.0.0     | Current version                                        | Replaced data.issues with links         |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 
