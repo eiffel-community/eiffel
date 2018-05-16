@@ -59,6 +59,7 @@ __IMPORTANT NOTICE:__ The contents of this repository currectly reflect a __DRAF
    1. [EiffelIssueVerifiedEvent (IV)](./eiffel-vocabulary/EiffelIssueVerifiedEvent.md)
    1. [EiffelTestExecutionRecipeCollectionCreatedEvent (TERCC)](./eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)
    1. [EiffelAnnouncementPublishedEvent (AnnP)](./eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)
+   1. [EiffelIssueDefinedEvent (ID)](./eiffel-vocabulary/EiffelIssueDefinedEvent.md)
 1. Usage Examples
    1. [Confidence Level Joining](./usage-examples/confidence-level-joining.md)
    1. [Delivery Interface](./usage-examples/delivery-interface.md)
