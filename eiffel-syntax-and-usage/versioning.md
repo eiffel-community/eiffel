@@ -32,3 +32,10 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Agen  | _Reserved for future use._  | |
 | Toulouse  | [edition-toulouse](../../../tree/edition-toulouse)  | Stepped major version of TERCC. Updated FLOW_CONTEXT link type, resulting in new minor version of all event types. |
 | Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  | Initial edition. |
+
+## Rules for patch, minor and major versions
+In the case of a communication protocol, applying Semantic Versioning is not as straight-forward as for a regular software implementation. Below are rules and examples for how to increment the version of an event.
+
+* __patch:__ The patch version is incremented for changes that do not affect event structure and do not carry semantic significance. To exemplify, changing the string pattern in a schema to more accurately reflect the event type documentation would require the patch version to be stepped.
+* __minor:__ The minor version is incremented for changes to event structure or other changes that carry semantic significance but are backwards from a consumer's point of view. To exemplify, adding a property to an event type without changing the syntax or meaning of existing properties would require the minor version to be stepped. Note that existing _producers_ may not be able to produce the new event type version, but a _consumer_ SHALL be able to derive the same information as from the previous version.
+* __major:__ The major version is incremented for changes that violate the conditions for incrementing the minor version. To exemplify, removing or renaming an existing property would require the minor version to be stepped.
