@@ -116,7 +116,7 @@ recipient of the event to interpret the contents. Please see
 
 ### meta.time
 __Type:__ Integer  
-__Format:__ Milliseconds since epoch.  
+__Format:__ UNIX Epoch time, in milliseconds.  
 __Required:__ Yes  
 __Description:__ The event creation timestamp.
 
