@@ -1,15 +1,11 @@
 {
   "meta": {
     "type": "EiffelArtifactCreatedEvent",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "source": {
-      "serializer": {
-        "groupId": "com.mycompany.tools",
-        "artifactId": "eiffel-serializer",
-        "version": "1.0.3"
-      }
+      "serializer": "pkg:maven/com.mycompany.tools/eiffel-serializer@1.0.3"
     },
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "tags": [
@@ -18,23 +14,18 @@
     ]
   },
   "data": {
-    "gav": {
-      "groupId": "com.mycompany.myproduct",
-      "artifactId": "artifact-name",
-      "version": "2.1.7"
-    },
+    "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7",
     "fileInformation": [
       {
-        "classifier": "debug",
-        "extension": "jar"
+        "name": "debug/launch",
+        "tags": ["debug", "launcher"]
       },
       {
-        "classifier": "test",
-        "extension": ""
+        "name": "test/log.txt"
       },
       {
-        "classifier": "",
-        "extension": "exe"
+        "name": "bin/launch",
+        "tags": ["launcher"]
       }
     ],
     "buildCommand": "/my/build/command with arguments",

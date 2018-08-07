@@ -19,40 +19,26 @@
 The EiffelArtifactCreatedEvent declares that a software artifact has been created, what its coordinates are, what it contains and how it was created.
 
 ## Data Members
-### data.gav
-__Type:__ Object  
-__Required:__ Yes  
-__Description:__ The [GAV](https://maven.apache.org/guides/mini/guide-naming-conventions.html) of the created artifact.
-
-#### data.gav.groupId
+### data.identity
 __Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ Yes  
-__Description:__ The groupId of the created artifact.
-
-#### data.gav.artifactId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The artifactId of the created artifact.
-
-#### data.gav.version
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The version of the created artifact.
+__Description:__ The identity of the created artifact, in [purl format](https://github.com/package-url/purl-spec).
 
 ### data.fileInformation
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ A list of the artifact file contents, following the standard established by [Apache Maven](https://maven.apache.org/pom.html).
+__Description:__ A list of the artifact file contents. This information is optional, and when included, MAY include a complete or incomplete list of contents. In other words, it may be used to highlight only particular files of interest, such as launcher binaries or other entry-points.
 
-#### data.fileInformation.classifier
+#### data.fileInformation.name
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ The classifier of the file within the artifact. If none, an empty string shall be used.
+__Description:__ The name (including relative path from the root of the artifact) on syntax appropriate for the artifact packaging type.
 
-#### data.fileInformation.extension
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The extension of the file within the artifact. If none, an empty string shall be used.
+#### data.fileInformation.tags
+__Type:__ String[]  
+__Required:__ No  
+__Description:__ Any tags associated with the file, to support navigation and identification of items of interest.
 
 ### data.buildCommand
 __Type:__ String  
@@ -70,44 +56,16 @@ EXACTLY_ONE signifies that a legal composition must contain one and only one imp
 AT_LEAST_ONE signifies that a legal composition must contain one or more implementations of this artifact.
 
 ### data.implements
-__Type:__ Object[]  
+__Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ An array of [GAVs](https://maven.apache.org/guides/mini/guide-naming-conventions.html) this artifact implements. The typical use case of this is to identify interfaces implemented by this artifact.
-
-#### data.implements.groupId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The groupId of the implemented artifact.
-
-#### data.implements.artifactId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The artifactId of the implemented artifact.
-
-#### data.implements.version
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The version of the implemented artifact. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is supported.
+__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact implements. The typical use case of this is to identify interfaces implemented by this artifact. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) may be used for the version component of the package identity.
 
 ### data.dependsOn
-__Type:__ Object[]  
+__Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ An array of [GAVs](https://maven.apache.org/guides/mini/guide-naming-conventions.html) this artifact depends on.
-
-#### data.dependsOn.groupId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The groupId of the dependency.
-
-#### data.dependsOn.artifactId
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The artifactId of the dependency.
-
-#### data.dependsOn.version
-__Type:__ String  
-__Required:__ Yes  
-__Description:__ The version of the dependency. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) is supported.
+__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact depends on. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) may be used for the version component of the package identity.
 
 ### data.name
 __Type:__ String  
@@ -208,28 +166,10 @@ __Required:__ No
 __Description:__ The name of the event sender.
 
 #### meta.source.serializer
-__Type:__ Object  
-__Format:__   
+__Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ The [GAV](https://maven.apache.org/guides/mini/guide-naming-conventions.html) coordinates of the serializer software used to construct the event.
-
-##### meta.source.serializer.groupId
-__Type:__ String  
-__Format:__ groupId  
-__Required:__ Yes  
-__Description:__ The groupId of the serializer software.
-
-##### meta.source.serializer.artifactId
-__Type:__ String  
-__Format:__ artifactId  
-__Required:__ Yes  
-__Description:__ The artifactId of the serializer software.
-
-##### meta.source.serializer.version
-__Type:__ String  
-__Format:__ version  
-__Required:__ Yes  
-__Description:__ The version of the serializer software.
+__Description:__ The identity of the serializer software used to construct the event, in [purl format](https://github.com/package-url/purl-spec).
 
 #### meta.source.uri
 __Type:__ String  
@@ -264,6 +204,7 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 2.0.0     | Current version                                        | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
 

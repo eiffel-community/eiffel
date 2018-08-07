@@ -166,30 +166,10 @@ __Required:__ No
 __Description:__ The name of the event sender.
 
 #### meta.source.serializer
-__Type:__ Object  
-__Format:__   
+__Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ The
-[GAV](https://maven.apache.org/guides/mini/guide-naming-conventions.html)
-coordinates of the serializer software used to construct the event.
-
-##### meta.source.serializer.groupId
-__Type:__ String  
-__Format:__ groupId  
-__Required:__ Yes  
-__Description:__ The groupId of the serializer software.
-
-##### meta.source.serializer.artifactId
-__Type:__ String  
-__Format:__ artifactId  
-__Required:__ Yes  
-__Description:__ The artifactId of the serializer software.
-
-##### meta.source.serializer.version
-__Type:__ String  
-__Format:__ version  
-__Required:__ Yes  
-__Description:__ The version of the serializer software.
+__Description:__ The identity of the serializer software used to construct the event, in [purl format](https://github.com/package-url/purl-spec).
 
 #### meta.source.uri
 __Type:__ String  
@@ -241,7 +221,8 @@ property, which SHALL be replaced by an empty string.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 1.0.0     | Current version                                        | Initial version                         |
+| 2.0.0     | Current version                                        | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
+| 1.0.0     | [0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueDefinedEvent.md) | Initial version                         |
 
 ## Examples
 * [Simple example](../examples/events/EiffelIssueDefinedEvent/simple.json)

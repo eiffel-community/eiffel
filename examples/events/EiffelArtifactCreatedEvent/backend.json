@@ -1,32 +1,21 @@
 {
   "meta": {
     "type": "EiffelArtifactCreatedEvent",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "time": 1234567890,
     "source": {
     },
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
-    "gav": {
-      "groupId": "com.mycompany.myproduct",
-      "artifactId": "my-backend",
-      "version": "1.0.4"
-    },
+    "identity": "pkg:maven/com.mycompany.myproduct/my-backend@1.0.4",
     "fileInformation": [
       {
-        "classifier": "",
-        "extension": "jar"
+        "name": "backend.jar"
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "implements": [
-      {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "my-interface",
-        "version": "[1.0,2.0)"
-      }
-    ]
+    "implements": ["pkg:maven/com.mycompany.myproduct/my-interface@[1.0,2.0)"]
   },
   "links": [
     {

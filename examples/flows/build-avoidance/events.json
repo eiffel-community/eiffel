@@ -2,7 +2,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 1000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
       "source": {
@@ -23,7 +23,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 101000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1",
       "source": {
@@ -48,7 +48,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 2000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2",
       "source": {
@@ -69,7 +69,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 102000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3",
       "source": {
@@ -94,7 +94,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 3000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4",
       "source": {
@@ -102,15 +102,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-a",
-        "version": "1.0.0"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-a@1.0.0",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-a.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -125,7 +120,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 4000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5",
       "source": {
@@ -133,15 +128,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-b",
-        "version": "1.0.0"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-b@1.0.0",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-b.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -156,7 +146,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 5000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee6",
       "source": {
@@ -164,15 +154,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-c",
-        "version": "1.0.0"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-c@1.0.0",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-c.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -187,7 +172,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 6000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee7",
       "source": {
@@ -195,15 +180,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-d",
-        "version": "1.0.0"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-d@1.0.0",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-d.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -218,7 +198,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 7000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee8",
       "source": {
@@ -226,15 +206,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-e",
-        "version": "1.0.0"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-e@1.0.0",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-e.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -249,7 +224,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 103000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee9",
       "source": {
@@ -257,15 +232,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-a",
-        "version": "1.0.1"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-a@1.0.1",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-a.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -284,7 +254,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 104000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee10",
       "source": {
@@ -292,15 +262,10 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "component-e",
-        "version": "1.0.1"
-      },
+      "identity": "pkg:maven/com.mycompany.myproduct/component-e@1.0.1",
       "fileInformation": [
         {
-          "classifier": "",
-          "extension": "jar"
+          "name": "component-e.jar"
         }
       ],
       "buildCommand": "/my/build/command with arguments"
@@ -319,7 +284,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 8000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee11",
       "source": {
@@ -356,7 +321,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 105000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee12",
       "source": {
@@ -397,7 +362,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 102100,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee13",
       "source": {
@@ -420,7 +385,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 102200,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee14",
       "source": {
@@ -443,7 +408,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 102300,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee15",
       "source": {
