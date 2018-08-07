@@ -140,7 +140,7 @@ __Description:__ An optional object for enclosing security related information, 
 
 #### meta.security.authorIdentity
 __Type:__ String  
-__Format:__  [Distinguished Name](https://tools.ietf.org/html/rfc2253)  
+__Format:__ [Distinguished Name](https://tools.ietf.org/html/rfc2253)  
 __Required:__ Yes  
 __Description:__ The identity of the author of the event. This property is intended to enable the recipient to identify the author of the event contents and/or look up the appropriate public key for decrypting the __meta.security.integrityProtection.signature__ value and thereby verifying author identity and data integrity.
 
@@ -157,7 +157,7 @@ To verify the integrity of the event, the consumer then resets __meta.security.i
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__  (A valid JWA RFC 7518 alg parameter value)[https://tools.ietf.org/html/rfc7518#section-3.1], excluding "none"
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
