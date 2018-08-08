@@ -28,5 +28,7 @@ A digital signature is a combination of hashing technology and encryption. Hash 
 
 The Eiffel protocol's support is influenced by [JSON Web Signatures (JWS)](https://tools.ietf.org/html/rfc7515), with slight modifications to allow inclusion of the signature within the event message itself, rather than as part of a header. This serves to keep every Eiffel event self-contained, with information integrity protection optional for the producer to include and optional for the consumer to consider. Note that this optionality does not in any way lessen the strength of the security provided: it is always up to the recipient of an unprotected Eiffel event to decide whether to trust it or not. In this sense, Eiffel support of data integrity is very similar to that employed by other document formats, such as the [Portable Document Format](http://www.adobe.com/devnet/pdf/pdf_reference.html).
 
+Apart from digital signing, the Eiffel protocol also supports author identification using [Distinguished Names](https://tools.ietf.org/html/rfc2253) and event sequence integrity protection. Please see the documentation of each event type for further information and detailed instructions on correct usage.
+
 ## Availability
 Availability of information communicated over the Eiffel protocol is a property of the communication channels and storage solutions used. In other words, similarly to confidentiality, it is an infrastructural concern and external to the protocol itself.
