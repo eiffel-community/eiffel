@@ -18,9 +18,7 @@
 <img src="./images/eiffel-protocol-logo.png" alt="Eiffel Protocol" width="350"/>
 
 # Eiffel Protocol
-The Eiffel protocol enables technology agnostic enterprise scale continuous integration and delivery with maintained scalability, flexibility and traceability. Eiffel is based on the concept of decentralized real time messaging, both to drive the continuous integration and delivery system and to document it.
-
-This repository contains the Eiffel protocol vocabulary, descriptions, guides and schemas. For implementations, implementations, architecture and community resources, visit the [Eiffel Community](https://eiffel-community.github.io).
+This repository contains the Eiffel protocol vocabulary, descriptions, guides and schemas. For implementations, architecture and community resources, visit the [Eiffel Community](https://eiffel-community.github.io).
 
 # About this repository
 The contents of this repository are licensed under the [Apache License 2.0](./LICENSE).
