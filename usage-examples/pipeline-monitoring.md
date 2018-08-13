@@ -30,7 +30,7 @@ One might object that such reports can be generated from e.g. the CI server: wha
 In addition, what if one doesn't have just one SCM system, but several? Or not one issue tracking system, but several? Or not just one type of CI server? Particularly in large scale contexts, this is often the case. And when one inevitably decides to replace one of those tools with another one, or move them from one location or cloud provider to another? How does one do that without wrecking the metrics reporting system? Again, Eiffel as a tool agnostic communication protocol helps mitigate these problems.
 
 ## Event Graph
-![alt text](./pipeline-monitoring.png "Event Graph of Pipeline Monitoring Example")
+![alt text](./pipeline-monitoring.svg "Event Graph of Pipeline Monitoring Example")
 
 ## Event-by-Event Explanation
 ### SCC1, SCC2, SCC3, SCS1, SCS2, SCS3
@@ -59,7 +59,7 @@ The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEven
 There's a multitude of metrics that are relevant to measure in a continuous integration and delivery pipeline, for various purpose and for various stakeholders. An exhaustive list is impossible, but a few examples and how they may be collected using Eiffel events are presented below.
 
 ### Lead Time from Source Change Creation to Submission
-How long does it take for a source change to be submitted? In many cases this is instantaneous, but in other scenarios of extensive pre-testing and/or reviewing of any change pushed to the shared development branch or mainline, it's important to keep monitor how long this takes to ensure it doesn't get out of hand. 
+How long does it take for a source change to be submitted? In many cases this is instantaneous, but in other scenarios of extensive pre-testing and/or reviewing of any change pushed to the shared development branch or mainline, it's important to keep monitor how long this takes to ensure it doesn't get out of hand.
 
 Using Eiffel, this can be done as follows:
 1. For every [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md), follow its __CHANGE__ link to the corresponding [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md).

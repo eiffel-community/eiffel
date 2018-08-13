@@ -21,12 +21,12 @@ Eiffel messaging can favorably be used to implement software delivery interfaces
 ## Introduction
 A prime concern in designing delivery interfaces is to ensure traceability across products, organizations and enterprises. From a traceability point of view the links of particular interest are typically content and quality related ones: what does this artifact contain, what has changed, has it been tested etc. Consequently this example focuses on those events and links; all causality links and activity events have been excluded. This does not mean that no such events and links may be used, however, but merely that they are not a required part of the delivery interface in this particular example.
 
-In this example the [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) __CLM1__ and __CLM2__ are used to signal that a new candidate is considered good enough to be integrated (__ArtC1__ and __ArtC2__), while the remaining events provide context and meta-data. 
+In this example the [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) __CLM1__ and __CLM2__ are used to signal that a new candidate is considered good enough to be integrated (__ArtC1__ and __ArtC2__), while the remaining events provide context and meta-data.
 
 A JSON array of all events used in this example can be found [here](../examples/flows/delivery-interface/events.json).
 
 ## Event Graph
-![alt text](./delivery-interface.png "Event Graph of Delivery Interface Example")
+![alt text](./delivery-interface.svg "Event Graph of Delivery Interface Example")
 
 ## Event-by-Event Explanation
 ### SCC1, SCC2, SCC3, SCS1, SCS2, SCS3
