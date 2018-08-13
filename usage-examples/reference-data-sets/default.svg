@@ -9,9 +9,8 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   style="background-color: rgb(255, 255, 255);"
-   width="1202px"
-   height="1973px"
+   width="1100"
+   height="1973"
    version="1.1"
    id="svg1172"
    sodipodi:docname="default.svg"
@@ -24,6 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -40,9 +40,9 @@
      inkscape:window-height="1138"
      id="namedview1174"
      showgrid="false"
-     inkscape:zoom="2.7065739"
-     inkscape:cx="575.20842"
-     inkscape:cy="1640.1236"
+     inkscape:zoom="1.9138368"
+     inkscape:cx="914.62981"
+     inkscape:cy="1701.1281"
      inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -50,10 +50,10 @@
   <defs
      id="defs32">
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-ffffff-1-b4a7d6-1-s-0">
       <stop
          offset="0%"
@@ -65,10 +65,10 @@
          id="stop4" />
     </linearGradient>
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-ffffff-1-b6d7a8-1-s-0">
       <stop
          offset="0%"
@@ -80,10 +80,10 @@
          id="stop9" />
     </linearGradient>
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-ffffff-1-ffe599-1-s-0">
       <stop
          offset="0%"
@@ -95,10 +95,10 @@
          id="stop14" />
     </linearGradient>
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-ffffff-1-f6b26b-1-s-0">
       <stop
          offset="0%"
@@ -110,10 +110,10 @@
          id="stop19" />
     </linearGradient>
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-ffffff-1-d5a6bd-1-s-0">
       <stop
          offset="0%"
@@ -125,10 +125,10 @@
          id="stop24" />
     </linearGradient>
     <linearGradient
-       x1="0%"
-       y1="100%"
-       x2="0%"
-       y2="0%"
+       x1="0"
+       y1="1"
+       x2="0"
+       y2="0"
        id="mx-gradient-efffff-1-45818e-1-s-0">
       <stop
          offset="0%"
@@ -1195,132 +1195,42 @@
      id="path162"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 936.5,760.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 739.51349,60.3358 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.75998" />
   <path
      style="fill:#93c47d;stroke:#93c47d;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path164"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1004.26,807.5 -8,4 v -8 z" />
-  <g
-     id="g170"
-     transform="translate(899,775)">
-    <switch
-       id="switch168">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="146"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">ACTIVITY_EXECUTION</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text166"
-         font-size="12px"
-         y="14"
-         x="73">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 807.27347,107.3358 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#8e7cc3;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path172"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 938.5,821.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 741.51349,121.3358 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.75998" />
   <path
      style="fill:#8e7cc3;stroke:#8e7cc3;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path174"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1006.26,868.5 -8,4 v -8 z" />
-  <g
-     id="g180"
-     transform="translate(940,836)">
-    <switch
-       id="switch178">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="67"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">ARTIFACT</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text176"
-         font-size="12px"
-         y="14"
-         x="34">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 809.27347,168.3358 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#6d9eeb;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path182"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1117.5,759.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 912.15334,56.723251 h 25 q 10,0 10,10 v 27 q 0,9.999999 10,9.999999 h 14.76" />
   <path
      style="fill:#6d9eeb;stroke:#6d9eeb;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path184"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1185.26,806.5 -8,4 v -8 z" />
-  <g
-     id="g190"
-     transform="translate(1130,774)">
-    <switch
-       id="switch188">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="46"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">CAUSE</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text186"
-         font-size="12px"
-         y="14"
-         x="23">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 979.91334,103.72325 -8,4 v -7.999999 z" />
   <g
      id="g196"
      transform="translate(217,1518)">
@@ -1371,44 +1281,14 @@
      id="path202"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1118.5,821.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 913.15334,118.72325 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
   <path
      style="fill:#0000ff;stroke:#0000ff;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path204"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1186.26,868.5 -8,4 v -8 z" />
-  <g
-     id="g210"
-     transform="translate(1121,836)">
-    <switch
-       id="switch208">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="65"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">CONTEXT</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text206"
-         font-size="12px"
-         y="14"
-         x="33">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 980.91334,165.72325 -8,4 v -8 z" />
   <circle
      r="25"
      style="fill:url(#linearGradient1993);stroke:#333333;stroke-width:2"
@@ -1658,44 +1538,14 @@
      id="path266"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 939.5,883.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 742.51349,183.3358 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.75998" />
   <path
      style="fill:#d5a6bd;stroke:#d5a6bd;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path268"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1007.26,930.5 -8,4 v -8 z" />
-  <g
-     id="g274"
-     transform="translate(891,898)">
-    <switch
-       id="switch272">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="168"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">TEST_SUITE_EXECUTION</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text270"
-         font-size="12px"
-         y="14"
-         x="84">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 810.27347,230.3358 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#ff00ff;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -1783,44 +1633,14 @@
      id="path294"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1117.5,881.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 912.15334,178.72325 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
   <path
      style="fill:#ff00ff;stroke:#ff00ff;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path296"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1185.26,928.5 -8,4 v -8 z" />
-  <g
-     id="g302"
-     transform="translate(1105,896)">
-    <switch
-       id="switch300">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="96"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">COMPOSITION</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text298"
-         font-size="12px"
-         y="14"
-         x="48">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 979.91334,225.72325 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#6d9eeb;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -1908,44 +1728,14 @@
      id="path322"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1116.5,941.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 911.15334,238.72325 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
   <path
      style="fill:#ffd966;stroke:#ffd966;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path324"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1184.26,988.5 -8,4 v -8 z" />
-  <g
-     id="g330"
-     transform="translate(1103,956)">
-    <switch
-       id="switch328">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="98"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">ENVIRONMENT</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text326"
-         font-size="12px"
-         y="14"
-         x="49">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 978.91334,285.72325 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#e69138;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -1966,88 +1756,28 @@
      id="path336"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 940.5,944.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 743.51349,244.3358 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.75998" />
   <path
      style="fill:#e69138;stroke:#e69138;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path338"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1008.26,991.5 -8,4 v -8 z" />
-  <g
-     id="g344"
-     transform="translate(945,959)">
-    <switch
-       id="switch342">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="61"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">SUBJECT</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text340"
-         font-size="12px"
-         y="14"
-         x="31">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 811.27346,291.3358 -7.99999,4 v -8 z" />
   <path
      style="fill:none;stroke:#00ff00;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path346"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 942.5,1003.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 745.51349,303.3358 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.75998" />
   <path
      style="fill:#00ff00;stroke:#00ff00;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path348"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1010.26,1050.5 -8,4 v -8 z" />
-  <g
-     id="g354"
-     transform="translate(967,1018)">
-    <switch
-       id="switch352">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="21"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">IUT</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text350"
-         font-size="12px"
-         y="14"
-         x="11">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 813.27346,350.3358 -7.99999,4 v -8 z" />
   <circle
      r="25"
      style="fill:url(#linearGradient2003);stroke:#333333;stroke-width:2"
@@ -4098,44 +3828,14 @@
      id="path832"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1122.5,1006.5 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
+     d="m 917.15334,303.72325 h 25 q 10,0 10,10 v 27 q 0,10 10,10 h 14.76" />
   <path
      style="fill:#45818e;stroke:#45818e;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
      id="path834"
      pointer-events="none"
      stroke-miterlimit="10"
-     d="m 1190.26,1053.5 -8,4 v -8 z" />
-  <g
-     id="g840"
-     transform="translate(1129,1021)">
-    <switch
-       id="switch838">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="57"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; white-space: nowrap; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;background-color:#FFFFFF;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">CHANGE</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text836"
-         font-size="12px"
-         y="14"
-         x="29">[Not supported by viewer]</text>
-    </switch>
-  </g>
+     d="m 984.91334,350.72325 -8,4 v -8 z" />
   <path
      style="fill:none;stroke:#45818e;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -5620,4 +5320,129 @@
        y="335.68683"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
        id="tspan2663-4">C3</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="775.38129"
+     y="86.892616"
+     id="text5126-9"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7"
+       x="775.38129"
+       y="86.892616"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">ACTIVITY_EXECUTION</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="776.94885"
+     y="140.45885"
+     id="text5126-9-8"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-9"
+       x="776.94885"
+       y="140.45885"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">ELEMENT,</tspan><tspan
+       sodipodi:role="line"
+       x="776.94885"
+       y="160.45885"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan2786">ARTIFACT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="776.94885"
+     y="202.90773"
+     id="text5126-9-9"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-5"
+       x="776.94885"
+       y="202.90773"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">TEST_CASE_EXECUTION,</tspan><tspan
+       sodipodi:role="line"
+       x="776.94885"
+       y="222.90773"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan2788">TEST_SUITE_EXECUTION</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="778.51642"
+     y="273.95142"
+     id="text5126-9-5"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-2"
+       x="778.51642"
+       y="273.95142"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">SUBJECT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="780.08392"
+     y="332.99509"
+     id="text5126-9-7"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-6"
+       x="780.08392"
+       y="332.99509"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">IUT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="951.98987"
+     y="324.04013"
+     id="text5126-9-4"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-0"
+       x="951.98987"
+       y="324.04013"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">BASE,</tspan><tspan
+       sodipodi:role="line"
+       x="951.98987"
+       y="344.04013"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan2790">CHANGE</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="945.19727"
+     y="267.15872"
+     id="text5126-9-41"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-98"
+       x="945.19727"
+       y="267.15872"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">ENVIRONMENT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="947.28735"
+     y="206.02501"
+     id="text5126-9-55"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-3"
+       x="947.28735"
+       y="206.02501"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">COMPOSITION</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="947.80981"
+     y="149.0714"
+     id="text5126-9-6"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-32"
+       x="947.80981"
+       y="149.0714"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">CONTEXT</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="946.3324"
+     y="84.892624"
+     id="text5126-9-56"><tspan
+       sodipodi:role="line"
+       id="tspan5124-7-90"
+       x="946.3324"
+       y="84.892624"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">CAUSE</tspan></text>
 </svg>
