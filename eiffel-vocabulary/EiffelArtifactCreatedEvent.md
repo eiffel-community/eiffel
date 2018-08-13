@@ -28,7 +28,7 @@ __Description:__ The identity of the created artifact, in [purl format](https://
 ### data.fileInformation
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ A list of the artifact file contents. This information is optional, and when included, MAY include a complete or incomplete list of contents. In other words, it may be used to highlight only particular files of interest, such as launcher binaries or other entry-points.
+__Description:__ A list of the artifact file contents. This information is optional and, when included, MAY include a complete or incomplete list of contents. In other words, it may be used to highlight only particular files of interest, such as launcher binaries or other entry-points.
 
 #### data.fileInformation.name
 __Type:__ String  
@@ -59,13 +59,13 @@ AT_LEAST_ONE signifies that a legal composition must contain one or more impleme
 __Type:__ String  
 __Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact implements. The typical use case of this is to identify interfaces implemented by this artifact. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) may be used for the version component of the package identity.
+__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact implements. The typical use case of this is to identify interfaces implemented by this artifact. While not included in the purl specification itself, the Eiffel protocol allows version range notation according to [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) to be used for the version component of the package identity. Note that the purl specification always requires the version component to be percent-encoded.
 
 ### data.dependsOn
 __Type:__ String  
 __Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact depends on. Note that [version range notation](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) may be used for the version component of the package identity.
+__Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact depends on. While not included in the purl specification itself, the Eiffel protocol allows version range notation according to [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) to be used for the version component of the package identity. Note that the purl specification always requires the version component to be percent-encoded.
 
 ### data.name
 __Type:__ String  
