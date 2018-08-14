@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -36,14 +36,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1138"
+     inkscape:window-width="1366"
+     inkscape:window-height="706"
      id="namedview1174"
      showgrid="false"
      inkscape:zoom="1.9138368"
-     inkscape:cx="914.62981"
-     inkscape:cy="1701.1281"
-     inkscape:window-x="1358"
+     inkscape:cx="655.15726"
+     inkscape:cy="806.83093"
+     inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg1172" />
@@ -1692,36 +1692,6 @@
          x="21">[Not supported by viewer]</text>
     </switch>
   </g>
-  <g
-     id="g320"
-     transform="translate(202,1168)">
-    <switch
-       id="switch318">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="103"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 104px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">(Iteration 0 only)</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text316"
-         font-size="12px"
-         y="14"
-         x="52">[Not supported by viewer]</text>
-    </switch>
-  </g>
   <path
      style="fill:none;stroke:#ffd966;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -2963,36 +2933,6 @@
          x="21">[Not supported by viewer]</text>
     </switch>
   </g>
-  <g
-     id="g624"
-     transform="translate(155,676)">
-    <switch
-       id="switch622">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="103"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 104px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">(Iteration 0 only)</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text620"
-         font-size="12px"
-         y="14"
-         x="52">[Not supported by viewer]</text>
-    </switch>
-  </g>
   <path
      style="fill:none;stroke:#ffd966;stroke-width:2;stroke-miterlimit:10"
      inkscape:connector-curvature="0"
@@ -3042,36 +2982,6 @@
          font-size="12px"
          y="14"
          x="19">[Not supported by viewer]</text>
-    </switch>
-  </g>
-  <g
-     id="g642"
-     transform="translate(685,1127)">
-    <switch
-       id="switch640">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="103"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 104px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">(Iteration 0 only)</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text638"
-         font-size="12px"
-         y="14"
-         x="52">[Not supported by viewer]</text>
     </switch>
   </g>
   <path
@@ -4627,36 +4537,6 @@
      cy="1841.5"
      cx="666.5" />
   <g
-     id="g1028"
-     transform="translate(649,1831)">
-    <switch
-       id="switch1026">
-      <foreignObject
-         requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"
-         height="15"
-         width="35"
-         pointer-events="all"
-         style="overflow:visible;">
-        <xhtml:div
-           style="display: inline-block; font-size: 12px; font-family: Helvetica; color: rgb(0, 0, 0); line-height: 1.2; vertical-align: top; width: 36px; white-space: nowrap; overflow-wrap: normal; text-align: center;">
-          <xhtml:div
-             style="display:inline-block;text-align:inherit;text-decoration:inherit;">
-            <xhtml:div>
-              <xhtml:span
-                 style="font-size: 14px ; font-family: &quot;arial&quot; ; white-space: pre-wrap ; text-decoration: none ; font-weight: bold ; line-height: 16.5px ; color: rgb(0 , 0 , 0)">TCS3</xhtml:span>
-            </xhtml:div>
-          </xhtml:div>
-        </xhtml:div>
-      </foreignObject>
-      <text
-         style="font-size:12px;font-family:Helvetica;text-anchor:middle;fill:#000000"
-         id="text1024"
-         font-size="12px"
-         y="14"
-         x="18">[Not supported by viewer]</text>
-    </switch>
-  </g>
-  <g
      id="g1034"
      transform="translate(613,1865)">
     <switch
@@ -5445,4 +5325,63 @@
        x="946.3324"
        y="84.892624"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle">CAUSE</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="254.62868"
+     y="1170.4445"
+     id="text5126-8-2-20-2"><tspan
+       sodipodi:role="line"
+       x="254.62868"
+       y="1170.4445"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan5218-1-6">EnvironmentDefined</tspan><tspan
+       sodipodi:role="line"
+       x="254.62868"
+       y="1187.1111"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan1450">(Iteration 0 only)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="735.1236"
+     y="1130.2203"
+     id="text5126-8-2-20-2-9"><tspan
+       sodipodi:role="line"
+       x="735.1236"
+       y="1130.2203"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan5218-1-6-7">ArtifactCreated</tspan><tspan
+       sodipodi:role="line"
+       x="735.1236"
+       y="1146.887"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan1450-9">(Iteration 0 only)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="205.11775"
+     y="679.2937"
+     id="text5126-8-2-20-2-4"><tspan
+       sodipodi:role="line"
+       x="205.11775"
+       y="679.2937"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan5218-1-6-1">EnvironmentDefined</tspan><tspan
+       sodipodi:role="line"
+       x="205.11775"
+       y="695.96039"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan1450-3">(Iteration 0 only)</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+     x="666.7702"
+     y="1846.3535"
+     id="text5126-8-2-7-2-1"><tspan
+       sodipodi:role="line"
+       x="666.7702"
+       y="1846.3535"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:13.33333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle"
+       id="tspan2663-5-1">TCS4</tspan></text>
 </svg>
