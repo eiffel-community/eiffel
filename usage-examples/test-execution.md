@@ -12,7 +12,7 @@ To understand the example provided here, it is important to explain a few concep
 In the example outlined here we assume that one test suite (a set of test cases) is to be executed in two different environments within the same test activity. The test suite consists of only two test cases, A and B, to keep the complexity of the event graph down. For the same reason issue verification is only performed for the test cases in environment 2.
 
 ## Event Graph
-![alt text](./test-execution.png "Event Graph of Test Execution Example")
+![alt text](./test-execution.svg "Event Graph of Test Execution Example")
 Dashed event links are optional and solid event links are mandatory.
 
 ## Event-by-Event Explanation
