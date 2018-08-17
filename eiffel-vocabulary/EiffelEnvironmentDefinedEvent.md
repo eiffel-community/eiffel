@@ -103,7 +103,7 @@ __Description:__ The version of the event type. This field is required by the re
 
 ### meta.time
 __Type:__ Integer  
-__Format:__ Milliseconds since epoch.  
+__Format:__ UNIX Epoch time, in milliseconds.  
 __Required:__ Yes  
 __Description:__ The event creation timestamp.
 
