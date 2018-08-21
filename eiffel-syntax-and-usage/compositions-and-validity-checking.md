@@ -28,7 +28,7 @@ In this straight forward example, the integration of a system requires the prese
 
 Here composition C2 is legal, but C1 is not. The reason is that B1 requires version "[1.1.0,)" of com.example:a (that is, version 1.1.0 or later). In composition C1 there is no such artifact, but in composition C2 there is.
 
-Note that the [Maven version range syntax](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html) is used to express version ranges.
+Note that the [Maven version range syntax](http://maven.apache.org/enforcer/enforcer-rules/versionRanges.html) is used to express version ranges, but that these ranges are percent encoded as the version component of the [purl identity](https://github.com/package-url/purl-spec).
 
 ### Checking Backend Implementation Validity
 In this example we imagine a microservice setup. The service interface I has no implementation itself - instead it requires one or more implementations to which it can forward requests. There are multiple versions of the interface included, affording clients backwards compatibility.
@@ -39,12 +39,12 @@ Composition C1 is not valid: it contains two instances of A, one of I1 and one o
 
 Composition C2, on the other hand, is valid. It also contains two instances of A, but also one instance of B, which implements I from version 1.0.0 up to 3.0.0. Consequently, in this composition I1 has three artifacts implementing it, while I2 has one.
 
-### GAV vs event links
+### Purl vs event links
 Wherever feasible, the Eiffel framework promotes the usage of event references to link to other artifacts. It may seem like a reasonable option to use event links to declare dependencies, as well.
 
-The pragmatic reason for using GAVs (short for [groupId, artifactId and version](https://maven.apache.org/guides/mini/guide-naming-conventions.html)) in this particular case is version ranges: with event links there is no practical way of declaring ranges.
+The pragmatic reason for using (adapted) [purl identities](https://github.com/package-url/purl-spec) in this particular case is version ranges: with event links there is no practical way of declaring ranges.
 
-There is also a conceptual reason why event links are not suitable, however. Event links are consistently used to reference historical engineering artifacts - things that have been created and exist. Dependency declarations - particularly dependencies on version ranges - are much more intangible in nature. They do not simply provide a description of something that ought to be present. For this reason they can not be used as trace links, and are unsuitable for event reference representation.
+There is also a conceptual reason why event links are not suitable, however. Event links are consistently used to reference historical engineering artifacts - things that have been created and exist. Dependency declarations - particularly dependencies on version ranges - are much more intangible in nature. They simply provide a description of something that ought to be present. For this reason they can not be used as trace links, and are unsuitable for event reference representation.
 
 ### Additional Notes
 _Isn't this a reinvention of the wheel?_ you may ask. After all, there are plenty of tools that excel in handling dependency graphs. This is true, and the Eiffel dependency definition syntax is heavily influenced not least by [Maven](http://maven.apache.org). Eiffel operates at a highly technology and context agnostic level of abstraction, however, covering e.g. projects with highly diversified technology stacks and/or projects near or crossing over into hardware. This has both limitations and benefits. An Eiffel composition check can never guarantee that a given composition will work; what it can tell you is whether it is obviously broken.
