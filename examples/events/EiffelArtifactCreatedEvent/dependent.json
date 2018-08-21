@@ -16,7 +16,7 @@
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "dependsOn": ["pkg:maven/com.mycompany.myproduct/my-interface@[1.0,2.0)"]
+    "dependsOn": ["pkg:maven/com.mycompany.myproduct/my-interface@%5B1.0%2C2.0%29"]
   },
   "links": [
     {
