@@ -44,8 +44,8 @@ In the case of a communication protocol, applying Semantic Versioning is not as 
 ## Updating Historical Event Types and Editions
 As with any software, historical versions may need to be updated occasionally. Users of a specific edition of the Eiffel protocol may require improvements or corrections, without having to migrate to the latest event type versions. Such changes are perfectly permissible: it is important to understand that the versions do not represent chronology, but compatibility. In other words, version 2.1.0 of a particular event type may well be introduced _after_ version 3.0.0. The one exception is that only the highest extant version at any given level may step that level. To exemplify:
 
-* If 2.0.0 and 3.0.0 exist, only the 3.0.0 event may introduce a new major version (thereby stepping to 4.0.0).
-* If 2.0.0 and 2.1.0 exist, only the 2.1.0 event may introduce a new minor version (thereby stepping to 2.2.0).
-* If 2.0.0 and 2.0.1 exist, the 2.0.0 event may not be stepped. Instead the 2.0.1 event shall be used as baseline for changes to the event type.
+* If 2.0.0 and 3.0.0 exist, only the 3.0.0 event may serve as the baseline for a new major version (thereby stepping to 4.0.0).
+* If 2.0.0 and 2.1.0 exist, only the 2.1.0 event may serve as the baseline for a new minor version (thereby stepping to 2.2.0).
+* If 2.0.0 and 2.0.1 exist, the 2.0.0 event may serve as a baseline for new versions. Instead the 2.0.1 event shall be used as baseline for changes to the event type.
 
 Users are not bound to use only event types included in an edition. To exemplify, a consumer may accept all [edition-toulouse](../../../tree/edition-toulouse) events, plus [EiffelIssueVerifiedEvent](../../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) 2.0.0, which is not included in that edition. Indeed, it may also accept additional events not included at all in that edition, such as [EiffelIssueDefinedEvent](../../eiffel-vocabulary/EiffelIssueDefinedEvent.md). In this sense, editions are non-exclusive. That being said, if there is a need to identify a larger set of events updated from a historical edition, the naming scheme SHALL be `<baseline edition name>-<increment integer starting at 1>`. To exemplify, an updated [edition-toulouse](../../../tree/edition-toulouse) would be named `edition-tolouse-1`, and the subsequent one `edition-tolouse-2`.
