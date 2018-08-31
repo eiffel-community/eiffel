@@ -4,3 +4,12 @@ python:
 
 script:
   - python examples/validate.py
+  - cd schemas && tar -zcvf ../event-types.tar.gz *
+deploy:
+  provider: releases
+  api_key:
+    secure: sN0RXHg8pwR4e4c0nKpEEhEcwIKQvQHsh9YPXn38ykHCIL1SwnAsZeSsO6VV5biimaKz5RwsAnRHJgmHqavKVBKUJM4cuLzQPkd+gsheDIbqH1uWW79sOwMCTr5KNhWVQNxspiAcjPcCL1r1+VpBKFMMbqrbv9kj/4bSoM3hw8DfvSNCu0nJ2Rq71+7k7kcZ/xSNipVrB4YGvJgiOxMfjJffnL1TtYBEFfERbnxm4a9VV6/zNcw+Tn6/kizupdDjJ7noCBMApqJUg2xxXWSE5KymRRiQjZ+DUFyPyLCH69zYgGfjRYdhfKgtvqETU88Z0cJTyL9vsX2CV/6/WQUk4lMH4g8vWy5MaiNiyEArAFgUAyw9Oik+bC+HOl4Jl4ecmC1kvYITTIwCYCRS7gm1y9KoRdPTQYwTpMxW5waI4vdU8DWbPnOwtM7/y0//ZTyv5PFYAuNvYXBedaGfS+akA/Tc5I63ohFUa3ibs9ANKVTf64ujNygm4LJ5doo5DhPrvRKhrSBQbfR7AraXL34hIp+EZbuTNhMdn5PRGd3iAO7/RyyhOSN8y//CYFhyUnhre/LMBzN/LNfiUMWo0luHtO7Nhk8LzfRnOcvY8SA6h8NsEivRSxZYGITTAz+mdGjdJOht/wpcXfS7RmW+7lkhrYGrYKubbz0Qe6r6/4EicZc=
+  file: event-types.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
