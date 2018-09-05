@@ -1,19 +1,18 @@
 language: python
 python:
-  - "3.5.1"
-
+- 3.5.1
 script:
-  - python examples/validate.py
-  - python find-latest-schemas.py schemas/ schemas-latest/
-  - cd $TRAVIS_BUILD_DIR/schemas && tar -zcvf ../event-types-all.tar.gz *
-  - cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf ../event-types-latest.tar.gz *
+- python examples/validate.py
+- python find-latest-schemas.py schemas/ schemas-latest/
+- cd $TRAVIS_BUILD_DIR/schemas && tar -zcvf ../event-types-all.tar.gz *
+- cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf ../event-types-latest.tar.gz *
 deploy:
   provider: releases
-  api_key:
-    secure: r7X89ZsZpFFbtY7R5an/UoCz+KooCQ0rXcOgx/t/xotdN4itT3yPekrnMsXKfEni9xaJ0HVFYZ+XpkuXcj2nKySGgi72VFSE+4qjFm2Zn99v5D/TH2JtTOmscrlRJbCDsboiPHk55YOICqNdH0M1sI8AaGyM6kTUsiBnvA5ZslhbA93JnTSnAuP6Sne495aXsCJSBzDgyCHEk4eNNOYv6+dK5e1iCiOi/sJuvYnKTo1hA+UXFlnI6NUYN+S6EJ4onmfCiFrMOT+kzc0lv0dCQSP094KBwCqwkSJyVK1b6dxKuuuc2Zc47xJaaiS0f3YBIyFPETLk7+t+OFYl33zWHwLaitDN/fAYYkL7ml63MPJ5+djfjPUSclclIkoI6SeyvDMLNOJAmU9/3cVKLy3kjOBCoCgYfD9vbvlo3WPcopJoTgfITn0K5ONZRdB5RkTESZBobdbcAr9NO7xBKAyUaAvDKHN3AGKVpfcf3akOFn6DV2BLm3ZTAICozpNOGaQlR4Y9dHC0e82sgoMXrP29M9JNhpqGSTcfcMD/TDDAMjnya8Y6CocYHi/qPxZqCezb+8uuqzDEf7Hnd/ycylbEGCQJFU9vtRogoJ8z54s1ZVT9cGZjCXEoy9LULldRyUthI1SwPrmXjnEX05yo2xs0sqcuRooaE2J64LzYuj+JCMQ=
+  api-key:
+    secure: i3GAjHmHuwKT3/MozjuaY3LE8/yK1JDwIX//vP14jxUNBcQDEi/ABdRCvklgighgdp+mFjC1oGUa/kD3i5fAD3axHXTx4Erki20MVfg16WEL4tJvBQM78Nmv1omLeOKj5b1jVJayb2lAhKuxo1I88sxQB2b0YV6URV1S82In1SQ8E1QmKAl1BLasp1LFnyvH2G1Cr/KX3QTzYbszRvL3/W6yedgpr8I80RC/JWtBUk+a0eI4f/jiMJkhUlFOLIFawbaf3JJZa/TEL5Q46tWTBq4bat5qyXwN0QRSDUQN2LwOHtJWgQMMrr3+VgdpyIWT2vpb7jH67eGvANkXNhN2M9Vl18yWeNVIQBGIp0tG7GO2x/hUvLGTz/wujiOsBrkiC8Kr2qxIv5mUQRSLw1h3jMwzSKQ5vOm7tzwleFXSKs826CG+98PEUL2FOGhA4hGxALRnHZO7wn3kTTazEKiLpZoE73qwCH20+4ncon8UC0EycB5gYHiGBi8HOKxrGzI4YGspvZ42ovdqRqAaVkdV8mdIGSALu+L5DlcJe4eMIT7RUH+Tsum/EzlqwjgZIm3gb4/PboNpKAO8wZ6SNUQlkPE88XvJYUzIuKmicqF0t3iPFdJI1fRDi6hLBSPujEsvRMS1TncVeakNunk/QRNQdxDOz/ou9QxJNMV5DL7zi4w=
   file:
-    - event-types-all.tar.gz
-    - event-types-latest.tar.gz
+  - event-types-all.tar.gz
+  - event-types-latest.tar.gz
   skip_cleanup: true
   on:
     tags: true
