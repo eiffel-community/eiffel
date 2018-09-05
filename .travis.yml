@@ -15,4 +15,5 @@ deploy:
   - event-types-latest.tar.gz
   skip_cleanup: true
   on:
+    repo: eiffel-community/eiffel
     tags: true
