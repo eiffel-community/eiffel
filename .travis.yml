@@ -4,8 +4,8 @@ python:
 script:
 - python examples/validate.py
 - python find-latest-schemas.py schemas/ schemas-latest/
-- cd $TRAVIS_BUILD_DIR/schemas && tar -zcvf ../event-types-all.tar.gz *
-- cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf ../event-types-latest.tar.gz *
+- cd $TRAVIS_BUILD_DIR/schemas && tar -zcvf event-types-all.tar.gz *
+- cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf event-types-latest.tar.gz *
 deploy:
   provider: releases
   api-key:
