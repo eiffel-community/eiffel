@@ -3,13 +3,10 @@ python:
 - 3.5.1
 script:
 - python examples/validate.py
-- python find-latest-schemas.py schemas/ schemas-latest/
-- cd $TRAVIS_BUILD_DIR/schemas && tar -zcvf ../event-types-all.tar.gz *
-- cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf ../event-types-latest.tar.gz *
 before_deploy:
-- ls -al
-- cd ..
-- ls -al
+- python find-latest-schemas.py schemas/ schemas-latest/
+- cd tar -zcvf event-types-all.tar.gz schemas/*
+- cd tar -zcvf event-types-latest.tar.gz schemas-latest/*
 deploy:
   provider: releases
   api-key:
