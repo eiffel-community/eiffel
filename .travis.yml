@@ -5,8 +5,8 @@ script:
 - python examples/validate.py
 before_deploy:
 - python find-latest-schemas.py schemas/ schemas-latest/
-- cd tar -zcvf event-types-all.tar.gz schemas/*
-- cd tar -zcvf event-types-latest.tar.gz schemas-latest/*
+- tar -zcvf event-types-all.tar.gz schemas/*
+- tar -zcvf event-types-latest.tar.gz schemas-latest/*
 deploy:
   provider: releases
   api-key:
