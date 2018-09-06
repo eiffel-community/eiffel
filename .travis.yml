@@ -8,6 +8,8 @@ script:
 - cd $TRAVIS_BUILD_DIR/schemas-latest && tar -zcvf ../event-types-latest.tar.gz *
 deploy:
   provider: releases
+  edge:
+    branch: ci-releases_debug
   api-key:
     secure: i3GAjHmHuwKT3/MozjuaY3LE8/yK1JDwIX//vP14jxUNBcQDEi/ABdRCvklgighgdp+mFjC1oGUa/kD3i5fAD3axHXTx4Erki20MVfg16WEL4tJvBQM78Nmv1omLeOKj5b1jVJayb2lAhKuxo1I88sxQB2b0YV6URV1S82In1SQ8E1QmKAl1BLasp1LFnyvH2G1Cr/KX3QTzYbszRvL3/W6yedgpr8I80RC/JWtBUk+a0eI4f/jiMJkhUlFOLIFawbaf3JJZa/TEL5Q46tWTBq4bat5qyXwN0QRSDUQN2LwOHtJWgQMMrr3+VgdpyIWT2vpb7jH67eGvANkXNhN2M9Vl18yWeNVIQBGIp0tG7GO2x/hUvLGTz/wujiOsBrkiC8Kr2qxIv5mUQRSLw1h3jMwzSKQ5vOm7tzwleFXSKs826CG+98PEUL2FOGhA4hGxALRnHZO7wn3kTTazEKiLpZoE73qwCH20+4ncon8UC0EycB5gYHiGBi8HOKxrGzI4YGspvZ42ovdqRqAaVkdV8mdIGSALu+L5DlcJe4eMIT7RUH+Tsum/EzlqwjgZIm3gb4/PboNpKAO8wZ6SNUQlkPE88XvJYUzIuKmicqF0t3iPFdJI1fRDi6hLBSPujEsvRMS1TncVeakNunk/QRNQdxDOz/ou9QxJNMV5DL7zi4w=
   file:
