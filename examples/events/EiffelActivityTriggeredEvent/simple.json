@@ -2,7 +2,7 @@
   "meta": {
     "id": "e1e93f13-7c3c-4f17-9753-ebf0c86ff1c2",
     "type": "EiffelActivityTriggeredEvent",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "time": 1234567890
   },
   "data": {

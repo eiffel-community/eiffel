@@ -2,7 +2,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 1000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
       "source": {
@@ -25,7 +25,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "time": 101000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1",
       "source": {
@@ -58,7 +58,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "3.0.0",
+      "version": "4.0.0",
       "time": 102000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2",
       "source": {
@@ -101,7 +101,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 103000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3",
       "source": {
@@ -132,7 +132,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 201000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4",
       "source": {
@@ -163,7 +163,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 202000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5",
       "source": {
@@ -194,7 +194,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 2000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee6",
       "source": {
@@ -214,7 +214,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 104000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee7",
       "source": {
@@ -239,7 +239,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 203000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee8",
       "source": {
@@ -264,7 +264,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 3000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee9",
       "source": {
@@ -285,7 +285,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 204000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee10",
       "source": {
@@ -306,7 +306,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseTriggeredEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 4000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeea11",
       "source": {
@@ -331,7 +331,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 4001,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee11",
       "source": {
@@ -351,7 +351,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseTriggeredEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 205000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeea12",
       "source": {
@@ -376,7 +376,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 205001,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee12",
       "source": {
@@ -396,7 +396,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 5000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee13",
       "source": {
@@ -430,7 +430,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 206000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee14",
       "source": {
@@ -460,7 +460,7 @@
   {
     "meta": {
       "type": "EiffelConfidenceLevelModifiedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 6000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee15",
       "source": {
@@ -481,7 +481,7 @@
   {
     "meta": {
       "type": "EiffelConfidenceLevelModifiedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 207000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee16",
       "source": {
@@ -502,7 +502,7 @@
   {
     "meta": {
       "type": "EiffelIssueDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 900,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee17",
       "source": {
@@ -521,7 +521,7 @@
   {
     "meta": {
       "type": "EiffelIssueDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 901,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee18",
       "source": {
@@ -540,7 +540,7 @@
   {
     "meta": {
       "type": "EiffelIssueDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 902,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee19",
       "source": {

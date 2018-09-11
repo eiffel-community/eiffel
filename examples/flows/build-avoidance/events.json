@@ -2,7 +2,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 1000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
       "source": {
@@ -23,7 +23,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 101000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1",
       "source": {
@@ -48,7 +48,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 2000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2",
       "source": {
@@ -69,7 +69,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 102000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3",
       "source": {
@@ -94,7 +94,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 3000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4",
       "source": {
@@ -120,7 +120,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 4000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5",
       "source": {
@@ -146,7 +146,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 5000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee6",
       "source": {
@@ -172,7 +172,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 6000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee7",
       "source": {
@@ -198,7 +198,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 7000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee8",
       "source": {
@@ -224,7 +224,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 103000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee9",
       "source": {
@@ -254,7 +254,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 104000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee10",
       "source": {
@@ -284,7 +284,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 8000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee11",
       "source": {
@@ -321,7 +321,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 105000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee12",
       "source": {
@@ -362,7 +362,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 102100,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee13",
       "source": {
@@ -385,7 +385,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 102200,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee14",
       "source": {
@@ -408,7 +408,7 @@
   {
     "meta": {
       "type": "EiffelArtifactReusedEvent",
-      "version": "2.0.0",
+      "version": "3.0.0",
       "time": 102300,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee15",
       "source": {
