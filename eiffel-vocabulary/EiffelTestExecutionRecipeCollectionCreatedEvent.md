@@ -203,28 +203,10 @@ __Required:__ No
 __Description:__ The name of the event sender.
 
 #### meta.source.serializer
-__Type:__ Object  
-__Format:__   
+__Type:__ String  
+__Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
-__Description:__ The [GAV](https://maven.apache.org/guides/mini/guide-naming-conventions.html) coordinates of the serializer software used to construct the event.
-
-##### meta.source.serializer.groupId
-__Type:__ String  
-__Format:__ groupId  
-__Required:__ Yes  
-__Description:__ The groupId of the serializer software.
-
-##### meta.source.serializer.artifactId
-__Type:__ String  
-__Format:__ artifactId  
-__Required:__ Yes  
-__Description:__ The artifactId of the serializer software.
-
-##### meta.source.serializer.version
-__Type:__ String  
-__Format:__ version  
-__Required:__ Yes  
-__Description:__ The version of the serializer software.
+__Description:__ The identity of the serializer software used to construct the event, in [purl format](https://github.com/package-url/purl-spec).
 
 #### meta.source.uri
 __Type:__ String  
@@ -259,6 +241,7 @@ __Description:__ The encrypted digest. The cryptographic hash function and the d
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 3.0.0     | Current version                                        | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 2.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
 | 2.0.0     | [f92e001](../../../blob/f92e001c88d1139a62f8ace976958e0a30d8f9c5/eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) | Changed syntax of data.batches.recipes.constraints from an uncontrolled object to a list of key-value pairs to comply with design guidelines. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |

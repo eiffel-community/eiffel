@@ -2,7 +2,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 1000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
       "source": {
@@ -25,7 +25,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "1.0.0",
+      "version": "3.0.0",
       "time": 101000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1",
       "source": {
@@ -38,28 +38,27 @@
         "branch": "myBranch",
         "repoName": "myPrivateRepo",
         "repoUri": "https://github.com/johndoe/myPrivateRepo.git"
-      },
-      "issues": [
-        {
-          "type": "BUG",
-          "tracker": "JIRA",
-          "id": "JIRA-1234",
-          "uri": "http://jira.company.com/browse/JIRA-1234",
-          "transition": "RESOLVED"
-        }
-      ]
+      }
     },
     "links": [
       {
         "type": "BASE",
         "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
+      },
+      {
+        "type": "PARTIALLY_RESOLVED_ISSUE",
+        "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee17"
+      },
+      {
+        "type": "PARTIALLY_RESOLVED_ISSUE",
+        "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee18"
       }
     ]
   },
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "1.0.0",
+      "version": "3.0.0",
       "time": 102000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2",
       "source": {
@@ -78,9 +77,7 @@
         "email": "john.doe@company.com",
         "id": "johndoe",
         "group": "Team Gophers"
-      },
-      "issues": [
-      ]
+      }
     },
     "links": [
       {
@@ -90,13 +87,21 @@
       {
         "type": "PREVIOUS_VERSION",
         "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+      },
+      {
+        "type": "RESOLVED_ISSUE",
+        "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee17"
+      },
+      {
+        "type": "RESOLVED_ISSUE",
+        "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee18"
       }
     ]
   },
   {
     "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 103000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3",
       "source": {
@@ -127,7 +132,7 @@
   {
     "meta": {
       "type": "EiffelSourceChangeCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 201000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee4",
       "source": {
@@ -148,13 +153,17 @@
       {
         "type": "BASE",
         "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
+      },
+      {
+        "type": "RESOLVED_ISSUE",
+        "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee19"
       }
     ]
   },
   {
-    "meta": {    
+    "meta": {
       "type": "EiffelSourceChangeSubmittedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 202000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee5",
       "source": {
@@ -185,7 +194,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 2000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee6",
       "source": {
@@ -205,7 +214,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 104000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee7",
       "source": {
@@ -230,7 +239,7 @@
   {
     "meta": {
       "type": "EiffelCompositionDefinedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 203000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee8",
       "source": {
@@ -255,7 +264,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 3000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee9",
       "source": {
@@ -263,17 +272,7 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "artifact-name",
-        "version": "1.0.0"
-      },
-      "fileInformation": [
-        {
-          "classifier": "",
-          "extension": "jar"
-        }
-      ],
+      "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@1.0.0",
       "buildCommand": "/my/build/command with arguments"
     },
     "links": [
@@ -286,7 +285,7 @@
   {
     "meta": {
       "type": "EiffelArtifactCreatedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 204000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee10",
       "source": {
@@ -294,17 +293,7 @@
       }
     },
     "data": {
-      "gav": {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "artifact-name",
-        "version": "1.1.0"
-      },
-      "fileInformation": [
-        {
-          "classifier": "",
-          "extension": "jar"
-        }
-      ],
+      "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@1.1.0",
       "buildCommand": "/my/build/command with arguments"
     },
     "links": [
@@ -317,7 +306,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseTriggeredEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 4000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeea11",
       "source": {
@@ -342,7 +331,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 4001,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee11",
       "source": {
@@ -362,7 +351,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseTriggeredEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 205000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeea12",
       "source": {
@@ -387,7 +376,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseStartedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 205001,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee12",
       "source": {
@@ -407,7 +396,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 5000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee13",
       "source": {
@@ -441,7 +430,7 @@
   {
     "meta": {
       "type": "EiffelTestCaseFinishedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 206000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee14",
       "source": {
@@ -471,7 +460,7 @@
   {
     "meta": {
       "type": "EiffelConfidenceLevelModifiedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 6000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee15",
       "source": {
@@ -492,7 +481,7 @@
   {
     "meta": {
       "type": "EiffelConfidenceLevelModifiedEvent",
-      "version": "1.0.0",
+      "version": "2.0.0",
       "time": 207000,
       "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee16",
       "source": {
@@ -508,6 +497,63 @@
         "type": "SUBJECT",
         "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee10"
       }
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelIssueDefinedEvent",
+      "version": "2.0.0",
+      "time": 900,
+      "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee17",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "type": "WORK_ITEM",
+      "tracker": "JIRA",
+      "id": "JIRA-1234",
+      "uri": "http://jira.company.com/browse/JIRA-1234"
+    },
+    "links": [
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelIssueDefinedEvent",
+      "version": "2.0.0",
+      "time": 901,
+      "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee18",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "type": "REQUIREMENT",
+      "tracker": "JIRA",
+      "id": "JIRA-1235",
+      "uri": "http://jira.company.com/browse/JIRA-1235"
+    },
+    "links": [
+    ]
+  },
+  {
+    "meta": {
+      "type": "EiffelIssueDefinedEvent",
+      "version": "2.0.0",
+      "time": 902,
+      "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeee19",
+      "source": {
+        "domainId": "example.domain"
+      }
+    },
+    "data": {
+      "type": "REQUIREMENT",
+      "tracker": "JIRA",
+      "id": "JIRA-1236",
+      "uri": "http://jira.company.com/browse/JIRA-1236"
+    },
+    "links": [
     ]
   }
 ]

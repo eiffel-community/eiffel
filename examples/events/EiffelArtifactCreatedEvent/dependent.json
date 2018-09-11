@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelArtifactCreatedEvent",
-    "version": "1.1.0",
+    "version": "2.0.0",
     "time": 1234567890,
     "source": {
       "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
@@ -9,25 +9,14 @@
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
   "data": {
-    "gav": {
-      "groupId": "com.mycompany.myproduct",
-      "artifactId": "my-dependent",
-      "version": "1.0.4"
-    },
+    "identity": "pkg:maven/com.mycomany.myproduct/my-dependent@1.0.4",
     "fileInformation": [
       {
-        "classifier": "",
-        "extension": "jar"
+        "name": "dependent.jar"
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "dependsOn": [
-      {
-        "groupId": "com.mycompany.myproduct",
-        "artifactId": "my-interface",
-        "version": "[1.0,2.0)"
-      }
-    ]
+    "dependsOn": ["pkg:maven/com.mycompany.myproduct/my-interface@%5B1.0%2C2.0%29"]
   },
   "links": [
     {

@@ -2,13 +2,13 @@
 
 # Copyright 2017 Ericsson AB.
 # For a full list of individual contributors, please see the commit history.
-# 
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
-# 
+#
 #     http://www.apache.org/licenses/LICENSE-2.0
-# 
+#
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -94,9 +94,8 @@ def generateEDef2(iterationsMap, iteration, t):
   return msg
 
 def generateArtC3(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtC3", iteration)
-  msg["data"]["gav"] = {"groupId": "com.othercompany.library", "artifactId": "third-party-library", "version": "3.2.4"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtC3", iteration)
+  msg["data"]["identity"] = "pkg:maven/com.othercompany.library/third-party-library@3.2.4"
   return msg
 
 def generateCDef1(iterationsMap, iteration, t):
@@ -129,50 +128,45 @@ def generateCDef3(iterationsMap, iteration, t):
   return msg
 
 def generateArtC1(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtC1", iteration)
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtC1", iteration)
   link(msg, iterationsMap[iteration]["CDef1"], "COMPOSITION")
   link(msg, iterationsMap[0]["EDef1"], "ENVIRONMENT")
   link(msg, iterationsMap[iteration]["CDef1"], "CAUSE")
   link(msg, findLatestPrevious(iterationsMap, iteration, "ArtC1"), "PREVIOUS_VERSION")
-  msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "complete-system", "version": "1." + str(iteration) + ".0"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg["data"]["identity"] = "pkg:maven/com.mycompany.myproduct/complete-system@1." + str(iteration) + ".0"
   return msg
 
 def generateArtC2(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtC2", iteration)
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtC2", iteration)
   link(msg, iterationsMap[iteration]["CDef2"], "COMPOSITION")
   link(msg, iterationsMap[0]["EDef2"], "ENVIRONMENT")
   link(msg, findLatestPrevious(iterationsMap, iteration, "ArtC2"), "PREVIOUS_VERSION")
   link(msg, iterationsMap[iteration]["ActT4"], "CONTEXT")
-  msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "sub-system", "version": "1." + str(iteration) + ".0"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg["data"]["identity"] = "pkg:maven/com.mycompany.myproduct/sub-system@1." + str(iteration) + ".0"
   return msg
 
 def generateArtCC1(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtCC1", iteration)
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtCC1", iteration)
   link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
   link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
   link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC1"), "PREVIOUS_VERSION")
-  msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-1", "version": "1." + str(iteration) + ".0"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg["data"]["identity"] = "pkg:maven/com.mycompany.myproduct/component-1@1." + str(iteration) + ".0"
   return msg
 
 def generateArtCC2(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtCC2", iteration)
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtCC2", iteration)
   link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
   link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
   link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC2"), "PREVIOUS_VERSION")
-  msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-2", "version": "1." + str(iteration) + ".0"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg["data"]["identity"] = "pkg:maven/com.mycompany.myproduct/component-2@1." + str(iteration) + ".0"
   return msg
 
 def generateArtCC3(iterationsMap, iteration, t):
-  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "1.0.0", "ArtCC3", iteration)
+  msg = generateGenericMessage("EiffelArtifactCreatedEvent", t, "2.0.0", "ArtCC3", iteration)
   link(msg, iterationsMap[iteration]["CDef3"], "COMPOSITION")
   link(msg, iterationsMap[iteration]["CDef3"], "CAUSE")
   link(msg, findLatestPrevious(iterationsMap, iteration, "ArtCC3"), "PREVIOUS_VERSION")
-  msg["data"]["gav"] = {"groupId": "com.mycompany.myproduct", "artifactId": "component-3", "version": "1." + str(iteration) + ".0"}
-  msg["data"]["fileInformation"] = [{"classifier": "", "extension": "jar"}]
+  msg["data"]["identity"] = "pkg:maven/com.mycompany.myproduct/component-3@1." + str(iteration) + ".0"
   return msg
 
 def generateArtP1(iterationsMap, iteration, t):
