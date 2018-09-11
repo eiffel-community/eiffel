@@ -240,7 +240,7 @@ __Description:__ The number of the event within the named sequence.
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
 | 3.0.0     | Current version                                        | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
-| 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelIssueVerifiedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
+| 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelIssueDefinedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.0.0     | [0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueDefinedEvent.md) | Initial version                         |
 
 ## Examples
