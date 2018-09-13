@@ -295,7 +295,7 @@ __Format:__
 __Required:__ Yes  
 __Description:__ The name of the sequence. There MUST not be two identical __meta.security.sequenceProtection.sequenceName__ values in the same event.
 
-##### meta.security.sequenceProtection.sequenceName
+##### meta.security.sequenceProtection.position
 __Type:__ Integer  
 __Format:__  
 __Required:__ Yes  
