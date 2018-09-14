@@ -256,3 +256,4 @@ __Description:__ The number of the event within the named sequence.
 
 ## Examples
 * [Simple example](../examples/events/EiffelTestCaseTriggeredEvent/simple.json)
+* [Simple example using pre-3.0.0 meta.security object](../examples/events/EiffelTestCaseTriggeredEvent/simple-2.0.0.json)
