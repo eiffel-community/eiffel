@@ -1,13 +1,14 @@
 {
   "meta": {
     "type": "EiffelTestCaseTriggeredEvent",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "security": {
-      "sdm": {
-        "authorIdentity": "My Test Management System",
-        "encryptedDigest": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a"
+      "authorIdentity": "CN=Jane Doe,O=Test Management Group,C=United Kingdom",
+      "integrityProtection": {
+        "signature": "a7ffc6f8bf1ed76651c14756a061d662f580ff4de43b49fa82d80a4b80f8434a",
+        "alg": "HS256"
       }
     }
   },

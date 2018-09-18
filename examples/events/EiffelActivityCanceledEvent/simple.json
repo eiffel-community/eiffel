@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelActivityCanceledEvent",
-    "version": "2.0.0",
+    "version": "3.0.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },

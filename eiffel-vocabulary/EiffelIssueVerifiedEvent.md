@@ -153,28 +153,64 @@ __Format:__
 __Required:__ No  
 __Description:__ An optional object for enclosing security related information, particularly supporting data integrity. See [Security](../eiffel-syntax-and-usage/security.md) for further information.
 
-#### meta.security.sdm
+#### meta.security.authorIdentity
+__Type:__ String  
+__Format:__ [Distinguished Name](https://tools.ietf.org/html/rfc2253)  
+__Required:__ Yes  
+__Description:__ The identity of the author of the event. This property is intended to enable the recipient to identify the author of the event contents and/or look up the appropriate public key for decrypting the __meta.security.integrityProtection.signature__ value and thereby verifying author identity and data integrity.
+
+#### meta.security.integrityProtection
 __Type:__ Object  
 __Format:__  
 __Required:__ No  
-__Description:__ An optional object for properties supporting the [Strong Distribution Model](http://www.cryptnet.net/fdp/crypto/strong_distro.html). Note that this only addressed the _integrity_ of the Eiffel event, not its _confidentiality_ or _availability_.
+__Description:__ An optional object for enabling information integrity protection via cryptographic signing. To generate a correct __meta.security.integrityProtection__ object:
+1. Generate the entire event, but with the __meta.security.integrityProtection.signature__ value set to an empty string.
+1. Serialize the event on [Canonical JSON Form](https://tools.ietf.org/html/draft-staykov-hu-json-canonical-form-00).
+1. Generate the signature using the __meta.security.integrityProtection.alg__ algorithm.
+1. Set the __meta.security.integrityProtection.signature__ value to the resulting signature while maintaining Canonical JSON Form.
+To verify the integrity of the event, the consumer then resets __meta.security.integrityProtection.signature__ to an empty string and ensures Canonical JSON Form before verifying the signature.
 
-##### meta.security.sdm.authorIdentity
+##### meta.security.integrityProtection.alg
+__Type:__ String  
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
+__Required:__ Yes  
+__Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
+
+##### meta.security.integrityProtection.signature
 __Type:__ String  
 __Format:__  
 __Required:__ Yes  
-__Description:__ The identity of the author of the event. This property is intended to enable the recipient to look up the appropriate public key for decrypting the digest and thereby verifying author identity and data integrity. The format of the author identity varies depending on the key infrastructure solution used. Note that this requires the presence of a Trusted Authority (TA) which the recipient can query for the correct public key. The identity and location of the TA must never be included in the event itself, as this would compromise the security of the solution.
+__Description:__ The signature produced by the signing algorithm.
 
-##### meta.security.sdm.encryptedDigest
+##### meta.security.integrityProtection.publicKey
+__Type:__ String  
+__Format:__  
+__Required:__ No  
+__Description:__ The producer of the event may include the relevant public key for convenience, rather than relying a separate key distribution mechanism. Note that this property, along with the rest of the event, is encompassed by the integrity protection offered via __meta.security.integrityProtection__.
+
+#### meta.security.sequenceProtection
+__Type:__ Object[]  
+__Format:__  
+__Required:__ No  
+__Description:__ An optional object for enabling verification of intact event sequences in a distributed environment, thereby protecting against data loss, race conditions and replay attacks. It allows event publishers to state the order in which they produce a certain set of events. In other words, it cannot provide any global guarantees as to event sequencing, but rather per-publisher guarantees. Every object in the array represents a named sequence of which this event forms a part. For every event including a given named sequence, the publisher SHALL increment __meta.security.sequenceProtection.position__ by 1. The first event produced in a given named sequence SHALL numbered 1.
+
+##### meta.security.sequenceProtection.sequenceName
 __Type:__ String  
 __Format:__  
 __Required:__ Yes  
-__Description:__ The encrypted digest. The cryptographic hash function and the decryption algorithm to use, similarly to the Trusted Authority (TA), must be known to the recipient. Note that the digest of the entire event is affected by the value of this property. For this reason the input to the hash function SHALL be the entire event unaltered in all parts except for this property, which SHALL be replaced by an empty string.
+__Description:__ The name of the sequence. There MUST not be two identical __meta.security.sequenceProtection.sequenceName__ values in the same event.
+
+##### meta.security.sequenceProtection.position
+__Type:__ Integer  
+__Format:__  
+__Required:__ Yes  
+__Description:__ The number of the event within the named sequence.
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
-| 3.0.0     | Current version                                        | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
+| 4.0.0     | Current version                                        | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
+| 3.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelIssueVerifiedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 2.0.0     | [0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueVerifiedEvent.md) | Replaced data.issues with links         |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
