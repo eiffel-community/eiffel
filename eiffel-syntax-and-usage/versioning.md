@@ -29,7 +29,7 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Arica  | _Reserved for future use._  | |
 | Lyon  | _Reserved for future use._  | |
 | Paris  | _Reserved for future use._  | |
-| Agen  | [edition-agen](../../../tree/edition-agen)  | Introduced [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). Updated meta.security of all event types. Changed from GAV to purl based artifact identification. Introduced automated packaging of schema files for edition tags. Added detailed rules and exmaples for event type version stepping. |
+| Agen  | [edition-agen](../../../tree/edition-agen)  | Introduced [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). Updated meta.security of all event types. Changed from GAV to purl based artifact identification. Introduced automated packaging of schema files for edition tags. Added detailed rules and examples for event type version stepping. |
 | Toulouse  | [edition-toulouse](../../../tree/edition-toulouse)  | Stepped major version of TERCC. Updated FLOW_CONTEXT link type, resulting in new minor version of all event types. |
 | Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  | Initial edition. |
 
