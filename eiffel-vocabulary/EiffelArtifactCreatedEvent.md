@@ -56,13 +56,13 @@ EXACTLY_ONE signifies that a legal composition must contain one and only one imp
 AT_LEAST_ONE signifies that a legal composition must contain one or more implementations of this artifact.
 
 ### data.implements
-__Type:__ String  
+__Type:__ String[]  
 __Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
 __Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact implements. The typical use case of this is to identify interfaces implemented by this artifact. While not included in the purl specification itself, the Eiffel protocol allows version range notation according to [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) to be used for the version component of the package identity. Note that the purl specification always requires the version component to be percent-encoded.
 
 ### data.dependsOn
-__Type:__ String  
+__Type:__ String[]  
 __Format:__ [purl specification](https://github.com/package-url/purl-spec)  
 __Required:__ No  
 __Description:__ An array of [purl identified](https://github.com/package-url/purl-spec) entities this artifact depends on. While not included in the purl specification itself, the Eiffel protocol allows version range notation according to [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402) to be used for the version component of the package identity. Note that the purl specification always requires the version component to be percent-encoded.
