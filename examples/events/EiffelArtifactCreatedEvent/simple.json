@@ -7,7 +7,6 @@
     "source": {
       "serializer": "pkg:maven/com.mycompany.tools/eiffel-serializer@1.0.3"
     },
-    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
     "tags": [
       "fast-track",
       "customer-a"
