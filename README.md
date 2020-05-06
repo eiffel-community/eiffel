@@ -35,6 +35,7 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [How to Propose Changes and Contribute](./CONTRIBUTING.md)
    1. [Code of Conduct](./CODE_OF_CONDUCT.md)
 1. Eiffel Syntax and Usage
+   1. [Eiffel Glossary](./eiffel-syntax-and-usage/glossary.md)
    1. [Event Design Guidelines](./eiffel-syntax-and-usage/event-design-guidelines.md)
    1. [Event Structure](./eiffel-syntax-and-usage/event-structure.md)
    1. [The Meta Object](./eiffel-syntax-and-usage/the-meta-object.md)
