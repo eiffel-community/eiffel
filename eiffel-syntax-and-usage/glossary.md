@@ -16,11 +16,13 @@
 --->
 
 # Eiffel Glossary
-This a non-exhaustive, alphabetical list of terms used in the Eiffel Vocabulary and its documentation.
+This a non-exhaustive, alphabetical list of terms used in the [Eiffel vocabulary](../eiffel-vocabulary/) and its documentation.
 
  - [Terms Used in Event Definitions](#terms-used-in-event-definitions)
    - [Activity](#activity)
    - [Artifact](#artifact)
+   - [Composition](#composition)
+   - [Confidence Level](#confidence-level)
    - [Environment](#environment)
    - [Event](#event)
    - [Source Change](#source-change)
@@ -28,23 +30,54 @@ This a non-exhaustive, alphabetical list of terms used in the Eiffel Vocabulary 
 
  - [Terms Used in Documentation](#terms-used-in-documentation)
    - [Pipeline](#pipeline)
-   - [Step](#step)
 
 ## Terms Used in Event Definitions
 These terms are either part of the event names in the Eiffel Vocabulary, or they are part of parameter names or values in the events. Users of Eiffel should be able to rely on these terms to be kept, unless a major change to event types are done.
 
 ### Activity
-An _activity_ is any kind of action in a CI/CD system, normally triggered by an operation done in an SCM system or by a previous activity. It's purpose is to notify what is going on and what has finished, and when, and with what outcome.
+An _activity_ is any kind of action in a CI/CD system, normally triggered by an operation done in an SCM system or by a previous activity. The Eiffel protocol declares events related to activities to describe what is going on, what has finished, when did it happen and with what outcome.
 
-Activities are hierarchical. Activities could be whole [pipelines](#pipeline), [pipeline steps](#pipeline-step) or any level of pipeline sub steps. And those steps could for example be build activities or test activities.
+Activities are hierarchical. Activities could be whole [pipelines](#pipeline), or sequential or parallel parts thereof. Such pipeline parts could for example be build activities or test activities.
 
-An activity could also be an SCM operation such as a manual code review or automated source change check. 
+An activity could also be an SCM operation such as a manual code review or automated source change check.
+
+Some activity types have their own specific events, such as EiffelTestCase\*Events notifying test case executions, while others are more generic and can be notified using EiffelActivity\*Events.
+
+#### Examples of events related to activities:
+- [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
+- [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md)
+- [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md)
+- [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)
+- [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
+- [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)
 
 ### Artifact
 _Artifacts_ are items or software packages generated in a CI/CD [pipeline](#pipeline), for example a built binary or a Docker image. An artifact should be possible to identify using a purl (package URL). An artifact is often the subject of a test executed or a delivery performed within a CI/CD [pipeline](#pipeline).
 
+#### Examples of events related to artifacts:
+- [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+
+### Composition
+A _composition_ is a grouping of [artifacts](#artifact) and/or [source changes](#source-change). A composition is more or less the same as what is elsewhere sometimes referred to as a _baseline_.
+
+#### Examples of events related to compositions:
+- [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
+
+### Confidence Level
+A _confidence level_ can be achieved for an [artifact](#artifact) or a [composition](#composition). It can be used to annotate that the artifact or composition has been tested up to a certain level, that it has reached a certain level of maturity, or that it has passed a certain criteria. Examples of confidence levels could be "smokeTestsOk", "releasable" or "released".
+
+A confidence level can group other (sub) confidence levels of lower abstractions. For example the confidence level "allTestsOk" could summarize sub confidence levels called "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk".
+
+Confidence levels frequently figure in automated delivery interfaces within a tiered system context: lower level tiers issue an agreed confidence level signaling that a new version is ready for integration in a higher level tier.
+
+#### Examples of events related to confidence levels:
+- [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
+
 ### Environment
 An Eiffel _environment_ defines the environment in which an [activity](#activity) is executed. Could be for example a host, node, service name/uri, a Docker image or some other kind of machine configuration definition.
+
+#### Examples of events related to environments:
+- [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)
 
 ### Event
 An Eiffel _event_ is a broadcast notification telling any consumer about an event occurring in the CI/CD [pipeline](#pipeline).
@@ -52,14 +85,18 @@ An Eiffel _event_ is a broadcast notification telling any consumer about an even
 ### Source Change
 A _source change_ is the unit of a review. It results in a single commit when merged to the Git repository.
 
+#### Examples of events related to source changes:
+- [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)
+- [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
+
 ### Submit
 A _submit_ is the action of merging a [source change](#source-change) to its intended target branch.
 
+#### Examples of events related to submits:
+- [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
+
 ## Terms Used in Documentation
-These terms are not defined by Eiffel. They are added here to enable a homogenous and easy read protocol documentation. These terms are subject to change without notice if a better name is found or defined elsewhere.
+The terms below are not used in any events in the Eiffel protocol. They are added here to enable a homogenous and easy read of the protocol documentation. These terms are subject to change without notice if a better name is found or defined elsewhere. Their names should reflect the most commonly used terms elsewhere in the industry.
 
 ### Pipeline
-A _pipeline_ is an ordered set of [pipeline steps](#pipeline-step) often triggered by a source change being created or submitted.
-
-### Pipeline Step
-A _pipeline step_ is used in the Eiffel protocol documentation to exemplify operations executed in a [pipeline](#pipeline).
+A _pipeline_ is an ordered set of [activities](#activity) often triggered by a source change being created or submitted.
