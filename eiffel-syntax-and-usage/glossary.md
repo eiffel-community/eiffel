@@ -58,13 +58,13 @@ _Artifacts_ are items or software packages generated in a CI/CD [pipeline](#pipe
 - [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
 
 ### Composition
-A _composition_ is a grouping of [artifacts](#artifact) and/or [source changes](#source-change). A composition is more or less the same as what is elsewhere sometimes referred to as a _baseline_.
+A _composition_ is an immutable grouping of specific versions of [artifacts](#artifact) and/or [source changes](#source-change). It is more or less the same as what is elsewhere sometimes referred to as a _baseline_, which can be explained as being a fixed reference point used for comparison. A composition is often defined with the purpose of enabling downstream [artifacts](#artifact) to be generated.
 
 #### Examples of events related to compositions:
 - [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
 
 ### Confidence Level
-A _confidence level_ can be achieved for an [artifact](#artifact) or a [composition](#composition). It can be used to annotate that the artifact or composition has been tested up to a certain level, that it has reached a certain level of maturity, or that it has passed a certain criteria. Examples of confidence levels could be "smokeTestsOk", "releasable" or "released".
+A _confidence level_ can be achieved for an [artifact](#artifact), a [composition](#composition), or a [source change](#source-change). It can be used to annotate that the artifact, composition or source change has been tested up to a certain level, that it has reached a certain level of maturity, or that it has passed a certain criteria. Examples of confidence levels could be "smokeTestsOk", "releasable" or "released".
 
 A confidence level can group other (sub) confidence levels of lower abstractions. For example the confidence level "allTestsOk" could summarize sub confidence levels called "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk".
 
