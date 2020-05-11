@@ -61,7 +61,7 @@ An artifact is often the subject of a test executed or a delivery performed with
 - [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
 
 ### Composition
-A _composition_ is an immutable grouping of specific versions of [artifacts](#artifact) and/or [source changes](#source-change). It is more or less the same as what is elsewhere sometimes referred to as a _baseline_, which can be explained as being a fixed reference point used for comparison. A composition is often defined with the purpose of enabling downstream artifacts to be generated. It gives full traceability on what software pieces that were used to generate the artifact, being it a product artifact, a test harness or some other kind of generated artifact.
+A _composition_ is an immutable grouping of specific versions of [artifacts](#artifact) and/or [source changes](#source-change). It is more or less the same as what is elsewhere sometimes referred to as a _baseline_, which can be explained as being a fixed reference point used for comparison. A composition is often defined with the purpose of enabling downstream artifacts to be generated. It gives full traceability on what software pieces that were used to generate the artifact, be it a product artifact, a test harness or some other kind of generated artifact.
 
 #### Examples of events related to compositions:
 - [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
