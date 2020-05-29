@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2020 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,7 +13,7 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
---->
+-->
 
 # EiffelTestExecutionRecipeCollectionCreatedEvent (TERCC)
 The EiffelTestExecutionRecipeCollectionCreatedEvent declares that a collection of test execution recipes has been created. In order to clarify what that means, several concepts need to be explained.
@@ -24,7 +24,10 @@ How the test selection service generates the recipe collection is, from the poin
 
 The __data__ object consists of two main parts. __data.selectionStrategy__ identifies the strategy used to select the test cases and generate the recipe collection, while __data.batches__ or __data.batchesUri__ contain or reference, respectively, the recipes. The recipes are grouped in batches, which are used to control the order of execution of test cases. Every batch has a priority to let the test executor order them in sequence, but within each batch no assumptions are made as to the execution order the test cases. This way the recipe collection can either allow the executor a high degree of freedom in scheduling the test executions, and/or prescribe the exact sequential order in which they must be executed. Each event SHALL include one and only one of __data.batches__ and __data.batchesUri__.
 
-Finally, each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does not control the syntax of these constraints, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
+Each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does not control the syntax of these constraints, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
+
+There are constraints both on batch-level as well as on recipe-level, the batch-level constraints shall apply on every single recipe in the batch while the recipe-level only apply on a single recipe. Both constraints can include the same information and care needs to be taken when both are used. The easiest would be to never cross constraints between batch-level and recipe-level and try to keep them separate as much as possible. If there are scenarios where the same constraint is used, recipe-level should be the one that is used; but this is highly dependent on technology domain and test execution framework as there might be reasons to use the batch-level constraint in this case.
+
 
 ## Data Members
 ### data.selectionStrategy
@@ -67,6 +70,21 @@ __Type:__ Integer
 __Required:__ Yes  
 __Description:__ The execution priority of the batch, as compared to other batches in the collection. A lower value SHALL be interpreted as a higher priority.
 
+#### data.batches.constraints
+__Type:__ Object[]
+__Required:__ No
+__Description:__ Any constraints of the batch. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note that this is per-batch constraints and will apply to all recipes in the batch. Not to be confused with __data.batches.recipes.constraints__ which apply to only a single recipe.
+
+###### data.batches.constraints.key
+__Type:__ String
+__Required:__ Yes
+__Description:__ The key name of the constraint.
+
+###### data.batches.constraints.value
+__Type:__ Any
+__Required:__ Yes
+__Description:__ The value of the constraint.
+
 #### data.batches.recipes
 __Type:__ Object[]  
 __Required:__ Yes  
@@ -100,7 +118,7 @@ __Description:__ A location where a description of the test case can be retrieve
 ##### data.batches.recipes.constraints
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ Any constraints of the execution. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+__Description:__ Any constraints of the execution. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note that this is per-recipe constraints and will apply to only a single recipe in the batch. Not to be confused with __data.batches.constraints__ which apply to all recipes.
 
 ###### data.batches.recipes.constraints.key
 __Type:__ String  
