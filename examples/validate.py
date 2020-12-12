@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # Copyright 2017 Ericsson AB.
 # For a full list of individual contributors, please see the commit history.
@@ -90,7 +90,7 @@ def validateExamples(examples, schemas, maxExamples, shuffle):
   unchecked = []
 
   numChecked = 0
-  latestReportTime = time.clock()
+  latestReportTime = time.perf_counter()
   
   if shuffle:
     random.shuffle(examples)
@@ -111,9 +111,9 @@ def validateExamples(examples, schemas, maxExamples, shuffle):
       print("Reached limit of " + str(maxExamples) + " examples to validate. Breaking.")
       break
       
-    if time.clock() - latestReportTime > 5:
+    if time.perf_counter() - latestReportTime > 5:
       print("Checked " + str(numChecked) + " / " + str(len(examples)) + " examples.", flush=True)
-      latestReportTime = time.clock()
+      latestReportTime = time.perf_counter()
       
   return failures, unchecked, numberOfSuccessfulValidations
 
