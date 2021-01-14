@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2020 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,6 +23,11 @@ The EiffelArtifactPublishedEvent declares that a software artifact (declared by 
 __Type:__ Object[]  
 __Required:__ Yes  
 __Description:__ A list of locations at which the artifact may be retrieved.
+
+#### data.locations.name
+__Type:__ String  
+__Required:__ No  
+__Description:__ Identifies the name of the file within the artifact for which this location provides the URI. Must correspond to a __data.fileInformation.name__ value in the [EiffelArtifactCreatedEvent](./EiffelArtifactCreatedEvent.md) connected via the __ARTIFACT__ link.
 
 #### data.locations.type
 __Type:__ String  
@@ -194,6 +199,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 3.1.0     | Current version                                        | Added name qualifier for artifact locations (see [Issue 248](https://github.com/eiffel-community/eiffel/issues/248)) |
 | 3.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
 | 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelArtifactPublishedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
