@@ -29,7 +29,7 @@ __Description:__ The name of the environment.
 ### data.version
 __Type:__ String  
 __Required:__ No  
-__Description:__ The version of the environment, if any. This is in a sense redundant, as relationships between compositions can be tracked via the __PREVIOUS_VERSION__ link type, but can be used for improved clarity and semantics.
+__Description:__ The version of the environment, if any. This is in a sense redundant, as relationships between environments can be tracked via the __PREVIOUS_VERSION__ link type, but can be used for improved clarity and semantics.
 
 ### data.image
 __Type:__ String  
