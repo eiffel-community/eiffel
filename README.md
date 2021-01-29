@@ -17,6 +17,8 @@
 
 <img src="./images/eiffel-protocol-logo.png" alt="Eiffel Protocol" width="350"/>
 
+[![Graduated](https://img.shields.io/badge/Stage-Graduated-green)](https://github.com/eiffel-community/community/blob/master/PROJECT_LIFECYCLE.md#stage-graduated)
+
 # Eiffel Protocol
 This repository contains the Eiffel protocol vocabulary, descriptions, guides and schemas. For implementations, architecture and community resources, visit the [Eiffel Community](https://eiffel-community.github.io).
 
