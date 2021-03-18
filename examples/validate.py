@@ -25,7 +25,7 @@ import string
 import shutil
 import time
 import getopt
-from jsonschema import validate
+from jsonschema import Draft4Validator, RefResolver
 
 def extractArchives():
   extractionPaths = []
@@ -66,15 +66,20 @@ def loadAllJsonObjects(dir):
        
   return objects, badFiles
    
-def loadSchemas():
-  schemaTuples, badSchemaFiles = loadAllJsonObjects("schemas")
-  schemas = {}
-  for path, fileName, o in schemaTuples:
-    schemaName = os.path.basename(os.path.dirname(path))
-    versionName = fileName[:-5]
-    schemas[schemaName + "-" + versionName] = o
+def loadValidators():
+  schemas, badSchemaFiles = loadAllJsonObjects("schemas")
+  # All references are relative to the referencing schema.
+  # We need to give the RefStore the correct path to lookup.
+  # Create a dummy path that acts as a base to create the relative path.
+  relBase = os.path.join(os.path.abspath("schemas"), "dummy")
+  refStore = {os.path.relpath(p, start=relBase):o for p, _, o in schemas}
+  resolver = RefResolver(None, referrer=None, store=refStore)
+  validators = {}
+  for path, fileName, o in schemas:
+    key = os.path.basename(os.path.dirname(path)) + "-" + fileName[:-5]
+    validators[key] = Draft4Validator(o, resolver=resolver)
   
-  return schemas, badSchemaFiles
+  return validators, badSchemaFiles
     
 def loadExamples():
   exampleTuples, badExampleFiles = loadAllJsonObjects("examples")
@@ -84,21 +89,22 @@ def loadExamples():
 
   return examples, badExampleFiles
     
-def validateExamples(examples, schemas, maxExamples, shuffle):
+def validateExamples(examples, validators, maxExamples, shuffle):
   failures = []
   numberOfSuccessfulValidations = 0
   unchecked = []
 
   numChecked = 0
   latestReportTime = time.perf_counter()
-  
+
   if shuffle:
     random.shuffle(examples)
   for path, type, version, id, json in examples:
     schemaKey = type + "-" + version
-    if schemaKey in schemas:
+    if schemaKey in validators:
       try:
-        validate(json, schemas[schemaKey])
+        validator = validators[schemaKey]
+        validator.validate(json)
         numberOfSuccessfulValidations += 1
       except Exception as e:
         failures.append((path, type, id, e))
@@ -143,13 +149,13 @@ def main(maxExamples, includeArchives, shuffle):
   if includeArchives:
     extractionPaths = extractArchives()
 
-  schemas, badSchemaFiles = loadSchemas()
-  print("Loaded", len(schemas), "schemas.", flush=True)
+  validators, badSchemaFiles = loadValidators()
+  print("Loaded", len(validators), "validators.", flush=True)
 
   examples, badExampleFiles = loadExamples()
   print("Loaded", len(examples), "examples.", flush=True)
 
-  failures, unchecked, numberOfSuccessfulValidations = validateExamples(examples, schemas, maxExamples, shuffle)
+  failures, unchecked, numberOfSuccessfulValidations = validateExamples(examples, validators, maxExamples, shuffle)
 
   if includeArchives:
     cleanExtractionPaths(extractionPaths)

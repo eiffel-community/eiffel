@@ -18,7 +18,7 @@
 # The Meta Object
 The __meta__ object contains meta-information describing the event: when it was created, where it came from, its type et cetera. The __meta__ object contains the same members regardless of __meta.type__<sup>[1](#footnote1)</sup>, with the caveat that certain members are optional and the tendency to use them may vary with event type.
 
-Even though the meta object is kept universal for all event types, it may change over time as the Eiffel protocol evolves. Due to the [per-event versioning](./versioning.md) of the protocol, this means that different unique combinations of event type and version may feature different meta object syntax. Consequently, the syntax is described in the documentation of each respective event type.
+Even though the meta object is kept universal for all event types, it may change over time as the Eiffel protocol evolves. Due to the [per-event versioning](./versioning.md) of the protocol, this means that different unique combinations of event type, version and meta object version may feature different meta object syntax.
 
 &nbsp;
 &nbsp;
