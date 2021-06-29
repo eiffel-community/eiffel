@@ -33,7 +33,4 @@ The design of Eiffel events is governed by the following guidelines:
 * __Information model integrity over reader convenience:__ Eiffel events are not convenient to read – or to publish – as they require graph traversal in order to derive any meaningful information. Do not work around this by including convenience information (typically duplication). Such measures will never be completely satisfactory. Instead the primary concern of event design is information model integrity; readability and usability is the concern of services built upon that data source.
 * __Key names in camelCase:__ All key names shall use camelCase.
 * __Enumerations in CAPS_WITH_UNDERSCORE:__ All enumerated values shall use CAPS_WITH_UNDERSCORE.
-
-
-
-
+* __Link types are nouns:__ Link types shall have names that fit the pattern "\<target event> is the \<source event>'s \<link type>", implying that they are nouns that describe the relationship between the source and the target event.
