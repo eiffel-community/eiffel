@@ -24,4 +24,4 @@ That being said, users are free to send custom complementary events in parallel 
 * Use [Issues](https://github.com/eiffel-community/eiffel/issues) and [Pull requests](https://github.com/eiffel-community/eiffel/pulls) to stay in touch with the community to discuss why and how you define custom events. Others may find them useful, too!
 * Follow the [event design guidelines](../eiffel-syntax-and-usage/event-design-guidelines.md).
 * Consider whether your need can be addressed by __data.customData__.
-* Users defining custom events are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events can not be expected, unless the custom events are proposed to and accepted into the standard Eiffel vocabulary (and consequently are no longer custom).
+* Users defining custom events are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events cannot be expected, unless the custom events are proposed to and accepted into the standard Eiffel vocabulary (and consequently are no longer custom).
