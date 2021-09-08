@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2021 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -122,7 +122,7 @@ __Description:__ A description of the source of the event. This object is primar
 __Type:__ String  
 __Format:__ Free text  
 __Required:__ No  
-__Description:__ Identifies the domain that produced an event. A domain is an infrastructure topological concept, which may or may not corresponds to an organization or product structures. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Also, keep in mind that all names are more or less prone to change. Particularly, it is recommended to avoid organizational names or site names, as organizations tend to be volatile and development is easily relocated. Relatively speaking, product and component names tend to be more stable and are therefore encouraged, while code names may be an option. You need to decide what is the most sensible option in your case.
+__Description:__ Identifies the [domain](../eiffel-syntax-and-usage/glossary.md#domain) that produced an event.
 
 #### meta.source.host
 __Type:__ String  
@@ -210,6 +210,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 4.2.0     | Current version                                        | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.1.0     | Current version                                        | Add `data.liveLogs.{mediaType,tags}`.   |
 | 4.0.0     | [edition-agen-1](../../../tree/edition-agen-1)             | Bug fix in schema file (see [Issue 205](https://github.com/eiffel-community/eiffel/issues/205)) |
 | 3.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |

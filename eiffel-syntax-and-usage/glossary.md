@@ -1,5 +1,5 @@
 <!---
-   Copyright 2020 Ericsson AB.
+   Copyright 2020-2021 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -75,6 +75,12 @@ Confidence levels frequently figure in automated delivery interfaces within a ti
 
 #### Examples of events related to confidence levels:
 - [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
+
+### Domain
+
+An Eiffel _domain_ is an infrastructure topological concept, which may or may not correspond to an organization or product structure. A good example would be Java packages notation, ex. com.mycompany.product.component or mycompany.site.division. Domains can be used to implement Eiffel namespaces when different companies, business units, or similar exchange Eiffel events. An Eiffel event may include a member that specifies the event's domain association.
+
+Also, keep in mind that all names are more or less prone to change. Particularly, it is recommended to avoid organizational names or site names, as organizations tend to be volatile and development is easily relocated. Relatively speaking, product and component names tend to be more stable and are therefore encouraged, while code names may be an option. You need to decide what is the most sensible option in your case.
 
 ### Environment
 An Eiffel _environment_ defines the environment in which an [activity](#activity) is executed. Could be for example a host, node, service name/uri, a Docker image or some other kind of machine configuration definition.
