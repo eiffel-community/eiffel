@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2021 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,7 +18,7 @@
 # EiffelEnvironmentDefinedEvent (ED)
 The EiffelEnvironmentDefinedEvent declares an environment which may be referenced from other events in order to secure traceability to the conditions under which an artifact was created or a test was executed. Depending on the technology domain, the nature of an environment varies greatly however: it may be a virtual image, a complete mechatronic system of millions of independent parts, or anything in between. Consequently, a concise yet complete and generic syntax for describing any environment is futile.
 
-From Eiffel's point of view, however, the prioritized concern is not _description_ of the environment, but rather unambiguous _identification_ of it. Consequently, the EiffelEnvironmentDefinedEvent syntax offers several alternatives to be selected from depending on the use case at hand: an environment may be described using __data.image__, __data.host__ or __data.uri__. Exactly one of these properties SHOULD be included in any one event. In certain situations where an actual description of the environment is deemed redundant or its nature is implicit, the event MAY be used without any of these properties; it should be noted, however, that _explicit_ practices are always encouraged over _implicit_ ones.
+From Eiffel's point of view, however, the prioritized concern is not _description_ of the environment, but rather unambiguous _identification_ of it. Consequently, the EiffelEnvironmentDefinedEvent syntax offers several alternatives to be selected from depending on the use case at hand: an environment may be described using __data.image__, __data.host__ or __data.uri__, or a __RUNTIME_ENVIRONMENT__ link to another event that provides a more comprehensive description. Unless a link of the latter kind is used exactly one of these properties SHOULD be included in any one event. In certain situations where an actual description of the environment is deemed redundant or its nature is implicit, the event MAY be used without any of these properties or a RUNTIME_ENVIRONMENT link; it should be noted, however, that _explicit_ practices are always encouraged over _implicit_ ones.
 
 ## Data Members
 ### data.name
@@ -34,7 +34,7 @@ __Description:__ The version of the environment, if any. This is in a sense redu
 ### data.image
 __Type:__ String  
 __Required:__ No  
-__Description:__ A string identifying e.g. a [Docker](https://www.docker.com/) image. While not a perfect description of an environment, in many cases it is both sufficient and conducive.
+__Description:__ A string identifying e.g. a [Docker](https://www.docker.com/) image that defines this environment. Use of this member is discouraged. Prefer using the less ambiguous RUNTIME_ENVIRONMENT link type.
 
 ### data.host
 __Type:__ Object  
@@ -81,6 +81,12 @@ __Required:__ No
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
+
+### RUNTIME_ENVIRONMENT
+__Required:__ No  
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md),  [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Identifies a description of a runtime environment within which an activity has taken place. The target event could e.g. identify a [Docker](https://www.docker.com/) image, a JVM distribution archive, or a composition of operating system packages that were installed on the host system. This link type has the same purpose as the `data.image` member but allows richer and less ambiguous descriptions.
 
 ## Meta Members
 ### meta.id
@@ -211,6 +217,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 3.1.0     | Current version                                        | Added RUNTIME_ENVIRONMENT link type. |
 | 3.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
 | 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
@@ -220,3 +227,4 @@ __Description:__ The number of the event within the named sequence.
 * [URI example](../examples/events/EiffelEnvironmentDefinedEvent/uri.json)
 * [Host example](../examples/events/EiffelEnvironmentDefinedEvent/host.json)
 * [Image example](../examples/events/EiffelEnvironmentDefinedEvent/image.json)
+* [RUNTIME_ENVIRONMENT link example](../examples/events/EiffelEnvironmentDefinedEvent/runtime-env-link.json)
