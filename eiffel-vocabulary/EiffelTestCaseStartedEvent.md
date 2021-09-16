@@ -29,10 +29,20 @@ __Type:__ Object[]
 __Required:__ No  
 __Description:__ An array of live log files available during execution. These shall not be presumed to be stored persistently; in other words, once the test case execution has finished there is no guarantee that these links are valid. Persistently stored logs shall be (re-)declared by [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md).
 
+#### data.liveLogs.mediaType
+__Type:__ String  
+__Required:__ No  
+__Description:__ The [media type](https://en.wikipedia.org/wiki/Media_type) of the URI's payload. Can be used to differentiate between various representations of the same log, e.g. text/html for human consumption and text/plain or application/json for the machine-readable form.
+
 #### data.liveLogs.name
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The name of the log file.
+
+#### data.liveLogs.tags
+__Type:__ String[]  
+__Required:__ No  
+__Description:__ Arbitrary tags and keywords that describe this log.
 
 #### data.liveLogs.uri
 __Type:__ String  
@@ -201,6 +211,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 3.1.0     | Current version                                        | Add `data.liveLogs.{mediaType,tags}`.   |
 | 3.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
 | 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseStartedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |

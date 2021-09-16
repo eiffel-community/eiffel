@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelActivityFinishedEvent",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
@@ -12,12 +12,19 @@
     },
     "persistentLogs": [
       {
-       "name": "firstLog",
-       "uri": "http://myHost.com/firstLog"
+        "name": "firstLog (HTML)",
+        "mediaType": "text/html",
+        "uri": "http://myHost.com/firstLog.html"
       },
       {
-       "name": "otherLog",
-       "uri": "isbn:0-486-27557-4"
+        "name": "firstLog (plain text)",
+        "mediaType": "text/plain",
+        "tags": ["plain"],
+        "uri": "http://myHost.com/firstLog.log"
+      },
+      {
+        "name": "otherLog",
+        "uri": "isbn:0-486-27557-4"
       }
     ]
   },

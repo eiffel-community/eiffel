@@ -1,7 +1,7 @@
 {
   "meta": {
     "type": "EiffelTestCaseStartedEvent",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "time": 1234567890,
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
   },
@@ -9,8 +9,15 @@
     "executor": "My Test Framework",
     "liveLogs": [
       {
-       "name": "My test log",
-       "uri": "file:///tmp/logs/data.log"
+        "name": "My text log (HTML)",
+        "mediaType": "text/html",
+        "uri": "file:///tmp/logs/data.html"
+      },
+      {
+        "name": "My test log (plain text)",
+        "mediaType": "text/plain",
+        "tags": ["plain"],
+        "uri": "file:///tmp/logs/data.log"
       }
     ]
   },
