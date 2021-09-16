@@ -119,7 +119,7 @@ def validateExamples(examples, schemas, maxExamples, shuffle):
 
 def report(unchecked,failures,badSchemaFiles,badExampleFiles,numberOfSuccessfulValidations):
   for path, type, id, o in unchecked:
-    print("WARNING: Missing schema for " + id + "(" + type + ") in " + path + ".", flush=True)
+    print("ERROR: Missing schema for " + id + "(" + type + ") in " + path + ".", flush=True)
 
   for badSchemaFile in badSchemaFiles:
     print("ERROR: Failed to load schema from file", badSchemaFile, flush=True)
@@ -156,7 +156,7 @@ def main(maxExamples, includeArchives, shuffle):
 
   report(unchecked, failures, badSchemaFiles, badExampleFiles, numberOfSuccessfulValidations)
 
-  if len(badSchemaFiles) > 0 or len(badExampleFiles) > 0 or len(failures) > 0:
+  if (len(badSchemaFiles) + len(badExampleFiles) + len(failures) + len(unchecked)) > 0:
     sys.exit("Validation failed.")
 
 def usage():
