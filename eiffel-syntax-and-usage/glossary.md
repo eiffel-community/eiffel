@@ -23,6 +23,7 @@ This a non-exhaustive, alphabetical list of terms used in the [Eiffel vocabulary
    - [Artifact](#artifact)
    - [Composition](#composition)
    - [Confidence Level](#confidence-level)
+   - [Domain](#domain)
    - [Environment](#environment)
    - [Event](#event)
    - [Link](#link)
