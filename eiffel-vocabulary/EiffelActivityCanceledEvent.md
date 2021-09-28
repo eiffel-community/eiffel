@@ -25,6 +25,9 @@ __Required:__ No
 __Description:__ Any human readable information as to the reason for dequeueing.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### ACTIVITY_EXECUTION
 __Required:__ Yes  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  

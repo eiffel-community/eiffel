@@ -63,6 +63,9 @@ __Required:__ Yes
 __Description:__ The URI at which the log can be retrieved.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### TERC
 __Required:__ No  
 __Legal targets:__ [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)  

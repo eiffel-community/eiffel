@@ -61,6 +61,9 @@ __Required:__ No
 __Description:__ Any group, such as a development team, committee or test group, to which the issuer belongs.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### SUBJECT
 __Required:__ Yes  
 __Optional in:__ None  
