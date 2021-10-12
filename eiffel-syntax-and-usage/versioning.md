@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2021 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,7 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Edition   | Tag                                                 | Changes                                          |
 | --------- | --------------------------------------------------- | ------------------------------------------------ |
 | Arica  | _Reserved for future use._  | |
-| Lyon  | _Reserved for future use._  | |
+| Lyon  | [edition-lyon](../../../tree/edition-lyon)  | Added domainId member to links ([Issue 233](https://github.com/eiffel-community/eiffel/issues/233)), added {mediaType,tags} to data.{liveLogs,persistentLogs} of various event types ([Issue 166](https://github.com/eiffel-community/eiffel/issues/166)), added RUNTIME_ENVIRONMENT as link type for ED ([Issue 258](https://github.com/eiffel-community/eiffel/issues/258)), and added missing validation pattern for links.target of TERCC ([Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | Paris  | [edition-paris](../../../tree/edition-paris)  | Minor backwards-compatible changes to CD and ArtP (Issues [218](https://github.com/eiffel-community/eiffel/issues/218) and [248](https://github.com/eiffel-community/eiffel/issues/248)). |
 | Agen-1  | [edition-agen-1](../../../tree/edition-agen-1)  | Maintenance release to solve [Issue 205](https://github.com/eiffel-community/eiffel/issues/205). |
 | Agen  | [edition-agen](../../../tree/edition-agen)  | Introduced [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). Updated meta.security of all event types. Changed from GAV to purl based artifact identification. Introduced automated packaging of schema files for edition tags. Added detailed rules and examples for event type version stepping. |
