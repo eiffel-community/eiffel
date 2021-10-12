@@ -47,6 +47,9 @@ __Required:__ No
 __Description:__ A version context which other events can relate to. This member SHOULD be used in tandem with one of the other optional members - a version by itself is not very informative.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### CAUSE
 __Required:__ No  
 __Legal targets:__ Any  

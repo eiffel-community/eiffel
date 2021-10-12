@@ -59,6 +59,9 @@ __Legal values:__ MANUAL, SEMI_AUTOMATED, AUTOMATED, OTHER
 __Description:__ The type of execution (often related to, but ultimately separate from, __data.triggers.type__).
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### CAUSE
 __Required:__ No  
 __Legal targets:__ Any  

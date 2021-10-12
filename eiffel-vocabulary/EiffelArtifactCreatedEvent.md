@@ -73,6 +73,9 @@ __Required:__ No
 __Description:__ Any (colloquial) name of the artifact. Unlike __data.identity__, this is not intended as an unambiguous identifier of the artifact, but as a descriptive and human readable name.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### COMPOSITION
 __Required:__ No  
 __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  

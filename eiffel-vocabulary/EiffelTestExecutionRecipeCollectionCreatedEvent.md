@@ -128,6 +128,9 @@ __Required:__ Yes
 __Description:__ The UUID of the dependent execution (__data.batches.recipes.id__), i.e. the execution that shall be performed only after that of the dependency.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### CAUSE
 __Required:__ No  
 __Legal targets:__ Any  

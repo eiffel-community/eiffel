@@ -41,6 +41,9 @@ __Legal values:__ MINOR, MAJOR, CRITICAL, BLOCKER, CLOSED, CANCELED
 __Description:__ The severity of the announcement. The CLOSED and CANCELED values SHOULD only be used when following up a previous announcement, i.e. in conjunction with a __MODIFIED_ANNOUNCEMENT__ link.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### MODIFIED_ANNOUNCEMENT
 __Required:__ No  
 __Legal targets:__ [EiffelAnnouncementPublishedEvent](../eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)  

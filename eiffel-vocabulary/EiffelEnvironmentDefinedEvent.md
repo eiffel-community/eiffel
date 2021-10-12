@@ -57,6 +57,9 @@ __Required:__ No
 __Description:__ A URI identifying the environment description. This is the catch-all method of environment descriptions. Eiffel does not concern itself with the format or nature of the description, but merely points to its location.
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### PREVIOUS_VERSION
 __Required:__ No  
 __Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  

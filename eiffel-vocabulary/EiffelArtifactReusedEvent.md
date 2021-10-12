@@ -23,6 +23,9 @@ The event has no data members, but solely relies on its two required link types 
 ## Data Members
 
 ## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+
 ### COMPOSITION
 __Required:__ Yes  
 __Legal targets:__ [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
