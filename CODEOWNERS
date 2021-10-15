@@ -1,0 +1,6 @@
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @eiffel-community/eiffel-protocol-maintainers will be
+# requested for review when someone opens a pull request.
+
+* @eiffel-community/eiffel-protocol-maintainers
