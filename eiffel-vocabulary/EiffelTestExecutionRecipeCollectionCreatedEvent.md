@@ -284,6 +284,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 4.2.0     | No edition set                                         | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | 4.1.1     | [edition-lyon](../../../tree/edition-lyon)             | Add missing validation pattern to links.target member (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | 4.1.0     | No edition set                                         | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
