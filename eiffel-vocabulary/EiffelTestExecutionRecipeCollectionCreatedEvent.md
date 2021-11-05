@@ -93,8 +93,8 @@ __Required:__ Yes
 __Description:__ The unique identity of the test case to be executed.
 
 ###### data.batches.recipes.testCase.version
-__Type:__ String
-__Required:__ No
+__Type:__ String  
+__Required:__ No  
 __Description:__ The unique version of the identified test case to be executed. Where this property is not used it is assumed that test cases are not version controlled.
 
 ###### data.batches.recipes.testCase.uri
