@@ -90,12 +90,17 @@ __Description:__ The name of the test case tracker - typically a test management
 ###### data.batches.recipes.testCase.id
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ The unique identity of the test case.
+__Description:__ The unique identity of the test case to be executed.
+
+###### data.batches.recipes.testCase.version
+__Type:__ String  
+__Required:__ No  
+__Description:__ The unique version of the identified test case to be executed. Where this property is not used it is assumed that test cases are not version controlled.
 
 ###### data.batches.recipes.testCase.uri
 __Type:__ String  
 __Required:__ No  
-__Description:__ A location where a description of the test case can be retrieved.
+__Description:__ A location where a description of the test case can be retrieved. To the extent that multiple versions of the same test case co-exist, this property SHALL identify the exact version to be executed.
 
 ##### data.batches.recipes.constraints
 __Type:__ Object[]  
@@ -279,6 +284,7 @@ __Description:__ The number of the event within the named sequence.
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
 | --------- | ------------------------------------------------------ | --------------------------------------- |
+| 4.2.0     | No edition set                                         | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | 4.1.1     | [edition-lyon](../../../tree/edition-lyon)             | Add missing validation pattern to links.target member (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | 4.1.0     | No edition set                                         | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection | (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |
