@@ -68,16 +68,11 @@ def loadAllJsonObjects(dir):
    
 def loadValidators():
   schemas, badSchemaFiles = loadAllJsonObjects("schemas")
-  # All references are relative to the referencing schema.
-  # We need to give the RefStore the correct path to lookup.
-  # Create a dummy path that acts as a base to create the relative path.
-  relBase = os.path.join(os.path.abspath("schemas"), "dummy")
-  refStore = {os.path.relpath(p, start=relBase):o for p, _, o in schemas}
-  resolver = RefResolver(None, referrer=None, store=refStore)
   validators = {}
   for path, fileName, o in schemas:
     key = os.path.basename(os.path.dirname(path)) + "-" + fileName[:-5]
-    validators[key] = Draft4Validator(o, resolver=resolver)
+    refResolver = RefResolver("file://" + os.path.abspath(path), None)
+    validators[key] = Draft4Validator(o, resolver=refResolver)
   
   return validators, badSchemaFiles
     
