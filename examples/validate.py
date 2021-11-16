@@ -70,7 +70,9 @@ def loadValidators():
   schemas, badSchemaFiles = loadAllJsonObjects("schemas")
   validators = {}
   for path, fileName, o in schemas:
-    key = os.path.basename(os.path.dirname(path)) + "-" + fileName[:-5]
+   schemaName = os.path.basename(os.path.dirname(path))
+   versionName = fileName[:-5]
+   key = schemaName + "-" + versionName
     refResolver = RefResolver("file://" + os.path.abspath(path), None)
     validators[key] = Draft4Validator(o, resolver=refResolver)
   
