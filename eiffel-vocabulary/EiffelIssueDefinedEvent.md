@@ -93,7 +93,7 @@ continuous integration and delivery flow in which this occurred – e.g. which
 product, project, track or version this is applicable to.
 
 ## Meta
-See [Meta property description](./EiffelMetaProperty.md)
+See [Meta property description](./eiffel-syntax-and-usage/the-meta-object.md)
 
 ## Version History
 | Version   | Introduced in                                          | Changes                                 |
