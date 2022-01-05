@@ -1,8 +1,8 @@
-import sys
 import os
+import sys
 from shutil import copyfile
-import semver
 
+import semver
 
 """
 Finds the latest versions of schemas found under <input_folder>, with

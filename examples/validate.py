@@ -15,16 +15,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import sys
+import fnmatch
+import getopt
 import json
 import os
-import fnmatch
-import zipfile
 import random
-import string
 import shutil
+import string
+import sys
 import time
-import getopt
+import zipfile
+
 from jsonschema import validate
 
 

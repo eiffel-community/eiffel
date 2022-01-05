@@ -15,12 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import json
-import uuid
-import time
 import getopt
-import sys
+import json
 import random
+import sys
+import time
+import uuid
 
 
 def generateGenericMeta(type, t, v):
