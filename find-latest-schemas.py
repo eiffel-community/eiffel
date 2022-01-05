@@ -5,7 +5,8 @@ import semver
 
 
 """
-Finds the latest versions of schemas found under <input_folder>, with the following expectations:
+Finds the latest versions of schemas found under <input_folder>, with
+the following expectations:
 - Folder structure is <input_folder>/EVENT_NAME/VERSION.json
 - VERSION is semver compliant
 

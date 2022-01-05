@@ -110,16 +110,16 @@ def validateExamples(examples, schemas, maxExamples, shuffle):
 
     if shuffle:
         random.shuffle(examples)
-    for path, type, version, id, json in examples:
+    for path, type, version, id, event in examples:
         schemaKey = type + "-" + version
         if schemaKey in schemas:
             try:
-                validate(json, schemas[schemaKey])
+                validate(event, schemas[schemaKey])
                 numberOfSuccessfulValidations += 1
             except Exception as e:
                 failures.append((path, type, id, e))
         else:
-            unchecked.append((path, type, id, json))
+            unchecked.append((path, type, id, event))
 
         numChecked += 1
 
