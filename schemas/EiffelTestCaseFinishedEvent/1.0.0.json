@@ -11,11 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestCaseFinishedEvent" ]
+          "enum": [
+            "EiffelTestCaseFinishedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
+          "enum": [
+            "1.0.0"
+          ],
           "default": "1.0.0"
         },
         "time": {
@@ -131,8 +135,7 @@
                   "name": {
                     "type": "string"
                   },
-                  "value": {
-                  }
+                  "value": {}
                 },
                 "additionalProperties": false
               }
@@ -171,8 +174,7 @@
               "key": {
                 "type": "string"
               },
-              "value": {
-              }
+              "value": {}
             },
             "required": [
               "key",

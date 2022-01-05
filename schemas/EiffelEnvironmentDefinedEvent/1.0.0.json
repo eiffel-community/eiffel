@@ -11,11 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelEnvironmentDefinedEvent" ]
+          "enum": [
+            "EiffelEnvironmentDefinedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "1.0.0" ],
+          "enum": [
+            "1.0.0"
+          ],
           "default": "1.0.0"
         },
         "time": {
@@ -135,8 +139,7 @@
               "key": {
                 "type": "string"
               },
-              "value": {
-              }
+              "value": {}
             },
             "required": [
               "key",

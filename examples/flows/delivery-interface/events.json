@@ -19,8 +19,7 @@
         "email": "jane.doe@company.com"
       }
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -411,12 +410,12 @@
       },
       "persistentLogs": [
         {
-         "name": "firstLog",
-         "uri": "http://myHost.com/firstLog"
+          "name": "firstLog",
+          "uri": "http://myHost.com/firstLog"
         },
         {
-         "name": "otherLog",
-         "uri": "isbn:0-486-27557-4"
+          "name": "otherLog",
+          "uri": "isbn:0-486-27557-4"
         }
       ]
     },
@@ -515,8 +514,7 @@
       "id": "JIRA-1234",
       "uri": "http://jira.company.com/browse/JIRA-1234"
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -534,8 +532,7 @@
       "id": "JIRA-1235",
       "uri": "http://jira.company.com/browse/JIRA-1235"
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -553,7 +550,6 @@
       "id": "JIRA-1236",
       "uri": "http://jira.company.com/browse/JIRA-1236"
     },
-    "links": [
-    ]
+    "links": []
   }
 ]

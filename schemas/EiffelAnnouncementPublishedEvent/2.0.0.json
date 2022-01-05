@@ -11,11 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelAnnouncementPublishedEvent" ]
+          "enum": [
+            "EiffelAnnouncementPublishedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "2.0.0" ],
+          "enum": [
+            "2.0.0"
+          ],
           "default": "2.0.0"
         },
         "time": {
@@ -94,7 +98,14 @@
         },
         "severity": {
           "type": "string",
-          "enum": ["MINOR", "MAJOR", "CRITICAL", "BLOCKER", "CLOSED", "CANCELED"]
+          "enum": [
+            "MINOR",
+            "MAJOR",
+            "CRITICAL",
+            "BLOCKER",
+            "CLOSED",
+            "CANCELED"
+          ]
         },
         "customData": {
           "type": "array",
@@ -104,8 +115,7 @@
               "key": {
                 "type": "string"
               },
-              "value": {
-              }
+              "value": {}
             },
             "required": [
               "key",

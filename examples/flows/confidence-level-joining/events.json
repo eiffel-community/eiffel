@@ -14,8 +14,7 @@
       "version": "2.10.3",
       "image": "johndoe/docker-whale:2.10.3"
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -30,8 +29,7 @@
     "data": {
       "name": "My composition"
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -103,7 +101,9 @@
     },
     "data": {
       "name": "Act1",
-      "categories": ["Test Activity"],
+      "categories": [
+        "Test Activity"
+      ],
       "triggers": [
         {
           "type": "EIFFEL_EVENT"
@@ -130,7 +130,9 @@
     },
     "data": {
       "name": "Act2",
-      "categories": ["Test Activity"],
+      "categories": [
+        "Test Activity"
+      ],
       "triggers": [
         {
           "type": "EIFFEL_EVENT"
@@ -155,8 +157,7 @@
         "domainId": "example.domain"
       }
     },
-    "data": {
-    },
+    "data": {},
     "links": [
       {
         "type": "ACTIVITY_EXECUTION",
@@ -174,8 +175,7 @@
         "domainId": "example.domain"
       }
     },
-    "data": {
-    },
+    "data": {},
     "links": [
       {
         "type": "ACTIVITY_EXECUTION",
@@ -397,12 +397,12 @@
       },
       "persistentLogs": [
         {
-         "name": "firstLog",
-         "uri": "http://myHost.com/firstLog"
+          "name": "firstLog",
+          "uri": "http://myHost.com/firstLog"
         },
         {
-         "name": "otherLog",
-         "uri": "isbn:0-486-27557-4"
+          "name": "otherLog",
+          "uri": "isbn:0-486-27557-4"
         }
       ]
     },
@@ -429,8 +429,7 @@
         "conclusion": "SUCCESSFUL",
         "description": "System crashed, but recovered as expected."
       },
-      "persistentLogs": [
-      ]
+      "persistentLogs": []
     },
     "links": [
       {
