@@ -36,9 +36,7 @@ def extractArchives():
             archivePath = os.path.join(root, fileName)
             extractionPath = os.path.join(
                 "examples",
-                "".join(
-                    random.choice(string.ascii_lowercase) for i in range(16)
-                ),
+                "".join(random.choice(string.ascii_lowercase) for i in range(16)),
             )
             extractionPaths.append(extractionPath)
             print(
@@ -155,20 +153,12 @@ def report(
 ):
     for path, type, id, o in unchecked:
         print(
-            "ERROR: Missing schema for "
-            + id
-            + "("
-            + type
-            + ") in "
-            + path
-            + ".",
+            "ERROR: Missing schema for " + id + "(" + type + ") in " + path + ".",
             flush=True,
         )
 
     for badSchemaFile in badSchemaFiles:
-        print(
-            "ERROR: Failed to load schema from file", badSchemaFile, flush=True
-        )
+        print("ERROR: Failed to load schema from file", badSchemaFile, flush=True)
 
     for badExampleFile in badExampleFiles:
         print(
@@ -226,19 +216,14 @@ def main(maxExamples, includeArchives, shuffle):
     )
 
     if (
-        len(badSchemaFiles)
-        + len(badExampleFiles)
-        + len(failures)
-        + len(unchecked)
+        len(badSchemaFiles) + len(badExampleFiles) + len(failures) + len(unchecked)
     ) > 0:
         sys.exit("Validation failed.")
 
 
 def usage():
     print("Usage:")
-    print(
-        "    This script will validate .json files in the examples directory."
-    )
+    print("    This script will validate .json files in the examples directory.")
     print("")
     print("Arguments:")
     print("    -m, --max-examples <number>")

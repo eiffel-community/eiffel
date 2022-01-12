@@ -238,9 +238,7 @@ def generateArtC1(iterationsMap, iteration, t):
         "PREVIOUS_VERSION",
     )
     msg["data"]["identity"] = (
-        "pkg:maven/com.mycompany.myproduct/complete-system@1."
-        + str(iteration)
-        + ".0"
+        "pkg:maven/com.mycompany.myproduct/complete-system@1." + str(iteration) + ".0"
     )
     return msg
 
@@ -258,9 +256,7 @@ def generateArtC2(iterationsMap, iteration, t):
     )
     link(msg, iterationsMap[iteration]["ActT4"], "CONTEXT")
     msg["data"]["identity"] = (
-        "pkg:maven/com.mycompany.myproduct/sub-system@1."
-        + str(iteration)
-        + ".0"
+        "pkg:maven/com.mycompany.myproduct/sub-system@1." + str(iteration) + ".0"
     )
     return msg
 
@@ -277,9 +273,7 @@ def generateArtCC1(iterationsMap, iteration, t):
         "PREVIOUS_VERSION",
     )
     msg["data"]["identity"] = (
-        "pkg:maven/com.mycompany.myproduct/component-1@1."
-        + str(iteration)
-        + ".0"
+        "pkg:maven/com.mycompany.myproduct/component-1@1." + str(iteration) + ".0"
     )
     return msg
 
@@ -296,9 +290,7 @@ def generateArtCC2(iterationsMap, iteration, t):
         "PREVIOUS_VERSION",
     )
     msg["data"]["identity"] = (
-        "pkg:maven/com.mycompany.myproduct/component-2@1."
-        + str(iteration)
-        + ".0"
+        "pkg:maven/com.mycompany.myproduct/component-2@1." + str(iteration) + ".0"
     )
     return msg
 
@@ -315,9 +307,7 @@ def generateArtCC3(iterationsMap, iteration, t):
         "PREVIOUS_VERSION",
     )
     msg["data"]["identity"] = (
-        "pkg:maven/com.mycompany.myproduct/component-3@1."
-        + str(iteration)
-        + ".0"
+        "pkg:maven/com.mycompany.myproduct/component-3@1." + str(iteration) + ".0"
     )
     return msg
 
@@ -845,224 +835,126 @@ def generateIterationZeroMessages(iterationsMap, t):
 
 def generateComponentBuildEvents(iterationsMap, iteration, t):
     t += 1
-    iterationsMap[iteration]["SCC1"] = generateSCC1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["SCC1"] = generateSCC1(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["SCS1"] = generateSCS1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["SCS1"] = generateSCS1(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["CDef3"] = generateCDef3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["CDef3"] = generateCDef3(iterationsMap, iteration, t)
 
     if random.random() < 0.5:
         t += 200000
-        iterationsMap[iteration]["ArtCC1"] = generateArtCC1(
-            iterationsMap, iteration, t
-        )
+        iterationsMap[iteration]["ArtCC1"] = generateArtCC1(iterationsMap, iteration, t)
 
     if random.random() < 0.5:
         t += 35000
-        iterationsMap[iteration]["ArtCC2"] = generateArtCC2(
-            iterationsMap, iteration, t
-        )
+        iterationsMap[iteration]["ArtCC2"] = generateArtCC2(iterationsMap, iteration, t)
 
     t += 1000
-    iterationsMap[iteration]["ArtCC3"] = generateArtCC3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ArtCC3"] = generateArtCC3(iterationsMap, iteration, t)
 
     return t
 
 
 def generateSubSystemBuildEvents(iterationsMap, iteration, t):
     t += 100
-    iterationsMap[iteration]["ActT4"] = generateActT4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActT4"] = generateActT4(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["ActS4"] = generateActS4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActS4"] = generateActS4(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["CDef2"] = generateCDef2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["CDef2"] = generateCDef2(iterationsMap, iteration, t)
 
     if random.random() < 0.95:
         t += 100
-        iterationsMap[iteration]["ArtC2"] = generateArtC2(
-            iterationsMap, iteration, t
-        )
+        iterationsMap[iteration]["ArtC2"] = generateArtC2(iterationsMap, iteration, t)
         t += 30000
-        iterationsMap[iteration]["ArtP2"] = generateArtP2(
-            iterationsMap, iteration, t
-        )
+        iterationsMap[iteration]["ArtP2"] = generateArtP2(iterationsMap, iteration, t)
 
     t += 50
-    iterationsMap[iteration]["ActF4"] = generateActF4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActF4"] = generateActF4(iterationsMap, iteration, t)
 
     return t
 
 
 def generateSubSystemTestEvents(iterationsMap, iteration, t):
     t += 2000
-    iterationsMap[iteration]["ActT3"] = generateActT3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActT3"] = generateActT3(iterationsMap, iteration, t)
     t += 3
-    iterationsMap[iteration]["ActS3"] = generateActS3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActS3"] = generateActS3(iterationsMap, iteration, t)
     t += 2000
-    iterationsMap[iteration]["TSS1"] = generateTSS1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TSS1"] = generateTSS1(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["TCT5"] = generateTCT5(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT5"] = generateTCT5(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT6"] = generateTCT6(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT6"] = generateTCT6(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT7"] = generateTCT7(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT7"] = generateTCT7(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCS5"] = generateTCS5(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS5"] = generateTCS5(iterationsMap, iteration, t)
     t += 2
-    iterationsMap[iteration]["TCS6"] = generateTCS6(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS6"] = generateTCS6(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCS7"] = generateTCS7(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS7"] = generateTCS7(iterationsMap, iteration, t)
     t += 10000
-    iterationsMap[iteration]["TCF5"] = generateTCF5(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF5"] = generateTCF5(iterationsMap, iteration, t)
     t += 3000
-    iterationsMap[iteration]["TCF6"] = generateTCF6(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF6"] = generateTCF6(iterationsMap, iteration, t)
     t += 5000
-    iterationsMap[iteration]["TCF7"] = generateTCF7(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF7"] = generateTCF7(iterationsMap, iteration, t)
     t += 50
-    iterationsMap[iteration]["TSF1"] = generateTSF1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TSF1"] = generateTSF1(iterationsMap, iteration, t)
     t += 3
-    iterationsMap[iteration]["ActF3"] = generateActF3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActF3"] = generateActF3(iterationsMap, iteration, t)
     t += 300
-    iterationsMap[iteration]["CLM2"] = generateCLM2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["CLM2"] = generateCLM2(iterationsMap, iteration, t)
 
     return t
 
 
 def generateSystemIntegrationEvents(iterationsMap, iteration, t):
     t += 300
-    iterationsMap[iteration]["CDef1"] = generateCDef1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["CDef1"] = generateCDef1(iterationsMap, iteration, t)
     t += 1000
-    iterationsMap[iteration]["ArtC1"] = generateArtC1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ArtC1"] = generateArtC1(iterationsMap, iteration, t)
     t += 1000
-    iterationsMap[iteration]["ArtP1"] = generateArtP1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ArtP1"] = generateArtP1(iterationsMap, iteration, t)
     t += 1000
-    iterationsMap[iteration]["ActT1"] = generateActT1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActT1"] = generateActT1(iterationsMap, iteration, t)
     t += 2
-    iterationsMap[iteration]["ActS1"] = generateActS1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActS1"] = generateActS1(iterationsMap, iteration, t)
     t += 50
-    iterationsMap[iteration]["ActT2"] = generateActT2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActT2"] = generateActT2(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT1"] = generateTCT1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT1"] = generateTCT1(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT2"] = generateTCT2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT2"] = generateTCT2(iterationsMap, iteration, t)
     t += 1000
-    iterationsMap[iteration]["TCS1"] = generateTCS1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS1"] = generateTCS1(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["TCS2"] = generateTCS2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS2"] = generateTCS2(iterationsMap, iteration, t)
     t += 50000
-    iterationsMap[iteration]["TCF2"] = generateTCF2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF2"] = generateTCF2(iterationsMap, iteration, t)
     t += 3000
-    iterationsMap[iteration]["TCF1"] = generateTCF1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF1"] = generateTCF1(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["ActF1"] = generateActF1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActF1"] = generateActF1(iterationsMap, iteration, t)
     t += 100000
-    iterationsMap[iteration]["ActS2"] = generateActS2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActS2"] = generateActS2(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT3"] = generateTCT3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT3"] = generateTCT3(iterationsMap, iteration, t)
     t += 200
-    iterationsMap[iteration]["TCS3"] = generateTCS3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS3"] = generateTCS3(iterationsMap, iteration, t)
     t += 10000
-    iterationsMap[iteration]["TCF3"] = generateTCF3(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF3"] = generateTCF3(iterationsMap, iteration, t)
     t += 1
-    iterationsMap[iteration]["TCT4"] = generateTCT4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCT4"] = generateTCT4(iterationsMap, iteration, t)
     t += 100
-    iterationsMap[iteration]["TCS4"] = generateTCS4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCS4"] = generateTCS4(iterationsMap, iteration, t)
     t += 120000
-    iterationsMap[iteration]["TCF4"] = generateTCF4(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["TCF4"] = generateTCF4(iterationsMap, iteration, t)
     t += 20
-    iterationsMap[iteration]["ActF2"] = generateActF2(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["ActF2"] = generateActF2(iterationsMap, iteration, t)
     t += 2500
-    iterationsMap[iteration]["CLM1"] = generateCLM1(
-        iterationsMap, iteration, t
-    )
+    iterationsMap[iteration]["CLM1"] = generateCLM1(iterationsMap, iteration, t)
 
     return t
 
