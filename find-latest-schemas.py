@@ -1,16 +1,19 @@
-import sys
 import os
+import sys
 from shutil import copyfile
+
 import semver
 
-
-'''
-Finds the latest versions of schemas found under <input_folder>, with the following expectations:
+"""
+Finds the latest versions of schemas found under <input_folder>, with
+the following expectations:
 - Folder structure is <input_folder>/EVENT_NAME/VERSION.json
 - VERSION is semver compliant
 
 Copies the latest version of each event type as <output_folder>/EVENT_NAME.json
-'''
+"""
+
+
 def main():
     if len(sys.argv) != 3:
         print("Usage: python {} input_folder output_folder".format(sys.argv[0]))
@@ -35,6 +38,7 @@ def main():
         output_file = os.path.join(output_folder, new_name)
         copyfile(f, output_file)
         print("{} => {}".format(f, output_file))
+
 
 if __name__ == "__main__":
     main()
