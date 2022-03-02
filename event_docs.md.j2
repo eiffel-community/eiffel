@@ -1,0 +1,72 @@
+<!---
+   Copyright 2017-2021 Ericsson AB and others.
+   For a full list of individual contributors, please see the commit history.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+--->
+
+# {{ type }} ({{ abbrev }})
+{{ description }}
+
+## Data Members
+{%- for field, field_data in data_members.items() %}
+
+{{ field | member_heading}}
+__Type:__ {{ field_data.typ }}  
+{% if field_data.format -%}
+__Format:__ {{ field_data.format }}  
+{% endif -%}
+__Required:__ {{ field_data.required | yes_or_no }}  
+{% if field_data.legal_values -%}
+__Legal values:__ {% for value in field_data.legal_values %}{{ value }}{{ ", " if not loop.last else "" }}{% endfor %}  
+{% endif -%}
+__Description:__ {{ field_data.description }}
+{%- endfor %}
+
+## Links
+
+This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
+{%- for link_type, link_data in links.items() %}
+
+### {{ link_type }}
+__Required:__ {{ link_data.required | yes_or_no }}  
+__Legal targets:__ {% if link_data.targets.any_type %}Any{% else %}{% for target_type in link_data.targets.types %}{{ target_type | event_link }}{{ ", " if not loop.last else "" }}{% endfor %}{% endif %}  
+__Multiple allowed:__ {{ link_data.multiple | yes_or_no }}  
+__Description:__ {{ link_data.description }}
+{%- endfor %}
+
+## Meta Members
+{%- for field, field_data in meta_members.items() %}
+
+{{ field | member_heading}}
+__Type:__ {{ field_data.typ }}  
+{% if field_data.format -%}
+__Format:__ {{ field_data.format }}  
+{% endif -%}
+__Required:__ {{ field_data.required | yes_or_no }}  
+__Description:__ {{ field_data.description }}
+{%- endfor %}
+
+## Version History
+
+| Version | Introduced in | Changes |
+| ------- | ------------- | ------- |
+{% for item in history -%}
+| {{ item.version }} | {{ item.introduced_in }} | {{ item.changes }} |
+{% endfor %}
+
+## Examples
+
+{% for ex in examples -%}
+* [{{ ex.title }}]({{ ex.url }})
+{% endfor %}

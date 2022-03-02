@@ -1,0 +1,197 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ArtC
+_description: The EiffelArtifactCreatedEvent declares that a software
+  artifact has been created, what its coordinates are, what it contains
+  and how it was created.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/2.0.0.yml
+  data:
+    type: object
+    properties:
+      identity:
+        _description: The identity of the created artifact, in [purl
+          format](https://github.com/package-url/purl-spec).
+        _format: '[purl specification](https://github.com/package-url/purl-spec)'
+        type: string
+        pattern: '^pkg:'
+      fileInformation:
+        _description: A list of the artifact file contents. This information
+          is optional and, when included, MAY include a complete or
+          incomplete list of contents. In other words, it may be used
+          to highlight only particular files of interest, such as launcher
+          binaries or other entry-points.
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              _description: The name (including relative path from
+                the root of the artifact) on syntax appropriate for
+                the artifact packaging type.
+              type: string
+            tags:
+              _description: Any tags associated with the file, to support
+                navigation and identification of items of interest.
+              type: array
+              items:
+                type: string
+          required:
+            - name
+          additionalProperties: false
+      buildCommand:
+        _description: The command used to build the artifact within
+          the identified environment. Used for reproducability purposes.
+        type: string
+      requiresImplementation:
+        _description: |-
+          Defines whether this artifact requires an implementing artifact. This is typically used for interfaces requiring some backend implementation, although the interface does not presume to define _which_ implementation. Implicitly interpreted as "ANY" if undefined.
+          NONE signifies that there SHALL no implementations of this artifact. In other words, a composition containing another artifact identifying it in __data.implements__ would be illegal.  
+          ANY signifies that there may or may not be implementations of this artifact.  
+          EXACTLY_ONE signifies that a legal composition must contain one and only one implementation of this artifact.  
+          AT_LEAST_ONE signifies that a legal composition must contain one or more implementations of this artifact.
+        type: string
+        enum:
+          - NONE
+          - ANY
+          - EXACTLY_ONE
+          - AT_LEAST_ONE
+      dependsOn:
+        _description: An array of [purl identified](https://github.com/package-url/purl-spec)
+          entities this artifact depends on. While not included in
+          the purl specification itself, the Eiffel protocol allows
+          version range notation according to [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402)
+          to be used for the version component of the package identity.
+          Note that the purl specification always requires the version
+          component to be percent-encoded.
+        _format: '[purl specification](https://github.com/package-url/purl-spec)'
+        type: array
+        items:
+          type: string
+          pattern: '^pkg:'
+      implements:
+        _description: An array of [purl identified](https://github.com/package-url/purl-spec)
+          entities this artifact implements. The typical use case of
+          this is to identify interfaces implemented by this artifact.
+          While not included in the purl specification itself, the
+          Eiffel protocol allows version range notation according to
+          [Maven syntax](https://docs.oracle.com/middleware/1212/core/MAVEN/maven_version.htm#MAVEN402)
+          to be used for the version component of the package identity.
+          Note that the purl specification always requires the version
+          component to be percent-encoded.
+        _format: '[purl specification](https://github.com/package-url/purl-spec)'
+        type: array
+        items:
+          type: string
+          pattern: '^pkg:'
+      name:
+        _description: Any (colloquial) name of the artifact. Unlike
+          __data.gav__, this is not intended as an unambiguous identifier
+          of the artifact, but as a descriptive and human readable
+          name.
+        type: string
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    required:
+      - identity
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  COMPOSITION:
+    description: Identifies the composition from which this artifact
+      was built.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelCompositionDefinedEvent
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment in which this artifact
+      was built.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  PREVIOUS_VERSION:
+    description: Identifies a latest previous version (there may be
+      more than one in case of merges) of the artifact the event represents.
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+_history:
+  - version: 2.0.0
+    introduced_in: Current version
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelArtifactCreatedEvent/simple.json
+  - title: Interface example
+    url: ../examples/events/EiffelArtifactCreatedEvent/interface.json
+  - title: Backend example
+    url: ../examples/events/EiffelArtifactCreatedEvent/backend.json
+  - title: Dependent example
+    url: ../examples/events/EiffelArtifactCreatedEvent/dependent.json

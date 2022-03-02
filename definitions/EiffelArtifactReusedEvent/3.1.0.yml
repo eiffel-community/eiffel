@@ -1,0 +1,108 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ArtR
+_description: |-
+  The EiffelArtifactReusedEvent declares that an identified [EiffelArtifactCreatedEvent](./EiffelArtifactCreatedEvent.md) has been _reused_ for an identified [EiffelCompositionDefinedEvent](./EiffelCompositionDefinedEvent.md). This means that it is logically equivalent to an artifact that would have been built from that composition, and can be used for build avoidance (see the [Build Avoidance Usage Example](../usage-examples/build-avoidance.md) for more information).
+
+  The event has no data members, but solely relies on its two required link types __REUSED_ARTIFACT__ and __COMPOSITION__ (see below).
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.0.0.yml
+  data:
+    type: object
+    properties:
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.1.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  COMPOSITION:
+    description: Identifies the composition for which an already existing
+      artifact (identified by __REUSED_ARTIFACT__) is declared reused.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelCompositionDefinedEvent
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  REUSED_ARTIFACT:
+    description: This link identifies the [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+      that is reused for the composition identified by __COMPOSITION__;
+      in other words, the artifact that is not rebuilt for a that composition.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+_history:
+  - version: 3.1.0
+    introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
+    changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
+  - version: 3.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185)).
+  - version: 2.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelArtifactReusedEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelArtifactReusedEvent/simple.json

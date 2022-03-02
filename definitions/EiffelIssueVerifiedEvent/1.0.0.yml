@@ -1,0 +1,163 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: IV
+_description: The EiffelIssueVerifiedEvent declares that an issue,
+  typically a requirement, has been verified by some means. It is different
+  from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md)
+  in that multiple test case executions may serve as the basis for
+  a single verification or, conversely, multiple issues may be verified
+  based on a single test case execution.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/1.0.0.yml
+  data:
+    type: object
+    properties:
+      issues:
+        _description: A list of verified (successfully or not) issues.
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              _description: The type of issue.
+              type: string
+              enum:
+                - BUG
+                - IMPROVEMENT
+                - FEATURE
+                - WORK_ITEM
+                - REQUIREMENT
+                - OTHER
+            tracker:
+              _description: 'The name of the issue tracker. This can
+                unfortunately not be standardized, and is therefore
+                context sensitive: though some trackers and ALM tools
+                are more popular than others, an exhaustive enumeration
+                is impossible, particularly when considering company
+                specific internal solutions. Consequently one should
+                not rely on the name as the primary method of retrieval,
+                but rather __data.issues.uri__. __data.issues.tracker__
+                together with __data.issues.id__ is still useful for
+                analysis and traceability, however, as long as it can
+                be correctly interpreted.'
+              type: string
+            id:
+              _description: The identity of the issue. This is tracker
+                dependent - most trackers have their own issue naming
+                schemes.
+              type: string
+            uri:
+              _description: The URI of the issue.
+              type: string
+            value:
+              _description: |-
+                The value of the verification.
+                SUCCESS signifies that the issue was successfully verified.  
+                FAILURE signifies that verification of the issue failed.
+                INCONCLUSIVE signifies that the verification of the issue was inconclusive.
+              type: string
+              enum:
+                - SUCCESS
+                - FAILURE
+                - INCONCLUSIVE
+          required:
+            - type
+            - tracker
+            - id
+            - uri
+            - value
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    required:
+      - issues
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment in which the issue was
+      verified.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  IUT:
+    description: Identifies the Item Under Test; in other words, the
+      entity for which the issue has been verified.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelCompositionDefinedEvent
+  VERIFICATION_BASIS:
+    description: Used to declare the basis on which the verification
+      statement(s) of this event have been issued.
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseFinishedEvent
+        - EiffelTestSuiteFinishedEvent
+_history:
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelIssueVerifiedEvent/simple.json

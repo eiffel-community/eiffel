@@ -1,0 +1,118 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ID
+_description: The EiffelIssueDefinedEvent declares that an issue has
+  been created in someexternal issue management software. ID is semantically
+  similar to
+  [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and
+  [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/2.0.0.yml
+  data:
+    type: object
+    properties:
+      type:
+        _description: The type of issue.
+        type: string
+        enum:
+          - BUG
+          - IMPROVEMENT
+          - FEATURE
+          - WORK_ITEM
+          - REQUIREMENT
+          - OTHER
+      tracker:
+        _description: |-
+          The name of the issue tracker. This can unfortunately not be
+          standardized, and is therefore context sensitive: though some trackers and ALM
+          tools are more popular than others, an exhaustive enumeration is impossible,
+          particularly when considering company specific internal solutions. Consequently
+          one should not rely on the name as the primary method of retrieval, but rather
+          __data.uri__. __data.tracker__ together with __data.id__
+          is still useful for analysis and traceability, however, as long as it can be
+          correctly interpreted.
+        type: string
+      id:
+        _description: |-
+          The identity of the issue. This is tracker dependent - most
+          trackers have their own issue naming schemes.
+        type: string
+      uri:
+        _description: A URI that links to a document describing the
+          issue in depth.
+        type: string
+      title:
+        _description: |-
+          A one-line title or summary of the issue. This exists mostly
+          for human consumption, as "Implement widget X" is much more meaningful to a
+          human when viewing a graph of Eiffel events than "1302". This is not meant
+          to be a detailed description, as such information should be accessible by
+          following __data.uri__.
+        type: string
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    required:
+      - type
+      - tracker
+      - id
+      - uri
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not beused in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__within a larger context gives rise to ambiguity.
+      It is instead recommended tolet the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      eventconstitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      thecontinuous integration and delivery flow in which this occurred
+      – e.g. whichproduct, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+_history:
+  - version: 2.0.0
+    introduced_in: Current version
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.0.0
+    introduced_in: '[0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueDefinedEvent.md)'
+    changes: Initial version
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelIssueDefinedEvent/simple.json

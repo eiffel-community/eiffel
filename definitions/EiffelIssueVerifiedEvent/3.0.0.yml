@@ -1,0 +1,139 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: IV
+_description: |-
+  The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, has been verified by some means. It is different from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md) in that multiple test case executions may serve as the basis for a single verification or, conversely, multiple issues may be verified based on a single test case execution.
+
+  EiffelIssueVerifiedEvent has no data members, instead relying on its required link types. While "SUCCESSFUL_ISSUE", "FAILED_ISSUE", and "INCONCLUSIVE_ISSUE" are all marked as not required, at least one link of at least one of these types MUST be present in an EiffelIssueVerifiedEvent.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/2.0.0.yml
+  data:
+    type: object
+    properties:
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment in which the issue was
+      verified.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FAILED_ISSUE:
+    description: Identifies an issue that has failed verification.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  INCONCLUSIVE_ISSUE:
+    description: Identifies an issue for which this verification was
+      inconclusive.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  IUT:
+    description: Identifies the Item Under Test; in other words, the
+      entity for which the issue has been verified.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelCompositionDefinedEvent
+  SUCCESSFUL_ISSUE:
+    description: Identifies an issue that has been successfully verified.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  VERIFICATION_BASIS:
+    description: Used to declare the basis on which the verification
+      statement(s) of this event have been issued.
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseFinishedEvent
+        - EiffelTestSuiteFinishedEvent
+_history:
+  - version: 3.0.0
+    introduced_in: Current version
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 2.0.0
+    introduced_in: '[0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueVerifiedEvent.md)'
+    changes: Replaced data.issues with links
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelIssueVerifiedEvent/simple.json

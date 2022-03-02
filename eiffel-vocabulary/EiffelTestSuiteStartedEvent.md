@@ -21,6 +21,7 @@ The EiffelTestSuiteStartedEvent declares that the execution of a test suite has 
 In Eiffel, a test suite is nothing more or less than a collection of test case executions (see [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) and/or other test suite executions. The executed test suite may be an ad-hoc transient grouping of test cases that were executed at a particular time or place or for a particular purpose or a persistent entity tracked in a test management system - Eiffel makes no distinction or assumptions either way.
 
 ## Data Members
+
 ### data.name
 __Type:__ String  
 __Required:__ Yes  
@@ -66,22 +67,15 @@ __Description:__ The URI at which the log can be retrieved.
 
 This section describes which link types are valid for this event type. For details on how to express the link objects themselves see [The Links Object](../eiffel-syntax-and-usage/the-links-object.md).
 
-### TERC
-__Required:__ No  
-__Legal targets:__ [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)  
-__Multiple allowed:__ No  
-__Description:__ This link signifies that the test suite represented by this event groups all test case executions resulting from the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
-
 ### CAUSE
 __Required:__ No  
 __Legal targets:__ Any  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.
 
 ### CONTEXT
 __Required:__ No  
-__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
-[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies the activity or test suite of which this event constitutes a part.
 
@@ -91,7 +85,14 @@ __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFl
 __Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
 
+### TERC
+__Required:__ No  
+__Legal targets:__ [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ This link signifies that the test suite represented by this event groups all test case executions resulting from the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
+
 ## Meta Members
+
 ### meta.id
 __Type:__ String  
 __Format:__ [UUID](http://tools.ietf.org/html/rfc4122)  
@@ -124,7 +125,6 @@ __Description:__ Any tags or keywords associated with the events, for searchabil
 
 ### meta.source
 __Type:__ Object  
-__Format:__  
 __Required:__ No  
 __Description:__ A description of the source of the event. This object is primarily for traceability purposes, and while optional, some form of identification of the source is __HIGHLY RECOMMENDED__. It offers multiple methods of identifying the source of the event, techniques which may be select from based on the technology domain and needs in any particular use case.
 
@@ -160,7 +160,6 @@ __Description:__ The URI of, related to or describing the event sender.
 
 ### meta.security
 __Type:__ Object  
-__Format:__  
 __Required:__ No  
 __Description:__ An optional object for enclosing security related information, particularly supporting data integrity. See [Security](../eiffel-syntax-and-usage/security.md) for further information.
 
@@ -172,60 +171,62 @@ __Description:__ The identity of the author of the event. This property is inten
 
 #### meta.security.integrityProtection
 __Type:__ Object  
-__Format:__  
 __Required:__ No  
 __Description:__ An optional object for enabling information integrity protection via cryptographic signing. To generate a correct __meta.security.integrityProtection__ object:
-1. Generate the entire event, but with the __meta.security.integrityProtection.signature__ value set to an empty string.
-1. Serialize the event on [Canonical JSON Form](https://tools.ietf.org/html/draft-staykov-hu-json-canonical-form-00).
-1. Generate the signature using the __meta.security.integrityProtection.alg__ algorithm.
-1. Set the __meta.security.integrityProtection.signature__ value to the resulting signature while maintaining Canonical JSON Form.
+  1. Generate the entire event, but with the
+     __meta.security.integrityProtection.signature__ value set to
+     an empty string.
+  1. Serialize the event on
+     [Canonical JSON Form](https://tools.ietf.org/html/draft-staykov-hu-json-canonical-form-00).
+  1. Generate the signature using the
+     __meta.security.integrityProtection.alg__ algorithm.
+  1. Set the __meta.security.integrityProtection.signature__ value to
+     the resulting signature while maintaining Canonical JSON Form.
 To verify the integrity of the event, the consumer then resets __meta.security.integrityProtection.signature__ to an empty string and ensures Canonical JSON Form before verifying the signature.
-
-##### meta.security.integrityProtection.alg
-__Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
-__Required:__ Yes  
-__Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
 ##### meta.security.integrityProtection.signature
 __Type:__ String  
-__Format:__  
 __Required:__ Yes  
 __Description:__ The signature produced by the signing algorithm.
 
+##### meta.security.integrityProtection.alg
+__Type:__ String  
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
+__Required:__ Yes  
+__Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
+
 ##### meta.security.integrityProtection.publicKey
 __Type:__ String  
-__Format:__  
 __Required:__ No  
 __Description:__ The producer of the event may include the relevant public key for convenience, rather than relying a separate key distribution mechanism. Note that this property, along with the rest of the event, is encompassed by the integrity protection offered via __meta.security.integrityProtection__.
 
 #### meta.security.sequenceProtection
 __Type:__ Object[]  
-__Format:__  
 __Required:__ No  
 __Description:__ An optional object for enabling verification of intact event sequences in a distributed environment, thereby protecting against data loss, race conditions and replay attacks. It allows event publishers to state the order in which they produce a certain set of events. In other words, it cannot provide any global guarantees as to event sequencing, but rather per-publisher guarantees. Every object in the array represents a named sequence of which this event forms a part. For every event including a given named sequence, the publisher SHALL increment __meta.security.sequenceProtection.position__ by 1. The first event produced in a given named sequence SHALL numbered 1.
 
 ##### meta.security.sequenceProtection.sequenceName
 __Type:__ String  
-__Format:__  
 __Required:__ Yes  
 __Description:__ The name of the sequence. There MUST not be two identical __meta.security.sequenceProtection.sequenceName__ values in the same event.
 
 ##### meta.security.sequenceProtection.position
 __Type:__ Integer  
-__Format:__  
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
 
 ## Version History
-| Version   | Introduced in                                          | Changes                                 |
-| --------- | ------------------------------------------------------ | --------------------------------------- |
-| 3.2.0     | [edition-lyon](../../../tree/edition-lyon)             | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
-| 3.1.0     | No edition set                                         | Add `data.liveLogs.{mediaType,tags}`.   |
-| 3.0.0     | [edition-agen](../../../tree/edition-agen)             | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
-| 2.0.0     | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
-| 1.1.0     | [edition-toulouse](../../../tree/edition-toulouse)     | Multiple links of type FLOW_CONTEXT allowed. |
-| 1.0.0     | [edition-bordeaux](../../../tree/edition-bordeaux)     | Initial version.                        |
+
+| Version | Introduced in | Changes |
+| ------- | ------------- | ------- |
+| 3.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
+| 3.1.0 | No edition set | Add `data.liveLogs.{mediaType,tags}`. |
+| 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
+| 2.0.0 | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
+| 1.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
+| 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
+
 
 ## Examples
+
 * [Simple example](../examples/events/EiffelTestSuiteStartedEvent/simple.json)

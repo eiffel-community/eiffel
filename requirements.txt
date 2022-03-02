@@ -1,2 +1,5 @@
+Jinja2==3.0.3
+jsonref==0.2
 jsonschema
+ruamel.yaml==0.17.21
 semver

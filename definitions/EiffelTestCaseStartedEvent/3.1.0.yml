@@ -1,0 +1,149 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: TCS
+_description: The EiffelTestCaseStartedEvent declares that the execution
+  of a test case has commenced. This event SHALL be preceded by a [EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md),
+  and appropriately linked to via __TEST_CASE_EXECUTION__.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.0.0.yml
+  data:
+    type: object
+    properties:
+      executor:
+        _description: The name of the test case executor, if applicable.
+          This property can be used to identify tests executed by a
+          particular test framework.
+        type: string
+      liveLogs:
+        _description: An array of live log files available during execution.
+          These shall not be presumed to be stored persistently; in
+          other words, once the test case execution has finished there
+          is no guarantee that these links are valid. Persistently
+          stored logs shall be (re-)declared by [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md).
+        type: array
+        items:
+          type: object
+          properties:
+            mediaType:
+              _description: The [media type](https://en.wikipedia.org/wiki/Media_type)
+                of the URI's payload. Can be used to differentiate
+                between various representations of the same log, e.g.
+                text/html for human consumption and text/plain or application/json
+                for the machine-readable form.
+              type: string
+            name:
+              _description: The name of the log file.
+              type: string
+            tags:
+              _description: Arbitrary tags and keywords that describe
+                this log.
+              type: array
+              items:
+                type: string
+            uri:
+              _description: The URI at which the log can be retrieved.
+              type: string
+          required:
+            - name
+            - uri
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment in which the test case
+      is being executed.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  TEST_CASE_EXECUTION:
+    description: Identifies the relevant test case execution. In other
+      words, [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)
+      acts as a handle for a particular test case execution. This differs
+      from __CONTEXT__. In __TEST_CASE_EXECUTION__ the source carries
+      information pertaining to the target (i.e. the test case execution
+      started, finished or was canceled). In __CONTEXT__, on the other
+      hand, the source constitutes a subset of the target (e.g. this
+      test case was executed as part of that activity or test suite).
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseTriggeredEvent
+_history:
+  - version: 3.1.0
+    introduced_in: Current version
+    changes: Add `data.liveLogs.{mediaType,tags}`.
+  - version: 3.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection
+  - version: 2.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseStartedEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelTestCaseStartedEvent/simple.json

@@ -1,0 +1,176 @@
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: TCT
+_description: |-
+  The EiffelTestCaseTriggeredEvent declares that the execution of a test case has been triggered, but not yet started. This can either be declared stand-alone or as part of an activity or test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively.
+
+  This event is used to communicate intent, and thereby serves a similar purpose to that of [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md). A triggered test case execution is expected to either be started (represented by [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) or canceled (represented by [EiffelTestCaseCanceledEvent](./EiffelTestCaseCanceledEvent.md)). Consequently, any delay between triggering and execution can be assumed to imply queuing time (e.g. waiting for available test resources) and monitored as such.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/1.0.0.yml
+  data:
+    type: object
+    properties:
+      testCase:
+        _description: Identification of the test case to be executed.
+        type: object
+        properties:
+          tracker:
+            _description: The name of the test case tracker - typically
+              a test management system.
+            type: string
+          id:
+            _description: The unique identity of the test case to be
+              executed.
+            type: string
+          version:
+            _description: The unique version of the identified test
+              case to be executed. Where this property is not used
+              it is assumed that test cases are not version controlled.
+            type: string
+          uri:
+            _description: A location where a description of the test
+              case can be retrieved. To the extent that multiple versions
+              of the same test case co-exist, this property SHALL identify
+              the exact version to be executed.
+            type: string
+        required:
+          - id
+        additionalProperties: false
+      recipeId:
+        _description: If triggering this test case execution was the
+          result of an Execution Recipe, as defined by an [EiffelTestExecutionRecipeCollectionCreatedEvent](./EiffelTestExecutionRecipeCollectionCreatedEvent.md),
+          this UUID SHALL match the relevant __data.batches.recipes.id__
+          in that event.
+        type: string
+        pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+      triggers:
+        _description: The circumstances triggering the test case execution.
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              _description: |-
+                The type of trigger.
+                MANUAL signifies that the test case execution was manually triggered.  
+                EIFFEL_EVENT signifies that the test case execution was triggered by one or more Eiffel events. These events should be represented via __CAUSE__ links.  
+                SOURCE_CHANGE signifies that the test case execution was triggered as a consequence of a detected source change __not__ represented by Eiffel events.  
+                TIMER signifies that the test case execution was triggered by a timer.  
+                OTHER signifies any other triggering cause.
+              type: string
+              enum:
+                - MANUAL
+                - EIFFEL_EVENT
+                - SOURCE_CHANGE
+                - TIMER
+                - OTHER
+            description:
+              _description: A description of the trigger.
+              type: string
+          required:
+            - type
+          additionalProperties: false
+      executionType:
+        _description: The type of execution (often related to, but
+          ultimately separate from, __data.triggers.type__).
+        type: string
+        enum:
+          - MANUAL
+          - SEMI_AUTOMATED
+          - AUTOMATED
+          - OTHER
+      parameters:
+        _description: A list of parameters to be passed to the test
+          case execution.
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              _description: The name of the parameter.
+              type: string
+            value:
+              _description: The value of the parameter.
+              type: string
+          required:
+            - name
+            - value
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          type: object
+          properties:
+            key:
+              type: string
+            value: {}
+          required:
+            - key
+            - value
+          additionalProperties: false
+    required:
+      - testCase
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  IUT:
+    description: Identifies the Item Under Test; in other words, the
+      entity that is about to be tested.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelCompositionDefinedEvent
+_history:
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelTestCaseTriggeredEvent/simple.json

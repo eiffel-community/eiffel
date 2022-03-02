@@ -1,0 +1,99 @@
+$schema: http://json-schema.org/draft-04/schema#
+type: object
+properties:
+  id:
+    _description: >-
+      The unique identity of the event, generated at event creation.
+    _format: '[UUID](http://tools.ietf.org/html/rfc4122)'
+    type: string
+    pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+  type:
+    _description: >-
+      The type of event. This field is required by the recipient of
+      the event, as each event type has a specific meaning and a specific
+      set of members in the __data__ and __links__ objects.
+    _format: An event type name
+    type: string
+  version:
+    _description: >-
+      The version of the event type. This field is required by the recipient
+      of the event to interpret the contents. Please see
+      [Versioning](../eiffel-syntax-and-usage/versioning.md) for more
+      information.
+    _format: '[Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html)'
+    type: string
+  time:
+    _description: The event creation timestamp.
+    _format: UNIX Epoch time, in milliseconds.
+    type: integer
+  tags:
+    _description: >-
+      Any tags or keywords associated with the events, for searchability
+      purposes.
+    _format: Free text
+    type: array
+    items:
+      type: string
+  source:
+    _description: >-
+      A description of the source of the event. This object is primarily for
+      traceability purposes, and while optional, some form of identification
+      of the source is __HIGHLY RECOMMENDED__. It offers multiple methods of
+      identifying the source of the event, techniques which may be select from
+      based on the technology domain and needs in any particular use case.
+    type: object
+    properties:
+      domainId:
+        _description: >-
+          Identifies the
+          [domain](../eiffel-syntax-and-usage/glossary.md#domain) that
+          produced an event.
+        _format: Free text
+        type: string
+      host:
+        _description: The hostname of the event sender.
+        _format: Hostname
+        type: string
+      name:
+        _description: The name of the event sender.
+        _format: Free text
+        type: string
+      serializer:
+        _description: >-
+          The identity of the serializer software used to construct the event,
+          in [purl format](https://github.com/package-url/purl-spec).
+        _format: >-
+          [purl specification](https://github.com/package-url/purl-spec)
+        type: string
+        pattern: '^pkg:'
+      uri:
+        _description: The URI of, related to or describing the event sender.
+        _format: URI
+        type: string
+    additionalProperties: false
+  security:
+    _description: >-
+      An optional object for enclosing security related information,
+      particularly supporting data integrity. See
+      [Security](../eiffel-syntax-and-usage/security.md) for further
+      information.
+    type: object
+    properties:
+      sdm:
+        type: object
+        properties:
+          authorIdentity:
+            type: string
+          encryptedDigest:
+            type: string
+        required:
+          - authorIdentity
+          - encryptedDigest
+        additionalProperties: false
+    additionalProperties: false
+required:
+  - id
+  - type
+  - version
+  - time
+additionalProperties: false
