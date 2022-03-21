@@ -20,7 +20,9 @@
       {
         "name": "firstLog (plain text)",
         "mediaType": "text/plain",
-        "tags": ["plain"],
+        "tags": [
+          "plain"
+        ],
         "uri": "http://myHost.com/firstLog.log"
       },
       {

@@ -13,7 +13,9 @@
       }
     ],
     "buildCommand": "/my/build/command with arguments",
-    "implements": ["pkg:maven/com.mycompany.myproduct/my-interface@%5B1.0%2C2.0%29"]
+    "implements": [
+      "pkg:maven/com.mycompany.myproduct/my-interface@%5B1.0%2C2.0%29"
+    ]
   },
   "links": [
     {

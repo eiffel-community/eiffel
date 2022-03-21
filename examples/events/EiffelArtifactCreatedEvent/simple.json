@@ -17,14 +17,19 @@
     "fileInformation": [
       {
         "name": "debug/launch",
-        "tags": ["debug", "launcher"]
+        "tags": [
+          "debug",
+          "launcher"
+        ]
       },
       {
         "name": "test/log.txt"
       },
       {
         "name": "bin/launch",
-        "tags": ["launcher"]
+        "tags": [
+          "launcher"
+        ]
       }
     ],
     "buildCommand": "/my/build/command with arguments",

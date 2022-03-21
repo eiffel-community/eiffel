@@ -20,16 +20,20 @@
       }
     ],
     "executionType": "AUTOMATED",
-    "customData" : [
-	{
-		"key":"key1",
-		"value": "value1"
-	},
-	{
-		"key":"key2",
-		"value": [1,2,3]
-	}
-	]
+    "customData": [
+      {
+        "key": "key1",
+        "value": "value1"
+      },
+      {
+        "key": "key2",
+        "value": [
+          1,
+          2,
+          3
+        ]
+      }
+    ]
   },
   "links": [
     {

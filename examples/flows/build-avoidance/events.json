@@ -17,8 +17,7 @@
         "repoUri": "svn://repohost/mainline"
       }
     },
-    "links": [
-    ]
+    "links": []
   },
   {
     "meta": {
@@ -369,8 +368,7 @@
         "domainId": "example.domain"
       }
     },
-    "data": {
-    },
+    "data": {},
     "links": [
       {
         "type": "COMPOSITION",
@@ -392,8 +390,7 @@
         "domainId": "example.domain"
       }
     },
-    "data": {
-    },
+    "data": {},
     "links": [
       {
         "type": "COMPOSITION",
@@ -415,8 +412,7 @@
         "domainId": "example.domain"
       }
     },
-    "data": {
-    },
+    "data": {},
     "links": [
       {
         "type": "COMPOSITION",

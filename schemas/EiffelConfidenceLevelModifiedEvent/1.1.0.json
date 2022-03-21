@@ -11,11 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": ["EiffelConfidenceLevelModifiedEvent"]
+          "enum": [
+            "EiffelConfidenceLevelModifiedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "1.1.0" ],
+          "enum": [
+            "1.1.0"
+          ],
           "default": "1.1.0"
         },
         "time": {
@@ -104,7 +108,11 @@
         },
         "value": {
           "type": "string",
-          "enum": ["SUCCESS", "FAILURE", "INCONCLUSIVE"]
+          "enum": [
+            "SUCCESS",
+            "FAILURE",
+            "INCONCLUSIVE"
+          ]
         },
         "issuer": {
           "type": "object",
@@ -132,8 +140,7 @@
               "key": {
                 "type": "string"
               },
-              "value": {
-              }
+              "value": {}
             },
             "required": [
               "key",

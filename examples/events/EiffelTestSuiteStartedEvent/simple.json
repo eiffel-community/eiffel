@@ -23,7 +23,9 @@
       {
         "name": "My test log (plain text)",
         "mediaType": "text/plain",
-        "tags": ["plain"],
+        "tags": [
+          "plain"
+        ],
         "uri": "file:///tmp/logs/data.log"
       }
     ]

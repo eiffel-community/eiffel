@@ -11,11 +11,15 @@
         },
         "type": {
           "type": "string",
-          "enum": [ "EiffelTestExecutionRecipeCollectionCreatedEvent" ]
+          "enum": [
+            "EiffelTestExecutionRecipeCollectionCreatedEvent"
+          ]
         },
         "version": {
           "type": "string",
-          "enum": [ "2.1.0" ],
+          "enum": [
+            "2.1.0"
+          ],
           "default": "2.1.0"
         },
         "time": {
@@ -166,8 +170,7 @@
                           "key": {
                             "type": "string"
                           },
-                          "value": {
-                          }
+                          "value": {}
                         },
                         "required": [
                           "key",
@@ -219,8 +222,7 @@
               "key": {
                 "type": "string"
               },
-              "value": {
-              }
+              "value": {}
             },
             "required": [
               "key",
