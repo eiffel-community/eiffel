@@ -16,7 +16,7 @@
 --->
 
 # Activity Linking
-_Activity linking_ is the act of connecting [activities](../eiffel-syntax-and-usage/glossary.md#activity) within a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline) to each other. It includes not just linking pipeline steps to each other, but also linking hierarchical, such as an overall pipeline activity, a set of sub activities for a build or a test, or linking multiple complete pipelines to each other.
+_Activity linking_ is the act of connecting [activities](../eiffel-syntax-and-usage/glossary.md#activity) within a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline) to each other. It includes not just linking pipeline steps to each other, but also linking hierarchically, such as an overall pipeline activity, a set of sub activities for a build or a test, or linking multiple complete pipelines to each other.
 
 Activity links are important both for tracing what activity/activities preceded a certain activity or what activity/activities followed after a certain activity, but also for tracing a full chain of parallel/serial activities within a pipeline. Tracing the activities in pipelines is the base fo various kinds of pipeline visualizations and also for metrics and KPI measurements.
 
@@ -25,7 +25,7 @@ A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ 
 
 A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline orchestrator, such as Jenkins Pipeline or Argo Workflows, and has no activities triggered by Eiffel events. A fully orchestrated pipeline is probably often initiated by a source change in some SCM system, and that source change is then propagated to the pipeline orchestrator through some non-Eiffel-event channel (e.g. an Github web hook or a Gerrit stream-event)
 
-None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events ([SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events ([ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
+None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events (e.g. [ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
 
 To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link activity events together.
 
@@ -33,7 +33,7 @@ To handle the different possible scenarios for pipeline execution, multiple link
 This section describes the main link types involved in linking activities in pipelines
 
 ### CAUSE
-Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.  
+Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity*Events, but for any Eiffel event that represent an occurrence that was caused by an earlier Eiffel event.
 
 __Required:__ No  
 __Legal sources:__ Any  
@@ -69,6 +69,7 @@ This link type is used to declare *hierarchies* of activities within a pipeline.
 For example:
 - This *pipeline step* is executed in the *CONTEXT* of that *pipeline*, i.e. the pipeline step is part of a certain pipeline, and the ActT event of the pipeline step SHOULD have a CONTEXT link to the ActT event of the pipeline itself.
 - This *test suite* is executed in the *CONTEXT* of that *pipeline step*, i.e. the test suite is executed within a certain pipeline step, and the TSS event for the test suite SHOULD then have a CONTEXT link to the ActT event of the pipeline step.
+- This *artifact* was built within the *CONTEXT* of that *pipeline step*, i.e. the ArtC event SHOULD have a CONTEXT link to the ActT event of the pipeline step.
 
 __Required:__ No  
 __Legal sources:__ Any  

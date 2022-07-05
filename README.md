@@ -76,7 +76,6 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Build Avoidance](./usage-examples/build-avoidance.md)
    1. [Pipeline Monitoring](./usage-examples/pipeline-monitoring.md)
    1. [Test Execution](./usage-examples/test-execution.md)
-   1. [Activity Linking](./usage-examples/activity-linking/README.md)
    1. Reference Data Sets
       1. [Default](./usage-examples/reference-data-sets/default.md)
 1. Customization

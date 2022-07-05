@@ -148,9 +148,3 @@ An _occurrence_ is the capture of a statement of fact during the execution of a 
 ### Pipeline
 
 A _pipeline_ is an ordered set of [activities](#activity) often triggered by a [source change](#source-change) being created or [submitted](#submit).
-
-### Flow
-
-TBA
-<Should we describe this as a generic concept?>
-Example: Flow Context
