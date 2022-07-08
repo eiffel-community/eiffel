@@ -18,7 +18,7 @@
 # Activity Linking
 _Activity linking_ is the act of connecting [activities](../eiffel-syntax-and-usage/glossary.md#activity) within a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline) to each other. It includes not just linking pipeline steps to each other, but also linking hierarchically, such as an overall pipeline activity, a set of sub activities for a build or a test, or linking multiple complete pipelines to each other.
 
-Activity links are important both for tracing what activity/activities preceded a certain activity or what activity/activities followed after a certain activity, but also for tracing a full chain of parallel/serial activities within a pipeline. Tracing the activities in pipelines is the base fo various kinds of pipeline visualizations and also for metrics and KPI measurements.
+Activity links are important both for tracing what activity/activities preceded a certain activity or what activity/activities followed after a certain activity, but also for tracing a full chain of parallel/serial activities within a pipeline. Tracing the activities in pipelines is the base for various kinds of pipeline visualizations and also for metrics and KPI measurements.
 
 ## Event Driven vs Orchestrated Pipeline
 A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ activities in it are triggered explicitly by Eiffel events. Those events could either come from earlier pipeline steps, or from other pipelines producing for example artifacts that this pipeline would be configured to trigger on.
@@ -27,13 +27,13 @@ A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline
 
 None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events (e.g. [ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
 
-To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link activity events together.
+To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
 
 ## Link Types Involved
 This section describes the main link types involved in linking activities in pipelines
 
 ### CAUSE
-Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity*Events, but for any Eiffel event that represent an occurrence that was caused by an earlier Eiffel event.
+Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
 
 __Required:__ No  
 __Legal sources:__ Any  
@@ -55,7 +55,7 @@ PRECURSOR links are only valid to be used on the triggering event of an activity
 
 This link type is relevant mostly to non event-triggered activities. It is though recommended to also use it for event-triggered activities, as it helps to visualize the full chain of activities in a pipeline in a common way regardless of how each activity was triggered. By always providing PRECURSOR links between activities, a visualization tool does not need to follow any CAUSE links in order to visualize the activity relationships.
 
-***Open Question:*** *What about when a pipeline is triggered by e.g. an ArtC from another pipeline? A CAUSE link would be added to the the ActT event of the pipeline triggered, targeting that ArtC event, but no PRECURSOR to any activity in that pipeline. How would such relationships bee visualized in a pipeline-of-pipelines graph?*
+For event links between serially executed pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
 
 __Required:__ No  
 __Legal sources:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
@@ -89,5 +89,5 @@ __Multiple allowed:__ Yes
 The link type PRECURSOR is more recently added to the protocol than the CAUSE type, and the scenario described for the PRECURSOR type above was previously often described using CAUSE links instead. It is perfectly possible to create a fully traceable event graph using CAUSE links and not involving PRECURSOR links, but it has a number of drawbacks. For example:
 
 - The semantics of a CAUSE link declare _why_ a certain event/occurrence took place. That is not really applicable to for example an orchestrated pipeline driven by for example Jenkins Pipeline or Argo Workflows, where the orchestrator determines why to start a certain activity rather than an activity being triggered by an earlier event. In other words, there is no direct _causal_ relationship between an activity triggered by an orchestrator and a previous activity in the same pipeline triggered by the same orchestrator.
-- If a CAUSE link should be used to explicitly connect pipeline step activities, it would often be used between the ActT of a step to ActF or a previous step, but an activity could also be CAUSEd by a previous activity being triggered or started, or even by an internal occurence within an activity. To deal with all scenarios an event consumer would need to consider all such combinations instead of just relying on links between ActT events.
+- If a CAUSE link should be used to explicitly connect pipeline step activities, it would often be used between the ActT of a step to ActF or a previous step, but an activity could also be CAUSEd by a previous activity being triggered or started, or even by an internal occurrence within an activity. To deal with all scenarios an event consumer would need to consider all such combinations instead of just relying on links between ActT (or TSS) events.
 - When parallel pipeline steps are followed by a single pipeline step a CAUSE link could be used to all those parallel steps activity events, but it might be more natural to only have the CAUSE link to one of them, depending on the scenario. Adding a new link type (PRECURSOR) provides the possibility to connect these activity events without needing to use CAUSE links to tie activities together which do not actually have a causal relationship to each other.

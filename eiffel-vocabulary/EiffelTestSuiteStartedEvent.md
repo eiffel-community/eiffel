@@ -85,6 +85,12 @@ __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelAct
 __Multiple allowed:__ No  
 __Description:__ Identifies the activity or test suite of which this event constitutes a part.
 
+### PRECURSOR
+__Required:__ No  
+__Legal targets:__ [EiffelTestSuiteStartedEvent](./EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare temporal relationships between test suite activities in a pipeline step, i.e. what other test suite (or or test suites) preceded this activity. This link type applies primarily to non event-triggered test suite executions.
+
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  

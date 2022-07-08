@@ -143,8 +143,8 @@ The terms below are not used in any events in the Eiffel protocol. They are adde
 
 ### Occurrence
 
-An _occurrence_ is the capture of a statement of fact during the execution of a CI/CD [pipeline](#pipeline). This might occur because of a source change being created/updated, an artifact being built, an upstream artifact being delivered, or any other activity relevant to a CI/CD pipeline.
+An _occurrence_ is the capture of a statement of fact during the execution of a CI/CD [pipeline](#pipeline). This might occur because of a [source change](#source-change) being created/updated, an [artifact](#artifact) being built, an upstream artifact being delivered, or any other activity relevant to a CI/CD pipeline.
 
 ### Pipeline
 
-A _pipeline_ is an ordered set of [activities](#activity) often triggered by a [source change](#source-change) being created or [submitted](#submit).
+A _pipeline_ is an ordered set of [activities](#activity) often triggered by a [source change](#source-change) being created or [submitted](#submit). There exists no EiffelPipeline\*Events, as the pipeline is to be considered an activity in itself. A pipeline execution could thus be notified using EiffelActivity\*Events, and its included sub activities would then have an hierarchical connection to the pipeline activity.
