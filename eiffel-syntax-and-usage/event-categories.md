@@ -12,8 +12,8 @@ picked from the
 |:-------------|:-----:|
 | Activity     |  🔵   |
 | Artifact     |  🔴   |
-| Definition   |  🟠   |
-| Notification |  🟣   |
+| Definition   |  🟣   |
+| Notification |  🟠   |
 | Source       |  🟢   |
 | Test         |  🟡   |
 | Verdict      |  🟤   |
@@ -29,11 +29,11 @@ The events and their categories.
 | Artifact     | [EiffelArtifactCreatedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactCreatedEvent.md)                                           |     ArtC     |  🔴   |
 | Artifact     | [EiffelArtifactPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactPublishedEvent.md)                                       |     ArtP     |  🔴   |
 | Artifact     | [EiffelArtifactReusedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactReusedEvent.md)                                             |     ArtR     |  🔴   |
-| Definition   | [EiffelFlowContextDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)                                     |     FCD      |  🟠   |
-| Definition   | [EiffelCompositionDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelCompositionDefinedEvent.md)                                     |      CD      |  🟠   |
-| Definition   | [EiffelEnvironmentDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)                                     |      ED      |  🟠   |
-| Definition   | [EiffelIssueDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueDefinedEvent.md)                                                 |     IssD     |  🟠   |
-| Notification | [EiffelAnnouncementPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)                               |     AnnP     |  🟣   |
+| Definition   | [EiffelFlowContextDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)                                     |     FCD      |  🟣   |
+| Definition   | [EiffelCompositionDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelCompositionDefinedEvent.md)                                     |      CD      |  🟣   |
+| Definition   | [EiffelEnvironmentDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)                                     |      ED      |  🟣   |
+| Definition   | [EiffelIssueDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueDefinedEvent.md)                                                 |     IssD     |  🟣   |
+| Notification | [EiffelAnnouncementPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)                               |     AnnP     |  🟠   |
 | Source       | [EiffelSourceChangeCreatedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)                                   |     SCC      |  🟢   |
 | Source       | [EiffelSourceChangeSubmittedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)                               |     SCS      |  🟢   |
 | Test         | [EiffelTestCaseCanceledEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelTestCaseCanceledEvent.md)                                         |     TCC      |  🟡   |
