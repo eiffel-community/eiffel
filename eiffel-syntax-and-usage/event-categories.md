@@ -1,20 +1,19 @@
 # Event Categories
 
 The Eiffel protocol specifies each event on its own. For convenience reasons the
-protocol specifies them together in categories. Use the following categories to
-group events together for ease of talking about them or in reasoning. To make
-pictures with Eiffel events consistent throughout the documentation we have
-assigned each category a color picked from the
+protocol also provides a description on how to group them together in
+categories. Use the following categories to group events together for ease of
+talking about them or in reasoning. To make pictures with Eiffel events
+consistent throughout the documentation we have assigned each category a color
+picked from the
 [Unicodes full list of geometric emoji](https://unicode.org/emoji/charts/full-emoji-list.html#geometric)
 
 | Category     | Color |
 |:-------------|:-----:|
 | Activity     |  🔵   |
 | Artifact     |  🔴   |
-| Baseline     |  🟠   |
-| Environment  |  🟣   |
-| Issue        |  ⚪   |
-| Notification |  ⚫   |
+| Definition   |  🟠   |
+| Notification |  🟣   |
 | Source       |  🟢   |
 | Test         |  🟡   |
 | Verdict      |  🟤   |
@@ -30,12 +29,11 @@ The events and their categories.
 | Artifact     | [EiffelArtifactCreatedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactCreatedEvent.md)                                           |     ArtC     |  🔴   |
 | Artifact     | [EiffelArtifactPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactPublishedEvent.md)                                       |     ArtP     |  🔴   |
 | Artifact     | [EiffelArtifactReusedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelArtifactReusedEvent.md)                                             |     ArtR     |  🔴   |
-| Baseline     | [EiffelFlowContextDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)                                     |     FCD      |  🟠   |
-| Baseline     | [EiffelCompositionDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelCompositionDefinedEvent.md)                                     |      CD      |  🟠   |
-| Environment  | [EiffelEnvironmentDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)                                     |      ED      |  🟣   |
-| Issue        | [EiffelIssueVerifiedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueVerifiedEvent.md)                                               |      IV      |  ⚪   |
-| Issue        | [EiffelIssueDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueDefinedEvent.md)                                                 |     IssD     |  ⚪   |
-| Notification | [EiffelAnnouncementPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)                               |     AnnP     |  ⚫   |
+| Definition   | [EiffelFlowContextDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)                                     |     FCD      |  🟠   |
+| Definition   | [EiffelCompositionDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelCompositionDefinedEvent.md)                                     |      CD      |  🟠   |
+| Definition   | [EiffelEnvironmentDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)                                     |      ED      |  🟠   |
+| Definition   | [EiffelIssueDefinedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueDefinedEvent.md)                                                 |     IssD     |  🟠   |
+| Notification | [EiffelAnnouncementPublishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelAnnouncementPublishedEvent.md)                               |     AnnP     |  🟣   |
 | Source       | [EiffelSourceChangeCreatedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)                                   |     SCC      |  🟢   |
 | Source       | [EiffelSourceChangeSubmittedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)                               |     SCS      |  🟢   |
 | Test         | [EiffelTestCaseCanceledEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelTestCaseCanceledEvent.md)                                         |     TCC      |  🟡   |
@@ -46,3 +44,4 @@ The events and their categories.
 | Test         | [EiffelTestSuiteFinishedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)                                       |     TSF      |  🟡   |
 | Test         | [EiffelTestSuiteStartedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)                                         |     TSS      |  🟡   |
 | Verdict      | [EiffelConfidenceLevelModifiedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)                           |     CLM      |  🟤   |
+| Verdict      | [EiffelIssueVerifiedEvent](https://github.com/eiffel-community/eiffel/blob/master/eiffel-vocabulary/EiffelIssueVerifiedEvent.md)                                               |      IV      |  🟤   |
