@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2022 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -34,3 +34,30 @@ The design of Eiffel events is governed by the following guidelines:
 * __Key names in camelCase:__ All key names shall use camelCase.
 * __Enumerations in CAPS_WITH_UNDERSCORE:__ All enumerated values shall use CAPS_WITH_UNDERSCORE.
 * __Link types are nouns:__ Link types shall have names that fit the pattern "\<target event> is the \<source event>'s \<link type>", implying that they are nouns that describe the relationship between the source and the target event.
+
+## Benefits and Implications
+
+By following the design guidelines the Eiffel protocol provides a language that
+gives producer and consumer a common way of understanding and describing the
+occurrences in the system by defining a contract between them.
+
+Following the guidlines stated, they adress the following issues:
+
+* __Dialects__: By using the protocol it gives the best possible conditions
+  for a non-initiated event consumer to make sense of any given set of events.
+* __Inconsistency__: By providing clear explanations of each parameter for both
+  producer and consumer it minimizes the risk for both data divergence and
+  inconsistency.
+* __Coordination__: The Eiffel protocol minimizes coordination effort between
+  producer and consumer by giving a well-defined specification by defining a
+  contract between the producer and the consumer.
+* __Context__: Following the protocol gives each data a clear context to which it belongs
+* __Hard dependencies__: By using the Eiffel protocol specification it reduces the
+  risk for creating hard connections between producers and consumers. We want to
+  enable adding new consumers without affecting the producers. This then leads to
+  a decoupled system with separation of concerns than enables scalability and
+  maintainability.
+
+When using Eiffel as described it creates a data model based on information
+nodes and semantics links between these nodes. To read this you will need a tool
+to aggregate the information.

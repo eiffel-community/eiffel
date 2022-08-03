@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2022 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,7 +33,8 @@ This repository forms part of the Eiffel Community. Eiffel is a protocol for tec
 Visit [Eiffel Community](https://eiffel-community.github.io) to get started and get involved.
 
 # Contents
-1. [Introduction](./introduction/introduction.md)
+1. Introduction
+   1. [Introduction](./introduction/introduction.md)
    1. [How to Propose Changes and Contribute](https://github.com/eiffel-community/.github/blob/master/CONTRIBUTING.md)
    1. [Code of Conduct](https://github.com/eiffel-community/.github/blob/master/CODE_OF_CONDUCT.md)
 1. Eiffel Syntax and Usage
