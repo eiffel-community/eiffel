@@ -27,13 +27,13 @@ A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline
 
 None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events (e.g. [ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
 
-To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
+To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol used for linking to and from activity events.
 
 ## Link Types Involved
 This section describes the main link types involved in linking activities in pipelines
 
 ### CAUSE
-Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
+Identifies the cause of the event occurrence, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
 
 __Required:__ No  
 __Legal sources:__ Any  
