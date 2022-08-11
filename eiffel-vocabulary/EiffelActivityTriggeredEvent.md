@@ -79,7 +79,9 @@ __Description:__ Identifies the [activity](https://github.com/eiffel-community/e
 __Required:__ No  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Used to declare temporal relationships between [activities](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity (or activities) preceded this activity. This link type applies primarily to non event-triggered activities.
+__Description:__ Used to declare temporal relationships between [activities](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity/activities preceded this activity. This link type applies primarily to non event-triggered activities.
+
+For more information on the usage of this link type please see [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md)
 
 ### FLOW_CONTEXT
 __Required:__ No  

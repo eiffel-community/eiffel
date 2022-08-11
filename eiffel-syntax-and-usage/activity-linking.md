@@ -41,11 +41,15 @@ __Legal targets:__ Any
 __Multiple allowed:__ Yes  
 
 ### PRECURSOR
-This link type is used to declare *temporal relationships* between activities in a pipeline, i.e. what other activity (or activities) preceded this activity.
+This link type is used to declare *temporal relationships* between activities in a pipeline, i.e. what other activity/activities preceded this activity.
+
+*The image below shows how an activity that precedes another activity is notified by a PRECURSOR link from the second ActT event back to the first one*
 
 ![alt text](./precursor-simple.png "Simple PRECURSOR Example")
 
 An activity could have multiple PRECURSOR activities, which means that the activity was triggered in serial after a certain group of parallel activities where triggered. This can be used to declare merge points of a group of parallel activities into a succeeding activity.
+
+*The image below shows how three parallel activities are followed by one activity in serial. It is notificed by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities*
 
 ![alt text](./precursor-parallel.png "Parallel PRECURSOR Example")
 
@@ -55,7 +59,7 @@ PRECURSOR links are only valid to be used on the triggering event of an activity
 
 This link type is relevant mostly to non event-triggered activities. It is though recommended to also use it for event-triggered activities, as it helps to visualize the full chain of activities in a pipeline in a common way regardless of how each activity was triggered. By always providing PRECURSOR links between activities, a visualization tool does not need to follow any CAUSE links in order to visualize the activity relationships.
 
-For event links between serially executed pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
+For event links between two or more complete pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
 
 __Required:__ No  
 __Legal sources:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
