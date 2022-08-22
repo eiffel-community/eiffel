@@ -16,24 +16,27 @@
 --->
 
 # Activity Linking
-_Activity linking_ is the act of connecting [activities](../eiffel-syntax-and-usage/glossary.md#activity) within a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline) to each other. It includes not just linking pipeline steps to each other, but also linking hierarchically, such as an overall pipeline activity, a set of sub activities for a build or a test, or linking multiple complete pipelines to each other.
+_Activity linking_ is the act of connecting [activities](./glossary.md#activity) within a [pipeline](./glossary.md#pipeline) to each other. It includes not just linking pipeline steps to each other, but also linking hierarchically, such as an overall pipeline activity, a set of sub activities for a build or a test, or linking multiple complete pipelines to each other.
 
 Activity links are important both for tracing what activity/activities preceded a certain activity or what activity/activities followed after a certain activity, but also for tracing a full chain of parallel/serial activities within a pipeline. Tracing the activities in pipelines is the base for various kinds of pipeline visualizations and also for metrics and KPI measurements.
 
 ## Event Driven vs Orchestrated Pipeline
+
+Pipeline executors can have different mechanisms for choosing when its activities should be triggered. We find it useful to define the following extremes:
+
 A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ activities in it are triggered explicitly by Eiffel events. Those events could either come from earlier pipeline steps, or from other pipelines producing for example artifacts that this pipeline would be configured to trigger on.
 
 A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline orchestrator, such as Jenkins Pipeline or Argo Workflows, and has no activities triggered by Eiffel events. A fully orchestrated pipeline is probably often initiated by a source change in some SCM system, and that source change is then propagated to the pipeline orchestrator through some non-Eiffel-event channel (e.g. an Github web hook or a Gerrit stream-event)
 
 None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events (e.g. [ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
 
-To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol used for linking to and from activity events.
+To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
 
 ## Link Types Involved
 This section describes the main link types involved in linking activities in pipelines
 
 ### CAUSE
-Identifies the cause of the event occurrence, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
+Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
 
 __Required:__ No  
 __Legal sources:__ Any  
@@ -43,21 +46,21 @@ __Multiple allowed:__ Yes
 ### PRECURSOR
 This link type is used to declare *temporal relationships* between activities in a pipeline, i.e. what other activity/activities preceded this activity.
 
-*The image below shows how an activity that precedes another activity is notified by a PRECURSOR link from the second ActT event back to the first one*
+*The image below shows how an activity that precedes another activity is denoted by a PRECURSOR link from the second ActT event back to the first one*
 
 ![alt text](./precursor-simple.png "Simple PRECURSOR Example")
 
-An activity could have multiple PRECURSOR activities, which means that the activity was triggered in serial after a certain group of parallel activities where triggered. This can be used to declare merge points of a group of parallel activities into a succeeding activity.
+An activity could have multiple PRECURSOR activities (also known as "fan-in"), which means that the activity was triggered in serial after a certain group of parallel activities were triggered. This can be used to declare merge points of a group of parallel activities into a succeeding activity.
 
-*The image below shows how three parallel activities are followed by one activity in serial. It is notificed by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities*
+*The image below shows how three parallel activities are followed by one activity in serial. It is denoted by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities*
 
 ![alt text](./precursor-parallel.png "Parallel PRECURSOR Example")
 
-The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered *after* that/those other activity/activities where triggered.
+The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered *after* that/those other activity/activities were triggered.
 
 PRECURSOR links are only valid to be used on the triggering event of an activity, i.e. on EiffelActivityTriggeredEvent or on EiffelTestSuiteStartedEvent, and the target of this link type shall also be the triggering event of the preceding activity/activities.
 
-This link type is relevant mostly to non event-triggered activities. It is though recommended to also use it for event-triggered activities, as it helps to visualize the full chain of activities in a pipeline in a common way regardless of how each activity was triggered. By always providing PRECURSOR links between activities, a visualization tool does not need to follow any CAUSE links in order to visualize the activity relationships.
+This link type is relevant mostly to non event-triggered activities. It is though recommended to also use it for event-triggered activities, as it helps visualizing the full chain of activities in a pipeline in a common way regardless of how each activity was triggered. By always providing PRECURSOR links between activities, a visualization tool does not need to follow any CAUSE links in order to visualize the activity relationships.
 
 For event links between two or more complete pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
 
@@ -82,7 +85,7 @@ __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelAct
 __Multiple allowed:__ Yes  
 
 ### FLOW_CONTEXT
-This link type is not related to activity linking, but is mentioned here is it could be confused with the CONTEXT link type. The FLOW_CONTEXT identifies the flow context of the event, e.g. which product, project, track or version this event is applicable to.
+This link type is not related to activity linking, but is mentioned here as it could be confused with the CONTEXT link type. A FLOW_CONTEXT link points at an [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) which provides additional metadata about for example the program or track that the event is emitted for and thus doesn't describe relationships between activities.
 
 __Required:__ No  
 __Legal sources:__ Any  
