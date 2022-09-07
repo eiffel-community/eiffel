@@ -28,7 +28,7 @@ A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ 
 
 A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline orchestrator, such as Jenkins Pipeline or Argo Workflows, and has no activities triggered by Eiffel events. A fully orchestrated pipeline is probably often initiated by a source change in some SCM system, and that source change is then propagated to the pipeline orchestrator through some non-Eiffel-event channel (e.g. an Github web hook or a Gerrit stream-event)
 
-None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)/[SCS](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)) or artifact events (e.g. [ArtC](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)/[ArtP](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)/[CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)).
+None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC][SCC] /[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
 
 To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
 
@@ -36,7 +36,7 @@ To handle the different possible scenarios for pipeline execution, multiple link
 This section describes the main link types involved in linking activities in pipelines
 
 ### CAUSE
-Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](#occurrence) that was caused by an earlier Eiffel event.
+Identifies a cause of the event occurring, in the situations where the cause is an Eiffel event. This link type is not relevant only for EiffelActivity\*Events, but for any Eiffel event that represent an [occurrence](glossary.md#occurrence) that was caused by an earlier Eiffel event.
 
 __Required:__ No  
 __Legal sources:__ Any  
@@ -46,15 +46,15 @@ __Multiple allowed:__ Yes
 ### PRECURSOR
 This link type is used to declare *temporal relationships* between activities in a pipeline, i.e. what other activity/activities preceded this activity.
 
-*The image below shows how an activity that precedes another activity is denoted by a PRECURSOR link from the second ActT event back to the first one*
+*The image below shows how an activity that precedes another activity is denoted by a PRECURSOR link from the second ActT event back to the first one.*
 
-![alt text](./precursor-simple.png "Simple PRECURSOR Example")
+![A Simple PRECURSOR Example](./precursor-simple.png "Simple PRECURSOR Example")
 
 An activity could have multiple PRECURSOR activities (also known as "fan-in"), which means that the activity was triggered in serial after a certain group of parallel activities were triggered. This can be used to declare merge points of a group of parallel activities into a succeeding activity.
 
-*The image below shows how three parallel activities are followed by one activity in serial. It is denoted by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities*
+*The image below shows how three parallel activities are followed by one activity in serial. It is denoted by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities.*
 
-![alt text](./precursor-parallel.png "Parallel PRECURSOR Example")
+![A Parallel PRECURSOR Example](./precursor-parallel.png "Parallel PRECURSOR Example")
 
 The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered *after* that/those other activity/activities were triggered.
 
@@ -65,10 +65,10 @@ This link type is relevant mostly to non event-triggered activities. It is thoug
 For event links between two or more complete pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
 
 __Required:__ No  
-__Legal sources:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
-[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
-__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
-[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Legal sources:__ [EiffelActivityTriggeredEvent][ActT],
+[EiffelTestSuiteStartedEvent][TSS]  
+__Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
+[EiffelTestSuiteStartedEvent][TSS]  
 __Multiple allowed:__ Yes  
 
 ### CONTEXT
@@ -80,16 +80,16 @@ For example:
 
 __Required:__ No  
 __Legal sources:__ Any  
-__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md),
-[EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
-__Multiple allowed:__ Yes  
+__Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
+[EiffelTestSuiteStartedEvent][TSS]  
+__Multiple allowed:__ No  
 
 ### FLOW_CONTEXT
-This link type is not related to activity linking, but is mentioned here as it could be confused with the CONTEXT link type. A FLOW_CONTEXT link points at an [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) which provides additional metadata about for example the program or track that the event is emitted for and thus doesn't describe relationships between activities.
+This link type is not related to activity linking, but is mentioned here as it could be confused with the CONTEXT link type. A FLOW_CONTEXT link points at an [EiffelFlowContextDefinedEvent][FCD] which provides additional metadata about for example the program or track that the event is emitted for and thus doesn't describe relationships between activities.
 
 __Required:__ No  
 __Legal sources:__ Any  
-__Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
+__Legal targets:__ [EiffelFlowContextDefinedEvent][FCD]  
 __Multiple allowed:__ Yes  
 
 ## Why not use CAUSE instead of PRECURSOR?
@@ -98,3 +98,13 @@ The link type PRECURSOR is more recently added to the protocol than the CAUSE ty
 - The semantics of a CAUSE link declare _why_ a certain event/occurrence took place. That is not really applicable to for example an orchestrated pipeline driven by for example Jenkins Pipeline or Argo Workflows, where the orchestrator determines why to start a certain activity rather than an activity being triggered by an earlier event. In other words, there is no direct _causal_ relationship between an activity triggered by an orchestrator and a previous activity in the same pipeline triggered by the same orchestrator.
 - If a CAUSE link should be used to explicitly connect pipeline step activities, it would often be used between the ActT of a step to ActF or a previous step, but an activity could also be CAUSEd by a previous activity being triggered or started, or even by an internal occurrence within an activity. To deal with all scenarios an event consumer would need to consider all such combinations instead of just relying on links between ActT (or TSS) events.
 - When parallel pipeline steps are followed by a single pipeline step a CAUSE link could be used to all those parallel steps activity events, but it might be more natural to only have the CAUSE link to one of them, depending on the scenario. Adding a new link type (PRECURSOR) provides the possibility to connect these activity events without needing to use CAUSE links to tie activities together which do not actually have a causal relationship to each other.
+
+<!-- Bookmarks section -->
+[ActT]: ../eiffel-vocabulary/EiffelActivityTriggeredEvent.md
+[ArtC]: ../eiffel-vocabulary/EiffelArtifactCreatedEvent.md
+[ArtP]: ../eiffel-vocabulary/EiffelArtifactPublishedEvent.md
+[CLM]: ../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md
+[FCD]: ../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md
+[SCC]: ../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md
+[SCS]: ../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md
+[TSS]: ../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md
