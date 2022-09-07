@@ -1,4 +1,4 @@
-import generate_doc
+import generate_docs
 
 #
 # _filter_event_link
@@ -7,13 +7,13 @@ import generate_doc
 
 def test_filter_event_link_eventname():
     assert (
-        generate_doc._filter_event_link("EiffelCompositionDefinedEvent")
+        generate_docs._filter_event_link("EiffelCompositionDefinedEvent")
         == "[EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)"
     )
 
 
 def test_filter_event_link_other_text():
-    assert generate_doc._filter_event_link("random text") == "random text"
+    assert generate_docs._filter_event_link("random text") == "random text"
 
 
 #
@@ -22,12 +22,12 @@ def test_filter_event_link_other_text():
 
 
 def test_filter_member_heading_level1_member():
-    assert generate_doc._filter_member_heading("data.name") == "### data.name"
+    assert generate_docs._filter_member_heading("data.name") == "### data.name"
 
 
 def test_filter_member_heading_level2_member():
     assert (
-        generate_doc._filter_member_heading("meta.source.name")
+        generate_docs._filter_member_heading("meta.source.name")
         == "#### meta.source.name"
     )
 
@@ -39,7 +39,7 @@ def test_filter_member_heading_level2_member():
 
 def test_get_field_enum_values_non_enum():
     assert (
-        generate_doc._get_field_enum_values(
+        generate_docs._get_field_enum_values(
             {
                 "type": "string",
             }
@@ -49,7 +49,7 @@ def test_get_field_enum_values_non_enum():
 
 
 def test_get_field_enum_values_plain_num():
-    assert generate_doc._get_field_enum_values(
+    assert generate_docs._get_field_enum_values(
         {
             "type": "string",
             "enum": ["A", "B", "C"],
@@ -58,7 +58,7 @@ def test_get_field_enum_values_plain_num():
 
 
 def test_get_field_enum_values_array():
-    assert generate_doc._get_field_enum_values(
+    assert generate_docs._get_field_enum_values(
         {
             "type": "array",
             "items": {
@@ -76,7 +76,7 @@ def test_get_field_enum_values_array():
 
 def test_get_field_type_plain_scalar():
     assert (
-        generate_doc._get_field_type(
+        generate_docs._get_field_type(
             {
                 "type": "string",
             }
@@ -87,7 +87,7 @@ def test_get_field_type_plain_scalar():
 
 def test_get_field_type_array_of_scalars():
     assert (
-        generate_doc._get_field_type(
+        generate_docs._get_field_type(
             {
                 "type": "array",
                 "items": {
@@ -100,7 +100,7 @@ def test_get_field_type_array_of_scalars():
 
 
 def test_get_field_type_missing_type():
-    assert generate_doc._get_field_type({}) == "Any"
+    assert generate_docs._get_field_type({}) == "Any"
 
 
 #
@@ -113,7 +113,7 @@ def test_get_members_skips_refs():
     still around we'll just skip them.
     """
     assert (
-        generate_doc._get_members(
+        generate_docs._get_members(
             "",
             {
                 "properties": {
@@ -130,7 +130,7 @@ def test_get_members_skips_refs():
 
 def test_get_members_respects_skipped_fields():
     """Fields included in the skip set aren't included in the returned dict."""
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -160,7 +160,7 @@ def test_get_members_respects_skipped_fields():
             "data.name",  # Skips leaf field but leaves others alone.
         },
     ) == {
-        "data": generate_doc.Member(
+        "data": generate_docs.Member(
             description="",
             format=None,
             legal_values=None,
@@ -168,7 +168,7 @@ def test_get_members_respects_skipped_fields():
             typ="Object",
             required=False,
         ),
-        "data.version": generate_doc.Member(
+        "data.version": generate_docs.Member(
             description="",
             format=None,
             legal_values=None,
@@ -180,7 +180,7 @@ def test_get_members_respects_skipped_fields():
 
 
 def test_get_members_plain_scalar_field():
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -193,7 +193,7 @@ def test_get_members_plain_scalar_field():
         },
         set(),
     ) == {
-        "foo": generate_doc.Member(
+        "foo": generate_docs.Member(
             description="This is a foo.",
             format="URL",
             legal_values=None,
@@ -205,7 +205,7 @@ def test_get_members_plain_scalar_field():
 
 
 def test_get_members_recursive_fields():
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -225,7 +225,7 @@ def test_get_members_recursive_fields():
         },
         set(),
     ) == {
-        "foo": generate_doc.Member(
+        "foo": generate_docs.Member(
             description="This is a foo.",
             format="URL",
             legal_values=None,
@@ -233,7 +233,7 @@ def test_get_members_recursive_fields():
             typ="Object",
             required=False,
         ),
-        "foo.bar": generate_doc.Member(
+        "foo.bar": generate_docs.Member(
             description="This is a bar.",
             format="UUID",
             legal_values=None,
@@ -245,7 +245,7 @@ def test_get_members_recursive_fields():
 
 
 def test_get_members_enumerated_field():
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -262,7 +262,7 @@ def test_get_members_enumerated_field():
         },
         set(),
     ) == {
-        "foo": generate_doc.Member(
+        "foo": generate_docs.Member(
             description="This is a foo.",
             format="URL",
             legal_values=["foo", "bar"],
@@ -274,7 +274,7 @@ def test_get_members_enumerated_field():
 
 
 def test_get_members_required_field():
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -288,7 +288,7 @@ def test_get_members_required_field():
         },
         set(),
     ) == {
-        "foo": generate_doc.Member(
+        "foo": generate_docs.Member(
             description="This is a foo.",
             format="URL",
             legal_values=None,
@@ -300,7 +300,7 @@ def test_get_members_required_field():
 
 
 def test_get_members_scalar_arrays():
-    assert generate_doc._get_members(
+    assert generate_docs._get_members(
         "",
         {
             "properties": {
@@ -316,7 +316,7 @@ def test_get_members_scalar_arrays():
         },
         set(),
     ) == {
-        "foo": generate_doc.Member(
+        "foo": generate_docs.Member(
             description="This is a foo.",
             format="URL",
             legal_values=None,
