@@ -47,5 +47,5 @@ jobs:
       - name: Check if workspace contains dirty files
         run: git diff --exit-code || ( echo "::error ::Workspace contained dirty files (see log for details)" ; exit 1)
 
-      - name: Check if workspace contains uncommitted files
-        run: export FILES="$(git ls-files -o --exclude-standard)" ; test -z "$FILES" || ( echo "$FILES" ; echo "::error ::Workspace contained uncommitted files (see log for details)" ; exit 1 )
+      - name: Check if workspace contains untracked files
+        run: export FILES="$(git ls-files -o --exclude-standard)" ; test -z "$FILES" || ( echo "$FILES" ; echo "::error ::Workspace contained untracked files (see log for details)" ; exit 1 )
