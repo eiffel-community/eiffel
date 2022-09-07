@@ -4,7 +4,7 @@ documentation Markdown file.
 
 Example:
 
-    ./generate_doc.py definitions/EiffelCompositionDefinedEvent/3.2.0.yml
+    ./generate_docs.py definitions/EiffelCompositionDefinedEvent/3.2.0.yml
 """
 
 import dataclasses

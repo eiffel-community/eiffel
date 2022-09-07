@@ -4,7 +4,7 @@ schema file with all JSON references resolved and inlined.
 
 Example:
 
-    ./generate_schema.py definitions/EiffelCompositionDefinedEvent/3.2.0.yml
+    ./generate_schemas.py definitions/EiffelCompositionDefinedEvent/3.2.0.yml
 """
 
 import json
