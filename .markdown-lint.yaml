@@ -1,0 +1,24 @@
+---
+###########################
+###########################
+## Markdown Linter rules ##
+###########################
+###########################
+
+# Linter rules doc:
+# - https://github.com/DavidAnson/markdownlint
+#
+# See https://github.com/github/super-linter/blob/main/TEMPLATES/.markdown-lint.yml for an example
+#
+# Note:
+# To comment out a single error:
+#   <!-- markdownlint-disable -->
+#   any violations you want
+#   <!-- markdownlint-restore -->
+#
+
+#################
+# Rules by tags #
+#################
+
+line-length: false
