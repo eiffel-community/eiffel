@@ -52,3 +52,5 @@ jobs:
           DEFAULT_BRANCH: master
           VALIDATE_MARKDOWN: true
           MARKDOWN_CONFIG_FILE: .markdown-lint.yml
+          # Please set a [GITHUB_TOKEN] from the main workflow environment to take advantage of multiple status reports!
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

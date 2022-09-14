@@ -17,6 +17,16 @@
 #   <!-- markdownlint-restore -->
 #
 
+###############
+# Rules by id #
+###############
+
+# Maybe should be
+#MD013:
+#  line_length: 2000
+
+MD013: false
+
 #################
 # Rules by tags #
 #################
