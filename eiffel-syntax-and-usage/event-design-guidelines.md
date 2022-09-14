@@ -43,19 +43,21 @@ occurrences in the system by defining a contract between them.
 
 Following the guidlines stated, they adress the following issues:
 
-* __Dialects__: By using the protocol it gives the best possible conditions
-  for a non-initiated event consumer to make sense of any given set of events.
-* __Inconsistency__: By providing clear explanations of each parameter for both
+* __Protocol variants__: By using the protocol it gives the best possible
+  conditions for a non-initiated event consumer to make sense of any given set of
+  events.
+* __Inconsistency__: By providing clear explanations of each member for both
   producer and consumer it minimizes the risk for both data divergence and
   inconsistency.
 * __Coordination__: The Eiffel protocol minimizes coordination effort between
-  producer and consumer by giving a well-defined specification by defining a
-  contract between the producer and the consumer.
-* __Context__: Following the protocol gives each data a clear context to which it belongs
-* __Hard dependencies__: By using the Eiffel protocol specification it reduces the
-  risk for creating hard connections between producers and consumers. We want to
+  producer and consumer by providing a well-defining a specification that the
+  parties can use as a contract.
+* __Context__: Following the protocol gives each data a clear context to which it
+  belongs.
+* __Tight coupling__: By using the Eiffel protocol specification it reduces the
+  risk of creating hard connections between producers and consumers. We want to
   enable adding new consumers without affecting the producers. This then leads to
-  a decoupled system with separation of concerns than enables scalability and
+  a decoupled system with separation of concerns that enables scalability and
   maintainability.
 
 When using Eiffel as described it creates a data model based on information

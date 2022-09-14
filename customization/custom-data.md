@@ -31,15 +31,15 @@ While __data.customData__ affords users extensive freedom in including custom co
   producer aggregates the data it will do so for a known consumer but we want to
   create a protocol that can serve a consumer that has not yet seen the
   light.
-* Do you give too much data? The maintainers review the protocol have as a whole,
-  making consideration on data security.
+* Do you give too much data? The maintainers of the protocol have reviewed the
+  protocol as a whole, making consideration on data security.
 * Do you use Eiffel to solve a generic data streaming problem? Eiffel provides
   a semantic for describing occurrencies in a CI/CD system and use links when
   needed to point to more information.
 * Can you describe properly what data to send in the new parameter? The Eiffel
   protocol specifies what data to send in each event.
 * Can you ensure the same use of the new parameter in all places?
-* If sending the same data under more than one parameter? Which one do you read?
+* If you send the same data in more than one member? Which one do you read?
 * Have you provided a good enough context for the reader to understand the data?
 
 The [event design guidelines](../eiffel-syntax-and-usage/event-design-guidelines.md) shall be observed with regards to key and value naming conventions.
