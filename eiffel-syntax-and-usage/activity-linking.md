@@ -28,7 +28,7 @@ A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ 
 
 A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline orchestrator, such as Jenkins Pipeline or Argo Workflows, and has no activities triggered by Eiffel events. A fully orchestrated pipeline is probably often initiated by a source change in some SCM system, and that source change is then propagated to the pipeline orchestrator through some non-Eiffel-event channel (e.g. an Github web hook or a Gerrit stream-event)
 
-None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, but then an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC][SCC] /[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
+None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, and an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC][SCC] /[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
 
 To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
 
@@ -58,26 +58,27 @@ An activity could have multiple PRECURSOR activities (also known as "fan-in"), w
 
 The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered *after* that/those other activity/activities were triggered.
 
-PRECURSOR links are only valid to be used on the triggering event of an activity, i.e. on EiffelActivityTriggeredEvent or on EiffelTestSuiteStartedEvent, and the target of this link type shall also be the triggering event of the preceding activity/activities.
+PRECURSOR links are only valid to be used on the triggering event of an activity, i.e. on EiffelActivityTriggeredEvent or on EiffelTestSuiteStartedEvent, and the target of this link type shall be an event of the same type.
 
 This link type is relevant mostly to non event-triggered activities. It is though recommended to also use it for event-triggered activities, as it helps visualizing the full chain of activities in a pipeline in a common way regardless of how each activity was triggered. By always providing PRECURSOR links between activities, a visualization tool does not need to follow any CAUSE links in order to visualize the activity relationships.
 
-For event links between two or more complete pipelines, e.g. when a source change in an integration repository is automatically created by an update to an upstream dependency for that integration, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario.
+For event links between two or more complete pipelines, e.g. when a source change in a repository is automatically created by an update to an upstream dependency for that repository, there would be a CAUSE link to the event notifying that updated dependency. The protocol currently does not recommend to use a PRECURSOR link in that scenario, as the PRECURSOR link type is intended to be used between events of the same type.
 
 __Required:__ No  
 __Legal sources:__ [EiffelActivityTriggeredEvent][ActT],
-[EiffelTestSuiteStartedEvent][TSS]  
+[EiffelTestCaseTriggeredEvent][TCT], [EiffelTestSuiteStartedEvent][TSS]  
 __Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
-[EiffelTestSuiteStartedEvent][TSS]  
+[EiffelTestCaseTriggeredEvent][TCT], [EiffelTestSuiteStartedEvent][TSS]  
 __Multiple allowed:__ Yes  
 
 ### CONTEXT
-This link type is used to declare *hierarchies* of activities within a pipeline. The CONTEXT identifies the activity or test suite of which this event constitutes a part.
-For example:
+This link type is used to declare *hierarchies* of activities within a pipeline. The CONTEXT identifies the activity or test suite of which this event constitutes a part. For example:
 - This *pipeline step* is executed in the *CONTEXT* of that *pipeline*, i.e. the pipeline step is part of a certain pipeline, and the ActT event of the pipeline step SHOULD have a CONTEXT link to the ActT event of the pipeline itself.
 - This *test suite* is executed in the *CONTEXT* of that *pipeline step*, i.e. the test suite is executed within a certain pipeline step, and the TSS event for the test suite SHOULD then have a CONTEXT link to the ActT event of the pipeline step.
 - This *artifact* was built within the *CONTEXT* of that *pipeline step*, i.e. the ArtC event SHOULD have a CONTEXT link to the ActT event of the pipeline step.
 
+ It is probably not relevant to provide a CONTEXT link to a test case execution, so therefore the Eiffel protocol does not allow [EiffelTestCaseTriggeredEvent][TCT] to be a legal target for this link type.
+ 
 __Required:__ No  
 __Legal sources:__ Any  
 __Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
@@ -107,4 +108,5 @@ The link type PRECURSOR is more recently added to the protocol than the CAUSE ty
 [FCD]: ../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md
 [SCC]: ../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md
 [SCS]: ../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md
+[TCT]: ../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md
 [TSS]: ../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md

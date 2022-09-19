@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2021 Ericsson AB and others.
+   Copyright 2017-2022 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -89,8 +89,7 @@ __Description:__ Identifies the activity or test suite of which this event const
 __Required:__ No  
 __Legal targets:__ [EiffelTestSuiteStartedEvent](./EiffelTestSuiteStartedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Used to declare temporal relationships between test suite activities in a pipeline step, i.e. what other test suite (or or test suites) preceded this activity. This link type applies primarily to non event-triggered test suite executions.
-__Description:__ Used to declare temporal relationships between [activities](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](https://github.com/eiffel-community/eiffel/blob/master/eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity (or activities) preceded this activity. This link type applies primarily to non event-triggered activities.
+__Description:__ Used to declare temporal relationships between [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity/activities preceded this activity. This link type applies primarily to non event-triggered activities. For more information on the usage of this link type please see [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).
 
 ### FLOW_CONTEXT
 __Required:__ No  

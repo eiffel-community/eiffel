@@ -41,7 +41,7 @@ These terms are either part of the event names in the Eiffel Vocabulary, or they
 
 ### Activity
 
-An _activity_ is any kind of action in a CI/CD system, normally triggered by an operation done in an SCM system or by a previous activity. The Eiffel protocol declares events related to activities to describe what is going on, what has finished, when did it happen and with what outcome.
+An _activity_ is any kind of action in a CI/CD system, normally triggered by an operation done in an SCM system, by a previous activity, or as part of an activity that focuses on performing tests. The Eiffel protocol declares events related to activities to describe what is going on, what has finished, when did it happen and with what outcome.
 
 Activities are hierarchical. Activities could be whole [pipelines](#pipeline), or sequential or parallel parts thereof. Such pipeline parts could for example be build activities or test activities.
 
@@ -54,9 +54,13 @@ Some activity types have their own specific events, such as EiffelTestCase\*Even
 - [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
 - [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md)
 - [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md)
+- [EiffelActivityCanceledEvent](../eiffel-vocabulary/EiffelActivityCanceledEvent.md)
 - [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)
 - [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
 - [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)
+- [EiffelTestCaseCanceledEvent](../eiffel-vocabulary/EiffelTestCaseCanceledEvent.md)
+- [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
+- [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)
 
 ### Artifact
 
