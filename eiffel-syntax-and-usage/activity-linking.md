@@ -28,7 +28,7 @@ A _fully event driven pipeline_ in Eiffel terminology is a pipeline where _all_ 
 
 A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline orchestrator, such as Jenkins Pipeline or Argo Workflows, and has no activities triggered by Eiffel events. A fully orchestrated pipeline is probably often initiated by a source change in some SCM system, and that source change is then propagated to the pipeline orchestrator through some non-Eiffel-event channel (e.g. an Github web hook or a Gerrit stream-event)
 
-None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, and an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events (e.g. [SCC][SCC] /[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
+None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, and an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events ([SCC][SCC]/[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
 
 To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
 
@@ -78,7 +78,7 @@ This link type is used to declare *hierarchies* of activities within a pipeline.
 - This *artifact* was built within the *CONTEXT* of that *pipeline step*, i.e. the ArtC event SHOULD have a CONTEXT link to the ActT event of the pipeline step.
 
  It is probably not relevant to provide a CONTEXT link to a test case execution, so therefore the Eiffel protocol does not allow [EiffelTestCaseTriggeredEvent][TCT] to be a legal target for this link type.
- 
+
 __Required:__ No  
 __Legal sources:__ Any  
 __Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
