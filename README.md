@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2022 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -45,6 +45,7 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Versioning](./eiffel-syntax-and-usage/versioning.md)
    1. [Compositions and Validity Checking](./eiffel-syntax-and-usage/compositions-and-validity-checking.md)
    1. [Security](./eiffel-syntax-and-usage/security.md)
+   1. [Activity Linking](./eiffel-syntax-and-usage/activity-linking.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent (ActT)](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent (ActC)](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
