@@ -30,7 +30,7 @@ A _fully orchestrated pipeline_ is completely controlled by a dedicated pipeline
 
 None of the scenarios above is probably relevant for most of the Eiffel event users, but rather a combination of the two where a pipeline is often _triggered_ by an Eiffel event, and an orchestrator deals with controlling (at least parts of) the pipeline. Such triggers could for example be SCM events ([SCC][SCC]/[SCS][SCS]) or artifact events (e.g. [ArtC][ArtC]/[ArtP][ArtP]/[CLM][CLM]).
 
-To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol to be used to link to and from activity events.
+To handle the different possible scenarios for pipeline execution, multiple link types are defined in the Eiffel protocol. Those link types are used for linking between activity events.
 
 ## Link Types Involved
 This section describes the main link types involved in linking activities in pipelines
