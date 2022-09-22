@@ -73,13 +73,19 @@ __Description:__ Identifies a cause of the event occurring. SHOULD not be used i
 __Required:__ No  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+__Description:__ Identifies the [activity](../eiffel-syntax-and-usage/glossary.md#activity) or test suite of which this event constitutes a part.
 
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
+
+### PRECURSOR
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare temporal relationships between [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity/activities preceded this activity. This link type applies primarily to non event-triggered activities. For more information on the usage of this link type please see [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).
 
 ## Meta Members
 

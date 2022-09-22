@@ -98,8 +98,9 @@ _links:
       any_type: true
       types: []
   CONTEXT:
-    description: Identifies the activity or test suite of which this
-      event constitutes a part.
+    description: 'Identifies the
+      [activity](../eiffel-syntax-and-usage/glossary.md#activity)
+      or test suite of which this event constitutes a part.'
     required: false
     multiple: false
     targets:
@@ -118,6 +119,20 @@ _links:
       any_type: false
       types:
         - EiffelFlowContextDefinedEvent
+  PRECURSOR:
+    description: 'Used to declare temporal relationships between
+      [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a
+      [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what
+      other activity/activities preceded this activity. This link type applies
+      primarily to non event-triggered activities. For more information on
+      the usage of this link type please see
+      [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
 _history:
   - version: 4.1.0
     introduced_in: '[edition-lyon](../../../tree/edition-lyon)'

@@ -138,6 +138,20 @@ _links:
       any_type: false
       types:
         - EiffelFlowContextDefinedEvent
+  PRECURSOR:
+    description: 'Used to declare temporal relationships between
+      [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a
+      [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what
+      other activity/activities preceded this activity. This link type applies
+      primarily to non event-triggered activities. For more information on
+      the usage of this link type please see
+      [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelTestSuiteStartedEvent
   TERC:
     description: This link signifies that the test suite represented
       by this event groups all test case executions resulting from

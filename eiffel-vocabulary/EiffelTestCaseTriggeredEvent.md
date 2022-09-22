@@ -122,6 +122,12 @@ __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtif
 __Multiple allowed:__ No  
 __Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
 
+### PRECURSOR
+__Required:__ No  
+__Legal targets:__ [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare temporal relationships between [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity/activities preceded this activity. This link type applies primarily to non event-triggered activities. For more information on the usage of this link type please see [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).
+
 ## Meta Members
 
 ### meta.id
