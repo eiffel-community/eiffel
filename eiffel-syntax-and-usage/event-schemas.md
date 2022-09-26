@@ -51,7 +51,7 @@ In addition, the object that describes each property in the schema supports a fe
 ## Sharing subschemas between events
 Another feature of schema definition files is that they may contain references to other schema definition files via standard [JSON references](https://json-spec.readthedocs.io/reference.html). This is used to reuse common definitions like the meta member in all events. Doing so reduces the maintenance burden when making changes to the common parts of the schemas, makes sure there are no unintentional differences between events, and makes it possible for programs reading the files to understand that a subset of the schema actually is common to more than one event. The latter can e.g. be used by programs to generate types for an SDK from the schema definition files.
 
-For example, the definition of __meta__ is found among one ofn the EiffelMetaProperty subschemas like [definitions/EiffelMetaProperty/3.0.0.yml](../definitions/EiffelMetaProperty/3.0.0.yml). Defining this member and referencing it from the event's schema is done like this:
+For example, the definition of __meta__ is found among one of the EiffelMetaProperty subschemas like [definitions/EiffelMetaProperty/3.0.0.yml](../definitions/EiffelMetaProperty/3.0.0.yml). Defining this member and referencing it from the event's schema is done like this:
 
 ```
 meta:
