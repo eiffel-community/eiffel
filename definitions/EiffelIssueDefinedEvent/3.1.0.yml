@@ -1,7 +1,7 @@
 $schema: http://json-schema.org/draft-04/schema#
 _abbrev: ID
 _description: The EiffelIssueDefinedEvent declares that an issue has
-  been created in someexternal issue management software. ID is semantically
+  been created in some external issue management software. ID is semantically
   similar to
   [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and
   [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
