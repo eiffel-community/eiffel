@@ -91,7 +91,7 @@ properties:
             - value
           additionalProperties: false
     required:
-      - name
+      - what
     additionalProperties: false
   links:
     type: array
