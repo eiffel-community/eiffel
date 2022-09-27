@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelArtifactCreatedEvent/3.2.0.yml.
+   This file was generated from ../definitions/EiffelArtifactCreatedEvent/3.3.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -28,6 +28,24 @@ __Description:__ The name (including relative path from the root of the artifact
 __Type:__ String[]  
 __Required:__ No  
 __Description:__ Any tags associated with the file, to support navigation and identification of items of interest.
+
+#### data.fileInformation.integrityProtection
+__Type:__ Object  
+__Required:__ No  
+__Description:__ An optional object containing a digest of the file's contents, i.e. a checksum, computed using the specified algorithm.
+
+##### data.fileInformation.integrityProtection.alg
+__Type:__ String  
+__Format:__ One of the hash algorithms listed in section 1 of [NIST FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf), excluding "SHA-1".  
+__Required:__ Yes  
+__Legal values:__ SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256  
+__Description:__ The cryptographic algorithm used to compute the digest of the file's contents.
+
+##### data.fileInformation.integrityProtection.digest
+__Type:__ String  
+__Format:__ A lowercase string of hexadecimal digits.  
+__Required:__ Yes  
+__Description:__ The digest of the file contents.
 
 ### data.buildCommand
 __Type:__ String  
@@ -235,6 +253,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.3.0 | No edition set | Added data.fileInformation.integrityProtection member (see [Issue 290](https://github.com/eiffel-community/eiffel/issues/290)). |
 | 3.2.0 | No edition set | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
@@ -249,3 +268,4 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 * [Interface example](../examples/events/EiffelArtifactCreatedEvent/interface.json)
 * [Backend example](../examples/events/EiffelArtifactCreatedEvent/backend.json)
 * [Dependent example](../examples/events/EiffelArtifactCreatedEvent/dependent.json)
+* [Checksum example](../examples/events/EiffelArtifactCreatedEvent/checksum.json)
