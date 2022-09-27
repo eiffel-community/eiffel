@@ -94,15 +94,7 @@ properties:
       customData:
         type: array
         items:
-          type: object
-          properties:
-            key:
-              type: string
-            value: {}
-          required:
-            - key
-            - value
-          additionalProperties: false
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
     additionalProperties: false
   links:
     type: array
