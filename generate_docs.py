@@ -24,6 +24,7 @@ Example:
 """
 
 import dataclasses
+import os.path
 import sys
 from pathlib import Path
 from typing import Any
@@ -141,6 +142,7 @@ def _main():
         print(filename)
         input_path = Path(filename)
         schema = definition_loader.load(input_path)
+        output_path = (_OUTPUT_ROOT_PATH / input_path.parent.name).with_suffix(".md")
         context = {
             "type": input_path.parent.name,
             "version": input_path.stem,
@@ -155,8 +157,8 @@ def _main():
             ),
             "examples": schema.get("_examples"),
             "history": schema.get("_history"),
+            "source_file": os.path.relpath(input_path, output_path.parent),
         }
-        output_path = (_OUTPUT_ROOT_PATH / input_path.parent.name).with_suffix(".md")
         with output_path.open(mode="w") as output_file:
             output_file.write(templ.render(**context))
 
