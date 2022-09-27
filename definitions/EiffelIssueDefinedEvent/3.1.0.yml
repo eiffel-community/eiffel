@@ -90,9 +90,9 @@ properties:
 _links:
   CAUSE:
     description: 'Identifies a cause of the event occurring. SHOULD
-      not beused in conjunction with __CONTEXT__: individual events
-      providing __CAUSE__within a larger context gives rise to ambiguity.
-      It is instead recommended tolet the root event of the context
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
       declare __CAUSE__.'
     required: false
     multiple: true
@@ -101,7 +101,7 @@ _links:
       types: []
   CONTEXT:
     description: Identifies the activity or test suite of which this
-      eventconstitutes a part.
+      event constitutes a part.
     required: false
     multiple: false
     targets:
@@ -111,8 +111,8 @@ _links:
         - EiffelTestSuiteStartedEvent
   FLOW_CONTEXT:
     description: 'Identifies the flow context of the event: which is
-      thecontinuous integration and delivery flow in which this occurred
-      – e.g. whichproduct, project, track or version this is applicable
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
       to.'
     required: false
     multiple: false
