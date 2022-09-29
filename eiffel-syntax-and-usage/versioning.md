@@ -22,7 +22,7 @@ The independent versioning of event types, as opposed to a protocol-wide version
 * Consumers must always be ready to receive event types which they are unable to parse: the event producer may be ahead of the consumer on one event type, but not another. Similarly, new and/or custom event types must be expected and handled.
 * Backwards incompatible changes may not be introduced to the __meta.type__ and __meta.version__ properties, as these together form the key which allows the consumer to unlock the remainder of the event.
 
-That being said, to facilitate compatibility and consistency, the Eiffel protocol as described in this repository is released in named and internally coherent _editions_. Each of these editions is represented as a GitHub [release](https://github.com/Ericsson/eiffel/releases). A history of Eiffel editions is available below.
+That being said, to facilitate compatibility and consistency, the Eiffel protocol as described in this repository is released in named and internally coherent _editions_. Each of these editions is represented as a GitHub [release](https://github.com/eiffel-community/eiffel/releases). A history of Eiffel editions is available below.
 
 | Edition   | Tag                                                 | Changes                                          |
 | --------- | --------------------------------------------------- | ------------------------------------------------ |
