@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.1.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.2.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -110,12 +110,6 @@ __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtif
 __Multiple allowed:__ No  
 __Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
 
-### PRECURSOR
-__Required:__ No  
-__Legal targets:__ [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)  
-__Multiple allowed:__ Yes  
-__Description:__ Used to declare temporal relationships between [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what other activity/activities preceded this activity. This link type applies primarily to non event-triggered activities. For more information on the usage of this link type please see [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).
-
 ## Meta Members
 
 ### meta.id
@@ -216,7 +210,7 @@ __Description:__ The signature produced by the signing algorithm.
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
@@ -240,10 +234,17 @@ __Type:__ Integer
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
 
+### meta.schemaUri
+__Type:__ String  
+__Format:__ URI  
+__Required:__ No  
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. The schema on that URI should be considered immutable.
+
 ## Version History
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.2.0 | No edition set | Add schema URL to the meta object (see [Issue 313](https://github.com/eiffel-community/eiffel/issues/313)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
 | 2.0.0 | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |

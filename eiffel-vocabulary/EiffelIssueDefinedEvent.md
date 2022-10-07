@@ -1,10 +1,10 @@
 <!---
-   This file was generated from ../definitions/EiffelIssueDefinedEvent/3.1.0.yml.
+   This file was generated from ../definitions/EiffelIssueDefinedEvent/3.2.0.yml.
    See that file for a copyright notice.
 --->
 
 # EiffelIssueDefinedEvent (ID)
-The EiffelIssueDefinedEvent declares that an issue has been created in some external issue management software. ID is semantically similar to [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
+The EiffelIssueDefinedEvent declares that an issue has been created in someexternal issue management software. ID is semantically similar to [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
 
 ## Data Members
 
@@ -54,19 +54,19 @@ This section describes which link types are valid for this event type. For detai
 __Required:__ No  
 __Legal targets:__ Any  
 __Multiple allowed:__ Yes  
-__Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.
+__Description:__ Identifies a cause of the event occurring. SHOULD not beused in conjunction with __CONTEXT__: individual events providing __CAUSE__within a larger context gives rise to ambiguity. It is instead recommended tolet the root event of the context declare __CAUSE__.
 
 ### CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the activity or test suite of which this event constitutes a part.
+__Description:__ Identifies the activity or test suite of which this eventconstitutes a part.
 
 ### FLOW_CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
+__Description:__ Identifies the flow context of the event: which is thecontinuous integration and delivery flow in which this occurred – e.g. whichproduct, project, track or version this is applicable to.
 
 ## Meta Members
 
@@ -168,7 +168,7 @@ __Description:__ The signature produced by the signing algorithm.
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
@@ -192,10 +192,17 @@ __Type:__ Integer
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
 
+### meta.schemaUri
+__Type:__ String  
+__Format:__ URI  
+__Required:__ No  
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. The schema on that URI should be considered immutable.
+
 ## Version History
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.2.0 | No edition set | Add schema URL to the meta object (see [Issue 313](https://github.com/eiffel-community/eiffel/issues/313)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
 | 2.0.0 | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelIssueDefinedEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |

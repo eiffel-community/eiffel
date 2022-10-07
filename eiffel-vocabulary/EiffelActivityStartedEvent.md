@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelActivityStartedEvent/4.2.0.yml.
+   This file was generated from ../definitions/EiffelActivityStartedEvent/4.3.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -172,7 +172,7 @@ __Description:__ The signature produced by the signing algorithm.
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
@@ -196,10 +196,17 @@ __Type:__ Integer
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
 
+### meta.schemaUri
+__Type:__ String  
+__Format:__ URI  
+__Required:__ No  
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. The schema on that URI should be considered immutable.
+
 ## Version History
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.3.0 | No edition set | Add schema URL to the meta object (see [Issue 313](https://github.com/eiffel-community/eiffel/issues/313)). |
 | 4.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.1.0 | No edition set | Add `data.liveLogs.{mediaType,tags}`. |
 | 4.0.0 | [edition-agen-1](../../../tree/edition-agen-1) | Bug fix in schema file (see [Issue 205](https://github.com/eiffel-community/eiffel/issues/205)) |
