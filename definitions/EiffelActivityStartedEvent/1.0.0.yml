@@ -1,0 +1,129 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ActS
+_description: The EiffelActivityStartedEvent declares that a previously
+  triggered activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md))
+  has started.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/1.0.0.yml
+  data:
+    type: object
+    properties:
+      executionUri:
+        _description: Any URI at which further information about the
+          execution may be found; a typical use case is to link a CI
+          server job execution page.
+        type: string
+      liveLogs:
+        _description: An array of live log files available during execution.
+          These shall not be presumed to be stored persistently; in
+          other words, once the activity has finished there is no guarantee
+          that these links are valid. Persistently stored logs shall
+          be (re-)declared by [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md).
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              _description: The name of the log file.
+              type: string
+            uri:
+              _description: The URI at which the log can be retrieved.
+              type: string
+          required:
+            - name
+            - uri
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  ACTIVITY_EXECUTION:
+    description: Declares the activity execution that was started.
+      In other words, [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
+      acts as a handle for the activity execution. This differs from
+      __CONTEXT__. In __ACTIVITY_EXECUTION__ the source carries information
+      pertaining to the target (i.e. the activity started, finished
+      or was canceled). In __CONTEXT__, on the other hand, the source
+      constitutes a subset of the target (e.g. this test case was executed
+      as part of that activity or test suite).
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  PREVIOUS_ACTIVITY_EXECUTION:
+    description: Identifies the latest previous execution of the activity.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+_history:
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelActivityStartedEvent/simple.json
