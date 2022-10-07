@@ -1,0 +1,153 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+type: object
+properties:
+  id:
+    _description: >-
+      The unique identity of the event, generated at event creation.
+    _format: '[UUID](http://tools.ietf.org/html/rfc4122)'
+    type: string
+    pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+  type:
+    _description: >-
+      The type of event. This field is required by the recipient of
+      the event, as each event type has a specific meaning and a specific
+      set of members in the __data__ and __links__ objects.
+    _format: An event type name
+    type: string
+  version:
+    _description: >-
+      The version of the event type. This field is required by the recipient
+      of the event to interpret the contents. Please see
+      [Versioning](../eiffel-syntax-and-usage/versioning.md) for more
+      information.
+    _format: '[Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html)'
+    type: string
+  time:
+    _description: The event creation timestamp.
+    _format: Milliseconds since epoch.
+    type: integer
+  tags:
+    _description: >-
+      Any tags or keywords associated with the events, for searchability
+      purposes.
+    _format: Free text
+    type: array
+    items:
+      type: string
+  source:
+    _description: >-
+      A description of the source of the event. This object is primarily for
+      traceability purposes, and while optional, some form of identification
+      of the source is __HIGHLY RECOMMENDED__. It offers multiple methods of
+      identifying the source of the event, techniques which may be select from
+      based on the technology domain and needs in any particular use case.
+    type: object
+    properties:
+      domainId:
+        _description: >-
+          Identifies the
+          [domain](../eiffel-syntax-and-usage/glossary.md#domain) that
+          produced an event.
+        _format: Free text
+        type: string
+      host:
+        _description: The hostname of the event sender.
+        _format: Hostname
+        type: string
+      name:
+        _description: The name of the event sender.
+        _format: Free text
+        type: string
+      serializer:
+        _description: >-
+          The [GAV](https://maven.apache.org/guides/mini/guide-naming-conventions.html)
+          coordinates of the serializer software used to construct the event.
+        type: object
+        properties:
+          groupId:
+            _description: The groupId of the serializer software.
+            _format: groupId
+            type: string
+          artifactId:
+            _description: The artifactId of the serializer software.
+            _format: artifactId
+            type: string
+          version:
+            _description: The version of the serializer software.
+            _format: version
+            type: string
+        required:
+          - groupId
+          - artifactId
+          - version
+        additionalProperties: false
+      uri:
+        _description: The URI of, related to or describing the event sender.
+        _format: URI
+        type: string
+    additionalProperties: false
+  security:
+    _description: >-
+      An optional object for enclosing security related information,
+      particularly supporting data integrity. See
+      [Security](../eiffel-syntax-and-usage/security.md) for further
+      information.
+    type: object
+    properties:
+      sdm:
+        _description: >-
+          An optional object for properties supporting the
+          [Strong Distribution Model](http://www.cryptnet.net/fdp/crypto/strong_distro.html).
+          Note that this only addressed the _integrity_ of the Eiffel event,
+          not its _confidentiality_ or _availability_.
+        type: object
+        properties:
+          authorIdentity:
+            _description: >-
+              The identity of the author of the event. This property is
+              intended to enable the recipient to look up the appropriate
+              public key for decrypting the digest and thereby verifying
+              author identity and data integrity. The format of the author
+              identity varies depending on the key infrastructure solution
+              used. Note that this requires the presence of a Trusted
+              Authority (TA) which the recipient can query for the correct
+              public key. The identity and location of the TA must never
+              be included in the event itself, as this would compromise
+              the security of the solution.
+            type: string
+          encryptedDigest:
+            _description: >-
+              The encrypted digest. The cryptographic hash function and
+              the decryption algorithm to use, similarly to the Trusted
+              Authority (TA), must be known to the recipient. Note that
+              the digest of the entire event is affected by the value of
+              this property. For this reason the input to the hash function
+              SHALL be the entire event unaltered in all parts except for
+              this property, which SHALL be replaced by an empty string.
+            type: string
+        required:
+          - authorIdentity
+          - encryptedDigest
+        additionalProperties: false
+    additionalProperties: false
+required:
+  - id
+  - type
+  - version
+  - time
+additionalProperties: false

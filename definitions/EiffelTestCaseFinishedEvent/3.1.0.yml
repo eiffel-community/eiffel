@@ -1,0 +1,207 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: TCF
+_description: |-
+  The EiffelTestCaseFinishedEvent declares that a previously started test case (declared by [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) has finished and reports the outcome.
+
+  Note that while similar, the __data.outcome__ object is different from that of [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md). The outcome of the test case reports not only the conclusion of the test case execution - whether the test case was successfully executed - but also passes a verdict on the item under test. To highlight this conceptual difference, both __data.outcome.verdict__ and __data.outcome.conclusion__ are included.
+
+  Also note that unlike [EiffelTestSuiteFinishedEvent](./EiffelTestSuiteFinishedEvent.md), EiffelTestCaseFinishedEvent must report both __data.outcome.verdict__ and __data.outcome.conclusion__.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.0.0.yml
+  data:
+    type: object
+    properties:
+      outcome:
+        _description: The outcome of the test case.
+        type: object
+        properties:
+          verdict:
+            _description: |-
+              A terse standardized verdict on the item or items under test.
+              PASSED signifies that the item or items under test successfully passed the test case.  
+              FAILED signifies that the item or items under test failed to pass the test case.  
+              INCONCLUSIVE signifies that the verdict of the test case was inconclusive. This SHOULD be the case if __data.outcome.conclusion__ is not __SUCCESSFUL__, but may in combination with a __SUCCESSFUL__ conclusion be used to represent unreliability or flakiness.
+            type: string
+            enum:
+              - PASSED
+              - FAILED
+              - INCONCLUSIVE
+          conclusion:
+            _description: |-
+              A terse standardized conclusion of the test case, designed to be machine readable.
+              SUCCESSFUL signifies that the test case was successfully concluded. Note that this does not imply that the item under test passed the tests.  
+              FAILED signifies that the test case could not be successfully executed. To exemplify, one or more tests failed to run due to required environments being unavailable.  
+              ABORTED signifies that the test case was aborted before it could be concluded.  
+              TIMED_OUT signifies that the test case did not conclude within the allowed time frame.  
+              INCONCLUSIVE signifies that the outcome of the test case could not be determined.
+            type: string
+            enum:
+              - SUCCESSFUL
+              - FAILED
+              - ABORTED
+              - TIMED_OUT
+              - INCONCLUSIVE
+          description:
+            _description: A verbose description of the test case outcome,
+              designed to provide human readers with further information.
+            type: string
+          metrics:
+            _description: A list of metrics collected during the test
+              case execution. Note that while complete freedom is allowed
+              in metrics names and value types, it is highly recommended
+              to keep reported metrics concise and consistent. In other
+              words, do not include excessive amounts of data (use
+              __data.persistentLogs__ for that), and avoid unnecessary
+              variations in value names or types over time.
+            type: array
+            items:
+              type: object
+              properties:
+                name:
+                  _description: The metrics name.
+                  type: string
+                value:
+                  _description: The metrics value.
+              required:
+                - name
+                - value
+              additionalProperties: false
+        required:
+          - verdict
+          - conclusion
+        additionalProperties: false
+      persistentLogs:
+        _description: An array of persistent log files generated during
+          execution.
+        type: array
+        items:
+          type: object
+          properties:
+            mediaType:
+              _description: The [media type](https://en.wikipedia.org/wiki/Media_type)
+                of the URI's payload. Can be used to differentiate
+                between various representations of the same log, e.g.
+                text/html for human consumption and text/plain or application/json
+                for the machine-readable form.
+              type: string
+            name:
+              _description: The name of the log file.
+              type: string
+            tags:
+              _description: Arbitrary tags and keywords that describe
+                this log.
+              type: array
+              items:
+                type: string
+            uri:
+              _description: The URI at which the log can be retrieved.
+              type: string
+          required:
+            - name
+            - uri
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    required:
+      - outcome
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  TEST_CASE_EXECUTION:
+    description: Identifies the relevant test case execution. In other
+      words, [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)
+      acts as a handle for a particular test case execution. This differs
+      from __CONTEXT__. In __TEST_CASE_EXECUTION__ the source carries
+      information pertaining to the target (i.e. the test case execution
+      started, finished or was canceled). In __CONTEXT__, on the other
+      hand, the source constitutes a subset of the target (e.g. this
+      test case was executed as part of that activity or test suite).
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseTriggeredEvent
+_history:
+  - version: 3.1.0
+    introduced_in: Current version
+    changes: Add `data.persistentLogs.{mediaType,tags}`.
+  - version: 3.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection
+  - version: 2.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.1
+    introduced_in: '[0a2f9ef](../../../blob/0a2f9ef139fe6ead2493e5deddf1337ffb3dd4af/eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)'
+    changes: data.outcome.metrics.value and data.outcome.metrics.name
+      made mandatory.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelTestCaseFinishedEvent/simple.json
