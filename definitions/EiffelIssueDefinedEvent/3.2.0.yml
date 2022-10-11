@@ -1,7 +1,22 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
 $schema: http://json-schema.org/draft-04/schema#
 _abbrev: ID
 _description: The EiffelIssueDefinedEvent declares that an issue has
-  been created in someexternal issue management software. ID is semantically
+  been created in some external issue management software. ID is semantically
   similar to
   [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and
   [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
@@ -53,15 +68,7 @@ properties:
       customData:
         type: array
         items:
-          type: object
-          properties:
-            key:
-              type: string
-            value: {}
-          required:
-            - key
-            - value
-          additionalProperties: false
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
     required:
       - type
       - tracker
@@ -75,9 +82,9 @@ properties:
 _links:
   CAUSE:
     description: 'Identifies a cause of the event occurring. SHOULD
-      not beused in conjunction with __CONTEXT__: individual events
-      providing __CAUSE__within a larger context gives rise to ambiguity.
-      It is instead recommended tolet the root event of the context
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
       declare __CAUSE__.'
     required: false
     multiple: true
@@ -86,7 +93,7 @@ _links:
       types: []
   CONTEXT:
     description: Identifies the activity or test suite of which this
-      eventconstitutes a part.
+      event constitutes a part.
     required: false
     multiple: false
     targets:
@@ -96,8 +103,8 @@ _links:
         - EiffelTestSuiteStartedEvent
   FLOW_CONTEXT:
     description: 'Identifies the flow context of the event: which is
-      thecontinuous integration and delivery flow in which this occurred
-      – e.g. whichproduct, project, track or version this is applicable
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
       to.'
     required: false
     multiple: false

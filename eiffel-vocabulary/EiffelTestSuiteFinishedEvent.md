@@ -193,7 +193,7 @@ __Description:__ The signature produced by the signing algorithm.
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
@@ -221,7 +221,7 @@ __Description:__ The number of the event within the named sequence.
 __Type:__ String  
 __Format:__ URI  
 __Required:__ No  
-__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. The schema on that URI should be considered immutable.
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. It can be used to parse event data for validation and extraction purposes, for example. Note, that the schema on that URI should be considered immutable.
 
 ## Version History
 
