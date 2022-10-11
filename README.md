@@ -47,6 +47,7 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Security](./eiffel-syntax-and-usage/security.md)
    1. [Activity Linking](./eiffel-syntax-and-usage/activity-linking.md)
    1. [Event Schemas](./eiffel-syntax-and-usage/event-schemas.md)
+   1. [Event Categories](./eiffel-syntax-and-usage/event-categories.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent (ActT)](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent (ActC)](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
