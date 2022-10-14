@@ -201,7 +201,6 @@ properties:
       should be considered immutable.
     _format: URI
     type: string
-    additionalProperties: false
 required:
   - id
   - type
