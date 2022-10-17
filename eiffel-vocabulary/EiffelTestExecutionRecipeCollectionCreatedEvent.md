@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/4.2.0.yml.
+   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/4.3.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -267,10 +267,17 @@ __Type:__ Integer
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
 
+### meta.schemaUri
+__Type:__ String  
+__Format:__ URI  
+__Required:__ No  
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. It can be used to parse event data for validation and extraction purposes, for example. Note, that the schema on that URI should be considered immutable.
+
 ## Version History
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.3.0 | No edition set | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.2.0 | No edition set | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | 4.1.1 | [edition-lyon](../../../tree/edition-lyon) | Add missing validation pattern to links.target member (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | 4.1.0 | No edition set | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
