@@ -150,7 +150,7 @@ _links:
 _history:
   - version: 3.3.0
     introduced_in: 'No edition set'
-    changes: Add schema URL to the meta object (see [Issue 313](https://github.com/eiffel-community/eiffel/issues/313)).
+    changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
   - version: 3.2.0
     introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
     changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).

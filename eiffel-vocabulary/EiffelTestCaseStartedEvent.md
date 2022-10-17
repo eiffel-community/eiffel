@@ -206,7 +206,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 3.3.0 | No edition set | Add schema URL to the meta object (see [Issue 313](https://github.com/eiffel-community/eiffel/issues/313)). |
+| 3.3.0 | No edition set | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.1.0 | No edition set | Add `data.liveLogs.{mediaType,tags}`. |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
