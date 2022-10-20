@@ -25,8 +25,8 @@ __data.customData__ is an optional member of _all_ Eiffel events. It is an array
 While __data.customData__ affords users extensive freedom in including custom content, they are strongly encouraged to consider the following before making use of it:
 
 * Are there existing Eiffel events and/or event members able to express the information? Using the standard vocabulary and syntax should always be the first option.
-* If your use case lacks support in the standard Eiffel vocabulary, there's a chance this is actually a general use case which deserves such support. Create an [Issue](https://github.com/Ericsson/eiffel/issues) about it! It is always better to design a common solution than to implement multiple local adaptations.
-* Users defining __data.customData__ members are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events or syntax can not be expected, unless the custom syntax is proposed to and accepted into the standard Eiffel vocabulary (and consequently is no longer custom).
+* If your use case lacks support in the standard Eiffel vocabulary, there's a chance this is actually a general use case which deserves such support. Create an [Issue](https://github.com/eiffel-community/eiffel/issues) about it! It is always better to design a common solution than to implement multiple local adaptations.
+* Users defining __data.customData__ members are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events or syntax cannot be expected, unless the custom syntax is proposed to and accepted into the standard Eiffel vocabulary (and consequently is no longer custom).
 * Do you aggregate data on the producer side and add that data as custom data? If
   the producer aggregates the data it will do so for a specific consumer but we
   want to create a protocol that can serve any consumer for use cases that has not
