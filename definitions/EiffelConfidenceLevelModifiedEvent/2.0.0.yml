@@ -1,0 +1,154 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: CLM
+_description: |-
+  The EiffelConfidenceLevelModifiedEvent declares that an entity has achieved (or failed to achieve) a certain level of confidence, or in a broader sense to annotate it as being applicable or relevant to a certain case (e.g. fit for release to a certain customer segment or having passed certain criteria). This is particularly useful for promoting various engineering artifacts, such as product revisions, through the continuous integration and delivery pipeline.
+
+  Confidence levels may operate at high or low levels of abstraction - ranging from "smokeTestsOk" to "releasable" or "released" - and they may group other confidence levels of lower abstraction levels. They may also be general or very niched, e.g. "releasable" or "releasableToCustomerX". Confidence levels frequently figure in automated delivery interfaces within a tiered system context: lower level tiers issue an agreed confidence level signaling that a new version is ready for integration in a higher level tier.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/2.0.0.yml
+  data:
+    type: object
+    properties:
+      name:
+        _description: The name of the confidence level. It is recommended
+          for confidence level names to conform with camelCase formatting,
+          in line with the format of key names of the Eiffel protocol
+          as a whole.
+        type: string
+      value:
+        _description: |-
+          The value of the confidence level.
+          SUCCESS signifies that the confidence level has been successfully achieved.  
+          FAILURE signifies that the confidence level could not be achieved.
+          INCONCLUSIVE signifies that achievement of the confidence level could not be determined.
+        type: string
+        enum:
+          - SUCCESS
+          - FAILURE
+          - INCONCLUSIVE
+      issuer:
+        _description: The individual or entity issuing the confidence
+          level.
+        type: object
+        properties:
+          name:
+            _description: The name of the issuer.
+            type: string
+          email:
+            _description: The e-mail address of the issuer.
+            type: string
+          id:
+            _description: Any identity, alias or handle of the issuer,
+              such as a corporate id or username.
+            type: string
+          group:
+            _description: Any group, such as a development team, committee
+              or test group, to which the issuer belongs.
+            type: string
+        additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    required:
+      - name
+      - value
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  SUBJECT:
+    description: Identifies a subject of the confidence level; in other
+      words, what the confidence level applies to.
+    required: true
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelCompositionDefinedEvent
+        - EiffelSourceChangeCreatedEvent
+        - EiffelSourceChangeSubmittedEvent
+  SUB_CONFIDENCE_LEVEL:
+    description: 'Used in events summarizing multiple confidence levels.
+      Example use case: the confidence level "allTestsOk" summarizes
+      the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk",
+      and consequently links to them via __SUB_CONFIDENCE_LEVEL__.
+      This is intended for purely descriptive, rather than prescriptive,
+      use.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelConfidenceLevelModifiedEvent
+_history:
+  - version: 2.0.0
+    introduced_in: Current version
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelConfidenceLevelModifiedEvent/simple.json

@@ -1,0 +1,150 @@
+# Copyright 2017-2022 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ActT
+_description: |-
+  The EiffelActivityTriggeredEvent declares that a certain activity - typically a build, test or analysis activity - has been triggered by some factor. Note that this is crucially different from the activity execution having _started_ (as declared by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)).
+
+  In a situation where execution follows immediately upon triggering these two events should be sent together. Where that is not the case (e.g. due to queuing) the time delta between EiffelActivityTriggeredEvent and EiffelActivityStartedEvent constitutes the queue time.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.0.0.yml
+  data:
+    type: object
+    properties:
+      name:
+        _description: The name of the activity. Uniqueness is not required
+          or checked, but is useful.
+        type: string
+      categories:
+        _description: Any categorization of the activity. This can
+          be used to group multiple similar activities for analysis
+          and visualization purposes. Example usage is to label the
+          similar but unique build activities of all the components
+          of system X as "System X Component Build" (whereas the name
+          would be e.g. "System X Component Y Build").
+        type: array
+        items:
+          type: string
+      triggers:
+        _description: The circumstances triggering the activity.
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              _description: |-
+                The type of trigger.
+                MANUAL signifies that the activity was manually triggered.  
+                EIFFEL_EVENT signifies that the activity was triggered by one or more Eiffel events. These events should be represented via __CAUSE__ links.  
+                SOURCE_CHANGE signifies that the activity was triggered as a consequence of a detected source change __not__ represented by Eiffel events.  
+                TIMER signifies that the activity was triggered by a timer.  
+                OTHER signifies any other triggering cause.
+              type: string
+              enum:
+                - MANUAL
+                - EIFFEL_EVENT
+                - SOURCE_CHANGE
+                - TIMER
+                - OTHER
+            description:
+              _description: A description of the trigger.
+              type: string
+          required:
+            - type
+          additionalProperties: false
+      executionType:
+        _description: The type of execution (often related to, but
+          ultimately separate from, __data.triggers.type__).
+        type: string
+        enum:
+          - MANUAL
+          - SEMI_AUTOMATED
+          - AUTOMATED
+          - OTHER
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    required:
+      - name
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+_history:
+  - version: 4.0.0
+    introduced_in: '[edition-agen-1](../../../tree/edition-agen-1)'
+    changes: Bug fix in schema file (see [Issue 205](https://github.com/eiffel-community/eiffel/issues/205))
+  - version: 3.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185))
+  - version: 2.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelActivityTriggeredEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelActivityTriggeredEvent/simple.json
+  - title: Example containing custom data
+    url: ../examples/events/EiffelActivityTriggeredEvent/simple-customdata.json
