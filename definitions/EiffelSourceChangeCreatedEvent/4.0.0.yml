@@ -217,7 +217,7 @@ _links:
     description: Identifies an issue which was previously resolved,
       but that this SCC claims it has made changes to warrant removing
       the resolved status. For example, if an issue "Feature X" was
-      resolved, but this SCC removed the implmentation that led to
+      resolved, but this SCC removed the implementation that led to
       "Feature X" being resolved, that issue should no longer be considered
       resolved.
     required: false

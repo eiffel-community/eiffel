@@ -64,7 +64,7 @@ __Description:__ The collection of test execution recipes within the batch.
 ##### data.batches.recipes.id
 __Type:__ String  
 __Required:__ Yes  
-__Description:__ A UUID identifying the unique execution. Note that this is different from the id of a test case, in two ways. First, a test case is a (presumably) persistnent entity, whereas an execution is transient in nature. Second, a test case may be executed any number of times in any given recipe collection.
+__Description:__ A UUID identifying the unique execution. Note that this is different from the id of a test case, in two ways. First, a test case is a (presumably) persistent entity, whereas an execution is transient in nature. Second, a test case may be executed any number of times in any given recipe collection.
 
 ##### data.batches.recipes.testCase
 __Type:__ Object  
