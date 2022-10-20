@@ -49,8 +49,8 @@ Following the guidelines stated, they address the following issues:
 * __Inconsistency__: By providing clear explanations of each member for both
   producers and consumers it minimizes the risk for both data divergence and
   inconsistency.
-* __Coordination__: The Eiffel protocol minimizes coordination effort between
-  producers and consumers by providing a well-defining a specification that the
+* __Coordination__: The Eiffel protocol minimizes coordination efforts between
+  producers and consumers by providing a well-defined specification that the
   parties can use as a contract.
 * __Context__: Following the protocol gives each data a clear context to which it
   belongs.
