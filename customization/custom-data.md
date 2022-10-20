@@ -27,10 +27,11 @@ While __data.customData__ affords users extensive freedom in including custom co
 * Are there existing Eiffel events and/or event members able to express the information? Using the standard vocabulary and syntax should always be the first option.
 * If your use case lacks support in the standard Eiffel vocabulary, there's a chance this is actually a general use case which deserves such support. Create an [Issue](https://github.com/Ericsson/eiffel/issues) about it! It is always better to design a common solution than to implement multiple local adaptations.
 * Users defining __data.customData__ members are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events or syntax can not be expected, unless the custom syntax is proposed to and accepted into the standard Eiffel vocabulary (and consequently is no longer custom).
-* Do you introducing custom data to aggregate data on the producer side? If the
-  producer aggregates the data it will do so for a known consumer but we want to
-  create a protocol that can serve a consumer that has not yet seen the
-  light.
+* Do you aggregate data on the producer side and add that data as custom data? If
+  the producer aggregates the data it will do so for a specific consumer but we
+  want to create a protocol that can serve any consumer for use cases that has not
+  yet seen the light. Try to use the existing fields and aggregate data
+  on the consumer side.
 * Do you give too much data? The maintainers of the protocol have reviewed the
   protocol as a whole, making consideration on data security.
 * Do you use Eiffel to solve a generic data streaming problem? Eiffel provides

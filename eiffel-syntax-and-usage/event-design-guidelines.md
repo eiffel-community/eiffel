@@ -38,19 +38,19 @@ The design of Eiffel events is governed by the following guidelines:
 ## Benefits and Implications
 
 By following the design guidelines the Eiffel protocol provides a language that
-gives producer and consumer a common way of understanding and describing the
+gives producers and consumers a common way of understanding and describing the
 occurrences in the system by defining a contract between them.
 
-Following the guidlines stated, they adress the following issues:
+Following the guidelines stated, they address the following issues:
 
 * __Protocol variants__: By using the protocol it gives the best possible
-  conditions for a non-initiated event consumer to make sense of any given set of
+  conditions for a non-initiated event consumers to make sense of any given set of
   events.
 * __Inconsistency__: By providing clear explanations of each member for both
-  producer and consumer it minimizes the risk for both data divergence and
+  producers and consumers it minimizes the risk for both data divergence and
   inconsistency.
 * __Coordination__: The Eiffel protocol minimizes coordination effort between
-  producer and consumer by providing a well-defining a specification that the
+  producers and consumers by providing a well-defining a specification that the
   parties can use as a contract.
 * __Context__: Following the protocol gives each data a clear context to which it
   belongs.
