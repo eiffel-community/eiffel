@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2019 Ericsson AB and others.
+   Copyright 2017-2022 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +19,22 @@
 
 This page provides an introduction to Eiffel: what is it, why is it and who is it for?
 
+<!-- TOC -->
+
+- [Introduction](#introduction)
+  - [Why Eiffel?](#why-eiffel)
+  - [What is Eiffel?](#what-is-eiffel)
+  - [Who Developed Eiffel?](#who-developed-eiffel)
+  - [Who Should Use Eiffel?](#who-should-use-eiffel)
+  - [How Do I Get Started?](#how-do-i-get-started)
+  - [How is Eiffel Technology Agnostic?](#how-is-eiffel-technology-agnostic)
+  - [How Does Eiffel Achieve Scalability?](#how-does-eiffel-achieve-scalability)
+  - [How Does Eiffel Achieve Flexibility?](#how-does-eiffel-achieve-flexibility)
+  - [How Does Eiffel Achieve Traceability?](#how-does-eiffel-achieve-traceability)
+  - [How Do I Make Sense of Events?](#how-do-i-make-sense-of-events)
+
+<!-- /TOC -->
+
 ## Why Eiffel?
 As software products steadily increase in size and complexity, so do the systems that ultimately build, test, package and deploy those products: our continuous integration and delivery systems. It is not uncommon for these systems to span entire enterprises with thousands of engineers in various roles, integrating and testing solutions in intricate webs of dependencies and causality. Historically, this has been a process management problem, but with increasing demands for speed and automation it is rapidly transforming into a software engineering problem.
 
@@ -27,7 +43,7 @@ Furthermore, it is a software engineering problem that can scarcely be solved by
 The Eiffel philosophy is to treat the continuous integration and delivery system just like any other complex and constantly changing software system, and apply the same architectural thinking. In Eiffel that new acquisition or those rebellious developers can have their cake and eat it, too. Heterogenous tools and processes are allowed to co-exist by applying a thin layer of glue on top of it all, focusing on the essential pieces of information we need in order to collaborate. And, analogous to a microservices oriented system, various services can then be added on top of that glue to store, process, analyze, visualize and act upon those essential pieces of information, affording you transparency across the enterprise.
 
 ## What is Eiffel?
-Eiffel is a framework for continuous integration and delivery, particularly addressing the challenges of a distributed and heterogeneous environment at an enterprise scale. It does this through the _in situ_ real time generation of globally broadcast events - events which reference one another, forming a Directed Acyclic Graph (DAG) describing all the activities of the continuous integration and delivery pipeline, regardless of where they took place, which underlying technology they used, or even whether they were automated or not. 
+Eiffel is a framework for continuous integration and delivery, particularly addressing the challenges of a distributed and heterogeneous environment at an enterprise scale. It does this through the _in situ_ real time generation of globally broadcast events - events which reference one another, forming a Directed Acyclic Graph (DAG) describing all the activities of the continuous integration and delivery pipeline, regardless of where they took place, which underlying technology they used, or even whether they were automated or not.
 
 Eiffel fundamentally consists of two parts. First, a vocabulary and syntax of events, forming the communication protocol of the framework. Second, services built on top of that communication protocol to orchestrate continuous integration and delivery activities, provide traceability, dashboards, visualizations and much more.
 
@@ -40,7 +56,7 @@ Eiffel is technology and domain agnostic - it may be applied equally well to the
 ## How Do I Get Started?
 To use Eiffel you need three things: the Eiffel vocabulary, messaging infrastructure and services operating on, storing and analyzing your Eiffel events.
 
-The Eiffel vocabulary can be adopted incrementally - which events you use is up to you, but _how_ they are used is heavily standardized to ensure interoperability and alignment on proven practices. 
+The Eiffel vocabulary can be adopted incrementally - which events you use is up to you, but _how_ they are used is heavily standardized to ensure interoperability and alignment on proven practices.
 
 There are several valid out-of-the-box solutions for event transport and routing infrastructure, depending on your needs and preferences. Examples include [RabbitMQ](https://www.rabbitmq.com/), [Kafka](http://kafka.apache.org/), [NATS](http://nats.io/) and more. When choosing infrastructure, it is important to understand the implications of the different types of guarantees these solutions can offer. While some provide durable queues and delivery guarantees, others do not, but instead offer higher performance. It is important to consider one's requirements and choose the appropriate solution for event transport and routing accordingly; to maximize reliability and traceability capabilities, it is generally recommended to choose a solution with durable queues and delivery guarantees.
 
@@ -56,7 +72,7 @@ Eiffel is not a centralized or monolithic tool. Instead it represents a decentra
 * It removes centralized continuous integration servers as bottlenecks.
 
 ## How Does Eiffel Achieve Flexibility?
-An important principle in Eiffel is that events are not prescriptive, but descriptive. An event is not an RPC call, it will not order the recipient to take a certain action. Instead, it is assumed that the recipient will react in an intelligent and conducive manner to the information it gathers. Holding to this principle becomes particularly important in large, multi-organizational integration contexts, as it allows decoupling and separation of concerns between consumers and producers of events. 
+An important principle in Eiffel is that events are not prescriptive, but descriptive. An event is not an RPC call, it will not order the recipient to take a certain action. Instead, it is assumed that the recipient will react in an intelligent and conducive manner to the information it gathers. Holding to this principle becomes particularly important in large, multi-organizational integration contexts, as it allows decoupling and separation of concerns between consumers and producers of events.
 
 To exemplify, an organization developing a common component does not - and indeed should not - need to know how the continuous integration systems of its consumers are set up. As long as it accurately report on its own process as it builds, tests and verifies new versions consumers may come and go, or may decide to pick up specific deliveries or not, for any reason, without any need to notify or synchronize with the developing organization. Despite this traceability is still preserved: looking up who has integrated which component version when, how long it took, and whether they are included in any customer releases is but a query away.
 
