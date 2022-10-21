@@ -44,7 +44,7 @@ occurrences in the system by defining a contract between them.
 Following the guidelines stated, they address the following issues:
 
 * __Protocol variants__: By using the protocol it gives the best possible
-  conditions for a non-initiated event consumers to make sense of any given set of
+  conditions for non-initiated event consumers to make sense of any given set of
   events.
 * __Inconsistency__: By providing clear explanations of each member for both
   producers and consumers it minimizes the risk for both data divergence and
