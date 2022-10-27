@@ -1,0 +1,31 @@
+{
+  "meta": {
+    "type": "EiffelArtifactCreatedEvent",
+    "version": "3.3.0",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0"
+  },
+  "data": {
+    "identity": "pkg:generic/empty-file",
+    "fileInformation": [
+      {
+        "name": "empty-file.txt",
+        "integrityProtection": {
+          "alg": "SHA-256",
+          "digest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    ],
+    "name": "This artifact is just an empty file"
+  },
+  "links": [
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "COMPOSITION",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    }
+  ]
+}
