@@ -39,6 +39,8 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Toulouse  | [edition-toulouse](../../../tree/edition-toulouse)  | Stepped major version of TERCC. Updated FLOW_CONTEXT link type, resulting in new minor version of all event types. |
 | Bordeaux  | [edition-bordeaux](../../../tree/edition-bordeaux)  | Initial edition. |
 
+The [schema definition files](event-schemas.md) document the mappings between event versions and editions.
+
 ## Rules for patch, minor and major versions
 In the case of a communication protocol, applying Semantic Versioning is not as straight-forward as for a regular software implementation. The ground rule is to consider backwards compatibility from the perspective of the consumer of an event. Below are rules and examples of how this applies to the Eiffel protocol.
 
