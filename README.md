@@ -86,3 +86,5 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Custom Data](./customization/custom-data.md)
 1. Extensions
    1. [Eiffel Operations Extension](https://github.com/Ericsson/eiffel-operations-extension)
+1. Releases and Milestones
+   1. [Release process](./releases-and-milestones/release-process.md)

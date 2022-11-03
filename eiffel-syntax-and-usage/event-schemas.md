@@ -35,7 +35,7 @@ Both schemas and documentation files are generated from _schema definition files
 | `_links.<link type>.targets.types`     | A string array of event names that the link type may point to. Must be non-empty if `any_type` is false, and must be empty if `any_type` is true. |
 | `_history`      | An array of objects describing the event type's version history, up to and including the current version. The items should be sorted in reverse order. |
 | `_history.version`        | The event version described in this item. |
-| `_history.introduced_in`  | A description of the edition in which this item's event version was introduced. |
+| `_history.introduced_in`  | The first edition in which this version was the latest for this event type. If the version hasn't been released in a protocol edition or if there are newer versions in the first edition where it was introduced, use "No edition set". |
 | `_history.changes`        | A short description of the changes in this item's event version. | 
 | `_examples`     | An array of objects describing examples of this event. |
 | `_examples.title`         | The name of the example. |
