@@ -31,7 +31,7 @@ That being said, to facilitate compatibility and consistency, the Eiffel protoco
 | Ruhnu  | _Reserved for future use._  | |
 | Santiago  | _Reserved for future use._  | |
 | Orizaba  | _Reserved for future use._  | |
-| Arica  | _Reserved for future use._  | |
+| Arica  | [edition-arica](../../../tree/edition-arica)  | Added optional file digest member to ArtC ([Issue 290](https://github.com/eiffel-community/eiffel/issues/290)), added PRECURSOR link type to ActT, TCT, and TSS ([Issue 227](https://github.com/eiffel-community/eiffel/issues/227)), added testCase.version member to TERCC ([Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | Lyon  | [edition-lyon](../../../tree/edition-lyon)  | Added domainId member to links ([Issue 233](https://github.com/eiffel-community/eiffel/issues/233)), added {mediaType,tags} to data.{liveLogs,persistentLogs} of various event types ([Issue 166](https://github.com/eiffel-community/eiffel/issues/166)), added RUNTIME_ENVIRONMENT as link type for ED ([Issue 258](https://github.com/eiffel-community/eiffel/issues/258)), and added missing validation pattern for links.target of TERCC ([Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | Paris  | [edition-paris](../../../tree/edition-paris)  | Minor backwards-compatible changes to CD and ArtP (Issues [218](https://github.com/eiffel-community/eiffel/issues/218) and [248](https://github.com/eiffel-community/eiffel/issues/248)). |
 | Agen-1  | [edition-agen-1](../../../tree/edition-agen-1)  | Maintenance release to solve [Issue 205](https://github.com/eiffel-community/eiffel/issues/205). |
