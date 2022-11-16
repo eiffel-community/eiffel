@@ -151,4 +151,4 @@ An _occurrence_ is the capture of a statement of fact during the execution of a 
 
 ### Pipeline
 
-A _pipeline_ is an ordered set of [activities](#activity) often triggered by a [source change](#source-change) being created or [submitted](#submit). There exists no EiffelPipeline\*Events, as the pipeline is to be considered an activity in itself. A pipeline execution could thus be expressed with EiffelActivity\*Events, and its included sub activities would then have an hierarchical connection to the pipeline activity.
+A _pipeline_ is an ordered set of [activities](#activity) often triggered by a [source change](#source-change) being created or [submitted](#submit). There exists no EiffelPipeline\*Events, as the pipeline is to be considered an activity in itself. A pipeline execution could thus be expressed with EiffelActivity\*Events, and its included sub activities would then have a hierarchical connection to the pipeline activity.
