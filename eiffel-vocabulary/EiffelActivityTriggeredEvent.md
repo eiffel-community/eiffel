@@ -209,7 +209,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 4.2.0 | No edition set | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
+| 4.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.0.0 | [edition-agen-1](../../../tree/edition-agen-1) | Bug fix in schema file (see [Issue 205](https://github.com/eiffel-community/eiffel/issues/205)) |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)) |

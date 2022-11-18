@@ -140,7 +140,7 @@ _links:
         - EiffelConfidenceLevelModifiedEvent
 _history:
   - version: 3.2.0
-    introduced_in: 'No edition set'
+    introduced_in: '[edition-arica](../../../tree/edition-arica)'
     changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
   - version: 3.1.0
     introduced_in: '[edition-lyon](../../../tree/edition-lyon)'

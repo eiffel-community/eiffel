@@ -277,7 +277,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 4.3.0 | No edition set | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
+| 4.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.2.0 | No edition set | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | 4.1.1 | [edition-lyon](../../../tree/edition-lyon) | Add missing validation pattern to links.target member (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
 | 4.1.0 | No edition set | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
