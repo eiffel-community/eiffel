@@ -1,0 +1,9 @@
+---
+changelog:
+  categories:
+    - title: Backwards-incompatible protocol changes
+      labels:
+        - protocol-incompat
+    - title: Protocol changes
+      labels:
+        - protocol
