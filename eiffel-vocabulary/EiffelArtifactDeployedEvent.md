@@ -4,12 +4,18 @@
 --->
 
 # EiffelArtifactDeployedEvent (ArtD)
-The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment. The meaning of whether an artifact is deployed is ambiguous in the sens that Eiffel does not care if means that a deployment has started or is completely finished, and certain scenarios such as red/green or canary deployments have to use a combination of events in order to be properly described.
+The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or that the configuration of the artifact has been changed. The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
 
 ## Data Members
 
+### data.description
+__Type:__ String  
+__Required:__ No  
+__Description:__ Any human readable information information about this deployment.
+
 ### data.uri
 __Type:__ String  
+__Format:__ URI  
 __Required:__ No  
 __Description:__ A URI identifying the deployment description.
 
@@ -33,7 +39,7 @@ __Description:__ Identifies a cause of the event occurring. SHOULD not be used i
 __Required:__ No  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies a custom configuration that was used in conjuction with the ARTIFACT to describe the combination that has been deployed.
+__Description:__ Identifies the configuration used to deploy the artifact identified with the ARTIFACT link, if the configuration isn't included in the artifact itself. This configuration could be a deployment script, a runbook specification, or some other description of how the artifact is started or upgraded in the target environment.
 
 ### CONTEXT
 __Required:__ No  
@@ -45,7 +51,7 @@ __Description:__ Identifies the activity or test suite of which this event const
 __Required:__ Yes  
 __Legal targets:__ [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the environment in which this artifact was deployed to.
+__Description:__ Identifies the environment into which this artifact was deployed.
 
 ### FLOW_CONTEXT
 __Required:__ No  
@@ -176,6 +182,12 @@ __Description:__ The name of the sequence. There MUST not be two identical __met
 __Type:__ Integer  
 __Required:__ Yes  
 __Description:__ The number of the event within the named sequence.
+
+### meta.schemaUri
+__Type:__ String  
+__Format:__ URI  
+__Required:__ No  
+__Description:__ A URI pointing at a location from where the schema used when creating this event can be retrieved. It can be used to parse event data for validation and extraction purposes, for example. Note, that the schema on that URI should be considered immutable.
 
 ## Version History
 

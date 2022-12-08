@@ -116,6 +116,9 @@
           "required": [
             "authorIdentity"
           ]
+        },
+        "schemaUri": {
+          "type": "string"
         }
       },
       "required": [

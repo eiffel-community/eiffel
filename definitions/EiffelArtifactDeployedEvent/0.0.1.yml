@@ -15,19 +15,22 @@
 ---
 $schema: http://json-schema.org/draft-04/schema#
 _abbrev: ArtD
-_description: The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment.
-  The meaning of whether an artifact is deployed is ambiguous in the sens that Eiffel does not care if means that a deployment
-  has started or is completely finished, and certain scenarios such as red/green or canary deployments have to use a
-  combination of events in order to be properly described.
+_description: The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or
+  that the configuration of the artifact has been changed.
+  The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
 type: object
 properties:
   meta:
-    $ref: ../EiffelMetaProperty/3.0.0.yml
+    $ref: ../EiffelMetaProperty/3.1.0.yml
   data:
     type: object
     properties:
+      description:
+        _description: Any human readable information information about this deployment.
+        type: string
       uri:
         _description: A URI identifying the deployment description.
+        _format: URI
         type: string
       customData:
         type: array
@@ -64,9 +67,12 @@ _links:
       any_type: true
       types: []
   CONFIGURATION:
-    description: Identifies a custom configuration that was used in
-      conjuction with the ARTIFACT to describe the combination that
-      has been deployed.
+    description: Identifies the configuration used to deploy the
+      artifact identified with the ARTIFACT link, if the configuration
+      isn't included in the artifact itself. This configuration could be
+      a deployment script, a runbook specification, or some other
+      description of how the artifact is started or upgraded in the
+      target environment.
     required: false
     multiple: false
     targets:
@@ -84,8 +90,8 @@ _links:
         - EiffelActivityTriggeredEvent
         - EiffelTestSuiteStartedEvent
   ENVIRONMENT:
-    description: Identifies the environment in which this artifact
-      was deployed to.
+    description: Identifies the environment into which this artifact
+      was deployed.
     required: true
     multiple: false
     targets:

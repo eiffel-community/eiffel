@@ -116,6 +116,9 @@
           "required": [
             "authorIdentity"
           ]
+        },
+        "schemaUri": {
+          "type": "string"
         }
       },
       "required": [
@@ -129,6 +132,9 @@
     "data": {
       "type": "object",
       "properties": {
+        "description": {
+          "type": "string"
+        },
         "uri": {
           "type": "string"
         },
