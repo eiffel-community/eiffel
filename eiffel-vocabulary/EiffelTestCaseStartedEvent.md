@@ -4,6 +4,7 @@
 --->
 
 # EiffelTestCaseStartedEvent (TCS)
+
 The EiffelTestCaseStartedEvent declares that the execution of a test case has commenced. This event SHALL be preceded by a [EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md), and appropriately linked to via __TEST_CASE_EXECUTION__.
 
 ## Data Members

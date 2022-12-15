@@ -4,6 +4,10 @@
 --->
 
 # {{ type }} ({{ abbrev }})
+{%- if version.startswith('0.') %}
+> :warning: This event type is currently at version {{ version }} and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incomptaible changes. It might also be deprecated and never reach 1.0.0.
+{%- endif %}
+
 {{ description }}
 
 ## Data Members
@@ -30,7 +34,7 @@ This section describes which link types are valid for this event type. For detai
 __Required:__ {{ link_data.required | yes_or_no }}  
 __Legal targets:__ {% if link_data.targets.any_type %}Any{% else %}{% for target_type in link_data.targets.types %}{{ target_type | event_link }}{{ ", " if not loop.last else "" }}{% endfor %}{% endif %}  
 __Multiple allowed:__ {{ link_data.multiple | yes_or_no }}  
-__Description:__ {{ link_data.description }}
+__Description:__ {{ link_data.description }}{% if link_data.experimental %} This link type is experimental and may be removed in a future version of the event.{% endif %}
 {%- endfor %}
 
 ## Meta Members

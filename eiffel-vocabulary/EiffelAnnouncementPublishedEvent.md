@@ -4,6 +4,7 @@
 --->
 
 # EiffelAnnouncementPublishedEvent (AnnP)
+
 The EiffelAnnouncementPublishedEvent represents an announcement, technically regarding any topic but typically used to communicate any incidents or status updates regarding the continuous integration and delivery pipeline. This information can then be favorably displayed in visualization and dashboarding applications.
 
 ## Data Members

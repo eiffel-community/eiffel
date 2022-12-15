@@ -4,6 +4,7 @@
 --->
 
 # EiffelTestSuiteFinishedEvent (TSF)
+
 The EiffelTestSuiteFinishedEvent declares that a previously started test suite (declared by [EiffelTestSuiteStartedEvent](./EiffelTestSuiteStartedEvent.md)) has finished and reports the outcome.
 
 Note that while similar, the __data.outcome__ object is different from that of [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md). The outcome of the test suite reports not only the conclusion of the test suite execution - whether the tests were successfully executed - but also passes a verdict on the item or items under test. To highlight this conceptual difference, both __data.outcome.verdict__ and __data.outcome.conclusion__ are included.
