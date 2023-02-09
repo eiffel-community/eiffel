@@ -4,6 +4,7 @@
 --->
 
 # EiffelActivityFinishedEvent (ActF)
+
 The EiffelActivityFinishedEvent declares that a previously started activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md) followed by [EiffelActivityStartedEvent](./EiffelActivityStartedEvent.md)) has finished.
 
 ## Data Members

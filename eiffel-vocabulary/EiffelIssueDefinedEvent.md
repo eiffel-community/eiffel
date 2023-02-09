@@ -4,6 +4,7 @@
 --->
 
 # EiffelIssueDefinedEvent (ID)
+
 The EiffelIssueDefinedEvent declares that an issue has been created in some external issue management software. ID is semantically similar to [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md) and [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md).
 
 ## Data Members

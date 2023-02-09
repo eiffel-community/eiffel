@@ -4,6 +4,7 @@
 --->
 
 # EiffelActivityStartedEvent (ActS)
+
 The EiffelActivityStartedEvent declares that a previously triggered activity (declared by [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md)) has started.
 
 ## Data Members

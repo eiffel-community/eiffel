@@ -4,6 +4,7 @@
 --->
 
 # EiffelTestCaseCanceledEvent (TCC)
+
 The EiffelTestCaseCanceledEvent declares that a previously triggered test case execution (represented by [EiffelTestCaseTriggeredEvent](./EiffelTestCaseTriggeredEvent.md)) has been canceled _before it has started_. This is typically used in queuing situations where a queued execution is dequeued. It is recommended that __CAUSE__ links be used to indicate the reason.
 
 ## Data Members

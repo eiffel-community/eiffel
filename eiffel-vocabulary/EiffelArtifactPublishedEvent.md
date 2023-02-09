@@ -4,6 +4,7 @@
 --->
 
 # EiffelArtifactPublishedEvent (ArtP)
+
 The EiffelArtifactPublishedEvent declares that a software artifact (declared by [EiffelArtifactCreatedEvent](./EiffelArtifactCreatedEvent.md)) has been published and is consequently available for retrieval at one or more locations.
 
 ## Data Members
