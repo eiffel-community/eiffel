@@ -12,15 +12,15 @@
         "type": {
           "type": "string",
           "enum": [
-            "EiffelArtifactDeployedEvent"
+            "EiffelTestCaseTriggeredEvent"
           ]
         },
         "version": {
           "type": "string",
           "enum": [
-            "0.0.1"
+            "3.3.0"
           ],
-          "default": "0.0.1"
+          "default": "3.3.0"
         },
         "time": {
           "type": "integer"
@@ -132,11 +132,83 @@
     "data": {
       "type": "object",
       "properties": {
-        "description": {
-          "type": "string"
+        "testCase": {
+          "type": "object",
+          "properties": {
+            "tracker": {
+              "type": "string"
+            },
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            },
+            "uri": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
         },
-        "uri": {
-          "type": "string"
+        "recipeId": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "triggers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "MANUAL",
+                  "EIFFEL_EVENT",
+                  "SOURCE_CHANGE",
+                  "TIMER",
+                  "OTHER"
+                ]
+              },
+              "description": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "type"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "executionType": {
+          "type": "string",
+          "enum": [
+            "MANUAL",
+            "SEMI_AUTOMATED",
+            "AUTOMATED",
+            "OTHER"
+          ]
+        },
+        "parameters": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "value"
+            ],
+            "additionalProperties": false
+          }
         },
         "customData": {
           "type": "array",
@@ -156,6 +228,9 @@
           }
         }
       },
+      "required": [
+        "testCase"
+      ],
       "additionalProperties": false
     },
     "links": {

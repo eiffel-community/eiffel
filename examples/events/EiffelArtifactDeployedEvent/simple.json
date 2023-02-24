@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "type": "EiffelArtifactDeployedEvent",
+    "version": "0.0.1",
+    "time": 1234567890,
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
+    "source": {
+      "serializer": "pkg:maven/com.mycompany.tools/eiffel-serializer@1.0.3"
+    },
+    "tags": [
+      "fast-track",
+      "customer-a"
+    ]
+  },
+  "data": {
+    "description": "Any human readable information information about this deployment.",
+    "uri": "A URI identifying the deployment description."
+  },
+  "links": [
+    {
+      "type": "ARTIFACT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "CAUSE",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "CONFIGURATION",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "PREVIOUS_VERSION",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
+    },
+    {
+      "type": "COMPOSITION",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
+    },
+    {
+      "type": "ENVIRONMENT",
+      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
+    }
+  ]
+}

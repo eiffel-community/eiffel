@@ -50,6 +50,7 @@ _links:
   ARTIFACT:
     description: Identifies the artifact that has been deployed
     required: true
+    experimental: true
     multiple: false
     targets:
       any_type: false
@@ -70,10 +71,11 @@ _links:
     description: Identifies the configuration used to deploy the
       artifact identified with the ARTIFACT link, if the configuration
       isn't included in the artifact itself. This configuration could be
-      a deployment script, a runbook specification, or some other
-      description of how the artifact is started or upgraded in the
+      a deployment script, a runbook specification, a helm chart or some
+      other description of how the artifact is started or upgraded in the
       target environment.
     required: false
+    experimental: true
     multiple: false
     targets:
       any_type: false
@@ -110,7 +112,7 @@ _links:
       types:
         - EiffelFlowContextDefinedEvent
 _history:
-  - version: 0.0.1
+  - version: 0.1.0
     introduced_in: No edition set
     changes: Initial version.
 _examples:

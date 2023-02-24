@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.0.1.yml.
+   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.1.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -39,7 +39,7 @@ __Description:__ Identifies a cause of the event occurring. SHOULD not be used i
 __Required:__ No  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the configuration used to deploy the artifact identified with the ARTIFACT link, if the configuration isn't included in the artifact itself. This configuration could be a deployment script, a runbook specification, or some other description of how the artifact is started or upgraded in the target environment.
+__Description:__ Identifies the configuration used to deploy the artifact identified with the ARTIFACT link, if the configuration isn't included in the artifact itself. This configuration could be a deployment script, a runbook specification, a helm chart or some other description of how the artifact is started or upgraded in the target environment.
 
 ### CONTEXT
 __Required:__ No  
@@ -193,7 +193,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 0.0.1 | No edition set | Initial version. |
+| 0.1.0 | No edition set | Initial version. |
 
 
 ## Examples
