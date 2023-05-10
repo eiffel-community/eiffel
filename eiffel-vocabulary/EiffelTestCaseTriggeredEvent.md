@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.2.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.2.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -107,7 +107,7 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 
 ### IUT
 __Required:__ Yes  
-__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
 
