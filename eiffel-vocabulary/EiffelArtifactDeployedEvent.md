@@ -4,6 +4,8 @@
 --->
 
 # EiffelArtifactDeployedEvent (ArtD)
+> :warning: This event type is currently at version 0.1.0 and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incompatible changes. It might also be deprecated and never reach 1.0.0.
+
 The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or that the configuration of the artifact has been changed. The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
 
 ## Data Members
@@ -27,7 +29,7 @@ This section describes which link types are valid for this event type. For detai
 __Required:__ Yes  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the artifact that has been deployed
+__Description:__ Identifies the artifact that has been deployed. This link type targets an experimental event and may be removed in a future version of this event (see [Versioning](../eiffel-syntax-and-usage/versioning.md) for details).
 
 ### CAUSE
 __Required:__ No  
@@ -39,7 +41,7 @@ __Description:__ Identifies a cause of the event occurring. SHOULD not be used i
 __Required:__ No  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the configuration used to deploy the artifact identified with the ARTIFACT link, if the configuration isn't included in the artifact itself. This configuration could be a deployment script, a runbook specification, a helm chart or some other description of how the artifact is started or upgraded in the target environment.
+__Description:__ Identifies the configuration used to deploy the artifact identified with the ARTIFACT link, if the configuration isn't included in the artifact itself. This configuration could be a deployment script, a runbook specification, a helm chart or some other description of how the artifact is started or upgraded in the target environment. This link type targets an experimental event and may be removed in a future version of this event (see [Versioning](../eiffel-syntax-and-usage/versioning.md) for details).
 
 ### CONTEXT
 __Required:__ No  
