@@ -140,6 +140,10 @@ _links:
       types:
         - EiffelConfidenceLevelModifiedEvent
 _history:
+  - version: 3.3.0
+    introduced_in: No edition set
+    changes: Add EiffelArtifactDeployedEvent as legal target type for
+      SUBJECT link.
   - version: 3.2.0
     introduced_in: '[edition-arica](../../../tree/edition-arica)'
     changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
