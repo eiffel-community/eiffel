@@ -48,7 +48,7 @@ required:
 additionalProperties: false
 _links:
   ARTIFACT:
-    description: Identifies the artifact that has been deployed
+    description: Identifies the artifact that has been deployed.
     required: true
     experimental: true
     multiple: false
