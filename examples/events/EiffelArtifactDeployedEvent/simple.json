@@ -30,14 +30,6 @@
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
     },
     {
-      "type": "PREVIOUS_VERSION",
-      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee2"
-    },
-    {
-      "type": "COMPOSITION",
-      "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee1"
-    },
-    {
       "type": "ENVIRONMENT",
       "target": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee3"
     }
