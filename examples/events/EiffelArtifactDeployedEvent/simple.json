@@ -14,7 +14,7 @@
   },
   "data": {
     "description": "Any human readable information information about this deployment.",
-    "uri": "A URI identifying the deployment description."
+    "uri": "https://deployments.example.com/123456"
   },
   "links": [
     {
