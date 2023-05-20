@@ -118,5 +118,8 @@ required:
   - links
 additionalProperties: false
 _links: {}
-_history: []
+_history:
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
 _examples: []
