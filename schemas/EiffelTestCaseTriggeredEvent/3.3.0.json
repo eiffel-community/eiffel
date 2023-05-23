@@ -18,9 +18,9 @@
         "version": {
           "type": "string",
           "enum": [
-            "3.2.1"
+            "3.3.0"
           ],
-          "default": "3.2.1"
+          "default": "3.3.0"
         },
         "time": {
           "type": "integer"
