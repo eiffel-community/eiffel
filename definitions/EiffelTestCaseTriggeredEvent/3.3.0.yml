@@ -1,0 +1,218 @@
+# Copyright 2017-2023 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: TCT
+_description: |-
+  The EiffelTestCaseTriggeredEvent declares that the execution of a test case has been triggered, but not yet started. This can either be declared stand-alone or as part of an activity or test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively.
+
+  This event is used to communicate intent, and thereby serves a similar purpose to that of [EiffelActivityTriggeredEvent](./EiffelActivityTriggeredEvent.md). A triggered test case execution is expected to either be started (represented by [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) or canceled (represented by [EiffelTestCaseCanceledEvent](./EiffelTestCaseCanceledEvent.md)). Consequently, any delay between triggering and execution can be assumed to imply queuing time (e.g. waiting for available test resources) and monitored as such.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.1.0.yml
+  data:
+    type: object
+    properties:
+      testCase:
+        _description: Identification of the test case to be executed.
+        type: object
+        properties:
+          tracker:
+            _description: The name of the test case tracker - typically
+              a test management system.
+            type: string
+          id:
+            _description: The unique identity of the test case to be
+              executed.
+            type: string
+          version:
+            _description: The unique version of the identified test
+              case to be executed. Where this property is not used
+              it is assumed that test cases are not version controlled.
+            type: string
+          uri:
+            _description: A location where a description of the test
+              case can be retrieved. To the extent that multiple versions
+              of the same test case co-exist, this property SHALL identify
+              the exact version to be executed.
+            type: string
+        required:
+          - id
+        additionalProperties: false
+      recipeId:
+        _description: If triggering this test case execution was the
+          result of an Execution Recipe, as defined by an [EiffelTestExecutionRecipeCollectionCreatedEvent](./EiffelTestExecutionRecipeCollectionCreatedEvent.md),
+          this UUID SHALL match the relevant __data.batches.recipes.id__
+          in that event.
+        type: string
+        pattern: ^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$
+      triggers:
+        _description: The circumstances triggering the test case execution.
+        type: array
+        items:
+          type: object
+          properties:
+            type:
+              _description: |-
+                The type of trigger.
+                MANUAL signifies that the test case execution was manually triggered.  
+                EIFFEL_EVENT signifies that the test case execution was triggered by one or more Eiffel events. These events should be represented via __CAUSE__ links.  
+                SOURCE_CHANGE signifies that the test case execution was triggered as a consequence of a detected source change __not__ represented by Eiffel events.  
+                TIMER signifies that the test case execution was triggered by a timer.  
+                OTHER signifies any other triggering cause.
+              type: string
+              enum:
+                - MANUAL
+                - EIFFEL_EVENT
+                - SOURCE_CHANGE
+                - TIMER
+                - OTHER
+            description:
+              _description: A description of the trigger.
+              type: string
+          required:
+            - type
+          additionalProperties: false
+      executionType:
+        _description: The type of execution (often related to, but
+          ultimately separate from, __data.triggers.type__).
+        type: string
+        enum:
+          - MANUAL
+          - SEMI_AUTOMATED
+          - AUTOMATED
+          - OTHER
+      parameters:
+        _description: A list of parameters to be passed to the test
+          case execution.
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              _description: The name of the parameter.
+              type: string
+            value:
+              _description: The value of the parameter.
+              type: string
+          required:
+            - name
+            - value
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    required:
+      - testCase
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.1.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  IUT:
+    description: Identifies the Item Under Test; in other words, the
+      entity that is about to be tested.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelCompositionDefinedEvent
+        - EiffelSourceChangeCreatedEvent
+        - EiffelSourceChangeSubmittedEvent
+  PRECURSOR:
+    description: 'Used to declare temporal relationships between
+      [activities](../eiffel-syntax-and-usage/glossary.md#activity) in a
+      [pipeline](../eiffel-syntax-and-usage/glossary.md#pipeline), i.e. what
+      other activity/activities preceded this activity. This link type applies
+      primarily to non event-triggered activities. For more information on
+      the usage of this link type please see
+      [Activity Linking](../eiffel-syntax-and-usage/activity-linking.md).'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseTriggeredEvent
+_history:
+  - version: 3.3.0
+    introduced_in: Current version
+    changes: Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)).
+  - version: 3.2.0
+    introduced_in: '[edition-arica](../../../tree/edition-arica)'
+    changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
+  - version: 3.1.0
+    introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
+    changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
+  - version: 3.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185)).
+  - version: 2.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelTestCaseTriggeredEvent/simple.json
+  - title: Simple example using pre-3.0.0 meta.security object
+    url: ../examples/events/EiffelTestCaseTriggeredEvent/simple-2.0.0.json
