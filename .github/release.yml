@@ -7,3 +7,6 @@ changelog:
     - title: Protocol changes
       labels:
         - protocol
+    - title: Other changes
+      labels:
+        - "*"
