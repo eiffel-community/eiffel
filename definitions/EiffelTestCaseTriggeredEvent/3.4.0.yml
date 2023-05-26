@@ -170,6 +170,7 @@ _links:
       any_type: false
       types:
         - EiffelArtifactCreatedEvent
+        - EiffelArtifactDeployedEvent
         - EiffelCompositionDefinedEvent
         - EiffelSourceChangeCreatedEvent
         - EiffelSourceChangeSubmittedEvent
@@ -188,8 +189,11 @@ _links:
       types:
         - EiffelTestCaseTriggeredEvent
 _history:
+  - version: 3.4.0
+    introduced_in: No edition set
+    changes: Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).
   - version: 3.3.0
-    introduced_in: Current version
+    introduced_in: No edition set
     changes: Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)).
   - version: 3.2.0
     introduced_in: '[edition-arica](../../../tree/edition-arica)'

@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.3.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.4.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -107,7 +107,7 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 
 ### IUT
 __Required:__ Yes  
-__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
+__Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
 
@@ -251,7 +251,8 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 3.3.0 | No edition set | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
+| 3.4.0 | No edition set | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
+| 3.3.0 | No edition set | Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)). |
 | 3.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
