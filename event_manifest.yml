@@ -1,6 +1,59 @@
 ---
+  - name: Bordeaux
+    tag: edition-bordeaux
+    release_date: '2017-04-12'
+    events:
+      EiffelActivityCanceledEvent: 1.0.0
+      EiffelActivityFinishedEvent: 1.0.0
+      EiffelActivityStartedEvent: 1.0.0
+      EiffelActivityTriggeredEvent: 1.0.0
+      EiffelAnnouncementPublishedEvent: 1.0.0
+      EiffelArtifactCreatedEvent: 1.0.0
+      EiffelArtifactPublishedEvent: 1.0.0
+      EiffelArtifactReusedEvent: 1.0.0
+      EiffelCompositionDefinedEvent: 1.0.0
+      EiffelConfidenceLevelModifiedEvent: 1.0.0
+      EiffelEnvironmentDefinedEvent: 1.0.0
+      EiffelFlowContextDefinedEvent: 1.0.0
+      EiffelIssueVerifiedEvent: 1.0.0
+      EiffelSourceChangeCreatedEvent: 1.0.0
+      EiffelSourceChangeSubmittedEvent: 1.0.0
+      EiffelTestCaseCanceledEvent: 1.0.0
+      EiffelTestCaseFinishedEvent: 1.0.0
+      EiffelTestCaseStartedEvent: 1.0.0
+      EiffelTestCaseTriggeredEvent: 1.0.0
+      EiffelTestExecutionRecipeCollectionCreatedEvent: 1.0.0
+      EiffelTestSuiteFinishedEvent: 1.0.0
+      EiffelTestSuiteStartedEvent: 1.0.0
+  - name: Toulouse
+    tag: edition-toulouse
+    release_date: '2018-02-20'
+    events:
+      EiffelActivityCanceledEvent: 1.1.0
+      EiffelActivityFinishedEvent: 1.1.0
+      EiffelActivityStartedEvent: 1.1.0
+      EiffelActivityTriggeredEvent: 1.1.0
+      EiffelAnnouncementPublishedEvent: 1.1.0
+      EiffelArtifactCreatedEvent: 1.1.0
+      EiffelArtifactPublishedEvent: 1.1.0
+      EiffelArtifactReusedEvent: 1.1.0
+      EiffelCompositionDefinedEvent: 1.1.0
+      EiffelConfidenceLevelModifiedEvent: 1.1.0
+      EiffelEnvironmentDefinedEvent: 1.1.0
+      EiffelFlowContextDefinedEvent: 1.1.0
+      EiffelIssueVerifiedEvent: 1.1.0
+      EiffelSourceChangeCreatedEvent: 1.1.0
+      EiffelSourceChangeSubmittedEvent: 1.1.0
+      EiffelTestCaseCanceledEvent: 1.1.0
+      EiffelTestCaseFinishedEvent: 1.1.0
+      EiffelTestCaseStartedEvent: 1.1.0
+      EiffelTestCaseTriggeredEvent: 1.1.0
+      EiffelTestExecutionRecipeCollectionCreatedEvent: 2.1.0
+      EiffelTestSuiteFinishedEvent: 1.1.0
+      EiffelTestSuiteStartedEvent: 1.1.0
   - name: Agen
     tag: edition-agen
+    release_date: '2018-09-19'
     events:
       EiffelActivityCanceledEvent: 3.0.0
       EiffelActivityFinishedEvent: 3.0.0
@@ -27,6 +80,7 @@
       EiffelTestSuiteStartedEvent: 3.0.0
   - name: Agen-1
     tag: edition-agen-1
+    release_date: '2019-04-29'
     events:
       EiffelActivityCanceledEvent: 3.0.0
       EiffelActivityFinishedEvent: 3.0.0
@@ -51,85 +105,9 @@
       EiffelTestExecutionRecipeCollectionCreatedEvent: 4.0.0
       EiffelTestSuiteFinishedEvent: 3.0.0
       EiffelTestSuiteStartedEvent: 3.0.0
-  - name: Arica
-    tag: edition-arica
-    events:
-      EiffelActivityCanceledEvent: 3.2.0
-      EiffelActivityFinishedEvent: 3.3.0
-      EiffelActivityStartedEvent: 4.3.0
-      EiffelActivityTriggeredEvent: 4.2.0
-      EiffelAnnouncementPublishedEvent: 3.2.0
-      EiffelArtifactCreatedEvent: 3.3.0
-      EiffelArtifactPublishedEvent: 3.3.0
-      EiffelArtifactReusedEvent: 3.2.0
-      EiffelCompositionDefinedEvent: 3.3.0
-      EiffelConfidenceLevelModifiedEvent: 3.2.0
-      EiffelEnvironmentDefinedEvent: 3.3.0
-      EiffelFlowContextDefinedEvent: 3.2.0
-      EiffelIssueDefinedEvent: 3.2.0
-      EiffelIssueVerifiedEvent: 4.2.0
-      EiffelSourceChangeCreatedEvent: 4.2.0
-      EiffelSourceChangeSubmittedEvent: 3.2.0
-      EiffelTestCaseCanceledEvent: 3.2.0
-      EiffelTestCaseFinishedEvent: 3.3.0
-      EiffelTestCaseStartedEvent: 3.3.0
-      EiffelTestCaseTriggeredEvent: 3.2.0
-      EiffelTestExecutionRecipeCollectionCreatedEvent: 4.3.0
-      EiffelTestSuiteFinishedEvent: 3.3.0
-      EiffelTestSuiteStartedEvent: 3.3.0
-  - name: Bordeaux
-    tag: edition-bordeaux
-    events:
-      EiffelActivityCanceledEvent: 1.0.0
-      EiffelActivityFinishedEvent: 1.0.0
-      EiffelActivityStartedEvent: 1.0.0
-      EiffelActivityTriggeredEvent: 1.0.0
-      EiffelAnnouncementPublishedEvent: 1.0.0
-      EiffelArtifactCreatedEvent: 1.0.0
-      EiffelArtifactPublishedEvent: 1.0.0
-      EiffelArtifactReusedEvent: 1.0.0
-      EiffelCompositionDefinedEvent: 1.0.0
-      EiffelConfidenceLevelModifiedEvent: 1.0.0
-      EiffelEnvironmentDefinedEvent: 1.0.0
-      EiffelFlowContextDefinedEvent: 1.0.0
-      EiffelIssueVerifiedEvent: 1.0.0
-      EiffelSourceChangeCreatedEvent: 1.0.0
-      EiffelSourceChangeSubmittedEvent: 1.0.0
-      EiffelTestCaseCanceledEvent: 1.0.0
-      EiffelTestCaseFinishedEvent: 1.0.0
-      EiffelTestCaseStartedEvent: 1.0.0
-      EiffelTestCaseTriggeredEvent: 1.0.0
-      EiffelTestExecutionRecipeCollectionCreatedEvent: 1.0.0
-      EiffelTestSuiteFinishedEvent: 1.0.0
-      EiffelTestSuiteStartedEvent: 1.0.0
-  - name: Lyon
-    tag: edition-lyon
-    events:
-      EiffelActivityCanceledEvent: 3.1.0
-      EiffelActivityFinishedEvent: 3.2.0
-      EiffelActivityStartedEvent: 4.2.0
-      EiffelActivityTriggeredEvent: 4.1.0
-      EiffelAnnouncementPublishedEvent: 3.1.0
-      EiffelArtifactCreatedEvent: 3.1.0
-      EiffelArtifactPublishedEvent: 3.2.0
-      EiffelArtifactReusedEvent: 3.1.0
-      EiffelCompositionDefinedEvent: 3.2.0
-      EiffelConfidenceLevelModifiedEvent: 3.1.0
-      EiffelEnvironmentDefinedEvent: 3.2.0
-      EiffelFlowContextDefinedEvent: 3.1.0
-      EiffelIssueDefinedEvent: 3.1.0
-      EiffelIssueVerifiedEvent: 4.1.0
-      EiffelSourceChangeCreatedEvent: 4.1.0
-      EiffelSourceChangeSubmittedEvent: 3.1.0
-      EiffelTestCaseCanceledEvent: 3.1.0
-      EiffelTestCaseFinishedEvent: 3.2.0
-      EiffelTestCaseStartedEvent: 3.2.0
-      EiffelTestCaseTriggeredEvent: 3.1.0
-      EiffelTestExecutionRecipeCollectionCreatedEvent: 4.1.1
-      EiffelTestSuiteFinishedEvent: 3.2.0
-      EiffelTestSuiteStartedEvent: 3.2.0
   - name: Paris
     tag: edition-paris
+    release_date: '2021-02-16'
     events:
       EiffelActivityCanceledEvent: 3.0.0
       EiffelActivityFinishedEvent: 3.0.0
@@ -154,28 +132,57 @@
       EiffelTestExecutionRecipeCollectionCreatedEvent: 4.0.0
       EiffelTestSuiteFinishedEvent: 3.0.0
       EiffelTestSuiteStartedEvent: 3.0.0
-  - name: Toulouse
-    tag: edition-toulouse
+  - name: Lyon
+    tag: edition-lyon
+    release_date: '2021-10-12'
     events:
-      EiffelActivityCanceledEvent: 1.1.0
-      EiffelActivityFinishedEvent: 1.1.0
-      EiffelActivityStartedEvent: 1.1.0
-      EiffelActivityTriggeredEvent: 1.1.0
-      EiffelAnnouncementPublishedEvent: 1.1.0
-      EiffelArtifactCreatedEvent: 1.1.0
-      EiffelArtifactPublishedEvent: 1.1.0
-      EiffelArtifactReusedEvent: 1.1.0
-      EiffelCompositionDefinedEvent: 1.1.0
-      EiffelConfidenceLevelModifiedEvent: 1.1.0
-      EiffelEnvironmentDefinedEvent: 1.1.0
-      EiffelFlowContextDefinedEvent: 1.1.0
-      EiffelIssueVerifiedEvent: 1.1.0
-      EiffelSourceChangeCreatedEvent: 1.1.0
-      EiffelSourceChangeSubmittedEvent: 1.1.0
-      EiffelTestCaseCanceledEvent: 1.1.0
-      EiffelTestCaseFinishedEvent: 1.1.0
-      EiffelTestCaseStartedEvent: 1.1.0
-      EiffelTestCaseTriggeredEvent: 1.1.0
-      EiffelTestExecutionRecipeCollectionCreatedEvent: 2.1.0
-      EiffelTestSuiteFinishedEvent: 1.1.0
-      EiffelTestSuiteStartedEvent: 1.1.0
+      EiffelActivityCanceledEvent: 3.1.0
+      EiffelActivityFinishedEvent: 3.2.0
+      EiffelActivityStartedEvent: 4.2.0
+      EiffelActivityTriggeredEvent: 4.1.0
+      EiffelAnnouncementPublishedEvent: 3.1.0
+      EiffelArtifactCreatedEvent: 3.1.0
+      EiffelArtifactPublishedEvent: 3.2.0
+      EiffelArtifactReusedEvent: 3.1.0
+      EiffelCompositionDefinedEvent: 3.2.0
+      EiffelConfidenceLevelModifiedEvent: 3.1.0
+      EiffelEnvironmentDefinedEvent: 3.2.0
+      EiffelFlowContextDefinedEvent: 3.1.0
+      EiffelIssueDefinedEvent: 3.1.0
+      EiffelIssueVerifiedEvent: 4.1.0
+      EiffelSourceChangeCreatedEvent: 4.1.0
+      EiffelSourceChangeSubmittedEvent: 3.1.0
+      EiffelTestCaseCanceledEvent: 3.1.0
+      EiffelTestCaseFinishedEvent: 3.2.0
+      EiffelTestCaseStartedEvent: 3.2.0
+      EiffelTestCaseTriggeredEvent: 3.1.0
+      EiffelTestExecutionRecipeCollectionCreatedEvent: 4.1.1
+      EiffelTestSuiteFinishedEvent: 3.2.0
+      EiffelTestSuiteStartedEvent: 3.2.0
+  - name: Arica
+    tag: edition-arica
+    release_date: '2022-11-18'
+    events:
+      EiffelActivityCanceledEvent: 3.2.0
+      EiffelActivityFinishedEvent: 3.3.0
+      EiffelActivityStartedEvent: 4.3.0
+      EiffelActivityTriggeredEvent: 4.2.0
+      EiffelAnnouncementPublishedEvent: 3.2.0
+      EiffelArtifactCreatedEvent: 3.3.0
+      EiffelArtifactPublishedEvent: 3.3.0
+      EiffelArtifactReusedEvent: 3.2.0
+      EiffelCompositionDefinedEvent: 3.3.0
+      EiffelConfidenceLevelModifiedEvent: 3.2.0
+      EiffelEnvironmentDefinedEvent: 3.3.0
+      EiffelFlowContextDefinedEvent: 3.2.0
+      EiffelIssueDefinedEvent: 3.2.0
+      EiffelIssueVerifiedEvent: 4.2.0
+      EiffelSourceChangeCreatedEvent: 4.2.0
+      EiffelSourceChangeSubmittedEvent: 3.2.0
+      EiffelTestCaseCanceledEvent: 3.2.0
+      EiffelTestCaseFinishedEvent: 3.3.0
+      EiffelTestCaseStartedEvent: 3.3.0
+      EiffelTestCaseTriggeredEvent: 3.2.0
+      EiffelTestExecutionRecipeCollectionCreatedEvent: 4.3.0
+      EiffelTestSuiteFinishedEvent: 3.3.0
+      EiffelTestSuiteStartedEvent: 3.3.0

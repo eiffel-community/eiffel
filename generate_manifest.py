@@ -23,16 +23,17 @@ from typing import Dict
 import semver
 from ruamel import yaml
 
-# Mapping of friendly edition names to their Git tags.
-_EDITIONS = {
-    "Agen": "edition-agen",
-    "Agen-1": "edition-agen-1",
-    "Arica": "edition-arica",
-    "Bordeaux": "edition-bordeaux",
-    "Lyon": "edition-lyon",
-    "Paris": "edition-paris",
-    "Toulouse": "edition-toulouse",
-}
+# List of tuples with the edition display names, their Git tags, and
+# their release dates.
+_EDITIONS = [
+    ("Agen", "edition-agen", "2018-09-19"),
+    ("Agen-1", "edition-agen-1", "2019-04-29"),
+    ("Arica", "edition-arica", "2022-11-18"),
+    ("Bordeaux", "edition-bordeaux", "2017-04-12"),
+    ("Lyon", "edition-lyon", "2021-10-12"),
+    ("Paris", "edition-paris", "2021-02-16"),
+    ("Toulouse", "edition-toulouse", "2018-02-20"),
+]
 
 
 def _get_latest_schemas(tag: str) -> Dict[str, str]:
@@ -57,14 +58,15 @@ def _get_latest_schemas(tag: str) -> Dict[str, str]:
 
 
 def _main():
-    manifest = []
-    for name in sorted(_EDITIONS):
-        entry = {
+    manifest = [
+        {
             "name": name,
-            "tag": _EDITIONS[name],
-            "events": _get_latest_schemas(_EDITIONS[name]),
+            "tag": tag,
+            "release_date": date,
+            "events": _get_latest_schemas(tag),
         }
-        manifest.append(entry)
+        for name, tag, date in sorted(_EDITIONS, key=lambda edition: edition[2])
+    ]
 
     sys.stdout.write("---\n")
     yaml_writer = yaml.YAML()
