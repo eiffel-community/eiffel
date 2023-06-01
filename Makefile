@@ -1,4 +1,4 @@
-# Copyright 2022 Axis Communications AB.
+# Copyright 2022-2023 Axis Communications AB.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,18 @@
 # limitations under the License.
 
 .PHONY: all
-all: generate_docs generate_schemas
+all: generate_docs generate_manifest generate_schemas
 
-# The generate_docs and generate_schemas goals assume that all Python
-# package dependencies are available, e.g. via a virtualenv.
+# The generate_* goals assume that all Python package dependencies are
+# available, e.g. via a virtualenv.
 
 .PHONY: generate_docs
 generate_docs:
 	./generate_docs.py definitions/Eiffel*Event/*.yml
+
+.PHONY: generate_manifest
+generate_manifest:
+	./generate_manifest.py > event_manifest.yml
 
 .PHONY: generate_schemas
 generate_schemas:
