@@ -29,6 +29,7 @@ The events and their categories.
 | Artifact     | [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)                                           |     ArtC     |  🔴   |
 | Artifact     | [EiffelArtifactPublishedEvent](../eiffel-vocabulary/EiffelArtifactPublishedEvent.md)                                       |     ArtP     |  🔴   |
 | Artifact     | [EiffelArtifactReusedEvent](../eiffel-vocabulary/EiffelArtifactReusedEvent.md)                                             |     ArtR     |  🔴   |
+| Artifact     | [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md)                                         |     ArtD     |  🔴   |
 | Definition   | [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)                                     |     FCD      |  🟣   |
 | Definition   | [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)                                     |      CD      |  🟣   |
 | Definition   | [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)                                     |      ED      |  🟣   |

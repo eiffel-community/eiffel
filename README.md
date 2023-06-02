@@ -55,6 +55,7 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [EiffelActivityStartedEvent (ActS)](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
    1. [EiffelActivityFinishedEvent (ActF)](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
    1. [EiffelArtifactCreatedEvent (ArtC)](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+   1. [EiffelArtifactDeployedEvent (ArtD)](./eiffel-vocabulary/EiffelArtifactDeployedEvent.md)
    1. [EiffelArtifactPublishedEvent (ArtP)](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
    1. [EiffelArtifactReusedEvent (ArtR)](./eiffel-vocabulary/EiffelArtifactReusedEvent.md)
    1. [EiffelConfidenceLevelModifiedEvent (CLM)](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)

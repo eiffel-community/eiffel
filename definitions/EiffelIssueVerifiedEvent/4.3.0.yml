@@ -1,0 +1,160 @@
+# Copyright 2017-2023 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: IV
+_description: |-
+  The EiffelIssueVerifiedEvent declares that an issue, typically a requirement, has been verified by some means. It is different from [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md) in that multiple test case executions may serve as the basis for a single verification or, conversely, multiple issues may be verified based on a single test case execution.
+
+  EiffelIssueVerifiedEvent has no data members, instead relying on its required link types. While "SUCCESSFUL_ISSUE", "FAILED_ISSUE", and "INCONCLUSIVE_ISSUE" are all marked as not required, at least one link of at least one of these types MUST be present in an EiffelIssueVerifiedEvent.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.1.0.yml
+  data:
+    type: object
+    properties:
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.1.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment in which the issue was
+      verified.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FAILED_ISSUE:
+    description: Identifies an issue that has failed verification.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  INCONCLUSIVE_ISSUE:
+    description: Identifies an issue for which this verification was
+      inconclusive.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  IUT:
+    description: Identifies the Item Under Test; in other words, the
+      entity for which the issue has been verified.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+        - EiffelArtifactDeployedEvent
+        - EiffelCompositionDefinedEvent
+  SUCCESSFUL_ISSUE:
+    description: Identifies an issue that has been successfully verified.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelIssueDefinedEvent
+  VERIFICATION_BASIS:
+    description: Used to declare the basis on which the verification
+      statement(s) of this event have been issued.
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelTestCaseFinishedEvent
+        - EiffelTestSuiteFinishedEvent
+_history:
+  - version: 4.3.0
+    introduced_in: No edition set
+    changes: Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).
+  - version: 4.2.0
+    introduced_in: '[edition-arica](../../../tree/edition-arica)'
+    changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
+  - version: 4.1.0
+    introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
+    changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
+  - version: 4.0.0
+    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185)).
+  - version: 3.0.0
+    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelIssueVerifiedEvent.md)'
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 2.0.0
+    introduced_in: '[0706840](../../../blob/070684053ceb1da5fb42d9f0ef21df816961d6bc/eiffel-vocabulary/EiffelIssueVerifiedEvent.md)'
+    changes: Replaced data.issues with links
+  - version: 1.1.0
+    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelIssueVerifiedEvent/simple.json
