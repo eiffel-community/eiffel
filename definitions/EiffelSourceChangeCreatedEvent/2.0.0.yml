@@ -270,13 +270,13 @@ _links:
         - EiffelIssueDefinedEvent
 _history:
   - version: 2.0.0
-    introduced_in: Current version
+    introduced_in: edition-agen
     changes: Replaced data.issues with links
   - version: 1.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Simple example

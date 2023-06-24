@@ -229,29 +229,29 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 4.1.1
-    introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
+    introduced_in: edition-lyon
     changes: Add missing validation pattern to links.target member
       (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)).
   - version: 4.1.0
-    introduced_in: No edition set
+    introduced_in: edition-lyon
     changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
   - version: 4.0.0
-    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    introduced_in: edition-agen
     changes: Improved information integrity protection
   - version: 3.0.0
-    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)'
+    introduced_in: edition-agen
     changes: Introduced purl identifiers instead of GAVs (see [Issue
       182](https://github.com/eiffel-community/eiffel/issues/182))
   - version: 2.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 2.0.0
-    introduced_in: '[f92e001](../../../blob/f92e001c88d1139a62f8ace976958e0a30d8f9c5/eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)'
+    introduced_in: edition-toulouse
     changes: Changed syntax of data.batches.recipes.constraints from
       an uncontrolled object to a list of key-value pairs to comply
       with design guidelines.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Example using data.batches

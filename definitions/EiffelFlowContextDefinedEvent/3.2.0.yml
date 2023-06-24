@@ -99,24 +99,24 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 3.2.0
-    introduced_in: '[edition-arica](../../../tree/edition-arica)'
+    introduced_in: edition-arica
     changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
   - version: 3.1.0
-    introduced_in: '[edition-lyon](../../../tree/edition-lyon)'
+    introduced_in: edition-lyon
     changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
   - version: 3.0.0
-    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    introduced_in: edition-agen
     changes: Improved information integrity protection (see [Issue
       185](https://github.com/eiffel-community/eiffel/issues/185)).
   - version: 2.0.0
-    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)'
+    introduced_in: edition-agen
     changes: Introduced purl identifiers instead of GAVs (see [Issue
       182](https://github.com/eiffel-community/eiffel/issues/182))
   - version: 1.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Simple example

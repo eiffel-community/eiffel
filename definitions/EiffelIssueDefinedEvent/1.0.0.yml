@@ -114,7 +114,7 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 1.0.0
-    introduced_in: Current version
+    introduced_in: edition-agen
     changes: Initial version
 _examples:
   - title: Simple example

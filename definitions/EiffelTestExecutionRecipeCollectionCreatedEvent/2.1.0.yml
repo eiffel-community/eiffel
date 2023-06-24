@@ -229,15 +229,15 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 2.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 2.0.0
-    introduced_in: '[f92e001](../../../blob/f92e001c88d1139a62f8ace976958e0a30d8f9c5/eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)'
+    introduced_in: edition-toulouse
     changes: Changed syntax of data.batches.recipes.constraints from
       an uncontrolled object to a list of key-value pairs to comply
       with design guidelines.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Example using data.batches

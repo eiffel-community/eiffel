@@ -251,12 +251,12 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 3.4.0 | No edition set | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
-| 3.3.0 | No edition set | Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)). |
+| 3.4.0 | Not yet released in an edition | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
+| 3.3.0 | Not yet released in an edition | Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)). |
 | 3.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
-| 2.0.0 | [dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
+| 2.0.0 | [edition-agen](../../../tree/edition-agen) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
 

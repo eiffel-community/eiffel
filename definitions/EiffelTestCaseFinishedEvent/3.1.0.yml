@@ -183,24 +183,24 @@ _links:
         - EiffelTestCaseTriggeredEvent
 _history:
   - version: 3.1.0
-    introduced_in: Current version
+    introduced_in: edition-lyon
     changes: Add `data.persistentLogs.{mediaType,tags}`.
   - version: 3.0.0
-    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    introduced_in: edition-agen
     changes: Improved information integrity protection
   - version: 2.0.0
-    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)'
+    introduced_in: edition-agen
     changes: Introduced purl identifiers instead of GAVs (see [Issue
       182](https://github.com/eiffel-community/eiffel/issues/182))
   - version: 1.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 1.0.1
-    introduced_in: '[0a2f9ef](../../../blob/0a2f9ef139fe6ead2493e5deddf1337ffb3dd4af/eiffel-vocabulary/EiffelTestCaseFinishedEvent.md)'
+    introduced_in: edition-toulouse
     changes: data.outcome.metrics.value and data.outcome.metrics.name
       made mandatory.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Simple example
