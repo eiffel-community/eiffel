@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelActivityTriggeredEvent/4.2.0.yml.
+   This file was generated from ../definitions/EiffelActivityTriggeredEvent/4.3.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -69,6 +69,12 @@ __Required:__ No
 __Legal targets:__ [EiffelFlowContextDefinedEvent](../eiffel-vocabulary/EiffelFlowContextDefinedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Identifies the flow context of the event: which is the continuous integration and delivery flow in which this occurred – e.g. which product, project, track or version this is applicable to.
+
+### ORIGINAL_TRIGGER
+__Required:__ No  
+__Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Used when the current activity is a new attempt at completing a previous activity, typically because the latter failed. Although this activity may have been manually triggered and thus lacks a cause that can be described with Eiffel, this link can be used to convey the second-order cause.
 
 ### PRECURSOR
 __Required:__ No  
@@ -210,6 +216,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.3.0 | Not yet released in an edition | Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)). |
 | 4.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.0.0 | [edition-agen-1](../../../tree/edition-agen-1) | Bug fix in schema file (see [Issue 205](https://github.com/eiffel-community/eiffel/issues/205)) |

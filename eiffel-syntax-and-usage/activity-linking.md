@@ -1,5 +1,5 @@
 <!---
-   Copyright 2022 Ericsson AB.
+   Copyright 2022-2023 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -70,6 +70,23 @@ __Legal sources:__ [EiffelActivityTriggeredEvent][ActT],
 __Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
 [EiffelTestCaseTriggeredEvent][TCT], [EiffelTestSuiteStartedEvent][TSS]  
 __Multiple allowed:__ Yes  
+
+### ORIGINAL_TRIGGER
+
+This link type is used for sequences of (usually) failing activities where the first activity declares the "root" trigger and the subsequent activities are retries of the first activity.
+
+*The image below shows how a source code change triggers a build activity. That activity fails and is retried, and the second activity (which might be manually triggered by a user) has an ORIGINAL_TRIGGER link to the first activity.*
+
+![An example of using ORIGINAL_TRIGGER](./original-trigger.png "An example of using ORIGINAL_TRIGGER")
+
+An ORIGINAL_TRIGGER link could be combined with a CAUSE link. For example, an activity that retries a failing build could conceivably have a CAUSE link to the ActF event that announces the failure, but an ORIGINAL_TRIGGER link would further increase the fidelity of the model by describing not just that the second activity is run after the first one but that the first activity is the original trigger of the activity sequence.
+
+__Required:__ No  
+__Legal sources:__ [EiffelActivityTriggeredEvent][ActT],
+[EiffelTestCaseTriggeredEvent][TCT], [EiffelTestSuiteStartedEvent][TSS]  
+__Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
+[EiffelTestCaseTriggeredEvent][TCT], [EiffelTestSuiteStartedEvent][TSS]  
+__Multiple allowed:__ No  
 
 ### CONTEXT
 This link type is used to declare *hierarchies* of activities within a pipeline. The CONTEXT identifies the activity or test suite of which this event constitutes a part. For example:
