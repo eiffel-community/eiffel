@@ -130,6 +130,7 @@ _links:
         - EiffelTestSuiteFinishedEvent
 _history:
   - version: 4.3.0
+    introduced_in: edition-orizaba
     changes: Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).
   - version: 4.2.0
     introduced_in: edition-arica

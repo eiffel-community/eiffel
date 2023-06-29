@@ -141,6 +141,7 @@ _links:
         - EiffelConfidenceLevelModifiedEvent
 _history:
   - version: 3.3.0
+    introduced_in: edition-orizaba
     changes: Add EiffelArtifactDeployedEvent as legal target type for
       SUBJECT link (see
       [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).

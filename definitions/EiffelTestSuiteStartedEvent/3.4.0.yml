@@ -183,6 +183,7 @@ _links:
         - EiffelTestExecutionRecipeCollectionCreatedEvent
 _history:
   - version: 3.4.0
+    introduced_in: edition-orizaba
     changes: Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)).
   - version: 3.3.0
     introduced_in: edition-arica
