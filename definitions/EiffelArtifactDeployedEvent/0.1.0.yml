@@ -113,7 +113,6 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 0.1.0
-    introduced_in: No edition set
     changes: Initial version.
 _examples:
   - title: Simple example

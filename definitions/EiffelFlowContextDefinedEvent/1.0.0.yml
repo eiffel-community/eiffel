@@ -1,4 +1,4 @@
-# Copyright 2017-2022 Ericsson AB and others.
+# Copyright 2017-2023 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -99,7 +99,7 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Simple example

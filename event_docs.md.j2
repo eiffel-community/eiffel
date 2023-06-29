@@ -53,8 +53,12 @@ __Description:__ {{ field_data.description }}
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-{% for item in history -%}
-| {{ item.version }} | {{ item.introduced_in }} | {{ item.changes }} |
+{% for item in history %}
+{%- if item.introduced_in is defined -%}
+| {{ item.version }} | [{{ item.introduced_in }}](../../../tree/{{ item.introduced_in }}) | {{ item.changes }} |
+{% else -%}
+| {{ item.version }} | Not yet released in an edition | {{ item.changes }} |
+{% endif -%}
 {% endfor %}
 
 ## Examples

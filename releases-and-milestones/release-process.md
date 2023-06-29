@@ -31,7 +31,7 @@ When all issues in the scope of the edition have been closed and it's time to ma
 
 1.  Verify that all issues in the [milestone](https://github.com/eiffel-community/eiffel/milestones?state=open) are closed.
 1.  Create a pull request with the following changes (see [PR 277](https://github.com/eiffel-community/eiffel/pull/277) for reference):
-    1.  Change all "No edition set" entries in the release tables of the latest YAML file for each event type to a link to the not yet existing edition tag.
+    1.  Make sure history table entries with a missing `introduced_in` key get one that references the soon-to-be tag for the new edition. You can use [yq](https://mikefarah.gitbook.io/yq/) to identify these files: `for i in definitions/Eiffel*Event/*.yml ; do yq -e '._history | .[] | select(.introduced_in == null)' < $i > /dev/null 2>&1 && echo $i ; done`
     1.  Claim the edition in [versioning.md](../eiffel-syntax-and-usage/versioning.md), including a short summary of the changes in the edition.
     1.  Add an entry for the new edition to [generate_manifest.py](../generate_manifest.py). Unfortunately, this means that CI for the resulting commit won't succeed until the tag has been created (see next step).
 1.  When the pull request has been merged, create and push an "edition-\<name>" annotated tag (use `git tag -a`). The tag comment could include a short version of the included changes to the protocol. Any new major versions of event types should be called out.

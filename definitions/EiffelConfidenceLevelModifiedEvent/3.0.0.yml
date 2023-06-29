@@ -1,4 +1,4 @@
-# Copyright 2017-2022 Ericsson AB and others.
+# Copyright 2017-2023 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -140,17 +140,17 @@ _links:
         - EiffelConfidenceLevelModifiedEvent
 _history:
   - version: 3.0.0
-    introduced_in: '[edition-agen](../../../tree/edition-agen)'
+    introduced_in: edition-agen
     changes: Improved information integrity protection
   - version: 2.0.0
-    introduced_in: '[dc5ec6f](../../../blob/dc5ec6fb87e293eeffe88fdafe698eec0f5a2c89/eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)'
+    introduced_in: edition-agen
     changes: Introduced purl identifiers instead of GAVs (see [Issue
       182](https://github.com/eiffel-community/eiffel/issues/182))
   - version: 1.1.0
-    introduced_in: '[edition-toulouse](../../../tree/edition-toulouse)'
+    introduced_in: edition-toulouse
     changes: Multiple links of type FLOW_CONTEXT allowed.
   - version: 1.0.0
-    introduced_in: '[edition-bordeaux](../../../tree/edition-bordeaux)'
+    introduced_in: edition-bordeaux
     changes: Initial version.
 _examples:
   - title: Simple example
