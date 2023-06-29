@@ -79,7 +79,7 @@ This link type is used for sequences of (usually) failing activities where the f
 
 ![An example of using ORIGINAL_TRIGGER](./original-trigger.png "An example of using ORIGINAL_TRIGGER")
 
-An ORIGINAL_TRIGGER link could be combined with a CAUSE link. For example, an activity that retries a failing build could conceivably have a CAUSE link to the ActF event that announces the failure, but an ORIGINAL_TRIGGER link would further increase the fidelity of the model by describing not just that the second activity is run after the first one but that the first activity is the original trigger of the activity sequence.
+To enhance clarity, an event could combine the ORIGINAL_TRIGGER with a CAUSE link. For example, an activity that retries failing builds based on events might use a CAUSE link to the ActF that announces the failure. To increase the fidelity of the model the event could also use an ORIGINAL_TRIGGER to the ActT to signal which event was the original trigger of the activity sequence.
 
 __Required:__ No  
 __Legal sources:__ [EiffelActivityTriggeredEvent][ActT],
