@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.4.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.5.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -110,6 +110,12 @@ __Required:__ Yes
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
 __Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
+
+### ORIGINAL_TRIGGER
+__Required:__ No  
+__Legal targets:__ [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md)  
+__Multiple allowed:__ No  
+__Description:__ Used when the current test case execution is a new attempt at completing a previous test case execution, typically because the previous one failed. Although this activity may have been manually triggered and thus lacks a cause that can be described with Eiffel, this link can be used to convey the second-order cause.
 
 ### PRECURSOR
 __Required:__ No  

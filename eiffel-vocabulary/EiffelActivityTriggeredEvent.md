@@ -74,7 +74,7 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 __Required:__ No  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Used when the current activity is a new attempt at completing a previous activity, typically because the previous activity failed. Although this activity may have been manually triggered and thus lacks a cause that can be described with Eiffel, this link can be used to convey the second-order cause.
+__Description:__ Used when the current activity is a new attempt at completing a previous activity, typically because the previous one failed. Although this activity may have been manually triggered and thus lacks a cause that can be described with Eiffel, this link can be used to convey the second-order cause.
 
 ### PRECURSOR
 __Required:__ No  

@@ -128,10 +128,10 @@ _links:
         - EiffelFlowContextDefinedEvent
   ORIGINAL_TRIGGER:
     description: 'Used when the current activity is a new attempt at
-      completing a previous activity, typically because the previous activity failed.
-      Although this activity may have been manually triggered and thus
-      lacks a cause that can be described with Eiffel, this link can be
-      used to convey the second-order cause.'
+      completing a previous activity, typically because the previous one
+      failed. Although this activity may have been manually triggered and
+      thus lacks a cause that can be described with Eiffel, this link can
+      be used to convey the second-order cause.'
     required: false
     multiple: false
     targets:
