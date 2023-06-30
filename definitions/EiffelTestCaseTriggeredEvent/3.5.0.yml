@@ -201,6 +201,8 @@ _links:
       types:
         - EiffelTestCaseTriggeredEvent
 _history:
+  - version: 3.5.0
+    changes: Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)).
   - version: 3.4.0
     changes: Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).
   - version: 3.3.0
