@@ -75,7 +75,7 @@ __Multiple allowed:__ Yes
 
 This link type is used for sequences of (usually) failing activities where the first activity declares the "root" trigger and the subsequent activities are retries of the first activity.
 
-*The image below shows how a source code change triggers an activity. That activity fails and is retried, and the second activity (which might be manually triggered by a user) has an ORIGINAL_TRIGGER link to the first activity.*
+*The image below shows how a source code change triggers an activity. That activity fails and is retried, and the second activity (which might be manually triggered by a user) has an ORIGINAL_TRIGGER link to the first activity. If the second activity also fails and a third attempt takes place, that activity's ORIGINAL_TRIGGER link would also link to the first activity.*
 
 ![An example of using ORIGINAL_TRIGGER](./original-trigger.png "An example of using ORIGINAL_TRIGGER")
 
