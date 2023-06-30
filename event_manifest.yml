@@ -186,3 +186,31 @@
       EiffelTestExecutionRecipeCollectionCreatedEvent: 4.3.0
       EiffelTestSuiteFinishedEvent: 3.3.0
       EiffelTestSuiteStartedEvent: 3.3.0
+  - name: Orizaba
+    tag: edition-orizaba
+    release_date: '2023-06-30'
+    events:
+      EiffelActivityCanceledEvent: 3.2.0
+      EiffelActivityFinishedEvent: 3.3.0
+      EiffelActivityStartedEvent: 4.3.0
+      EiffelActivityTriggeredEvent: 4.3.0
+      EiffelAnnouncementPublishedEvent: 3.2.0
+      EiffelArtifactCreatedEvent: 3.3.0
+      EiffelArtifactDeployedEvent: 0.1.0
+      EiffelArtifactPublishedEvent: 3.3.0
+      EiffelArtifactReusedEvent: 3.2.0
+      EiffelCompositionDefinedEvent: 3.3.0
+      EiffelConfidenceLevelModifiedEvent: 3.3.0
+      EiffelEnvironmentDefinedEvent: 3.3.0
+      EiffelFlowContextDefinedEvent: 3.2.0
+      EiffelIssueDefinedEvent: 3.2.0
+      EiffelIssueVerifiedEvent: 4.3.0
+      EiffelSourceChangeCreatedEvent: 4.2.0
+      EiffelSourceChangeSubmittedEvent: 3.2.0
+      EiffelTestCaseCanceledEvent: 3.2.0
+      EiffelTestCaseFinishedEvent: 3.3.0
+      EiffelTestCaseStartedEvent: 3.3.0
+      EiffelTestCaseTriggeredEvent: 3.5.0
+      EiffelTestExecutionRecipeCollectionCreatedEvent: 4.3.0
+      EiffelTestSuiteFinishedEvent: 3.3.0
+      EiffelTestSuiteStartedEvent: 3.4.0

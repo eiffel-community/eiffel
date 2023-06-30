@@ -31,6 +31,7 @@ _EDITIONS = [
     ("Arica", "edition-arica", "2022-11-18"),
     ("Bordeaux", "edition-bordeaux", "2017-04-12"),
     ("Lyon", "edition-lyon", "2021-10-12"),
+    ("Orizaba", "edition-orizaba", "2023-06-30"),
     ("Paris", "edition-paris", "2021-02-16"),
     ("Toulouse", "edition-toulouse", "2018-02-20"),
 ]

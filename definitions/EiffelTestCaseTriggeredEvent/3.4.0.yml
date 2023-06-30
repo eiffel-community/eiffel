@@ -190,8 +190,10 @@ _links:
         - EiffelTestCaseTriggeredEvent
 _history:
   - version: 3.4.0
+    introduced_in: edition-orizaba
     changes: Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)).
   - version: 3.3.0
+    introduced_in: edition-orizaba
     changes: Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)).
   - version: 3.2.0
     introduced_in: edition-arica
