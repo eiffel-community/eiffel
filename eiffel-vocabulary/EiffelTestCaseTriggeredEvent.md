@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.5.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.5.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -109,7 +109,7 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 __Required:__ Yes  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
+__Description:__ Identifies the Implementation Under Test; in other words, the entity that is about to be tested.
 
 ### ORIGINAL_TRIGGER
 __Required:__ No  

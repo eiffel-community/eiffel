@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelIssueVerifiedEvent/4.3.0.yml.
+   This file was generated from ../definitions/EiffelIssueVerifiedEvent/4.3.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -55,7 +55,7 @@ __Description:__ Identifies an issue for which this verification was inconclusiv
 __Required:__ Yes  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Item Under Test; in other words, the entity for which the issue has been verified.
+__Description:__ Identifies the Implementation Under Test; in other words, the entity for which the issue has been verified.
 
 ### SUCCESSFUL_ISSUE
 __Required:__ No  
