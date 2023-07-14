@@ -201,6 +201,8 @@ _links:
       types:
         - EiffelTestCaseTriggeredEvent
 _history:
+  - version: 3.5.1
+    changes: Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)).
   - version: 3.5.0
     introduced_in: edition-orizaba
     changes: Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)).

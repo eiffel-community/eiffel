@@ -149,6 +149,8 @@ _links:
       types:
         - EiffelTestSuiteStartedEvent
 _history:
+  - version: 3.3.1
+    changes: Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)).
   - version: 3.3.0
     introduced_in: edition-arica
     changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
