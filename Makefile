@@ -1,4 +1,4 @@
-# Copyright 2022-2023 Axis Communications AB.
+# Copyright 2022-2023 Axis Communications AB and Others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,11 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-.PHONY: all
-all: generate_docs generate_manifest generate_schemas
-
-# The generate_* goals assume that all Python package dependencies are
+# The goals assume that all Python package dependencies are
 # available, e.g. via a virtualenv.
+
+# Following help file tip from https://stackoverflow.com/questions/8889035/how-to-document-a-makefile
+.PHONEY: help
+help:     ## Show this help.
+	 @egrep -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m  %-30s\033[0m %s\n", $$1, $$2}'
+
+.PHONY: all
+all: generate_docs generate_manifest generate_schemas ## Generate all documentation and schemas from YAML
+
+.PHONY: tests
+test: validate_examples run_tests json_format_test ## Run all tests
 
 .PHONY: generate_docs
 generate_docs:
@@ -30,3 +38,15 @@ generate_manifest:
 .PHONY: generate_schemas
 generate_schemas:
 	./generate_schemas.py definitions/Eiffel*Event/*.yml
+
+.PHONY: validate_examples
+validate_examples:
+	./examples/validate.py
+
+.PHONY: run_tests
+run_tests:
+	pytest --ignore=test_jsonformat.py
+
+.PHONY: json_format_test
+json_format_test:
+	pytest test_jsonformat.py
