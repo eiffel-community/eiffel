@@ -25,10 +25,12 @@
 #MD013:
 #  line_length: 2000
 
-MD013: false
+#MD013: false
 
 #################
 # Rules by tags #
 #################
 
 line-length: false
+blanks-around-headings: false
+blanks-around-lists: false
