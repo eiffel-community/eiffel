@@ -127,6 +127,7 @@ __Description:__ The identity of the author of the event. This property is inten
 __Type:__ Object  
 __Required:__ No  
 __Description:__ An optional object for enabling information integrity protection via cryptographic signing. To generate a correct __meta.security.integrityProtection__ object:
+
   1. Generate the entire event, but with the
      __meta.security.integrityProtection.signature__ value set to
      an empty string.
