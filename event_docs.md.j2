@@ -37,6 +37,18 @@ __Multiple allowed:__ {{ link_data.multiple | yes_or_no }}
 __Description:__ {{ link_data.description }}{% if link_data.experimental %} This link type targets an experimental event and may be removed in a future version of this event (see [Versioning](../eiffel-syntax-and-usage/versioning.md) for details).{% endif %}
 {%- endfor %}
 
+## Meta Members
+{%- for field, field_data in meta_members.items() %}
+
+{{ field | member_heading}}
+__Type:__ {{ field_data.typ }}
+{% if field_data.format -%}
+__Format:__ {{ field_data.format }}
+{% endif -%}
+__Required:__ {{ field_data.required | yes_or_no }}
+__Description:__ {{ field_data.description }}
+{%- endfor %}
+
 ## Version History
 
 | Version | Introduced in | Changes |
