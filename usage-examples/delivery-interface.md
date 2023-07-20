@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2023 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -35,7 +35,7 @@ The [EiffelIssueDefinedEvents](../eiffel-vocabulary/EiffelIssueDefinedEvent.md) 
 ### SCC1, SCC2, SCC3, SCS1, SCS2, SCS3
 The [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) declare that changes have been made and link to relevant [EiffelIssueDefinedEvents](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). This does not mean that the change has been merged onto the project mainline (or other relevant branch) - this is instead declared by The [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md). The distinction between the two is important when working with review processes, private repositories and/or pull requests. If none of that is applicable, the two events are simply sent at once.
 
-The structure of events shown in this example represents a common development branch, where changes are represented by __SCS1__, SCS2__ and __SCS3__. Each of these submitted changes references a EiffelSourceChangeCreatedEvent via __CHANGE__ links, and also points to the latest previously submitted version(s). This establishes an unbroken chain of source revisions along with a record of the process leading up to that submission.
+The structure of events shown in this example represents a common development branch, where changes are represented by __SCS1__, __SCS2__ and __SCS3__. Each of these submitted changes references a EiffelSourceChangeCreatedEvent via __CHANGE__ links, and also points to the latest previously submitted version(s). This establishes an unbroken chain of source revisions along with a record of the process leading up to that submission.
 
 ### CDef1, CDef2, CDef3
 [EiffelCompositionDefinedEvents](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) declaring that new compositions are available to be built. Note that in this example not every composition leads to the creation of a new artifact. In industrial practice this is a common phenomenon, for which there may be a number of reasons - often there simply isn't sufficient time or resources to build each individual change.
@@ -53,6 +53,7 @@ The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEven
 
 ## Traceability in Practice
 Analysis of the events provided in this example (and the external data sources referenced by them) can, purely from a systems integration point of view, be used to answer the following questions:
+
 * Which test cases have succeeded and/or failed for __ArtC2__, as opposed to __ArtC1__?
 * When was a certain source change first delivered?
 * When was a certain requirement/feature implementation first delivered?

@@ -1,5 +1,5 @@
 <!---
-   Copyright 2020-2022 Ericsson AB and others.
+   Copyright 2020-2023 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -49,7 +49,7 @@ An activity could also be an SCM operation such as a manual code review or autom
 
 Some activity types have their own specific events, such as EiffelTestCase\*Events notifying test case executions, while others are more generic and can be notified using EiffelActivity\*Events.
 
-#### Examples of events related to activities:
+__Examples of events related to activities:__
 
 - [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
 - [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md)
@@ -68,7 +68,7 @@ _Artifacts_ are items or software packages generated in a CI/CD [pipeline](#pipe
 
 An artifact is often the subject of a test executed or a delivery performed within a CI/CD pipeline. An artifact can also be software package generated with the sole purpose to be used in a specific test scenario. For example when product software is combined with test harnesses. Such artifacts are also defined by compositions to record what versions of test harness software were used.
 
-#### Examples of events related to artifacts:
+__Examples of events related to artifacts:__
 
 - [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
 
@@ -76,7 +76,7 @@ An artifact is often the subject of a test executed or a delivery performed with
 
 A _composition_ is an immutable grouping of specific versions of [artifacts](#artifact) and/or [source changes](#source-change). It is more or less the same as what is elsewhere sometimes referred to as a _baseline_, which can be explained as being a fixed reference point used for comparison. A composition is often defined with the purpose of enabling downstream artifacts to be generated. It gives full traceability on what software pieces that were used to generate the artifact, be it a product artifact, a test harness or some other kind of generated artifact.
 
-#### Examples of events related to compositions:
+__Examples of events related to compositions:__
 
 - [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
 
@@ -88,7 +88,7 @@ A confidence level can group other (sub) confidence levels of lower abstractions
 
 Confidence levels frequently figure in automated delivery interfaces within a tiered system context: lower level tiers issue an agreed confidence level signaling that a new version is ready for integration in a higher level tier.
 
-#### Examples of events related to confidence levels:
+__Examples of events related to confidence levels:__
 
 - [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
 
@@ -102,7 +102,7 @@ Also, keep in mind that all names are more or less prone to change. Particularly
 
 An Eiffel _environment_ defines the environment in which an [activity](#activity) is executed. Could be for example a host, node, service name/uri, a Docker image or some other kind of machine configuration definition.
 
-#### Examples of events related to environments:
+__Examples of events related to environments:__
 
 - [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md)
 
@@ -128,7 +128,7 @@ More about links can be read in the [links object documentation](./the-links-obj
 
 A _source change_ is the unit of a review. It results in a single commit when merged to the Git repository.
 
-#### Examples of events related to source changes:
+__Examples of events related to source changes:__
 
 - [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md)
 - [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
@@ -137,7 +137,7 @@ A _source change_ is the unit of a review. It results in a single commit when me
 
 A _submit_ is the action of merging a [source change](#source-change) to its intended target branch.
 
-#### Examples of events related to submits:
+__Examples of events related to submits:__
 
 - [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)
 

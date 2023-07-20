@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2023 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -27,7 +27,15 @@ In information security, integrity refers to the accuracy and completeness of da
 
 ### Integrity of event payloads
 
-The integrity of the contents of an Eiffel event, i.e. its payload, can be protected via a digital signature. A digital signature is a combination of hashing technology and encryption. Hash functions are commonly used to ensure data integrity and are familiar to most software professionals. By using checksums or hash values (particularly hash values, or _digests_, produced by cryptographic hash functions such as the SHA series), any piece of data of arbitrary length is computed into a fixed length digest, with any alteration of the input data resulting in a different digest. Consequently, as long as the digest of the received data matches the digest of the data sent, its integrity can be verified. Unfortunately, the digest must be securely communicated: any malicious attacker able to not only manipulate the data but also the digest can make a corrupted message appear authentic. This is why digital signing also employs encryption.
+The integrity of the contents of an Eiffel event, i.e. its payload, can be protected via a digital signature. A digital
+signature is a combination of hashing technology and encryption. Hash functions are commonly used to ensure data
+integrity and are familiar to most software professionals. By using checksums or hash values (particularly hash values,
+or _digests_, produced by cryptographic hash functions such as the SHA series), any piece of data of arbitrary length is
+computed into a fixed length digest, with any alteration of the input data resulting in a different digest.
+Consequently, as long as the digest of the received data matches the digest of the data sent, its integrity can be
+verified. Unfortunately, the digest must be securely communicated: any malicious attacker able to not only manipulate
+the data but also the digest can make a corrupted message appear authentic. This is why digital signing also employs
+encryption.
 
 The Eiffel protocol's support is influenced by [JSON Web Signatures (JWS)](https://tools.ietf.org/html/rfc7515), with slight modifications to allow inclusion of the signature within the event message itself, rather than as part of a header. This serves to keep every Eiffel event self-contained, with information integrity protection optional for the producer to include and optional for the consumer to consider. Note that this optionality does not in any way lessen the strength of the security provided: it is always up to the recipient of an unprotected Eiffel event to decide whether to trust it or not. In this sense, Eiffel support of data integrity is very similar to that employed by other document formats, such as the [Portable Document Format](http://www.adobe.com/devnet/pdf/pdf_reference.html).
 

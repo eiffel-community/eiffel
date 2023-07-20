@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2023 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,7 +50,16 @@ The [EiffelArtifactReusedEvents](../eiffel-vocabulary/EiffelArtifactReusedEvent.
 There are the [EiffelCompositionDefinedEvents](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) defining the larger system composed of components __A__, __B__, __C__, __D__ and __E__: whenever all components required to be rebuilt for a given source change are available, a new system composition is emitted.
 
 ## Build Avoidance Solution
-As discussed in the introduction, in a centralized scenario where a single actor controls the entire process end-to-end, arranging this type of build avoidance is trivial. In a distributed and heterogeneous scenario it is more complicated, as one actor cannot be assumed to, and indeed should not, know more than its immediate concerns. In other words, the actor defining __CDefS1__ and __CDefS2__ does not know who builds or does not build components __A__, __B__, __C__, __D__ or __E__ or on which basis that decision is made. Conversely, the builders of the components do not presume to know who will be using them: they are ignorant of the system level, and may indeed be included in any number of downstream compositions. How then does one determine when to issue a new [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) and which component artifacts to include in it?
+
+As discussed in the introduction, in a centralized scenario where a single actor controls the entire process end-to-end,
+arranging this type of build avoidance is trivial. In a distributed and heterogeneous scenario it is more complicated,
+as one actor cannot be assumed to, and indeed should not, know more than its immediate concerns. In other words, the
+actor defining __CDefS1__ and __CDefS2__ does not know who builds or does not build components __A__, __B__, __C__,
+__D__ or __E__ or on which basis that decision is made. Conversely, the builders of the components do not presume to know
+who will be using them: they are ignorant of the system level, and may indeed be included in any number of downstream
+compositions. How then does one determine when to issue a
+new [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) and which component artifacts
+to include in it?
 
 Facing this scenario it is easy to turn to either prescriptive solutions (e.g. __CDefC1__ and __CDefC2__ instructing downstream actors what to do) or convention based solutions (e.g. __B__ is usually wrapped in Activity events, so a set of Activity events without an [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) is interpreted as a skipped build). The Eiffel protocol supports this scenario through [EiffelArtifactReusedEvents](../eiffel-vocabulary/EiffelArtifactReusedEvent.md), however.
 

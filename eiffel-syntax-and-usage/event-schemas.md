@@ -1,5 +1,5 @@
 <!---
-   Copyright 2022 Axis Communications AB.
+   Copyright 2022-2023 Axis Communications AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,7 +37,7 @@ Both schemas and documentation files are generated from _schema definition files
 | `_history`      | An array of objects describing the event type's version history, up to and including the current version. The items should be sorted in reverse order. |
 | `_history.version`        | The event version described in this item. |
 | `_history.introduced_in`  | The Git tag of the first edition where this version was available, or null if the version hasn't been released in a protocol edition. |
-| `_history.changes`        | A short description of the changes in this item's event version. | 
+| `_history.changes`        | A short description of the changes in this item's event version. |
 | `_examples`     | An array of objects describing examples of this event. |
 | `_examples.title`         | The name of the example. |
 | `_examples.url`           | The URL of the example. |
@@ -54,7 +54,7 @@ Another feature of schema definition files is that they may contain references t
 
 For example, the definition of __meta__ is found among one of the EiffelMetaProperty subschemas like [definitions/EiffelMetaProperty/3.0.0.yml](../definitions/EiffelMetaProperty/3.0.0.yml). Defining this member and referencing it from the event's schema is done like this:
 
-```
+```yaml
 meta:
   $ref: ../EiffelMetaProperty/3.0.0.yml
 ```
@@ -64,7 +64,7 @@ Changing a non-event schema definition that's referenced by actual events, like 
 ## Example
 Here's a minimal example of a schema definition file:
 
-```
+```yaml
 $schema: http://json-schema.org/draft-04/schema#
 _abbrev: SH
 _description: The EiffelSomethingHappenedEvent declares that something happened.
