@@ -21,16 +21,21 @@
 # Rules by id #
 ###############
 
-# Maybe should be
-#MD013:
-#  line_length: 2000
-
-#MD013: false
+# MD013/line-length - Line length
+#  MD013:
+#    # Number of characters
+#    line_length: 1000
 
 #################
 # Rules by tags #
 #################
 
-line-length: false
-blanks-around-headings: false
-blanks-around-lists: false
+# MD013/line-length - Line length
+line-length:
+    line_length: 900 # Arbitrary length to catch the worst. Setting this to 120 affects 500 lines
+
+# MD022/blanks-around-headings/blanks-around-headers - Headings should be surrounded by blank lines
+blanks-around-headings: false # Affects 460 lines
+
+# MD033/no-inline-html - Inline HTML
+no-inline-html: false # Used by: usage-examples/build-avoidance.md, eiffel-syntax-and-usage/the-meta-object.md, README.md
