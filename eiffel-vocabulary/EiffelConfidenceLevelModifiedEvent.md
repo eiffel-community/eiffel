@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelConfidenceLevelModifiedEvent/3.3.0.yml.
+   This file was generated from ../definitions/EiffelConfidenceLevelModifiedEvent/3.4.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -83,6 +83,12 @@ __Required:__ No
 __Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Used in events summarizing multiple confidence levels. Example use case: the confidence level "allTestsOk" summarizes the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk", and consequently links to them via __SUB_CONFIDENCE_LEVEL__. This is intended for purely descriptive, rather than prescriptive, use.
+
+### CONFIDENCE_BASIS
+__Required:__ No  
+__Legal targets:__ [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md), [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare the basis for which confidence statement(s) this event have used. The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for selecting the provided `data.name` and/or `data.value` 
 
 ## Meta Members
 
@@ -218,6 +224,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.4.0 | Not yet released in an edition | Add CONFIDENCE_BASIS link (see [Issue 323](https://github.com/eiffel-community/eiffel/issues/323)). |
 | 3.3.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add EiffelArtifactDeployedEvent as legal target type for SUBJECT link (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
 | 3.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
