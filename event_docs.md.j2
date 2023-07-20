@@ -41,11 +41,11 @@ __Description:__ {{ link_data.description }}{% if link_data.experimental %} This
 {%- for field, field_data in meta_members.items() %}
 
 {{ field | member_heading}}
-__Type:__ {{ field_data.typ }}
+__Type:__ {{ field_data.typ }}  
 {% if field_data.format -%}
-__Format:__ {{ field_data.format }}
+__Format:__ {{ field_data.format }}  
 {% endif -%}
-__Required:__ {{ field_data.required | yes_or_no }}
+__Required:__ {{ field_data.required | yes_or_no }}  
 __Description:__ {{ field_data.description }}
 {%- endfor %}
 
