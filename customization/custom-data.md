@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2022 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,7 +25,22 @@ __data.customData__ is an optional member of _all_ Eiffel events. It is an array
 While __data.customData__ affords users extensive freedom in including custom content, they are strongly encouraged to consider the following before making use of it:
 
 * Are there existing Eiffel events and/or event members able to express the information? Using the standard vocabulary and syntax should always be the first option.
-* If your use case lacks support in the standard Eiffel vocabulary, there's a chance this is actually a general use case which deserves such support. Create an [Issue](https://github.com/Ericsson/eiffel/issues) about it! It is always better to design a common solution than to implement multiple local adaptations.
-* Users defining __data.customData__ members are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events or syntax can not be expected, unless the custom syntax is proposed to and accepted into the standard Eiffel vocabulary (and consequently is no longer custom).
+* If your use case lacks support in the standard Eiffel vocabulary, there's a chance this is actually a general use case which deserves such support. Create an [Issue](https://github.com/eiffel-community/eiffel/issues) about it! It is always better to design a common solution than to implement multiple local adaptations.
+* Users defining __data.customData__ members are responsible for them and any compatibility issues. Special considerations or support from standard Eiffel events or syntax cannot be expected, unless the custom syntax is proposed to and accepted into the standard Eiffel vocabulary (and consequently is no longer custom).
+* Do you aggregate data on the producer side and add that data as custom data? If
+  the producer aggregates the data it will do so for a specific consumer but we
+  want to create a protocol that can serve any consumer for use cases that has not
+  yet seen the light. Try to use the existing fields and aggregate data
+  on the consumer side.
+* Do you give too much data? The maintainers of the protocol have reviewed the
+  protocol as a whole, making consideration on data security.
+* Do you use Eiffel to solve a generic data streaming problem? Eiffel provides
+  a semantic for describing occurrencies in a CI/CD system and use links when
+  needed to point to more information.
+* Can you describe properly what data to send in the new parameter? The Eiffel
+  protocol specifies what data to send in each event.
+* Can you ensure the same use of the new parameter in all places?
+* If you send the same data in more than one member? Which one do you read?
+* Have you provided a good enough context for the reader to understand the data?
 
 The [event design guidelines](../eiffel-syntax-and-usage/event-design-guidelines.md) shall be observed with regards to key and value naming conventions.

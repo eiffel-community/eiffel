@@ -1,0 +1,120 @@
+# Copyright 2022 Axis Communications AB.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: ArtD
+_description: The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or
+  that the configuration of the artifact has been changed.
+  The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/3.1.0.yml
+  data:
+    type: object
+    properties:
+      description:
+        _description: Any human readable information information about this deployment.
+        type: string
+      uri:
+        _description: A URI identifying the deployment description.
+        _format: URI
+        type: string
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.1.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  ARTIFACT:
+    description: Identifies the artifact that has been deployed.
+    required: true
+    experimental: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONFIGURATION:
+    description: Identifies the configuration used to deploy the
+      artifact identified with the ARTIFACT link, if the configuration
+      isn't included in the artifact itself. This configuration could be
+      a deployment script, a runbook specification, a helm chart or some
+      other description of how the artifact is started or upgraded in the
+      target environment.
+    required: false
+    experimental: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelArtifactCreatedEvent
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  ENVIRONMENT:
+    description: Identifies the environment into which this artifact
+      was deployed.
+    required: true
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelEnvironmentDefinedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+_history:
+  - version: 0.1.0
+    introduced_in: edition-orizaba
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelArtifactDeployedEvent/simple.json

@@ -1,0 +1,151 @@
+# Copyright 2017-2023 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: http://json-schema.org/draft-04/schema#
+_abbrev: TSS
+_description: |-
+  The EiffelTestSuiteStartedEvent declares that the execution of a test suite has started. This can either be declared stand-alone or as part of an activity or other test suite, using either a __CAUSE__ or a __CONTEXT__ link type, respectively.
+
+  In Eiffel, a test suite is nothing more or less than a collection of test case executions (see [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) and/or other test suite executions. The executed test suite may be an ad-hoc transient grouping of test cases that were executed at a particular time or place or for a particular purpose or a persistent entity tracked in a test management system - Eiffel makes no distinction or assumptions either way.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/1.0.0.yml
+  data:
+    type: object
+    properties:
+      name:
+        _description: The name of the test suite. Uniqueness is not
+          required or checked, but is useful.
+        type: string
+      categories:
+        _description: The category or categories of the test suite.
+          This can be used to group multiple similar test suites for
+          analysis and visualization purposes. Example usage is to
+          categorize test suites required before release as "Pre-release
+          tests".
+        type: array
+        items:
+          type: string
+      types:
+        _description: The type or types of testing performed by the
+          test suite, as [defined by ISO 29119](http://www.softwaretestingstandard.org).
+        type: array
+        items:
+          type: string
+          enum:
+            - ACCESSIBILITY
+            - BACKUP_RECOVERY
+            - COMPATIBILITY
+            - CONVERSION
+            - DISASTER_RECOVERY
+            - FUNCTIONAL
+            - INSTALLABILITY
+            - INTEROPERABILITY
+            - LOCALIZATION
+            - MAINTAINABILITY
+            - PERFORMANCE
+            - PORTABILITY
+            - PROCEDURE
+            - RELIABILITY
+            - SECURITY
+            - STABILITY
+            - USABILITY
+      liveLogs:
+        _description: An array of live log files available during execution.
+          These shall not be presumed to be stored persistently; in
+          other words, once the test suite has finished there is no
+          guarantee that these links are valid. Persistently stored
+          logs shall be (re-)declared by [EiffelTestSuiteFinishedEvent](./EiffelTestSuiteFinishedEvent.md).
+        type: array
+        items:
+          type: object
+          properties:
+            name:
+              _description: The name of the log file.
+              type: string
+            uri:
+              _description: The URI at which the log can be retrieved.
+              type: string
+          required:
+            - name
+            - uri
+          additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/1.0.0.yml
+    required:
+      - name
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/1.0.1.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  TERC:
+    description: This link signifies that the test suite represented
+      by this event groups all test case executions resulting from
+      the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelTestExecutionRecipeCollectionCreatedEvent
+_history:
+  - version: 1.0.0
+    introduced_in: edition-bordeaux
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelTestSuiteStartedEvent/simple.json

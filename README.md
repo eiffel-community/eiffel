@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2018 Ericsson AB.
+   Copyright 2017-2022 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -33,7 +33,8 @@ This repository forms part of the Eiffel Community. Eiffel is a protocol for tec
 Visit [Eiffel Community](https://eiffel-community.github.io) to get started and get involved.
 
 # Contents
-1. [Introduction](./introduction/introduction.md)
+1. Introduction
+   1. [Introduction](./introduction/introduction.md)
    1. [How to Propose Changes and Contribute](https://github.com/eiffel-community/.github/blob/master/CONTRIBUTING.md)
    1. [Code of Conduct](https://github.com/eiffel-community/.github/blob/master/CODE_OF_CONDUCT.md)
 1. Eiffel Syntax and Usage
@@ -45,12 +46,16 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Versioning](./eiffel-syntax-and-usage/versioning.md)
    1. [Compositions and Validity Checking](./eiffel-syntax-and-usage/compositions-and-validity-checking.md)
    1. [Security](./eiffel-syntax-and-usage/security.md)
+   1. [Activity Linking](./eiffel-syntax-and-usage/activity-linking.md)
+   1. [Event Schemas](./eiffel-syntax-and-usage/event-schemas.md)
+   1. [Event Categories](./eiffel-syntax-and-usage/event-categories.md)
 1. The Eiffel Vocabulary
    1. [EiffelActivityTriggeredEvent (ActT)](./eiffel-vocabulary/EiffelActivityTriggeredEvent.md)
    1. [EiffelActivityCanceledEvent (ActC)](./eiffel-vocabulary/EiffelActivityCanceledEvent.md)
    1. [EiffelActivityStartedEvent (ActS)](./eiffel-vocabulary/EiffelActivityStartedEvent.md)
    1. [EiffelActivityFinishedEvent (ActF)](./eiffel-vocabulary/EiffelActivityFinishedEvent.md)
    1. [EiffelArtifactCreatedEvent (ArtC)](./eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+   1. [EiffelArtifactDeployedEvent (ArtD)](./eiffel-vocabulary/EiffelArtifactDeployedEvent.md)
    1. [EiffelArtifactPublishedEvent (ArtP)](./eiffel-vocabulary/EiffelArtifactPublishedEvent.md)
    1. [EiffelArtifactReusedEvent (ArtR)](./eiffel-vocabulary/EiffelArtifactReusedEvent.md)
    1. [EiffelConfidenceLevelModifiedEvent (CLM)](./eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
@@ -82,3 +87,5 @@ Visit [Eiffel Community](https://eiffel-community.github.io) to get started and 
    1. [Custom Data](./customization/custom-data.md)
 1. Extensions
    1. [Eiffel Operations Extension](https://github.com/Ericsson/eiffel-operations-extension)
+1. Releases and Milestones
+   1. [Release process](./releases-and-milestones/release-process.md)

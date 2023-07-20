@@ -1,4 +1,4 @@
-# Copyright 2022 Axis Communications AB and others.
+# Copyright 2022-2023 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -31,3 +31,24 @@ jobs:
 
       - name: Run tox
         run: tox
+
+  check-consistency:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # We need to fetch the tags too.
+          fetch-depth: 0
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate all files
+        run: make
+
+      - name: Check if workspace contains dirty files
+        run: git diff --exit-code || ( echo "::error ::Workspace contained dirty files (see log for details)" ; exit 1)
+
+      - name: Check if workspace contains untracked files
+        run: export FILES="$(git ls-files -o --exclude-standard)" ; test -z "$FILES" || ( echo "$FILES" ; echo "::error ::Workspace contained untracked files (see log for details)" ; exit 1 )
