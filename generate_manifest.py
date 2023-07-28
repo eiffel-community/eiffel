@@ -18,6 +18,7 @@
 import re
 import subprocess
 import sys
+from functools import cached_property
 from typing import Dict
 
 import semver
@@ -37,6 +38,75 @@ _EDITIONS = [
 ]
 
 
+class Manifest:
+    """
+    Python interface as a class for reading the event_manifest.yaml file.
+    """
+
+    def __init__(self, manifest_path: str):
+        with open(manifest_path) as file:
+            _raw_event_manifest = yaml.YAML().load(file)
+
+        # The manifest file is already sorted, but do we want to count on it?
+        self._event_manifest = sorted(
+            _raw_event_manifest,
+            key=lambda _edition: _edition["release_date"])
+        self._edition_tag_map = dict()
+        for edition in self._event_manifest:
+            self._edition_tag_map[edition['tag']] = edition
+
+    def is_edition_tag(self, question_tag: str) -> bool:
+        """
+        Test if the provided tags matches any of the edition tags
+        """
+        return question_tag in self.tags
+
+    @cached_property
+    def tags(self):
+        """
+        Fetches all the tags
+        """
+        return [edition['tag'] for edition in self._event_manifest]
+
+    def event_version_by_tag(self, edition: str, event: str):
+        """
+        Fetches the event version of the given event in the given edition
+        :return: None if event not part of edition
+        """
+        return self._edition_tag_map[edition]['events'].get(event, None)
+
+    def get_previous_edition_by_tag(self, edition_tag: str):
+        """
+        Fetches the previous edition
+        :return: None if first edition
+        """
+        if edition_tag not in self.tags:
+            raise ValueError(f"{edition_tag} not found amongst {self.tags}")
+
+        current_edition_index = self.tags.index(edition_tag)
+        if current_edition_index == 0:
+            return None
+        else:
+            return self._event_manifest[current_edition_index - 1]
+
+    def is_in_edition(self, edition_tag: str, event_name: str, event_version: str):
+        """
+        Tests if the given edition contains the given version of the event.
+        Tests by comparing the range given by the current edition and the previous.
+        """
+        previous_edition = self.get_previous_edition_by_tag(edition_tag)
+        version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
+        if previous_edition is None:
+            return semver.compare(version_of_current_edition, event_version) == 0
+        else:
+            version_of_previous_edition = self.event_version_by_tag(previous_edition['tag'], event_name)
+            if version_of_previous_edition is None:
+                version_of_previous_edition = "0.0.0"
+            does_not_exceed_current_version = semver.compare(version_of_current_edition, event_version) > -1
+            does_not_subceed_previous_version = semver.compare(event_version, version_of_previous_edition) > -1
+            return does_not_exceed_current_version and does_not_subceed_previous_version
+
+
 def _get_latest_schemas(tag: str) -> Dict[str, str]:
     """Given a tag, returns a mapping of the event types available in that
     tag and the latest version of each such type.
@@ -44,7 +114,7 @@ def _get_latest_schemas(tag: str) -> Dict[str, str]:
     schema_file_regexp = re.compile(r"^schemas/([^/]+)/([^/]+).json$")
     latest = {}
     for schema_file in subprocess.check_output(
-        ["git", "ls-tree", "-r", "--name-only", tag, "--", "schemas"]
+            ["git", "ls-tree", "-r", "--name-only", tag, "--", "schemas"]
     ).splitlines():
         match = schema_file_regexp.search(schema_file.decode("utf-8"))
         if not match:
