@@ -36,7 +36,7 @@ confidence levels.
 
 ## Event Graph
 
-![](clm-for-hw-sw.png "Event graph for describing confidence over hardware and software")
+![Event graph for describing confidence over hardware and software](clm-for-hw-sw.png "Event graph for describing confidence over hardware and software")
 
 ## Event-by-Event Explanation
 
