@@ -43,7 +43,7 @@ confidence levels.
 * `ArtC1`:
   The [EiffelArtifactCreatedEvent (ArtC)](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
   event represents the software artifact running on the hardware.
-* `CD1`: The [CD](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) event
+* `CD1`: The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) event
   describes the hardware. 
   The event describes the type of hardware or maybe a recipe but not a specific 
   device like something having a serial number. 
@@ -55,5 +55,6 @@ confidence levels.
 * `CD2`:
   The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
   event describes the combination of hardware and software.
-* `CLM2`: Describes the confidence for `CD2` containing both the software and
-  the hardware
+* `CLM2`: The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) 
+  describes the confidence for `CD2` containing both the software and the
+  hardware
