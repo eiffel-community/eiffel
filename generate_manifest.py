@@ -49,11 +49,11 @@ class Manifest:
 
         # The manifest file is already sorted, but do we want to count on it?
         self._event_manifest = sorted(
-            _raw_event_manifest,
-            key=lambda _edition: _edition["release_date"])
+            _raw_event_manifest, key=lambda _edition: _edition["release_date"]
+        )
         self._edition_tag_map = dict()
         for edition in self._event_manifest:
-            self._edition_tag_map[edition['tag']] = edition
+            self._edition_tag_map[edition["tag"]] = edition
 
     def is_edition_tag(self, question_tag: str) -> bool:
         """
@@ -66,14 +66,14 @@ class Manifest:
         """
         Fetches all the tags
         """
-        return [edition['tag'] for edition in self._event_manifest]
+        return [edition["tag"] for edition in self._event_manifest]
 
     def event_version_by_tag(self, edition: str, event: str):
         """
         Fetches the event version of the given event in the given edition
         :return: None if event not part of edition
         """
-        return self._edition_tag_map[edition]['events'].get(event, None)
+        return self._edition_tag_map[edition]["events"].get(event, None)
 
     def get_previous_edition_by_tag(self, edition_tag: str):
         """
@@ -97,15 +97,30 @@ class Manifest:
         previous_edition = self.get_previous_edition_by_tag(edition_tag)
         version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
         if previous_edition is None:
-            return semver.VersionInfo.parse(version_of_current_edition).compare(event_version) == 0
+            return (
+                semver.VersionInfo.parse(version_of_current_edition).compare(
+                    event_version
+                )
+                == 0
+            )
         else:
-            version_of_previous_edition = self.event_version_by_tag(previous_edition['tag'], event_name)
+            version_of_previous_edition = self.event_version_by_tag(
+                previous_edition["tag"], event_name
+            )
             if version_of_previous_edition is None:
                 version_of_previous_edition = "0.0.0"
-            does_not_exceed_current_version = \
-                semver.VersionInfo.parse(version_of_current_edition).compare(event_version) > -1
-            does_not_subceed_previous_version = \
-                semver.VersionInfo.parse(event_version).compare(version_of_previous_edition) > -1
+            does_not_exceed_current_version = (
+                semver.VersionInfo.parse(version_of_current_edition).compare(
+                    event_version
+                )
+                > -1
+            )
+            does_not_subceed_previous_version = (
+                semver.VersionInfo.parse(event_version).compare(
+                    version_of_previous_edition
+                )
+                > -1
+            )
             return does_not_exceed_current_version and does_not_subceed_previous_version
 
 
@@ -116,7 +131,7 @@ def _get_latest_schemas(tag: str) -> Dict[str, str]:
     schema_file_regexp = re.compile(r"^schemas/([^/]+)/([^/]+).json$")
     latest = {}
     for schema_file in subprocess.check_output(
-            ["git", "ls-tree", "-r", "--name-only", tag, "--", "schemas"]
+        ["git", "ls-tree", "-r", "--name-only", tag, "--", "schemas"]
     ).splitlines():
         match = schema_file_regexp.search(schema_file.decode("utf-8"))
         if not match:

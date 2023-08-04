@@ -14,12 +14,14 @@
 # limitations under the License.
 
 import pathlib
+
 import pytest
+
 import definition_loader
 import generate_manifest
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture(scope="session")
 def manifest():
     return generate_manifest.Manifest("event_manifest.yml")
 
@@ -50,8 +52,9 @@ def test_history_table_contains_valid_release(event_definition_path, manifest):
     for entry in definition.get("_history", []):
         edition = entry.get("introduced_in", None)
         if edition is not None:
-            assert manifest.is_edition_tag(edition), \
-                f"Nonexistent edition '{edition}' in history table for {event_type} {event_version}"
+            assert manifest.is_edition_tag(
+                edition
+            ), f"Nonexistent edition '{edition}' in history table for {event_type} {event_version}"
 
 
 @pytest.mark.parametrize(
@@ -66,5 +69,6 @@ def test_history_table_matches_manifest(event_definition_path, manifest):
         edition = entry.get("introduced_in", None)
         event_version_of_edition = entry.get("version")
         if edition is not None:
-            assert manifest.is_in_edition(edition, event_type, event_version_of_edition), \
-                f"{event_version_of_edition} not part of '{edition}' as describe in history table for {event_type} {event_version}"
+            assert manifest.is_in_edition(
+                edition, event_type, event_version_of_edition
+            ), f"{event_version_of_edition} not part of '{edition}' as describe in history table for {event_type} {event_version}"
