@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2023 Axis Communications AB.
+# Copyright 2023 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -97,13 +97,15 @@ class Manifest:
         previous_edition = self.get_previous_edition_by_tag(edition_tag)
         version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
         if previous_edition is None:
-            return semver.compare(version_of_current_edition, event_version) == 0
+            return semver.VersionInfo.parse(version_of_current_edition).compare(event_version) == 0
         else:
             version_of_previous_edition = self.event_version_by_tag(previous_edition['tag'], event_name)
             if version_of_previous_edition is None:
                 version_of_previous_edition = "0.0.0"
-            does_not_exceed_current_version = semver.compare(version_of_current_edition, event_version) > -1
-            does_not_subceed_previous_version = semver.compare(event_version, version_of_previous_edition) > -1
+            does_not_exceed_current_version = \
+                semver.VersionInfo.parse(version_of_current_edition).compare(event_version) > -1
+            does_not_subceed_previous_version = \
+                semver.VersionInfo.parse(event_version).compare(version_of_previous_edition) > -1
             return does_not_exceed_current_version and does_not_subceed_previous_version
 
 
