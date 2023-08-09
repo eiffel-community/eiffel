@@ -15,7 +15,7 @@
    limitations under the License.
 --->
 
-# CLM for a combination of Hardware and Software
+# Confidence Level for a Combination of Hardware and Software
 
 This example shows how to use
 [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
