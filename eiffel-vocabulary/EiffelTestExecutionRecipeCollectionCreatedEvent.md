@@ -288,6 +288,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | 2.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
 | 2.0.0 | [edition-toulouse](../../../tree/edition-toulouse) | Changed syntax of data.batches.recipes.constraints from an uncontrolled object to a list of key-value pairs to comply with design guidelines. |
 | 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
+
 ## Examples
 
 * [Example using data.batches](../examples/events/EiffelTestExecutionRecipeCollectionCreatedEvent/batches.json)

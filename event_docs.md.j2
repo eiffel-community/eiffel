@@ -59,8 +59,10 @@ __Description:__ {{ field_data.description }}
 {% else -%}
 | {{ item.version }} | Not yet released in an edition | {{ item.changes }} |
 {% endif -%}
-{% endfor -%}
+{% endfor %}
+{#- Putting a "-" after the for loop will kill all whitespaces afterwards -#}
 
+{#- "-" in Jinja removes all whitespace thus this ugly hack #}
 ## Examples
 
 {% for ex in examples -%}

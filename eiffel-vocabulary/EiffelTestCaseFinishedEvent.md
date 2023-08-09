@@ -254,6 +254,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | 1.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.1 | [edition-toulouse](../../../tree/edition-toulouse) | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
 | 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
+
 ## Examples
 
 * [Simple example](../examples/events/EiffelTestCaseFinishedEvent/simple.json)

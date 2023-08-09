@@ -209,6 +209,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | 3.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |
 | 2.0.0 | [edition-agen](../../../tree/edition-agen) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.0.0 | [edition-agen](../../../tree/edition-agen) | Initial version |
+
 ## Examples
 
 * [Simple example](../examples/events/EiffelIssueDefinedEvent/simple.json)

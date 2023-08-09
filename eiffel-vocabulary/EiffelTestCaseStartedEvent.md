@@ -215,6 +215,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | 2.0.0 | [edition-agen](../../../tree/edition-agen) | Introduced purl identifiers instead of GAVs (see [Issue 182](https://github.com/eiffel-community/eiffel/issues/182)) |
 | 1.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
+
 ## Examples
 
 * [Simple example](../examples/events/EiffelTestCaseStartedEvent/simple.json)

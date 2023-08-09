@@ -197,6 +197,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
 | 0.1.0 | [edition-orizaba](../../../tree/edition-orizaba) | Initial version. |
+
 ## Examples
 
 * [Simple example](../examples/events/EiffelArtifactDeployedEvent/simple.json)
