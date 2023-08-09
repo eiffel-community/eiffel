@@ -54,7 +54,9 @@ confidence levels.
   This assumes no dependencies on hardware when verifying the confidence.
 * `CD2`:
   The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
-  event describes the combination of hardware and software.
+  event describes the combination of hardware type and software.
+
 * `CLM2`: The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) 
   describes the confidence for `CD2` containing both the software and the
-  hardware
+  hardware type
+
