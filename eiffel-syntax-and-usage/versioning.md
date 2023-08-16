@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2021 Ericsson AB and others.
+   Copyright 2017-2023 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,6 +19,7 @@
 In Eiffel, each individual event type is versioned independently. This version is declared by the __meta.version__ property (see [The Meta Object](./the-meta-object.md)) and follows the [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html) format. The documentation of each event type lists the complete version history of that type, including links to commits introducing older versions of the type.
 
 The independent versioning of event types, as opposed to a protocol-wide versioning scheme, was chosen for the greater flexibility and extensibility it affords. There are consequences, however, which are important to understand:
+
 * Consumers must always be ready to receive event types which they are unable to parse: the event producer may be ahead of the consumer on one event type, but not another. Similarly, new and/or custom event types must be expected and handled.
 * Backwards incompatible changes may not be introduced to the __meta.type__ and __meta.version__ properties, as these together form the key which allows the consumer to unlock the remainder of the event.
 
@@ -57,7 +58,16 @@ As with any software, historical versions may need to be updated occasionally. U
 * If 2.0.0 and 2.1.0 exist, only the 2.1.0 event may serve as the baseline for a new minor version (thereby stepping to 2.2.0).
 * If 2.0.0 and 2.0.1 exist, the 2.0.0 event may not serve as a baseline for new versions. Instead the 2.0.1 event shall be used as baseline for changes to the event type.
 
-Users are not bound to use only event types included in an edition. To exemplify, a consumer may accept all [edition-toulouse](../../../tree/edition-toulouse) events, plus [EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) 2.0.0, which is not included in that edition. Indeed, it may also accept additional events not included at all, such as [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). In this sense, editions are non-exclusive. That being said, if there is a need to identify a collection of events updated from a historical edition, a new edition may be created for that purpose. The naming scheme of such editions SHALL be `<baseline edition name>-<increment integer starting at 1>`. To exemplify, an updated [edition-toulouse](../../../tree/edition-toulouse) would be named `edition-toulouse-1`, while a subsequent one would be named `edition-toulouse-2`, et cetera.
+Users are not bound to use only event types included in an edition. To exemplify, a consumer may accept
+all [edition-toulouse](../../../tree/edition-toulouse) events,
+plus [EiffelIssueVerifiedEvent](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md) 2.0.0, which is not included in that
+edition. Indeed, it may also accept additional events not included at all, such
+as [EiffelIssueDefinedEvent](../eiffel-vocabulary/EiffelIssueDefinedEvent.md). In this sense, editions are
+non-exclusive. That being said, if there is a need to identify a collection of events updated from a historical edition,
+a new edition may be created for that purpose. The naming scheme of such editions SHALL
+be `<baseline edition name>-<increment integer starting at 1>`. To exemplify, an
+updated [edition-toulouse](../../../tree/edition-toulouse) would be named `edition-toulouse-1`, while a subsequent one
+would be named `edition-toulouse-2`, et cetera.
 
 ## Experimental event versions
 To allow for experimentation with new event types that require actual usage to be fully understood and evaluated, pre-1.0.0 version numbers may be used. The first experimental version of an event is 0.1.0, and stepping the minor and patch components of such versions is done in the usual manner except the important difference that backwards incompatible changes may take place in any 0.x.y version. The introduction of a 0.x.y version of an event type does not imply that there will ever be a 1.0.0 version; it may be abandoned and not included in subsequent protocol editions.

@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017 Ericsson AB.
+   Copyright 2017-2023 Ericsson AB.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -50,7 +50,16 @@ Note that EiffelCompositionDefinedEvents may reference any number of elements: o
 The [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) representing new versions of the built software.
 
 ### TCT1, TCT2, TCS1, TCS2, TCF1, TCF2
-[EiffelTestCaseTriggeredEvents](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md), [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) representing one test execution per artifact (__ArtC1__ and __ArtC2__, respectively). Note that management of test cases per se is not within the scope of Eiffel, but like many events EiffelTestCaseTriggered is able to reference external entities. Furthermore, it is assumed in this example that these externally managed test case descriptions in turn are able to reference any requirements they verify (which is arguably good practice in any context). With those references in place, these events can be used to answer the question "Which requirements have been verified in which version of the product, and what was the outcome?". This can in turn be explicitly represented via [EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md).
+
+[EiffelTestCaseTriggeredEvents](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md), [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
+and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) representing one test execution
+per artifact (__ArtC1__ and __ArtC2__, respectively). Note that management of test cases per se is not within the scope
+of Eiffel, but like many events EiffelTestCaseTriggered is able to reference external entities. Furthermore, it is
+assumed in this example that these externally managed test case descriptions in turn are able to reference any
+requirements they verify (which is arguably good practice in any context). With those references in place, these events
+can be used to answer the question "Which requirements have been verified in which version of the product, and what was
+the outcome?". This can in turn be explicitly represented
+via [EiffelIssueVerifiedEvents](../eiffel-vocabulary/EiffelIssueVerifiedEvent.md).
 
 ### CLM1, CLM2
 [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) signaling that a new version of this component or part of the system is deemed ready for delivery. In this example, this is the event that the next tier of the system hierarchy reacts to, and proceeds to pick up the referenced artifact (__ArtC1__ and __ArtC2__, respectively) to integrate it.
@@ -62,6 +71,7 @@ There's a multitude of metrics that are relevant to measure in a continuous inte
 How long does it take for a source change to be submitted? In many cases this is instantaneous, but in other scenarios of extensive pre-testing and/or reviewing of any change pushed to the shared development branch or mainline, it's important to keep monitor how long this takes to ensure it doesn't get out of hand.
 
 Using Eiffel, this can be done as follows:
+
 1. For every [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md), follow its __CHANGE__ link to the corresponding [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md).
 1. Compare __meta.time__ of the two events.
 
@@ -71,11 +81,13 @@ This gives provides the lead time from the final version of the source change to
 In the example above, the artifacts (represented by __ArtC1__ and __ArtC2__) are built in activities, represented by sets of [EiffelActivityTriggeredEvents](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelActivityStartedEvents](../eiffel-vocabulary/EiffelActivityStartedEvent.md) and [EiffelActivityFinishedEvents](../eiffel-vocabulary/EiffelActivityFinishedEvent.md). It is often important to study how long such build activities take, and study the trends of such execution times.
 
 Using Eiffel, this can be done as follows:
+
 1. For every [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md), search for its corresponding [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) having the same __ACTIVITY_EXECUTION__ link.
 1. Compare __meta.time__ of the two events.
 
 ### Test Duration
 Measuring test duration is similar to measuring build duration, and driven by similar needs. Indeed, if one is interested in the duration of a set of tests wrapped by a set of of [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) and [EiffelActivityFinishedEvent](../eiffel-vocabulary/EiffelActivityFinishedEvent.md) one can employ the exact same method. Assuming one is interested in studying the execution time of a particular test case, however, one can use the following method:
+
 1. For every [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), find any [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) sharing the same __TEST_CASE_EXECUTION__ link target.
 1. Compare __meta.time__ of the two events.
 
@@ -83,6 +95,7 @@ Measuring test duration is similar to measuring build duration, and driven by si
 Rather than investigating how long it takes to get a source change submitted, a pertinent question to ask is how long it takes for that source change to end up in an product revision ready to be delivered. In the simple example depicted above, that corresponds to an artifact with an [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) having the __data.value__ property set to __SUCCESS__.
 
 Using Eiffel, this can be done as follows:
+
 1. For every [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md), find a any relevant [EiffelCompositionDefinedEvents](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) linking it using the ELEMENT link type.
 1. Find any relevant [EiffelArtifactCreatedEvents](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md) linking to them using the __COMPOSITION__ link type.
 1. Find any relevant [EiffelConfidenceLevelModifiedEvents](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) with __data.value__ set to __SUCCESS__ and linking to them using the __SUBJECT__ link type.
@@ -94,6 +107,7 @@ Related questions, such as the frequency of such artifacts, number of source cha
 A relevant question in any continuous integration and delivery pipeline is the frequency at which source changes are being integrated: in general, in a particular part of the product or submitted by a particular individual or group of individuals.
 
 Using Eiffel, this can be done as follows:
+
 1. Search for relevant [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md), e.g. filtering on __data.submitter__.
 1. Count the number of hits over time.
 
@@ -101,6 +115,7 @@ Using Eiffel, this can be done as follows:
 It can be important not just to track source changes, but what those source changes entail, such as bug fixes. Since [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) can identify issues via its __data.issues__ property, the status of the bug fix can be monitored in real time. To exemplify, let us assume that one wants to know whether the bug fix has been included in an artifact.
 
 Using Eiffel, this can be done as follows:
+
 1. For any [EiffelSourceChangeCreatedEvents](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) containing the bug fix in __data.issues__, traverse any [EiffelSourceChangeCreatedEvent(s)](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md) linking to them using the __PREVIOUS_VERSION__ link type.
 1. Find any [EiffelSourceChangeSubmittedEvents](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md) linking them using the __CHANGE__ link type.
 1. Traverse any subsequent [EiffelSourceChangeSubmittedEvents](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md) linking them using the __PREVIOUS_VERSION__ link type.
@@ -111,6 +126,7 @@ Using Eiffel, this can be done as follows:
 Related to the question above of build and test durations, it is sometimes important to monitor queuing times. Where resources are scarce, activities may end up in queue for long periods of time before they can be executed.
 
 Using Eiffel, this can be done as follows:
+
 1. For every relevant [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) follow its __ACTIVITY_EXECUTION__ link to its corresponding [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md).
 1. Compare __meta.time__ of the two events.
 
@@ -118,6 +134,7 @@ Using Eiffel, this can be done as follows:
 Measuring the time it takes from a test execution is triggered until it commences is an important metric to monitor test efficiency and resource availability.
 
 Using Eiffel, this can be done as follows:
+
 1. For every [EiffelTestCaseStartedEvent](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md), follow its __TEST_CASE_EXECUTION__ link to its corresponding [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md).
 1. Compare __meta.time__ of the two events.
 

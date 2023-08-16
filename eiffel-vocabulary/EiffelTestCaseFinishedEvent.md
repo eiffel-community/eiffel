@@ -193,6 +193,7 @@ __Description:__ The identity of the author of the event. This property is inten
 __Type:__ Object  
 __Required:__ No  
 __Description:__ An optional object for enabling information integrity protection via cryptographic signing. To generate a correct __meta.security.integrityProtection__ object:
+
   1. Generate the entire event, but with the
      __meta.security.integrityProtection.signature__ value set to
      an empty string.
@@ -211,7 +212,7 @@ __Description:__ The signature produced by the signing algorithm.
 
 ##### meta.security.integrityProtection.alg
 __Type:__ String  
-__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"    
+__Format:__ [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1), excluding "none"  
 __Required:__ Yes  
 __Description:__ The cryptographic algorithm used to digitally sign the event. If no signing is performed, the __meta.security.integrityProtection__ SHALL be omitted rather than setting __meta.security.integrityProtection.alg__ to "none".
 
@@ -253,7 +254,6 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 | 1.1.0 | [edition-toulouse](../../../tree/edition-toulouse) | Multiple links of type FLOW_CONTEXT allowed. |
 | 1.0.1 | [edition-toulouse](../../../tree/edition-toulouse) | data.outcome.metrics.value and data.outcome.metrics.name made mandatory. |
 | 1.0.0 | [edition-bordeaux](../../../tree/edition-bordeaux) | Initial version. |
-
 
 ## Examples
 

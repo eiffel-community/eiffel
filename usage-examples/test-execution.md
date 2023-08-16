@@ -6,7 +6,16 @@ Using Eiffel events to describe the execution of a test activity can be done in 
 
 The Eiffel protocol provides several events to use within a test activity. This example shows how to make use of most of the Eiffel events related to test activities, with the purpose to present how they all are related.
 
-To understand the example provided here, it is important to explain a few concepts (used in the sequence diagram below). While Eiffel does not make any assumptions about the underlying infrastructure and/or testing methodology, it does encourage separation of concerns. In this example, it is not the responsibility of the _Activity Orchestrator_ (e.g. the CI server) to determine the contents of the test scope, nor is it the responsibility of the _Test Executor_. Instead, the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) makes it possible for a third actor, the _Test Manager_, to determine the test scope. A fourth actor, _Environment Provider_, is used to provide a test environment based on the needs described in the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md). The _Environment Provider_ has full control over all available test environments, and therefore the _Test Executor_ SHALL use the provided environment to run the tests towards.
+To understand the example provided here, it is important to explain a few concepts (used in the sequence diagram below).
+While Eiffel does not make any assumptions about the underlying infrastructure and/or testing methodology, it does
+encourage separation of concerns. In this example, it is not the responsibility of the _Activity Orchestrator_ (e.g. the
+CI server) to determine the contents of the test scope, nor is it the responsibility of the _Test Executor_. Instead,
+the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)
+makes it possible for a third actor, the _Test Manager_, to determine the test scope. A fourth actor, _Environment
+Provider_, is used to provide a test environment based on the needs described in
+the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
+The _Environment Provider_ has full control over all available test environments, and therefore the _Test Executor_
+SHALL use the provided environment to run the tests towards.
 
 ## About the Example
 In the example outlined here we assume that one test suite (a set of test cases) is to be executed in two different environments within the same test activity. The test suite consists of only two test cases, A and B, to keep the complexity of the event graph down. For the same reason issue verification is only performed for the test cases in environment 2.
@@ -55,10 +64,45 @@ A [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLeve
 To realize the event graph in this example, a sequence like the following is needed:
 ![alt text](./test-execution-sequence.png "Sequence of Calls and Events of Test Execution Example")
 
-1. A test activity gets triggered by some event or timer. An [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) is immediately sent, and when the activity is ready to be executed an [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) is sent. Depending on the CI Server used these events might come directly after each other, or if the CI Server has an execution queue internally the first event will be sent when the activity is put in the queue and the latter when the execution starts.
-2. In a simple test activity the list of test cases to be executed could be hard coded, but in this example we show how Eiffel events can be used to handle dynamic selections of test cases. The Test Manager is queried for the list of test cases together with the constraints on the test environment for those test cases. This information is all included in a TERC document represented by the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
-3. A Test Orchestrator is called to separate the concerns of managing a CI activity from the test orchestration. This could of course be performed within the Activity Orchestrator unless there is a certain need to divide them. It is perfectly fine to deploy these two servers on the same physical node, if appropriate.
-4. The Test Orchestrator sends an [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md) referencing the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md) and [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) events to inform that the test execution is progressing. The batches of test case recipes in the TERC are evaluated and test suites are formed based on for example test environment needs.
-5. In a simple test activity there might not be a need to call a separate service to setup a test environment, but in this example we show how Eiffel events can be used to handle on demand created test environments. The provisioning of test environments could also be performed by the Test Executor, but in this example we show how to separate environment provisioning, connected to test case grouping, from the actual execution of the test cases. If a new test environment is created for this specific test suite an [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) is issued. If a previously created environment is used, its corresponding [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) is looked up.
-6. For each test case in the group a [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) is sent. A Test Executor is then called with the environment instance and the list of test cases to execute. The Test Executor executes the test cases and sends corresponding [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) for each of them. The [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) shall refer to the environment in which the test case is executed, represented by its [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md). Whether the test suites are executed in parallel or in serial is of no interest to the Eiffel protocol. It's merely up to the test executor to handle it in the best way available.
-7. The used test environment is released. If a test execution is not finished within a certain timeout or on other condition, the Test Orchestrator could send an [EiffelTestCaseCanceledEvent](../eiffel-vocabulary/EiffelTestCaseCanceledEvent.md) prior to releasing the environment.
+1. A test activity gets triggered by some event or timer.
+   An [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) is immediately sent, and when
+   the activity is ready to be executed
+   an [EiffelActivityStartedEvent](../eiffel-vocabulary/EiffelActivityStartedEvent.md) is sent. Depending on the CI
+   Server used these events might come directly after each other, or if the CI Server has an execution queue internally
+   the first event will be sent when the activity is put in the queue and the latter when the execution starts.
+2. In a simple test activity the list of test cases to be executed could be hard coded, but in this example we show how
+   Eiffel events can be used to handle dynamic selections of test cases. The Test Manager is queried for the list of
+   test cases together with the constraints on the test environment for those test cases. This information is all
+   included in a TERC document represented by
+   the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md).
+3. A Test Orchestrator is called to separate the concerns of managing a CI activity from the test orchestration. This
+   could of course be performed within the Activity Orchestrator unless there is a certain need to divide them. It is
+   perfectly fine to deploy these two servers on the same physical node, if appropriate.
+4. The Test Orchestrator sends an [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)
+   referencing
+   the [EiffelTestExecutionRecipeCollectionCreatedEvent](../eiffel-vocabulary/EiffelTestExecutionRecipeCollectionCreatedEvent.md)
+   and [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md) events to inform that the
+   test execution is progressing. The batches of test case recipes in the TERC are evaluated and test suites are formed
+   based on for example test environment needs.
+5. In a simple test activity there might not be a need to call a separate service to setup a test environment, but in
+   this example we show how Eiffel events can be used to handle on demand created test environments. The provisioning of
+   test environments could also be performed by the Test Executor, but in this example we show how to separate
+   environment provisioning, connected to test case grouping, from the actual execution of the test cases. If a new test
+   environment is created for this specific test suite
+   an [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) is issued. If a previously
+   created environment is used, its
+   corresponding [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md) is looked up.
+6. For each test case in the group
+   a [EiffelTestCaseTriggeredEvent](../eiffel-vocabulary/EiffelTestCaseTriggeredEvent.md) is sent. A Test Executor is
+   then called with the environment instance and the list of test cases to execute. The Test Executor executes the test
+   cases and sends corresponding [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md)
+   and [EiffelTestCaseFinishedEvents](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md) for each of them.
+   The [EiffelTestCaseStartedEvents](../eiffel-vocabulary/EiffelTestCaseStartedEvent.md) shall refer to the environment
+   in which the test case is executed, represented by
+   its [EiffelEnvironmentDefinedEvent](../eiffel-vocabulary/EiffelEnvironmentDefinedEvent.md). Whether the test suites
+   are executed in parallel or in serial is of no interest to the Eiffel protocol. It's merely up to the test executor
+   to handle it in the best way available.
+7. The used test environment is released. If a test execution is not finished within a certain timeout or on other
+   condition, the Test Orchestrator could send
+   an [EiffelTestCaseCanceledEvent](../eiffel-vocabulary/EiffelTestCaseCanceledEvent.md) prior to releasing the
+   environment.

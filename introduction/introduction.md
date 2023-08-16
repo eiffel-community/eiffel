@@ -1,5 +1,5 @@
 <!---
-   Copyright 2017-2022 Ericsson AB and others.
+   Copyright 2017-2023 Ericsson AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -67,9 +67,10 @@ Eiffel provides a communication protocol geared towards machine-to-machine conti
 
 ## How Does Eiffel Achieve Scalability?
 Eiffel is not a centralized or monolithic tool. Instead it represents a decentralized and federated approach to driving and documenting enterprise scale continuous integration and delivery systems. By broadcasting events globally and allowing any tool or service to react as it sees fit to those events several important goals are achieved:
-* Continuous integration and delivery activities can be distributed and communicate across multiple hosts, labs or even continents.
-* Responsibilities for developing and managing can more easily be distributed and consequently scaled, through clear event based interfaces.
-* It removes centralized continuous integration servers as bottlenecks.
+
+- Continuous integration and delivery activities can be distributed and communicate across multiple hosts, labs or even continents.
+- Responsibilities for developing and managing can more easily be distributed and consequently scaled, through clear event based interfaces.
+- It removes centralized continuous integration servers as bottlenecks.
 
 ## How Does Eiffel Achieve Flexibility?
 An important principle in Eiffel is that events are not prescriptive, but descriptive. An event is not an RPC call, it will not order the recipient to take a certain action. Instead, it is assumed that the recipient will react in an intelligent and conducive manner to the information it gathers. Holding to this principle becomes particularly important in large, multi-organizational integration contexts, as it allows decoupling and separation of concerns between consumers and producers of events.
@@ -82,12 +83,13 @@ Consequently, the larger enterprise-wide continuous integration and delivery sys
 The basis of software traceability is _engineering artifacts_ - anything generated in the development process, including e.g. source code changes, documentation, product versions, work items, requirements et cetera - and _trace links_ between these engineering artifacts, describing their relationships. These artifacts referencing other artifacts create graphs which may be traversed to answer questions such as which changes have been implemented in a given product version or which requirements have been tested when and where.
 
 Eiffel builds upon this principle. Think of Eiffel events as proxies or handles for these engineering artifacts, and the links between them as trace links. By storing and analyzing the resulting graphs any number of concerns of any number of stakeholders can be addressed:
-* Into which system revisions has this source change been integrated?
-* Which bug fixes have been included in this product release?
-* Which requirements have been verified in which environments for this release candidate?
-* What is the average lead time from source commit to live deployment?
-* When was this work item first tested ok?
-* et cetera
+
+- Into which system revisions has this source change been integrated?
+- Which bug fixes have been included in this product release?
+- Which requirements have been verified in which environments for this release candidate?
+- What is the average lead time from source commit to live deployment?
+- When was this work item first tested ok?
+- et cetera
 
 ## How Do I Make Sense of Events?
 A single Eiffel event only tells a fragment of the story. To derive real value, it must be analyzed together with the many other events it references. This is both a strength and a weakness: a strength because it affords separation of concerns and a tight, standardized syntax; a weakness because it makes it difficult to react intelligently to just the one event.

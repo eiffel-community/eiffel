@@ -44,19 +44,19 @@ __Legal targets:__ Any
 __Multiple allowed:__ Yes  
 
 ### PRECURSOR
-This link type is used to declare *temporal relationships* between activities in a pipeline, i.e. what other activity/activities preceded this activity.
+This link type is used to declare _temporal relationships_ between activities in a pipeline, i.e. what other activity/activities preceded this activity.
 
-*The image below shows how an activity that precedes another activity is denoted by a PRECURSOR link from the second ActT event back to the first one.*
+_The image below shows how an activity that precedes another activity is denoted by a PRECURSOR link from the second ActT event back to the first one._
 
 ![A Simple PRECURSOR Example](./precursor-simple.png "Simple PRECURSOR Example")
 
 An activity could have multiple PRECURSOR activities (also known as "fan-in"), which means that the activity was triggered in serial after a certain group of parallel activities were triggered. This can be used to declare merge points of a group of parallel activities into a succeeding activity.
 
-*The image below shows how three parallel activities are followed by one activity in serial. It is denoted by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities.*
+_The image below shows how three parallel activities are followed by one activity in serial. It is denoted by PRECURSOR links from the ActT event of the last activity to the ActT event of all preceding parallel activities._
 
 ![A Parallel PRECURSOR Example](./precursor-parallel.png "Parallel PRECURSOR Example")
 
-The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered *after* that/those other activity/activities were triggered.
+The fact that a certain activity is triggered, having some preceding activity/activities as PRECURSOR(s) does not in itself mean that the preceding activity/activities is/are finished before this activity was triggered. It merely means that it was triggered _after_ that/those other activity/activities were triggered.
 
 PRECURSOR links are only valid to be used on the triggering event of an activity, i.e. on EiffelActivityTriggeredEvent or on EiffelTestSuiteStartedEvent, and the target of this link type shall be an event of the same type.
 
@@ -75,7 +75,7 @@ __Multiple allowed:__ Yes
 
 This link type is used for sequences of (usually) failing activities where the first activity declares the "root" trigger and the subsequent activities are retries of the first activity.
 
-*The image below shows how a source code change triggers an activity. That activity fails and is retried, and the second activity (which might be manually triggered by a user) has an ORIGINAL_TRIGGER link to the first activity. If the second activity also fails and a third attempt takes place, that activity's ORIGINAL_TRIGGER link would also link to the first activity.*
+_The image below shows how a source code change triggers an activity. That activity fails and is retried, and the second activity (which might be manually triggered by a user) has an ORIGINAL_TRIGGER link to the first activity. If the second activity also fails and a third attempt takes place, that activity's ORIGINAL_TRIGGER link would also link to the first activity._
 
 ![An example of using ORIGINAL_TRIGGER](./original-trigger.png "An example of using ORIGINAL_TRIGGER")
 
@@ -89,10 +89,11 @@ __Legal targets:__ [EiffelActivityTriggeredEvent][ActT],
 __Multiple allowed:__ No  
 
 ### CONTEXT
-This link type is used to declare *hierarchies* of activities within a pipeline. The CONTEXT identifies the activity or test suite of which this event constitutes a part. For example:
-- This *pipeline step* is executed in the *CONTEXT* of that *pipeline*, i.e. the pipeline step is part of a certain pipeline, and the ActT event of the pipeline step SHOULD have a CONTEXT link to the ActT event of the pipeline itself.
-- This *test suite* is executed in the *CONTEXT* of that *pipeline step*, i.e. the test suite is executed within a certain pipeline step, and the TSS event for the test suite SHOULD then have a CONTEXT link to the ActT event of the pipeline step.
-- This *artifact* was built within the *CONTEXT* of that *pipeline step*, i.e. the ArtC event SHOULD have a CONTEXT link to the ActT event of the pipeline step.
+This link type is used to declare _hierarchies_ of activities within a pipeline. The CONTEXT identifies the activity or test suite of which this event constitutes a part. For example:
+
+- This _pipeline step_ is executed in the _CONTEXT_ of that _pipeline_, i.e. the pipeline step is part of a certain pipeline, and the ActT event of the pipeline step SHOULD have a CONTEXT link to the ActT event of the pipeline itself.
+- This _test suite_ is executed in the _CONTEXT_ of that _pipeline step_, i.e. the test suite is executed within a certain pipeline step, and the TSS event for the test suite SHOULD then have a CONTEXT link to the ActT event of the pipeline step.
+- This _artifact_ was built within the _CONTEXT_ of that _pipeline step_, i.e. the ArtC event SHOULD have a CONTEXT link to the ActT event of the pipeline step.
 
 It is probably not relevant to provide a CONTEXT link to a test case execution, so therefore the Eiffel protocol does not allow [EiffelTestCaseTriggeredEvent][TCT] to be a legal target for this link type.
 

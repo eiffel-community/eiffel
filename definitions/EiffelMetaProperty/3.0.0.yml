@@ -1,4 +1,4 @@
-# Copyright 2017-2022 Ericsson AB and others.
+# Copyright 2017-2023 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -108,6 +108,7 @@ properties:
           An optional object for enabling information integrity protection via
           cryptographic signing. To generate a correct
           __meta.security.integrityProtection__ object:
+          
             1. Generate the entire event, but with the
                __meta.security.integrityProtection.signature__ value set to
                an empty string.
@@ -133,7 +134,7 @@ properties:
               than setting __meta.security.integrityProtection.alg__ to "none".
             _format: >-
               [A valid JWA RFC 7518 alg parameter value](https://tools.ietf.org/html/rfc7518#section-3.1),
-              excluding "none"  
+              excluding "none"
             type: string
             enum:
               - HS256
