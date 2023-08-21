@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseFinishedEvent/3.3.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseFinishedEvent/3.3.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -7,7 +7,7 @@
 
 The EiffelTestCaseFinishedEvent declares that a previously started test case (declared by [EiffelTestCaseStartedEvent](./EiffelTestCaseStartedEvent.md)) has finished and reports the outcome.
 
-Note that while similar, the __data.outcome__ object is different from that of [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md). The outcome of the test case reports not only the conclusion of the test case execution - whether the test case was successfully executed - but also passes a verdict on the item under test. To highlight this conceptual difference, both __data.outcome.verdict__ and __data.outcome.conclusion__ are included.
+Note that while similar, the __data.outcome__ object is different from that of [EiffelActivityFinishedEvent](./EiffelActivityFinishedEvent.md). The outcome of the test case reports not only the conclusion of the test case execution - whether the test case was successfully executed - but also passes a verdict on the implementation under test. To highlight this conceptual difference, both __data.outcome.verdict__ and __data.outcome.conclusion__ are included.
 
 Also note that unlike [EiffelTestSuiteFinishedEvent](./EiffelTestSuiteFinishedEvent.md), EiffelTestCaseFinishedEvent must report both __data.outcome.verdict__ and __data.outcome.conclusion__.
 
@@ -32,7 +32,7 @@ __Type:__ String
 __Required:__ Yes  
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
 __Description:__ A terse standardized conclusion of the test case, designed to be machine readable.
-SUCCESSFUL signifies that the test case was successfully concluded. Note that this does not imply that the item under test passed the tests.  
+SUCCESSFUL signifies that the test case was successfully concluded. Note that this does not imply that the implementation under test passed the tests.  
 FAILED signifies that the test case could not be successfully executed. To exemplify, one or more tests failed to run due to required environments being unavailable.  
 ABORTED signifies that the test case was aborted before it could be concluded.  
 TIMED_OUT signifies that the test case did not conclude within the allowed time frame.  
@@ -246,6 +246,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.3.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 3.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add `data.persistentLogs.{mediaType,tags}`. |

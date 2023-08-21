@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.5.0.yml.
+   This file was generated from ../definitions/EiffelTestCaseTriggeredEvent/3.5.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -109,7 +109,7 @@ __Description:__ Identifies the flow context of the event: which is the continuo
 __Required:__ Yes  
 __Legal targets:__ [EiffelArtifactCreatedEvent](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md), [EiffelArtifactDeployedEvent](../eiffel-vocabulary/EiffelArtifactDeployedEvent.md), [EiffelCompositionDefinedEvent](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md), [EiffelSourceChangeCreatedEvent](../eiffel-vocabulary/EiffelSourceChangeCreatedEvent.md), [EiffelSourceChangeSubmittedEvent](../eiffel-vocabulary/EiffelSourceChangeSubmittedEvent.md)  
 __Multiple allowed:__ No  
-__Description:__ Identifies the Item Under Test; in other words, the entity that is about to be tested.
+__Description:__ Identifies the Implementation Under Test; in other words, the entity that is about to be tested.
 
 ### ORIGINAL_TRIGGER
 __Required:__ No  
@@ -258,6 +258,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.5.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 3.5.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)). |
 | 3.4.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
 | 3.3.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add SCS and SCC as legal target for IUT in TCT (see [Issue 317](https://github.com/eiffel-community/eiffel/issues/317)). |

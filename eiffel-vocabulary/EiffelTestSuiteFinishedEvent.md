@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestSuiteFinishedEvent/3.3.0.yml.
+   This file was generated from ../definitions/EiffelTestSuiteFinishedEvent/3.3.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -30,7 +30,7 @@ __Type:__ String
 __Required:__ No  
 __Legal values:__ SUCCESSFUL, FAILED, ABORTED, TIMED_OUT, INCONCLUSIVE  
 __Description:__ A terse standardized conclusion of the test suite, designed to be machine readable. Unlike in [EiffelTestCaseFinishedEvent](./EiffelTestCaseFinishedEvent.md), this property is optional. It offers a method of summarizing the conclusion of the test suite as a whole, but may be skipped.
-SUCCESSFUL signifies that the test suite was successfully concluded. Note that this does not imply that the item under test passed the tests.  
+SUCCESSFUL signifies that the test suite was successfully concluded. Note that this does not imply that the implementation under test passed the tests.  
 FAILED signifies that the test suite could not be successfully executed. To exemplify, one or more tests failed to run due to required environments being unavailable.  
 ABORTED signifies that the test suite was aborted before it could be concluded.  
 TIMED_OUT signifies that the test suite did not conclude within the allowed time frame.  
@@ -229,6 +229,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 3.3.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 3.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 3.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add `data.persistentLogs.{mediaType,tags}`. |

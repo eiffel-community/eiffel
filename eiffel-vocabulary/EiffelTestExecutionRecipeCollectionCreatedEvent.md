@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/4.3.0.yml.
+   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/4.3.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -13,7 +13,7 @@ How the test selection service generates the recipe collection is, from the poin
 
 The __data__ object consists of two main parts. __data.selectionStrategy__ identifies the strategy used to select the test cases and generate the recipe collection, while __data.batches__ or __data.batchesUri__ contain or reference, respectively, the recipes. The recipes are grouped in batches, which are used to control the order of execution of test cases. Every batch has a priority to let the test executor order them in sequence, but within each batch no assumptions are made as to the execution order the test cases. This way the recipe collection can either allow the executor a high degree of freedom in scheduling the test executions, and/or prescribe the exact sequential order in which they must be executed. Each event SHALL include one and only one of __data.batches__ and __data.batchesUri__.
 
-Finally, each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does not control the syntax of these constraints, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
+Finally, each recipe (__data.batches.recipes__) consists of two parts: the test case to execute, and the constraints of that execution. The EiffelTestExecutionRecipeCollectionCreatedEvent does not control the syntax of these constraints, as the nature of such constraints are highly dependent on technology domain and test execution framework. That being said, there are three questions that typically need to be answered: what is the implementation under test, in what kind of environment is it to be tested, and what are the test parameters? Note the distinction between test case and test execution: it is perfectly legal for a single test case to appear multiple times within the same EiffelTestExecutionRecipeCollectionCreatedEvent, but (presumably) with different constraints.
 
 ## Data Members
 
@@ -95,7 +95,7 @@ __Description:__ A location where a description of the test case can be retrieve
 ##### data.batches.recipes.constraints
 __Type:__ Object[]  
 __Required:__ No  
-__Description:__ Any constraints of the execution. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the item under test, in what kind of environment is it to be tested, and what are the test parameters?
+__Description:__ Any constraints of the execution. The nature of such constraints is highly dependent on technology domain and test execution framework. Consequently, there are no pre-defined or required constraints. Instead, this property is a list of key-value pairs on the same format as [data.customData](../customization/custom-data.md). That being said, there are three questions that typically need to be answered: what is the implementation under test, in what kind of environment is it to be tested, and what are the test parameters?
 
 ###### data.batches.recipes.constraints.key
 __Type:__ String  
@@ -279,6 +279,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.3.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 4.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.2.0 | [edition-arica](../../../tree/edition-arica) | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |
 | 4.1.1 | [edition-lyon](../../../tree/edition-lyon) | Add missing validation pattern to links.target member (see [Issue 271](https://github.com/eiffel-community/eiffel/issues/271)). |
