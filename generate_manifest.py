@@ -19,10 +19,11 @@ import re
 import subprocess
 import sys
 from functools import cached_property
-from typing import Dict
+from typing import Dict, Optional
 
 import semver
 from ruamel import yaml
+from semver import Version
 
 # List of tuples with the edition display names, their Git tags, and
 # their release dates.
@@ -68,12 +69,15 @@ class Manifest:
         """
         return [edition["tag"] for edition in self._event_manifest]
 
-    def event_version_by_tag(self, edition: str, event: str):
+    def event_version_by_tag(self, edition: str, event: str) -> Optional[Version]:
         """
         Fetches the event version of the given event in the given edition
         :return: None if event not part of edition
         """
-        return self._edition_tag_map[edition]["events"].get(event, None)
+        version = self._edition_tag_map[edition]["events"].get(event, None)
+        if version is not None:
+            return semver.VersionInfo.parse(version)
+        return None
 
     def get_previous_edition_by_tag(self, edition_tag: str):
         """
@@ -97,31 +101,15 @@ class Manifest:
         previous_edition = self.get_previous_edition_by_tag(edition_tag)
         version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
         if previous_edition is None:
-            return (
-                semver.VersionInfo.parse(version_of_current_edition).compare(
-                    event_version
-                )
-                == 0
-            )
+            return event_version == version_of_current_edition
+
         else:
             version_of_previous_edition = self.event_version_by_tag(
                 previous_edition["tag"], event_name
             )
             if version_of_previous_edition is None:
-                version_of_previous_edition = "0.0.0"
-            does_not_exceed_current_version = (
-                semver.VersionInfo.parse(version_of_current_edition).compare(
-                    event_version
-                )
-                > -1
-            )
-            does_not_subceed_previous_version = (
-                semver.VersionInfo.parse(event_version).compare(
-                    version_of_previous_edition
-                )
-                > -1
-            )
-            return does_not_exceed_current_version and does_not_subceed_previous_version
+                return event_version <= version_of_current_edition
+            return version_of_previous_edition < event_version <= version_of_current_edition
 
 
 def _get_latest_schemas(tag: str) -> Dict[str, str]:

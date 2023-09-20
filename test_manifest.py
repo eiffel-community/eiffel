@@ -17,7 +17,7 @@
 import pytest
 
 from generate_manifest import Manifest
-
+from semver import VersionInfo
 
 @pytest.fixture(scope="session")
 def manifest():
@@ -64,6 +64,16 @@ def test_get_previous_edition_of_first_edition(manifest):
 
 
 def test_is_event_version_part_of_edition(manifest):
+    """
+        EiffelActivityTriggeredEvent:
+            - Toulouse: 1.1.0
+            - Agen: 3.0.0
+            - Agen-1: 4.0.0
+    """
+    assert (
+        manifest.is_in_edition("edition-agen", "EiffelActivityTriggeredEvent", "1.0.0")
+        is False
+    )
     assert (
         manifest.is_in_edition("edition-agen", "EiffelActivityTriggeredEvent", "2.0.0")
         is True
@@ -79,6 +89,15 @@ def test_is_event_version_part_of_edition(manifest):
 
 
 def test_is_new_event_version_part_of_edition(manifest):
+    """
+    EiffelIssueDefinedEvent:
+        - Toulouse: Not existing
+        - Agen: 3.0.0
+    """
+    assert (
+        manifest.is_in_edition("edition-agen", "EiffelIssueDefinedEvent", "2.0.0")
+        is True
+    )
     assert (
         manifest.is_in_edition("edition-agen", "EiffelIssueDefinedEvent", "3.0.0")
         is True
@@ -86,6 +105,12 @@ def test_is_new_event_version_part_of_edition(manifest):
 
 
 def test_is_event_version_part_of_first_edition(manifest):
+    assert (
+        manifest.is_in_edition(
+            "edition-bordeaux", "EiffelActivityTriggeredEvent", "0.1.0"
+        )
+        is True
+    )
     assert (
         manifest.is_in_edition(
             "edition-bordeaux", "EiffelActivityTriggeredEvent", "2.0.0"
