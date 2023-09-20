@@ -45,11 +45,11 @@ class Manifest:
 
     def __init__(self, manifest_path: str):
         with open(manifest_path) as file:
-            _raw_event_manifest = yaml.YAML().load(file)
+            raw_event_manifest = yaml.YAML().load(file)
 
         # The manifest file is already sorted, but do we want to count on it?
         self._event_manifest = sorted(
-            _raw_event_manifest, key=lambda _edition: _edition["release_date"]
+            raw_event_manifest, key=lambda _edition: _edition["release_date"]
         )
         self._edition_tag_map = dict()
         for edition in self._event_manifest:
