@@ -88,7 +88,7 @@ __Description:__ Used in events summarizing multiple confidence levels. Example 
 __Required:__ No  
 __Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md), [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  
 __Multiple allowed:__ Yes  
-__Description:__ Used to declare the basis for which confidence statement(s) this event have used. The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for selecting the provided `data.name` and/or `data.value` 
+__Description:__ Used to declare the basis for which confidence statement(s) this event have used. The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for selecting the provided `data.name` and/or `data.value`.
 
 ## Meta Members
 

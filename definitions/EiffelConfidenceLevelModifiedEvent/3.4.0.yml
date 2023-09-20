@@ -142,7 +142,7 @@ _links:
   CONFIDENCE_BASIS:
     description: 'Used to declare the basis for which confidence statement(s) this event have used. 
       The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for
-      selecting the provided `data.name` and/or `data.value` '
+      selecting the provided `data.name` and/or `data.value`.'
     required: false
     multiple: true
     targets:
