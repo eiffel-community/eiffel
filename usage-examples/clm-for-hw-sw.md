@@ -40,23 +40,32 @@ confidence levels.
 
 ## Event-by-Event Explanation
 
-* `ArtC1`:
-  The [EiffelArtifactCreatedEvent (ArtC)](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
-  event represents the software artifact running on the hardware.
-* `CD1`: The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md) event
-  describes the hardware. 
-  The event describes the type of hardware or maybe a recipe but not a specific 
-  device like something having a serial number. 
-  `data.name` describes the hardware or recipe.
-* `CLM1`:
-  The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
-  describes the confidence for the software artifact `ArtC1`. 
-  This assumes no dependencies on hardware when verifying the confidence.
-* `CD2`:
-  The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
-  event describes the combination of hardware type and software.
+### ArtC1
 
-* `CLM2`: The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) 
-  describes the confidence for `CD2` containing both the software and the
-  hardware type
+The [EiffelArtifactCreatedEvent (ArtC)](../eiffel-vocabulary/EiffelArtifactCreatedEvent.md)
+event represents the software artifact running on the hardware.
+
+### CD1
+
+The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
+event describes the hardware. The event describes the type of hardware or maybe
+a recipe but not a specific device like something having a serial number.
+`data.name` describes the hardware or recipe.
+
+### CLM1
+
+The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
+describes the confidence for the software artifact **ArtC1**. This assumes no
+dependencies on hardware when verifying the confidence.
+
+### CD2
+
+The [EiffelCompositionDefinedEvent (CD)](../eiffel-vocabulary/EiffelCompositionDefinedEvent.md)
+event describes the combination of hardware type and software.
+
+### CLM2
+
+The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
+describes the confidence for **CD2** containing both the software and the
+hardware type
 
