@@ -105,9 +105,19 @@ def test_is_new_event_version_part_of_edition(manifest):
 
 
 def test_is_event_version_part_of_first_edition(manifest):
+    """
+    EiffelActivityTriggeredEvent
+        - Bordeaux: 1.0.0
+    """
     assert (
         manifest.is_in_edition(
             "edition-bordeaux", "EiffelActivityTriggeredEvent", "0.1.0"
+        )
+        is True
+    )
+    assert (
+        manifest.is_in_edition(
+            "edition-bordeaux", "EiffelActivityTriggeredEvent", "1.0.0"
         )
         is True
     )

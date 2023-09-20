@@ -101,7 +101,7 @@ class Manifest:
         previous_edition = self.get_previous_edition_by_tag(edition_tag)
         version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
         if previous_edition is None:
-            return event_version == version_of_current_edition
+            return event_version <= version_of_current_edition
 
         else:
             version_of_previous_edition = self.event_version_by_tag(
