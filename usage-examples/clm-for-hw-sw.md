@@ -27,7 +27,7 @@ for describing confidence over hardware and software artifacts.
 Eiffel has the ability to support a continuous integration and delivery pipeline
 for hardware products containing software. When developing the software for the
 hardware, the designer first runs test specifically for the software part. The
-designer then loads the software on the hardware and runs test with both the
+designer then loads the software on the hardware and runs tests with both the
 hardware and software. These tests produce the confidence signaled
 by [CLM](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md) event using
 the SUBJECT link for pointing to the composition the confidence describes. This
