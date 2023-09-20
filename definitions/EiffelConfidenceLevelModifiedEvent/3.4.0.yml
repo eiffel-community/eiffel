@@ -132,7 +132,7 @@ _links:
       the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk",
       and consequently links to them via __SUB_CONFIDENCE_LEVEL__.
       This is intended for purely descriptive, rather than prescriptive,
-      use.'
+      use. Future editions might deprecate this link in favour of CONFIDENCE_BASIS.'
     required: false
     multiple: true
     targets:
@@ -148,8 +148,9 @@ _links:
     targets:
       any_type: false
       types:
-        - EiffelTestCaseTriggeredEvent
-        - EiffelTestSuiteStartedEvent
+        - EiffelConfidenceLevelModifiedEvent
+        - EiffelTestCaseFinishedEvent
+        - EiffelTestSuiteFinishedEvent
 _history:
   - version: 3.4.0
     changes: Add CONFIDENCE_BASIS link (see [Issue 323](https://github.com/eiffel-community/eiffel/issues/323)).
