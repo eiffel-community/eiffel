@@ -68,4 +68,3 @@ event describes the combination of hardware type and software.
 The [EiffelConfidenceLevelModifiedEvent (CLM)](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)
 describes the confidence for **CD2** containing both the software and the
 hardware type
-
