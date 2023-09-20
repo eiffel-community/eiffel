@@ -19,7 +19,8 @@ import re
 import subprocess
 import sys
 from functools import cached_property
-from typing import Dict, Optional
+from typing import Dict
+from typing import Optional
 
 import semver
 from ruamel import yaml
@@ -109,7 +110,11 @@ class Manifest:
             )
             if version_of_previous_edition is None:
                 return event_version <= version_of_current_edition
-            return version_of_previous_edition < event_version <= version_of_current_edition
+            return (
+                version_of_previous_edition
+                < event_version
+                <= version_of_current_edition
+            )
 
 
 def _get_latest_schemas(tag: str) -> Dict[str, str]:

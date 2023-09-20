@@ -17,7 +17,7 @@
 import pytest
 
 from generate_manifest import Manifest
-from semver import VersionInfo
+
 
 @pytest.fixture(scope="session")
 def manifest():
@@ -65,10 +65,10 @@ def test_get_previous_edition_of_first_edition(manifest):
 
 def test_is_event_version_part_of_edition(manifest):
     """
-        EiffelActivityTriggeredEvent:
-            - Toulouse: 1.1.0
-            - Agen: 3.0.0
-            - Agen-1: 4.0.0
+    EiffelActivityTriggeredEvent:
+        - Toulouse: 1.1.0
+        - Agen: 3.0.0
+        - Agen-1: 4.0.0
     """
     assert (
         manifest.is_in_edition("edition-agen", "EiffelActivityTriggeredEvent", "1.0.0")
