@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2023 Axis Communications AB.
+# Copyright 2023 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,10 +18,13 @@
 import re
 import subprocess
 import sys
+from functools import cached_property
 from typing import Dict
+from typing import Optional
 
 import semver
 from ruamel import yaml
+from semver import Version
 
 # List of tuples with the edition display names, their Git tags, and
 # their release dates.
@@ -35,6 +38,83 @@ _EDITIONS = [
     ("Paris", "edition-paris", "2021-02-16"),
     ("Toulouse", "edition-toulouse", "2018-02-20"),
 ]
+
+
+class Manifest:
+    """
+    Python interface as a class for reading the event_manifest.yaml file.
+    """
+
+    def __init__(self, manifest_path: str):
+        with open(manifest_path) as file:
+            raw_event_manifest = yaml.YAML().load(file)
+
+        # The manifest file is already sorted, but do we want to count on it?
+        self._event_manifest = sorted(
+            raw_event_manifest, key=lambda _edition: _edition["release_date"]
+        )
+        self._edition_tag_map = dict()
+        for edition in self._event_manifest:
+            self._edition_tag_map[edition["tag"]] = edition
+
+    def is_edition_tag(self, question_tag: str) -> bool:
+        """
+        Test if the provided tags matches any of the edition tags
+        """
+        return question_tag in self.tags
+
+    @cached_property
+    def tags(self):
+        """
+        Fetches all the tags
+        """
+        return [edition["tag"] for edition in self._event_manifest]
+
+    def event_version_by_tag(self, edition: str, event: str) -> Optional[Version]:
+        """
+        Fetches the event version of the given event in the given edition
+        :return: None if event not part of edition
+        """
+        version = self._edition_tag_map[edition]["events"].get(event, None)
+        if version is not None:
+            return semver.VersionInfo.parse(version)
+        return None
+
+    def get_previous_edition_by_tag(self, edition_tag: str):
+        """
+        Fetches the previous edition
+        :return: None if first edition
+        """
+        if edition_tag not in self.tags:
+            raise ValueError(f"{edition_tag} not found amongst {self.tags}")
+
+        current_edition_index = self.tags.index(edition_tag)
+        if current_edition_index == 0:
+            return None
+        else:
+            return self._event_manifest[current_edition_index - 1]
+
+    def is_in_edition(self, edition_tag: str, event_name: str, event_version: str):
+        """
+        Tests if the given edition contains the given version of the event.
+        Tests by comparing the range given by the current edition and the previous.
+        """
+        previous_edition = self.get_previous_edition_by_tag(edition_tag)
+        version_of_current_edition = self.event_version_by_tag(edition_tag, event_name)
+        if previous_edition is None:
+            return event_version <= version_of_current_edition
+
+        else:
+            version_of_previous_edition = self.event_version_by_tag(
+                previous_edition["tag"], event_name
+            )
+            if version_of_previous_edition is None:
+                return event_version <= version_of_current_edition
+            return (
+                version_of_previous_edition
+                < event_version
+                <= version_of_current_edition
+            )
 
 
 def _get_latest_schemas(tag: str) -> Dict[str, str]:
