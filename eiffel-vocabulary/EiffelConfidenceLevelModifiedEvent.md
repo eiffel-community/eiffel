@@ -60,6 +60,12 @@ __Legal targets:__ Any
 __Multiple allowed:__ Yes  
 __Description:__ Identifies a cause of the event occurring. SHOULD not be used in conjunction with __CONTEXT__: individual events providing __CAUSE__ within a larger context gives rise to ambiguity. It is instead recommended to let the root event of the context declare __CAUSE__.
 
+### CONFIDENCE_BASIS
+__Required:__ No  
+__Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md), [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  
+__Multiple allowed:__ Yes  
+__Description:__ Used to declare the basis for which confidence statement(s) this event have used. The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for selecting the provided __data.name__ and/or __data.value__.
+
 ### CONTEXT
 __Required:__ No  
 __Legal targets:__ [EiffelActivityTriggeredEvent](../eiffel-vocabulary/EiffelActivityTriggeredEvent.md), [EiffelTestSuiteStartedEvent](../eiffel-vocabulary/EiffelTestSuiteStartedEvent.md)  
@@ -83,12 +89,6 @@ __Required:__ No
 __Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md)  
 __Multiple allowed:__ Yes  
 __Description:__ Used in events summarizing multiple confidence levels. Example use case: the confidence level "allTestsOk" summarizes the confidence levels "unitTestsOk, "scenarioTestsOk" and "deploymentTestsOk", and consequently links to them via __SUB_CONFIDENCE_LEVEL__. This is intended for purely descriptive, rather than prescriptive, use. Future editions might deprecate this link in favour of CONFIDENCE_BASIS.
-
-### CONFIDENCE_BASIS
-__Required:__ No  
-__Legal targets:__ [EiffelConfidenceLevelModifiedEvent](../eiffel-vocabulary/EiffelConfidenceLevelModifiedEvent.md), [EiffelTestCaseFinishedEvent](../eiffel-vocabulary/EiffelTestCaseFinishedEvent.md), [EiffelTestSuiteFinishedEvent](../eiffel-vocabulary/EiffelTestSuiteFinishedEvent.md)  
-__Multiple allowed:__ Yes  
-__Description:__ Used to declare the basis for which confidence statement(s) this event have used. The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for selecting the provided `data.name` and/or `data.value`.
 
 ## Meta Members
 

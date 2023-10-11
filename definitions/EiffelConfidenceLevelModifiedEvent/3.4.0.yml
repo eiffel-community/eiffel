@@ -92,6 +92,18 @@ _links:
     targets:
       any_type: true
       types: []
+  CONFIDENCE_BASIS:
+    description: 'Used to declare the basis for which confidence statement(s) this event have used. 
+      The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for
+      selecting the provided __data.name__ and/or __data.value__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelConfidenceLevelModifiedEvent
+        - EiffelTestCaseFinishedEvent
+        - EiffelTestSuiteFinishedEvent
   CONTEXT:
     description: Identifies the activity or test suite of which this
       event constitutes a part.
@@ -139,18 +151,6 @@ _links:
       any_type: false
       types:
         - EiffelConfidenceLevelModifiedEvent
-  CONFIDENCE_BASIS:
-    description: 'Used to declare the basis for which confidence statement(s) this event have used. 
-      The __CAUSE__ link tells what caused the event sending whereas __CONFIDENCE_BASIS__ declares the reason for
-      selecting the provided `data.name` and/or `data.value`.'
-    required: false
-    multiple: true
-    targets:
-      any_type: false
-      types:
-        - EiffelConfidenceLevelModifiedEvent
-        - EiffelTestCaseFinishedEvent
-        - EiffelTestSuiteFinishedEvent
 _history:
   - version: 3.4.0
     changes: Add CONFIDENCE_BASIS link (see [Issue 323](https://github.com/eiffel-community/eiffel/issues/323)).
