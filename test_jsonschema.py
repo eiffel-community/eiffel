@@ -1,4 +1,4 @@
-# Copyright 2022 Axis Communications AB.
+# Copyright 2022-2023 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,9 +28,8 @@ import pytest
 )
 def test_json_schema(filename):
     with open(filename) as input_file:
-        data = input_file.read()
+        event_schema = json.loads(input_file.read())
 
-    event_schema = json.loads(data)
     stricter_metaschema = dict(
         jsonschema.Draft4Validator.META_SCHEMA, additionalProperties=False
     )
