@@ -25,8 +25,8 @@ help:     ## Show this help.
 	 @egrep -h '\s##\s' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m  %-30s\033[0m %s\n", $$1, $$2}'
 
 .PHONY: tests
-test: ## Run all document related checks found in tox: pytest, jsonformat, validate, jsonschema
-	tox run -e pytest,jsonformat,validate,jsonschema
+test: ## Run all document related checks found in tox: pytest, jsonformat, validate
+	tox run -e pytest,jsonformat,validate
 
 .PHONY: generate_docs
 generate_docs: ## Generate the Markdown files based on the YAML definitions

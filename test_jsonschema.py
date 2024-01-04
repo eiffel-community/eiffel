@@ -15,9 +15,20 @@
 
 import json
 import subprocess
+import logging
 
 import jsonschema
 import pytest
+
+# Set up a console logger
+logger = logging.getLogger("__Logger__")
+console_handler = logging.StreamHandler()
+formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    datefmt="%m/%d/%Y %I:%M:%S%p",
+)
+console_handler.setFormatter(formatter)
+logger.addHandler(console_handler)
 
 
 @pytest.mark.parametrize(
@@ -30,10 +41,14 @@ def test_json_schema(filename):
     with open(filename) as input_file:
         event_schema = json.loads(input_file.read())
 
-    stricter_metaschema = dict(
-        jsonschema.Draft4Validator.META_SCHEMA, additionalProperties=False
-    )
-    StrictDraft4Validator = jsonschema.validators.create(
-        stricter_metaschema, jsonschema.Draft4Validator.VALIDATORS, "StrictDraft4"
-    )
-    StrictDraft4Validator.check_schema(event_schema)
+    # Use standard validator for old ActC schemas, to cope with bug https://github.com/eiffel-community/eiffel/issues/376
+    if ("ActivityCanceled" in filename) and (event_schema["properties"]["meta"]["properties"]["version"]["default"] in ["1.0.0", "1.1.0", "2.0.0", "3.0.0", "3.1.0", "3.2.0"]):
+            jsonschema.Draft4Validator.check_schema(event_schema)
+    else:
+        stricter_metaschema = dict(
+            jsonschema.Draft4Validator.META_SCHEMA, additionalProperties=False
+        )
+        StrictDraft4Validator = jsonschema.validators.create(
+            stricter_metaschema, jsonschema.Draft4Validator.VALIDATORS, "StrictDraft4"
+        )
+        StrictDraft4Validator.check_schema(event_schema)

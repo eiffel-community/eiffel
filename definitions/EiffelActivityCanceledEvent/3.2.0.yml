@@ -44,7 +44,7 @@ required:
   - meta
   - data
   - links
-additionalProperties: false
+additonalProperties: false
 _links:
   ACTIVITY_EXECUTION:
     description: Declares the activity execution that was canceled.
