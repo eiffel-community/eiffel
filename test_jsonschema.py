@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 # Copyright 2023-2024 Ericsson AB.
-=======
-# Copyright 2022-2023 Axis Communications AB and others.
->>>>>>> 13ce7dc (Minor optimization and a copyright fix)
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");

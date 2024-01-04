@@ -18,9 +18,9 @@
         "version": {
           "type": "string",
           "enum": [
-            "1.1.0"
+            "4.0.0"
           ],
-          "default": "1.1.0"
+          "default": "4.0.0"
         },
         "time": {
           "type": "integer"
@@ -44,24 +44,8 @@
               "type": "string"
             },
             "serializer": {
-              "type": "object",
-              "properties": {
-                "groupId": {
-                  "type": "string"
-                },
-                "artifactId": {
-                  "type": "string"
-                },
-                "version": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "groupId",
-                "artifactId",
-                "version"
-              ],
-              "additionalProperties": false
+              "type": "string",
+              "pattern": "^pkg:"
             },
             "uri": {
               "type": "string"
@@ -72,24 +56,69 @@
         "security": {
           "type": "object",
           "properties": {
-            "sdm": {
+            "authorIdentity": {
+              "type": "string"
+            },
+            "integrityProtection": {
               "type": "object",
               "properties": {
-                "authorIdentity": {
+                "signature": {
                   "type": "string"
                 },
-                "encryptedDigest": {
+                "alg": {
+                  "type": "string",
+                  "enum": [
+                    "HS256",
+                    "HS384",
+                    "HS512",
+                    "RS256",
+                    "RS384",
+                    "RS512",
+                    "ES256",
+                    "ES384",
+                    "ES512",
+                    "PS256",
+                    "PS384",
+                    "PS512"
+                  ]
+                },
+                "publicKey": {
                   "type": "string"
                 }
               },
               "required": [
-                "authorIdentity",
-                "encryptedDigest"
+                "signature",
+                "alg"
               ],
               "additionalProperties": false
+            },
+            "sequenceProtection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sequenceName": {
+                    "type": "string"
+                  },
+                  "position": {
+                    "type": "integer"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "sequenceName",
+                  "position"
+                ]
+              }
             }
           },
-          "additionalProperties": false
+          "additionalProperties": false,
+          "required": [
+            "authorIdentity"
+          ]
+        },
+        "schemaUri": {
+          "type": "string"
         }
       },
       "required": [
@@ -137,6 +166,9 @@
           "target": {
             "type": "string",
             "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "domainId": {
+            "type": "string"
           }
         },
         "required": [
@@ -152,5 +184,5 @@
     "data",
     "links"
   ],
-  "additonalProperties": false
+  "additionalProperties": false
 }

@@ -1,4 +1,4 @@
-# Copyright 2017-2023 Ericsson AB and others.
+# Copyright 2017-2024 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ _description: The EiffelActivityCanceledEvent signals that a previously
 type: object
 properties:
   meta:
-    $ref: ../EiffelMetaProperty/3.0.0.yml
+    $ref: ../EiffelMetaProperty/3.1.0.yml
   data:
     type: object
     properties:
@@ -39,12 +39,12 @@ properties:
   links:
     type: array
     items:
-      $ref: ../EiffelEventLink/1.0.1.yml
+      $ref: ../EiffelEventLink/1.1.1.yml
 required:
   - meta
   - data
   - links
-additonalProperties: false
+additionalProperties: false
 _links:
   ACTIVITY_EXECUTION:
     description: Declares the activity execution that was canceled.
@@ -94,9 +94,18 @@ _links:
       types:
         - EiffelFlowContextDefinedEvent
 _history:
+  - version: 4.0.0
+    changes: Fix bug in schema regarding additionalProperties (see [Issue 376](https://github.com/eiffel-community/eiffel/issues/376)).
+  - version: 3.2.0
+    introduced_in: edition-arica
+    changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
+  - version: 3.1.0
+    introduced_in: edition-lyon
+    changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
   - version: 3.0.0
     introduced_in: edition-agen
-    changes: Improved information integrity protection
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185)).
   - version: 2.0.0
     introduced_in: edition-agen
     changes: Introduced purl identifiers instead of GAVs (see [Issue
