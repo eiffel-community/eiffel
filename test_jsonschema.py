@@ -14,8 +14,8 @@
 # limitations under the License.
 
 import json
-import subprocess
 import logging
+import subprocess
 
 import jsonschema
 import pytest
@@ -42,8 +42,11 @@ def test_json_schema(filename):
         event_schema = json.loads(input_file.read())
 
     # Use standard validator for old ActC schemas, to cope with bug https://github.com/eiffel-community/eiffel/issues/376
-    if ("ActivityCanceled" in filename) and (event_schema["properties"]["meta"]["properties"]["version"]["default"] in ["1.0.0", "1.1.0", "2.0.0", "3.0.0", "3.1.0", "3.2.0"]):
-            jsonschema.Draft4Validator.check_schema(event_schema)
+    if ("ActivityCanceled" in filename) and (
+        event_schema["properties"]["meta"]["properties"]["version"]["default"]
+        in ["1.0.0", "1.1.0", "2.0.0", "3.0.0", "3.1.0", "3.2.0"]
+    ):
+        jsonschema.Draft4Validator.check_schema(event_schema)
     else:
         stricter_metaschema = dict(
             jsonschema.Draft4Validator.META_SCHEMA, additionalProperties=False
