@@ -1,4 +1,4 @@
-# Copyright 2023 Axis Communications AB and others.
+# Copyright 2023-2024 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,12 +13,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import pathlib
+from pathlib import Path
 
 import pytest
 
 import definition_loader
 import generate_manifest
+
+
+class DefinitionFile:
+    """Helper class that loads a type definition and tracks its source
+    path and desired testcase id.
+    """
+
+    def __init__(self, path: Path):
+        self.path = path
+        self.definition = definition_loader.load(path)
+        self.id = str(Path(path.parent.name) / path.stem)
+
+
+# Preloaded type definitions for reuse in each parametrized testcase.
+EVENT_DEFINITIONS = [
+    DefinitionFile(p) for p in Path(".").glob("definitions/Eiffel*Event/*.yml")
+]
+EVENT_DEFINITION_IDS = [d.id for d in EVENT_DEFINITIONS]
 
 
 @pytest.fixture(scope="session")
@@ -27,48 +45,44 @@ def manifest():
 
 
 @pytest.mark.parametrize(
-    "event_definition_path",
-    pathlib.Path(".").glob("definitions/Eiffel*Event/*.yml"),
+    "definition_file",
+    EVENT_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS,
 )
-def test_history_table_contains_current_version(event_definition_path):
-    definition = definition_loader.load(event_definition_path)
-    event_type = event_definition_path.parent.name
-    event_version = event_definition_path.stem
+def test_history_table_contains_current_version(definition_file):
+    event_version = definition_file.path.stem
     assert [
         entry
-        for entry in definition.get("_history", [])
+        for entry in definition_file.definition.get("_history", [])
         if entry.get("version") == event_version
-    ], f"History table entry missing for {event_type} {event_version}"
+    ], "History table entry missing"
 
 
 @pytest.mark.parametrize(
-    "event_definition_path",
-    pathlib.Path(".").glob("definitions/Eiffel*Event/*.yml"),
+    "definition_file",
+    EVENT_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS,
 )
-def test_history_table_contains_valid_release(event_definition_path, manifest):
-    event_type = event_definition_path.parent.name
-    event_version = event_definition_path.stem
-    definition = definition_loader.load(event_definition_path)
-    for entry in definition.get("_history", []):
+def test_history_table_contains_valid_release(definition_file, manifest):
+    for entry in definition_file.definition.get("_history", []):
         edition = entry.get("introduced_in", None)
         if edition is not None:
             assert manifest.is_edition_tag(
                 edition
-            ), f"Nonexistent edition '{edition}' in history table for {event_type} {event_version}"
+            ), f"Nonexistent edition '{edition}' in history table"
 
 
 @pytest.mark.parametrize(
-    "event_definition_path",
-    pathlib.Path(".").glob("definitions/Eiffel*Event/*.yml"),
+    "definition_file",
+    EVENT_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS,
 )
-def test_history_table_matches_manifest(event_definition_path, manifest):
-    event_type = event_definition_path.parent.name
-    event_version = event_definition_path.stem
-    definition = definition_loader.load(event_definition_path)
-    for entry in definition.get("_history", []):
+def test_history_table_matches_manifest(definition_file, manifest):
+    event_type = definition_file.path.parent.name
+    for entry in definition_file.definition.get("_history", []):
         edition = entry.get("introduced_in", None)
         event_version_of_edition = entry.get("version")
         if edition is not None:
             assert manifest.is_in_edition(
                 edition, event_type, event_version_of_edition
-            ), f"{event_version_of_edition} not part of '{edition}' as describe in history table for {event_type} {event_version}"
+            ), f"{event_version_of_edition} not part of '{edition}' as described in history table"
