@@ -16,9 +16,10 @@
 # limitations under the License.
 
 """Context-sensitive diffing of Eiffel type definitions. Compares the
-currently available types with the ones from a specified base and
-prints diff commands. For example, if the current commit has added
-v4.3.0 of ActT you'll get the following output:
+current workspace's latest type versions with the ones from a specified
+base, and prints diff commands. For example, if the current commit has
+added v4.3.0 of ActT and the given base had v4.2.0 as its latest version,
+you'll get the following output:
 
 diff -u definitions/EiffelActivityTriggeredEvent/4.2.0.yml definitions/EiffelActivityTriggeredEvent/4.3.0.yml
 diff -u schemas/EiffelActivityTriggeredEvent/4.2.0.json schemas/EiffelActivityTriggeredEvent/4.3.0.json
