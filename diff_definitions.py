@@ -42,19 +42,19 @@ def _main():
     elif len(sys.argv) == 2:
         base = sys.argv[1]
 
-    earlier = versions.latest_in_gitref(base, ".", Path("definitions"))
-    current = versions.latest_in_dir(Path("definitions"))
-    for type, current_version in sorted(current.items()):
-        earlier_version = earlier.get(type)
-        if not earlier_version:
-            print(f"diff -u /dev/null definitions/{type}/{current_version}.yml")
-            print(f"diff -u /dev/null schemas/{type}/{current_version}.json")
-        elif earlier_version != current_version:
+    base_defs = versions.latest_in_gitref(base, ".", Path("definitions"))
+    workspace_defs = versions.latest_in_dir(Path("definitions"))
+    for type, workspace_version in sorted(workspace_defs.items()):
+        base_version = base_defs.get(type)
+        if not base_version:
+            print(f"diff -u /dev/null definitions/{type}/{workspace_version}.yml")
+            print(f"diff -u /dev/null schemas/{type}/{workspace_version}.json")
+        elif base_version != workspace_version:
             print(
-                f"diff -u definitions/{type}/{earlier_version}.yml definitions/{type}/{current_version}.yml"
+                f"diff -u definitions/{type}/{base_version}.yml definitions/{type}/{workspace_version}.yml"
             )
             print(
-                f"diff -u schemas/{type}/{earlier_version}.json schemas/{type}/{current_version}.json"
+                f"diff -u schemas/{type}/{base_version}.json schemas/{type}/{workspace_version}.json"
             )
 
 
