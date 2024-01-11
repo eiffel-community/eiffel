@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/4.3.1.yml.
+   This file was generated from ../definitions/EiffelTestExecutionRecipeCollectionCreatedEvent/5.0.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -279,6 +279,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 5.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12. |
 | 4.3.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 4.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.2.0 | [edition-arica](../../../tree/edition-arica) | Add missing testCase.version member (see [Issue 288](https://github.com/eiffel-community/eiffel/issues/288)). |

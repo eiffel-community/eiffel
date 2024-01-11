@@ -106,3 +106,31 @@ def test_filename_matches_type_version_fields(definition_file):
     # Do they match what's in the definition?
     assert type == definition_file.definition["_name"]
     assert version == definition_file.definition["_version"]
+
+
+@pytest.mark.parametrize(
+    "definition_file",
+    EVENT_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS,
+)
+def test_links(definition_file, manifest):
+    # Checking for required link is only valid for event types with recent meta schemas
+    if "draft-04" in definition_file.definition.get("$schema"):
+        assert True
+    else:
+        contained_link_types = []
+        required_link_types = []
+        schema_links_contains = (
+            definition_file.definition.get("properties").get("links").get("contains")
+        )
+        if schema_links_contains:
+            contained_link_types = (
+                schema_links_contains.get("properties").get("type").get("enum")
+            )
+        links = definition_file.definition.get("_links", {})
+        for link in links:
+            if links[link]["required"]:
+                required_link_types.append(link)
+        assert (
+            contained_link_types == required_link_types
+        ), f"Required '{required_link_types}' and contained '{contained_link_types}' link types do not match"

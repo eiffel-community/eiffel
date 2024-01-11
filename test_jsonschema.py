@@ -38,12 +38,41 @@ def test_json_schema(filename):
         in ["1.0.0", "1.1.0", "2.0.0", "3.0.0", "3.1.0", "3.2.0"]
     ):
         schema_validator = jsonschema.Draft4Validator
-    else:
+    elif "draft-04" in event_schema["$schema"]:
         stricter_metaschema = dict(
             jsonschema.Draft4Validator.META_SCHEMA, additionalProperties=False
         )
         schema_validator = jsonschema.validators.create(
             stricter_metaschema, jsonschema.Draft4Validator.VALIDATORS, "StrictDraft4"
         )
+    elif "draft-07" in event_schema["$schema"]:
+        # Kept even if not used, if a revert to this schema version is coming
+        stricter_metaschema = dict(
+            jsonschema.Draft7Validator.META_SCHEMA, additionalProperties=False
+        )
+        schema_validator = jsonschema.validators.create(
+            stricter_metaschema, jsonschema.Draft7Validator.VALIDATORS, "StrictDraft7"
+        )
+    elif "draft-2019-09" in event_schema["$schema"]:
+        # Kept even if not used, if a revert to this schema version is coming
+        stricter_metaschema = dict(
+            jsonschema.Draft201909Validator.META_SCHEMA, unevaluatedProperties=False
+        )
+        schema_validator = jsonschema.validators.create(
+            stricter_metaschema,
+            jsonschema.Draft201909Validator.VALIDATORS,
+            "StrictDraft201909",
+        )
+    elif "draft-2020-12" in event_schema["$schema"]:
+        stricter_metaschema = dict(
+            jsonschema.Draft202012Validator.META_SCHEMA, unevaluatedProperties=False
+        )
+        schema_validator = jsonschema.validators.create(
+            stricter_metaschema,
+            jsonschema.Draft202012Validator.VALIDATORS,
+            "StrictDraft202012",
+        )
+    else:
+        assert False
 
     schema_validator.check_schema(event_schema)
