@@ -54,18 +54,19 @@ def test_latest_in_gitref(tmp_git):
     create_files(
         tmp_git.path,
         "subdir_c/6.0.0.json",
-        "definitions/subdir_a/1.0.0.json",
-        "definitions/subdir_a/2.0.0.json",
-        "definitions/subdir_b/3.0.0.json",
-        "definitions/subdir_b/4.0.0.json",
+        "definitions/subdir_a/1.0.0.yml",
+        "definitions/subdir_a/2.0.0.yml",
+        "definitions/subdir_a/3.0.0.othersuffix",
+        "definitions/subdir_b/3.0.0.yml",
+        "definitions/subdir_b/4.0.0.yml",
     )
     tmp_git.command("add", "-A")
     tmp_git.command("commit", "-m", "Initial set of files")
     tmp_git.command("tag", "v1.0.0")
 
     # Add an additional file and delete one of the original files.
-    (tmp_git.path / "definitions/subdir_b/5.0.0.json").touch()
-    tmp_git.command("rm", "definitions/subdir_a/2.0.0.json")
+    (tmp_git.path / "definitions/subdir_b/5.0.0.yml").touch()
+    tmp_git.command("rm", "definitions/subdir_a/2.0.0.yml")
     tmp_git.command("add", "-A")
     tmp_git.command("commit", "-m", "Make changes")
 
@@ -80,11 +81,12 @@ def test_latest_in_gitref(tmp_git):
 def test_latest_in_dir(tmp_path):
     create_files(
         tmp_path,
-        "subdir_c/6.0.0.json",
-        "definitions/subdir_a/1.0.0.json",
-        "definitions/subdir_a/2.0.0.json",
-        "definitions/subdir_b/3.0.0.json",
-        "definitions/subdir_b/4.0.0.json",
+        "subdir_c/6.0.0.yml",
+        "definitions/subdir_a/1.0.0.yml",
+        "definitions/subdir_a/2.0.0.yml",
+        "definitions/subdir_a/3.0.0.othersuffix",
+        "definitions/subdir_b/3.0.0.yml",
+        "definitions/subdir_b/4.0.0.yml",
     )
 
     assert versions.latest_in_dir(tmp_path / "definitions") == {

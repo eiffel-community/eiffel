@@ -42,6 +42,7 @@ def latest_in_gitref(
             .decode("utf-8")
             .splitlines()
         )
+        if Path(line).suffix == ".yml"
     )
 
 
@@ -51,7 +52,10 @@ def latest_in_dir(path: Path) -> Dict[str, semver.version.Version]:
     its latest version found.
     """
     return _latest_versions(
-        Path(current) / f for current, _, files in os.walk(path) for f in files
+        Path(current) / f
+        for current, _, files in os.walk(path)
+        for f in files
+        if Path(f).suffix == ".yml"
     )
 
 
