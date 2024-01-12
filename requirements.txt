@@ -1,4 +1,4 @@
-Jinja2==3.0.3
+Jinja2==3.1.3
 jsonref==0.2
 jsonschema
 ruamel.yaml==0.17.21
