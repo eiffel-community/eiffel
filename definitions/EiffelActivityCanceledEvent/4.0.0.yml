@@ -14,6 +14,8 @@
 # limitations under the License.
 ---
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelActivityCanceledEvent
+_version: 4.0.0
 _abbrev: ActC
 _description: The EiffelActivityCanceledEvent signals that a previously
   triggered activity execution has been canceled _before it has started_.
