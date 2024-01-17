@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2022 Axis Communications AB.
+# Copyright 2022-2024 Axis Communications AB.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -142,10 +142,10 @@ def _main():
         print(filename)
         input_path = Path(filename)
         schema = definition_loader.load(input_path)
-        output_path = (_OUTPUT_ROOT_PATH / input_path.parent.name).with_suffix(".md")
+        output_path = _OUTPUT_ROOT_PATH / (schema["_name"] + ".md")
         context = {
-            "type": input_path.parent.name,
-            "version": input_path.stem,
+            "type": schema["_name"],
+            "version": schema["_version"],
             "description": schema.get("_description", ""),
             "abbrev": schema.get("_abbrev", ""),
             "links": schema.get("_links", {}),
