@@ -13,7 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""The versions module contains functions for discovering definition files."""
+"""The versions module contains functions for discovering definition
+files and schema files.
+"""
 
 import os
 import subprocess
@@ -27,10 +29,11 @@ import semver
 def latest_in_gitref(
     committish: str, gitdir: Path, subdir: Path
 ) -> Dict[str, semver.version.Version]:
-    """Lists the definition files found under a given subdirectory of a
-    git at a given point in time (described by a committish, e.g. a
-    SHA-1, tag, or branch reference) and returns a dict that maps each
-    typename (e.g. EiffelArtifactCreatedEvent) to the latest version found.
+    """Lists the definition or schema files found under a given
+    subdirectory of a git at a given point in time (described by a
+    committish, e.g. a SHA-1, tag, or branch reference) and returns a
+    dict that maps each typename (e.g. EiffelArtifactCreatedEvent) to
+    the latest version found.
     """
     return _latest_versions(
         Path(line)
@@ -42,20 +45,20 @@ def latest_in_gitref(
             .decode("utf-8")
             .splitlines()
         )
-        if Path(line).suffix == ".yml"
+        if Path(line).suffix in (".json", ".yml")
     )
 
 
 def latest_in_dir(path: Path) -> Dict[str, semver.version.Version]:
-    """Inspects the definition files found under a given path and returns
-    a dict that maps each typename (e.g. EiffelArtifactCreatedEvent) to
-    its latest version found.
+    """Inspects the definition or schema files found under
+    a given path and returns a dict that maps each typename
+    (e.g. EiffelArtifactCreatedEvent) to its latest version found.
     """
     return _latest_versions(
         Path(current) / f
         for current, _, files in os.walk(path)
         for f in files
-        if Path(f).suffix == ".yml"
+        if Path(f).suffix in (".json", ".yml")
     )
 
 
