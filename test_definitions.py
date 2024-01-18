@@ -29,14 +29,19 @@ class DefinitionFile:
     def __init__(self, path: Path):
         self.path = path
         self.definition = definition_loader.load(path)
-        self.id = str(Path(path.parent.name) / path.stem)
+        self.id = f"{self.definition['_name']}/{self.definition['_version']}"
 
 
 # Preloaded type definitions for reuse in each parametrized testcase.
+DEFINITION_FILES = [p for p in Path(".").glob("definitions/*/*.yml")]
 EVENT_DEFINITIONS = [
-    DefinitionFile(p) for p in Path(".").glob("definitions/Eiffel*Event/*.yml")
+    DefinitionFile(p) for p in DEFINITION_FILES if p.parent.name.endswith("Event")
 ]
 EVENT_DEFINITION_IDS = [d.id for d in EVENT_DEFINITIONS]
+OTHER_DEFINITIONS = [
+    DefinitionFile(p) for p in DEFINITION_FILES if not p.parent.name.endswith("Event")
+]
+OTHER_DEFINITION_IDS = [d.id for d in OTHER_DEFINITIONS]
 
 
 @pytest.fixture(scope="session")
@@ -78,7 +83,7 @@ def test_history_table_contains_valid_release(definition_file, manifest):
     ids=EVENT_DEFINITION_IDS,
 )
 def test_history_table_matches_manifest(definition_file, manifest):
-    event_type = definition_file.path.parent.name
+    event_type = definition_file.definition["_name"]
     for entry in definition_file.definition.get("_history", []):
         edition = entry.get("introduced_in", None)
         event_version_of_edition = entry.get("version")
@@ -86,3 +91,18 @@ def test_history_table_matches_manifest(definition_file, manifest):
             assert manifest.is_in_edition(
                 edition, event_type, event_version_of_edition
             ), f"{event_version_of_edition} not part of '{edition}' as described in history table"
+
+
+@pytest.mark.parametrize(
+    "definition_file",
+    EVENT_DEFINITIONS + OTHER_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS + OTHER_DEFINITION_IDS,
+)
+def test_filename_matches_type_version_fields(definition_file):
+    # Compute the expected type name and version based on the filename.
+    type = definition_file.path.parent.name
+    version = definition_file.path.stem
+
+    # Do they match what's in the definition?
+    assert type == definition_file.definition["_name"]
+    assert version == definition_file.definition["_version"]

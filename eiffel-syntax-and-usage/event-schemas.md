@@ -1,5 +1,5 @@
 <!---
-   Copyright 2022-2023 Axis Communications AB and others.
+   Copyright 2022-2024 Axis Communications AB and others.
    For a full list of individual contributors, please see the commit history.
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,6 +25,8 @@ Both schemas and documentation files are generated from _schema definition files
 
 | Key             | Description             |
 | --------------- | ----------------------- |
+| `_name`         | The name of the type, e.g. "EiffelCompositionDefinedEvent". This string must match the name of the parent directory. |
+| `_version`      | The version of the event or other type, e.g. "3.1.0". This string must match the name of the definition file, except for the filename suffix. |
 | `_abbrev`       | The abbreviation of the event name, e.g. "CD" for EiffelCompositionDefinedEvent. |
 | `_description`  | An overall description of the event. |
 | `_links`        | An object describing the valid link types for the event. |
@@ -66,6 +68,8 @@ Here's a minimal example of a schema definition file:
 
 ```yaml
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelSomethingHappenedEvent
+_version: 1.0.0
 _abbrev: SH
 _description: The EiffelSomethingHappenedEvent declares that something happened.
 type: object

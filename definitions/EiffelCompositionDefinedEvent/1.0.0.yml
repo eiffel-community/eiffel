@@ -1,4 +1,4 @@
-# Copyright 2017-2023 Ericsson AB and others.
+# Copyright 2017-2024 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +14,8 @@
 # limitations under the License.
 ---
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelCompositionDefinedEvent
+_version: 1.0.0
 _abbrev: CD
 _description: The EiffelCompositionDefinedEvent declares a composition
   of items (artifacts, sources and other compositions) has been defined,

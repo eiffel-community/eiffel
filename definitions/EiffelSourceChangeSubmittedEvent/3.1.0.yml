@@ -1,4 +1,4 @@
-# Copyright 2017-2023 Ericsson AB and others.
+# Copyright 2017-2024 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +14,8 @@
 # limitations under the License.
 ---
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelSourceChangeSubmittedEvent
+_version: 3.1.0
 _abbrev: SCS
 _description: |-
   The EiffelSourceChangeSubmittedEvent declares that a change has been integrated into to a shared source branch of interest (e.g. "master", "dev" or "mainline") as opposed to a private or local branch. Note that it does not describe what has changed, but instead uses the __CHANGE__ link type to reference [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md).

@@ -1,4 +1,4 @@
-# Copyright 2022 Axis Communications AB.
+# Copyright 2022-2024 Axis Communications AB.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +14,8 @@
 # limitations under the License.
 ---
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelArtifactDeployedEvent
+_version: 0.1.0
 _abbrev: ArtD
 _description: The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or
   that the configuration of the artifact has been changed.

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2022 Axis Communications AB.
+# Copyright 2022-2024 Axis Communications AB.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,8 +53,8 @@ def _main():
         # the generic meta definition from one of the files in
         # definitions/EiffelMetaProperty. Patch the definitions of
         # meta.type and meta.version based on the event type and version.
-        meta_type = input_path.parent.name
-        meta_version = input_path.stem
+        meta_type = event_def["_name"]
+        meta_version = event_def["_version"]
         meta_properties = event_def["properties"]["meta"]["properties"]
         meta_properties["type"]["enum"] = [meta_type]
         meta_properties["version"]["enum"] = [meta_version]
@@ -62,9 +62,7 @@ def _main():
 
         _strip_extra_keys(event_def)
 
-        output_path = (
-            _OUTPUT_ROOT_PATH / input_path.parent.name / input_path.name
-        ).with_suffix(".json")
+        output_path = _OUTPUT_ROOT_PATH / meta_type / (meta_version + ".json")
         with output_path.open(mode="w") as output_file:
             json.dump(event_def, output_file, indent=2)
             output_file.write("\n")

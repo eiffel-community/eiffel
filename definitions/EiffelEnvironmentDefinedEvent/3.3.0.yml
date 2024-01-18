@@ -1,4 +1,4 @@
-# Copyright 2017-2023 Ericsson AB and others.
+# Copyright 2017-2024 Ericsson AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,6 +14,8 @@
 # limitations under the License.
 ---
 $schema: http://json-schema.org/draft-04/schema#
+_name: EiffelEnvironmentDefinedEvent
+_version: 3.3.0
 _abbrev: ED
 _description: |-
   The EiffelEnvironmentDefinedEvent declares an environment which may be referenced from other events in order to secure traceability to the conditions under which an artifact was created or a test was executed. Depending on the technology domain, the nature of an environment varies greatly however: it may be a virtual image, a complete mechatronic system of millions of independent parts, or anything in between. Consequently, a concise yet complete and generic syntax for describing any environment is futile.
