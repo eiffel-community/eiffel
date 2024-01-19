@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright 2023 Axis Communications AB and others.
+# Copyright 2023-2024 Axis Communications AB and others.
 # For a full list of individual contributors, please see the commit history.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,16 +15,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import re
-import subprocess
 import sys
 from functools import cached_property
-from typing import Dict
+from pathlib import Path
 from typing import Optional
 
 import semver
 from ruamel import yaml
 from semver import Version
+
+import versions
 
 # List of tuples with the edition display names, their Git tags, and
 # their release dates.
@@ -117,34 +117,19 @@ class Manifest:
             )
 
 
-def _get_latest_schemas(tag: str) -> Dict[str, str]:
-    """Given a tag, returns a mapping of the event types available in that
-    tag and the latest version of each such type.
-    """
-    schema_file_regexp = re.compile(r"^schemas/([^/]+)/([^/]+).json$")
-    latest = {}
-    for schema_file in subprocess.check_output(
-        ["git", "ls-tree", "-r", "--name-only", tag, "--", "schemas"]
-    ).splitlines():
-        match = schema_file_regexp.search(schema_file.decode("utf-8"))
-        if not match:
-            continue
-        event_type = match.group(1)
-        event_version = semver.VersionInfo.parse(match.group(2))
-        if event_type not in latest or latest[event_type].compare(event_version) < 0:
-            latest[event_type] = event_version
-    return {
-        event_type: str(event_version) for event_type, event_version in latest.items()
-    }
-
-
 def _main():
     manifest = [
         {
             "name": name,
             "tag": tag,
             "release_date": date,
-            "events": _get_latest_schemas(tag),
+            "events": {
+                # YAML module can't serialize a semver.version.Version.
+                k: str(v)
+                for k, v in versions.latest_in_gitref(
+                    tag, Path("."), Path("schemas")
+                ).items()
+            },
         }
         for name, tag, date in sorted(_EDITIONS, key=lambda edition: edition[2])
     ]
