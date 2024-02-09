@@ -1,10 +1,10 @@
 <!---
-   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.1.0.yml.
+   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.2.0.yml.
    See that file for a copyright notice.
 --->
 
 # EiffelArtifactDeployedEvent (ArtD)
-> :warning: This event type is currently at version 0.1.0 and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incompatible changes. It might also be deprecated and never reach 1.0.0.
+> :warning: This event type is currently at version 0.2.0 and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incompatible changes. It might also be deprecated and never reach 1.0.0.
 
 The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or that the configuration of the artifact has been changed. The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
 
@@ -196,6 +196,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 0.2.0 | Not yet released in an edition | Update meta schema to Draft 2020-12. |
 | 0.1.0 | [edition-orizaba](../../../tree/edition-orizaba) | Initial version. |
 
 ## Examples
