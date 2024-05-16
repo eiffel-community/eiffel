@@ -30,6 +30,11 @@
 # Rules by tags #
 #################
 
+# MD041/first-line-heading/first-line-h1
+# First line in a file being a top-level heading collides with starting
+# each file with a copyright statement.
+first-line-h1: false # Affects 45 files
+
 # MD013/line-length - Line length
 line-length:
     line_length: 900 # Arbitrary length to catch the worst. Setting this to 120 affects 500 lines
