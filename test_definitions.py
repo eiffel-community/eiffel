@@ -38,6 +38,12 @@ EVENT_DEFINITIONS = [
     DefinitionFile(p) for p in DEFINITION_FILES if p.parent.name.endswith("Event")
 ]
 EVENT_DEFINITION_IDS = [d.id for d in EVENT_DEFINITIONS]
+EVENT_DEFINITIONS_W_LINKS_REQUIRED = [
+    d for d in EVENT_DEFINITIONS if "2020-12" in d.definition.get("$schema")
+]
+EVENT_DEFINITION_W_LINKS_REQUIRED_IDS = [
+    d.id for d in EVENT_DEFINITIONS_W_LINKS_REQUIRED
+]
 OTHER_DEFINITIONS = [
     DefinitionFile(p) for p in DEFINITION_FILES if not p.parent.name.endswith("Event")
 ]
@@ -110,27 +116,23 @@ def test_filename_matches_type_version_fields(definition_file):
 
 @pytest.mark.parametrize(
     "definition_file",
-    EVENT_DEFINITIONS,
-    ids=EVENT_DEFINITION_IDS,
+    EVENT_DEFINITIONS_W_LINKS_REQUIRED,
+    ids=EVENT_DEFINITION_W_LINKS_REQUIRED_IDS,
 )
 def test_links(definition_file, manifest):
-    # Checking for required link is only valid for event types with recent meta schemas
-    if "draft-04" in definition_file.definition.get("$schema"):
-        assert True
-    else:
-        contained_link_types = []
-        required_link_types = []
-        schema_links_contains = (
-            definition_file.definition.get("properties").get("links").get("contains")
-        )
-        if schema_links_contains:
-            contained_link_types = (
-                schema_links_contains.get("properties").get("type").get("enum")
-            )
-        links = definition_file.definition.get("_links", {})
-        for link in links:
-            if links[link]["required"]:
-                required_link_types.append(link)
-        assert (
-            contained_link_types == required_link_types
-        ), f"Required '{required_link_types}' and contained '{contained_link_types}' link types do not match"
+    linktypes_in_schema = set(
+        definition_file.definition.get("properties", {})
+        .get("links", {})
+        .get("contains", {})
+        .get("properties", {})
+        .get("type", {})
+        .get("enum", [])
+    )
+    linktypes_in_definition = {
+        link_type
+        for link_type, link_def in definition_file.definition.get("_links", {}).items()
+        if link_def.get("required", False)
+    }
+    assert (
+        linktypes_in_schema == linktypes_in_definition
+    ), f"Link types required by schema ({linktypes_in_schema}) don't match link types required by definition file ({linktypes_in_definition})"

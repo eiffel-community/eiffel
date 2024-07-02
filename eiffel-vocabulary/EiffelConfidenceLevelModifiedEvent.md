@@ -225,7 +225,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12. |
+| 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 3.4.0 | Not yet released in an edition | Add CONFIDENCE_BASIS link (see [Issue 323](https://github.com/eiffel-community/eiffel/issues/323)). |
 | 3.3.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add EiffelArtifactDeployedEvent as legal target type for SUBJECT link (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |
 | 3.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |

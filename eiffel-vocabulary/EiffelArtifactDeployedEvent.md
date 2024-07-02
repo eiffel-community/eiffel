@@ -196,7 +196,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 0.2.0 | Not yet released in an edition | Update meta schema to Draft 2020-12. |
+| 0.2.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 0.1.0 | [edition-orizaba](../../../tree/edition-orizaba) | Initial version. |
 
 ## Examples

@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ---
-$schema: https://json-schema.org/draft/draft-2020-12/schema#
+$schema: https://json-schema.org/draft/2020-12/schema#
 _name: EiffelActivityCanceledEvent
 _version: 5.0.0
 _abbrev: ActC
@@ -103,7 +103,7 @@ _links:
         - EiffelFlowContextDefinedEvent
 _history:
   - version: 5.0.0
-    changes: Update meta schema to Draft 2020-12.
+    changes: Update meta schema to Draft 2020-12 and add link validation.
   - version: 4.0.0
     changes: Fix bug in schema regarding additionalProperties (see [Issue 376](https://github.com/eiffel-community/eiffel/issues/376)).
   - version: 3.2.0

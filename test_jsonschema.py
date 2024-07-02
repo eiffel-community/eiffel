@@ -53,7 +53,7 @@ def test_json_schema(filename):
         schema_validator = jsonschema.validators.create(
             stricter_metaschema, jsonschema.Draft7Validator.VALIDATORS, "StrictDraft7"
         )
-    elif "draft-2019-09" in event_schema["$schema"]:
+    elif "2019-09" in event_schema["$schema"]:
         # Kept even if not used, if a revert to this schema version is coming
         stricter_metaschema = dict(
             jsonschema.Draft201909Validator.META_SCHEMA, unevaluatedProperties=False
@@ -63,7 +63,7 @@ def test_json_schema(filename):
             jsonschema.Draft201909Validator.VALIDATORS,
             "StrictDraft201909",
         )
-    elif "draft-2020-12" in event_schema["$schema"]:
+    elif "2020-12" in event_schema["$schema"]:
         stricter_metaschema = dict(
             jsonschema.Draft202012Validator.META_SCHEMA, unevaluatedProperties=False
         )

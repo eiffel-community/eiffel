@@ -258,7 +258,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
-| 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12. |
+| 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 3.5.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 3.5.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add ORIGINAL_TRIGGER link (see [Issue 246](https://github.com/eiffel-community/eiffel/issues/246)). |
 | 3.4.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |

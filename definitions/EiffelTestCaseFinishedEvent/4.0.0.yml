@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 ---
-$schema: https://json-schema.org/draft/draft-2020-12/schema#
+$schema: https://json-schema.org/draft/2020-12/schema#
 _name: EiffelTestCaseFinishedEvent
 _version: 4.0.0
 _abbrev: TCF
@@ -191,7 +191,7 @@ _links:
         - EiffelTestCaseTriggeredEvent
 _history:
   - version: 4.0.0
-    changes: Update meta schema to Draft 2020-12.
+    changes: Update meta schema to Draft 2020-12 and add link validation.
   - version: 3.3.1
     changes: Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)).
   - version: 3.3.0
