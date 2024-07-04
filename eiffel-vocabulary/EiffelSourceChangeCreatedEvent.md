@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelSourceChangeCreatedEvent/4.2.0.yml.
+   This file was generated from ../definitions/EiffelSourceChangeCreatedEvent/5.0.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -353,6 +353,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 5.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 4.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 4.1.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |
 | 4.0.0 | [edition-agen](../../../tree/edition-agen) | Improved information integrity protection (see [Issue 185](https://github.com/eiffel-community/eiffel/issues/185)). |

@@ -53,9 +53,10 @@ def _main():
             print(
                 f"diff -u definitions/{type}/{base_version}.yml definitions/{type}/{workspace_version}.yml"
             )
-            print(
-                f"diff -u schemas/{type}/{base_version}.json schemas/{type}/{workspace_version}.json"
-            )
+            if type.endswith("Event"):
+                print(
+                    f"diff -u schemas/{type}/{base_version}.json schemas/{type}/{workspace_version}.json"
+                )
 
 
 if __name__ == "__main__":
