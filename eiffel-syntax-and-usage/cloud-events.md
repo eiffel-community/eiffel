@@ -1,0 +1,134 @@
+# Eiffel and Cloud Events
+
+***Not ready for merge*** This document contains two alternatives that needs decision before merging
+
+This document describes using Eiffel on Cloud Events. Much inspiration is taken from the [CDEvents](https://cdevents.dev) and their idea on [cloud event binding](https://github.com/cdevents/spec/blob/main/cloudevents-binding.md).
+
+Eiffel as such does not care about the transportation of the events and thus binding specific ideas reside in [Eiffel Sepia](https://eiffel-community.github.io/eiffel-sepia/). This document only covers the subject of binding Eiffel to Cloud Events.
+
+## Common
+
+Following how CDEvents has done it, we select the needed parameters from the `meta` field (CDEvents calls their meta object `context`).
+
+Looking at the mandatory parameters form Cloud Events we have to fill in:
+
+- `type` - See discussion on alternatives
+- `source` - Cloud Events requires a *URI-reference*. Use `meta.source.uri` making this field mandatory when sending Eiffel on top of Cloud Events.
+- `id` - Use the value from `meta.id`
+- `time` - Use the converted value from `meta.time`. Convert the unix timestamp to [RFC 3339](https://tools.ietf.org/html/rfc3339).
+
+### Exemplification
+
+Given that we have an Eiffel event:
+
+``` JSON
+{
+"meta": {
+    "type": "EiffelArtifactCreatedEvent",
+    "version": "4.0.0",
+    "time": 1720614264,
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
+    "source": {
+        "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
+    },
+},
+"data": {
+    "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7",
+},
+"links": []
+}
+```
+
+The cloud event in structured format would look like this (excluding `type`):
+
+```JSON
+{
+    "specversion": "1.0",
+    "type": "<See alternatives>",
+    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info"   ,  # Same as data.meta.source.uri
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "datacontenttype": "application/json",
+    "data": {
+        "meta": {
+            "type": "EiffelArtifactCreatedEvent",
+            "version": "4.0.0",
+            "time": 1234567890,
+            "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",
+            "source": {
+                "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
+            },
+        },
+        "data": {
+            "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7",
+        },
+        "links": []
+    }
+}
+```
+
+## Type alternatives
+
+<https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type> states:
+
+> SHOULD be prefixed with a reverse-DNS name. The prefixed domain dictates the organization which defines the semantics of this event type.
+
+### Alternative 1
+
+We try to satisfy the reverse DNS name and create one
+
+`io.github.eiffel-community.<Category>.<Eiffel type>`
+
+Where:
+
+- `io.github.eiffel-community` is the reverse DNS of our website
+- `<Category>` is taken from [Event Categories](event-categories.md)
+- `<Eiffel type>` is the value from `meta.type`
+
+Example:
+
+```JSON
+{
+    "specversion": "1.0",
+    "type": "io.github.eiffel-community.Artifact.EiffelArtifactCreatedEvent",
+    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "datacontenttype": "application/json",
+    "data": {
+        "meta": {
+            "type": "EiffelArtifactCreatedEvent",
+            ...
+        },
+        "data": {
+            ...
+        },
+        "links": []
+    }
+}
+```
+
+### Alternative 2
+
+We ignore the recommendation from Cloud Events on reverse DNS and use the `meta.type`
+
+```JSON
+{
+    "specversion": "1.0",
+    "type": "EiffelArtifactCreatedEvent",                               # Same as data.meta.type
+    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
+    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "datacontenttype": "application/json",
+    "data": {
+        "meta": {
+            "type": "EiffelArtifactCreatedEvent",
+            ...
+        },
+        "data": {
+            ...
+        },
+        "links": []
+    }
+}
+```
