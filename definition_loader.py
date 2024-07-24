@@ -21,7 +21,7 @@ from typing import Dict
 from urllib.parse import urlparse
 from urllib.request import url2pathname
 
-from jsonref import JsonRef
+import jsonref
 from ruamel import yaml
 
 
@@ -30,7 +30,7 @@ def load(input_path: Path) -> Dict:
     all references resolved.
     """
     with input_path.open() as input_file:
-        return JsonRef.replace_refs(
+        return jsonref.replace_refs(
             yaml.YAML().load(input_file),
             base_uri=input_path.resolve().as_uri(),
             loader=_yaml_loader,
@@ -42,7 +42,7 @@ def _yaml_loader(uri: str) -> Dict:
     input_path = Path(url2pathname(parsed_uri.path))
     with input_path.open() as input_file:
         # Maybe JsonRef fixes recursion on its own?
-        schema = JsonRef.replace_refs(
+        schema = jsonref.replace_refs(
             yaml.YAML().load(input_file),
             base_uri=input_path.resolve().as_uri(),
             loader=_yaml_loader,
