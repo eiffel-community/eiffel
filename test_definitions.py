@@ -12,9 +12,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+import json
 from pathlib import Path
 
+import jsonschema
 import pytest
 
 import definition_loader
@@ -48,6 +49,9 @@ OTHER_DEFINITIONS = [
     DefinitionFile(p) for p in DEFINITION_FILES if not p.parent.name.endswith("Event")
 ]
 OTHER_DEFINITION_IDS = [d.id for d in OTHER_DEFINITIONS]
+
+DEFINITION_SCHEMA = json.load(open("definition_schema.json"))
+YAML_VALIDATOR = jsonschema.Draft202012Validator(DEFINITION_SCHEMA)
 
 
 @pytest.fixture(scope="session")
@@ -112,6 +116,25 @@ def test_filename_matches_type_version_fields(definition_file):
     # Do they match what's in the definition?
     assert type == definition_file.definition["_name"]
     assert version == definition_file.definition["_version"]
+
+
+@pytest.mark.parametrize(
+    "definition_file",
+    EVENT_DEFINITIONS + OTHER_DEFINITIONS,
+    ids=EVENT_DEFINITION_IDS + OTHER_DEFINITION_IDS,
+)
+def test_schema_validation(definition_file):
+    # If you try to just add on to the meta schema it doesn't work see this for more info
+    # https://stackoverflow.com/questions/54719010/how-do-you-extend-json-schema-meta-schema-to-support-new-properties
+    #
+    # You should be able to create a vocabulary, but I have not managed. See the following for more
+    # https://stackoverflow.com/questions/64138556/how-do-i-define-my-own-json-schema-keyword-and-vocabulary
+    # https://json-schema.org/draft/2019-09/json-schema-core#rfc.appendix.D
+
+    # PLEASE NOTE: The current definition schema has extensions for the incorrectly spelled "additonalProperties"
+    # ALso note that additionalProperties and properties have been included again. Assuming in the meta schema these
+    # properties can only reside in certain places not valid for our definition files
+    YAML_VALIDATOR.validate(definition_file.definition)
 
 
 @pytest.mark.parametrize(
