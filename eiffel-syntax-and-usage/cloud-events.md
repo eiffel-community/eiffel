@@ -1,27 +1,34 @@
 # Eiffel and Cloud Events
 
-***Not ready for merge*** This document contains two alternatives that needs decision before merging
+***Not ready for merge*** This document contains two alternatives that need a decision before merging
 
-This document describes using Eiffel on Cloud Events. Much inspiration is taken from the [CDEvents](https://cdevents.dev) and their idea on [cloud event binding](https://github.com/cdevents/spec/blob/main/cloudevents-binding.md).
+This document describes using Eiffel on Cloud Events.
+Much inspiration is taken from the [CDEvents](https://cdevents.dev) and their idea on
+[cloud event binding](https://github.com/cdevents/spec/blob/main/cloudevents-binding.md).
 
-Eiffel as such does not care about the transportation of the events and thus binding specific ideas reside in [Eiffel Sepia](https://eiffel-community.github.io/eiffel-sepia/). This document only covers the subject of binding Eiffel to Cloud Events.
+Eiffel as such does not care about the transportation of the events, and thus binding specific ideas reside in
+[Eiffel Sepia](https://eiffel-community.github.io/eiffel-sepia/). This document only covers the subject of binding
+Eiffel to Cloud Events.
 
 ## Common
 
-Following how CDEvents has done it, we select the needed parameters from the `meta` field (CDEvents calls their meta object `context`).
+Following how CDEvents has done it, we select the needed parameters from the `meta` field
+(CDEvents calls their meta-object `context`).
 
-Looking at the mandatory parameters form Cloud Events we have to fill in:
+Looking at the mandatory parameters from Cloud Events, we have to fill in:
 
 - `type` - See discussion on alternatives
-- `source` - Cloud Events requires a *URI-reference*. Use `meta.source.uri` making this field mandatory when sending Eiffel on top of Cloud Events.
+- `source` - Cloud Events requires a *URI-reference*. Use `meta.source.uri` making this field mandatory when sending
+  Eiffel on top of Cloud Events.
 - `id` - Use the value from `meta.id`
 - `time` - Use the converted value from `meta.time`. Convert the unix timestamp to [RFC 3339](https://tools.ietf.org/html/rfc3339).
+- `dataschema` - (Optional) Use the value from `meta.schemaUri`.
 
 ### Exemplification
 
 Given that we have an Eiffel event:
 
-``` JSON
+```JSON
 {
 "meta": {
     "type": "EiffelArtifactCreatedEvent",
@@ -31,9 +38,10 @@ Given that we have an Eiffel event:
     "source": {
         "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
     },
+    "schemaUri": "https://schemas.myorg.org/OurArtCEvent-1.0.json"
 },
 "data": {
-    "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7",
+    "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7"
 },
 "links": []
 }
@@ -47,7 +55,8 @@ The cloud event in structured format would look like this (excluding `type`):
     "type": "<See alternatives>",
     "source": "https://ci.internal.myorg.org/ArtifactBuilder/info"   ,  # Same as data.meta.source.uri
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
-    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format,
+    "dataschema": "https://schemas.myorg.org/OurArtCEvent-1.0.json",    # Same as data.meta.schemaUri (optional)
     "datacontenttype": "application/json",
     "data": {
         "meta": {
@@ -58,9 +67,10 @@ The cloud event in structured format would look like this (excluding `type`):
             "source": {
                 "uri": "https://ci.internal.myorg.org/ArtifactBuilder/info"
             },
+            "schemaUri": "https://schemas.myorg.org/OurArtCEvent-1.0.json"
         },
         "data": {
-            "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7",
+            "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7"
         },
         "links": []
     }
@@ -71,7 +81,8 @@ The cloud event in structured format would look like this (excluding `type`):
 
 <https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type> states:
 
-> SHOULD be prefixed with a reverse-DNS name. The prefixed domain dictates the organization which defines the semantics of this event type.
+> SHOULD be prefixed with a reverse-DNS name.
+> The prefixed domain dictates the organization which defines the semantics of this event type.
 
 ### Alternative 1
 
@@ -82,18 +93,18 @@ We try to satisfy the reverse DNS name and create one
 Where:
 
 - `io.github.eiffel-community` is the reverse DNS of our website
-- `<Category>` is taken from [Event Categories](event-categories.md)
-- `<Eiffel type>` is the value from `meta.type`
+- `<Category>` is taken from [Event Categories](event-categories.md) but lowercase
+- `<Eiffel type>` is the value from `meta.type` replacing capital letter with lowercase and hyphen
 
 Example:
 
 ```JSON
 {
     "specversion": "1.0",
-    "type": "io.github.eiffel-community.Artifact.EiffelArtifactCreatedEvent",
+    "type": "io.github.eiffel-community.artifact.eiffel-artifact-created-event",
     "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
-    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format
     "datacontenttype": "application/json",
     "data": {
         "meta": {
@@ -118,7 +129,7 @@ We ignore the recommendation from Cloud Events on reverse DNS and use the `meta.
     "type": "EiffelArtifactCreatedEvent",                               # Same as data.meta.type
     "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
-    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: differnt format
+    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format
     "datacontenttype": "application/json",
     "data": {
         "meta": {
