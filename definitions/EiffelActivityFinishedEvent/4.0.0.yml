@@ -56,7 +56,35 @@ properties:
         required:
           - conclusion
       persistentLogs:
-        $ref: ../EiffelPersistentLogs/1.0.0.yml
+        _description: An array of persistent log files generated during
+          execution.
+        type: array
+        items:
+          type: object
+          properties:
+            mediaType:
+              _description: The [media type](https://en.wikipedia.org/wiki/Media_type)
+                of the URI's payload. Can be used to differentiate
+                between various representations of the same log, e.g.
+                text/html for human consumption and text/plain or application/json
+                for the machine-readable form.
+              type: string
+            name:
+              _description: The name of the log file.
+              type: string
+            tags:
+              _description: Arbitrary tags and keywords that describe
+                this log.
+              type: array
+              items:
+                type: string
+            uri:
+              _description: The URI at which the log can be retrieved.
+              type: string
+          required:
+            - name
+            - uri
+          additionalProperties: false
       customData:
         type: array
         items:

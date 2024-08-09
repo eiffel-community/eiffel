@@ -41,8 +41,9 @@ items:
     uri:
       _description: The URI at which the log can be retrieved.
       type: string
+    integrityProtection:
+      $ref: ../EiffelIntegrityProtection/1.0.0.yml
   required:
     - name
     - uri
   additionalProperties: false
-  

@@ -56,7 +56,7 @@ properties:
         required:
           - conclusion
       persistentLogs:
-        $ref: ../EiffelPersistentLogs/1.1.0.yml
+        $ref: ../EiffelPersistentLogs/1.0.0.yml
       customData:
         type: array
         items:
