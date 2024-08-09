@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelActivityFinishedEvent/4.0.0.yml.
+   This file was generated from ../definitions/EiffelActivityFinishedEvent/4.1.0.yml.
    See that file for a copyright notice.
 --->
 
@@ -55,6 +55,24 @@ __Description:__ Arbitrary tags and keywords that describe this log.
 __Type:__ String  
 __Required:__ Yes  
 __Description:__ The URI at which the log can be retrieved.
+
+#### data.persistentLogs.integrityProtection
+__Type:__ Object  
+__Required:__ No  
+__Description:__ An optional object containing a digest of the file's contents, i.e. a checksum, computed using the specified algorithm.
+
+##### data.persistentLogs.integrityProtection.alg
+__Type:__ String  
+__Format:__ One of the hash algorithms listed in section 1 of [NIST FIPS 180-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf), excluding "SHA-1".  
+__Required:__ Yes  
+__Legal values:__ SHA-224, SHA-256, SHA-384, SHA-512, SHA-512/224, SHA-512/256  
+__Description:__ The cryptographic algorithm used to compute the digest of the file's contents.
+
+##### data.persistentLogs.integrityProtection.digest
+__Type:__ String  
+__Format:__ A lowercase string of hexadecimal digits.  
+__Required:__ Yes  
+__Description:__ The digest of the file contents.
 
 ## Links
 
@@ -219,6 +237,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.1.0 | Not yet released in an edition | Add `data.persistentLogs.integrityProtection.{alg, digest}` (see  [Issue 358](https://github.com/eiffel-community/eiffel/issues/358)). |
 | 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 3.3.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
 | 3.2.0 | [edition-lyon](../../../tree/edition-lyon) | Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)). |

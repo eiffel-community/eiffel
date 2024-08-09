@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema#",
+  "type": "object",
+  "properties": {
+    "meta": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "EiffelActivityFinishedEvent"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "enum": [
+            "4.1.0"
+          ],
+          "default": "4.1.0"
+        },
+        "time": {
+          "type": "integer"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "domainId": {
+              "type": "string"
+            },
+            "host": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "serializer": {
+              "type": "string",
+              "pattern": "^pkg:"
+            },
+            "uri": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "security": {
+          "type": "object",
+          "properties": {
+            "authorIdentity": {
+              "type": "string"
+            },
+            "integrityProtection": {
+              "type": "object",
+              "properties": {
+                "signature": {
+                  "type": "string"
+                },
+                "alg": {
+                  "type": "string",
+                  "enum": [
+                    "HS256",
+                    "HS384",
+                    "HS512",
+                    "RS256",
+                    "RS384",
+                    "RS512",
+                    "ES256",
+                    "ES384",
+                    "ES512",
+                    "PS256",
+                    "PS384",
+                    "PS512"
+                  ]
+                },
+                "publicKey": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "signature",
+                "alg"
+              ],
+              "additionalProperties": false
+            },
+            "sequenceProtection": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "sequenceName": {
+                    "type": "string"
+                  },
+                  "position": {
+                    "type": "integer"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "sequenceName",
+                  "position"
+                ]
+              }
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "authorIdentity"
+          ]
+        },
+        "schemaUri": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "type",
+        "version",
+        "time"
+      ],
+      "additionalProperties": false
+    },
+    "data": {
+      "type": "object",
+      "properties": {
+        "outcome": {
+          "type": "object",
+          "properties": {
+            "conclusion": {
+              "type": "string",
+              "enum": [
+                "SUCCESSFUL",
+                "UNSUCCESSFUL",
+                "FAILED",
+                "ABORTED",
+                "TIMED_OUT",
+                "INCONCLUSIVE"
+              ]
+            },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "conclusion"
+          ]
+        },
+        "persistentLogs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "mediaType": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "tags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "uri": {
+                "type": "string"
+              },
+              "integrityProtection": {
+                "type": "object",
+                "properties": {
+                  "alg": {
+                    "type": "string",
+                    "enum": [
+                      "SHA-224",
+                      "SHA-256",
+                      "SHA-384",
+                      "SHA-512",
+                      "SHA-512/224",
+                      "SHA-512/256"
+                    ]
+                  },
+                  "digest": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]+$"
+                  }
+                },
+                "required": [
+                  "alg",
+                  "digest"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "required": [
+              "name",
+              "uri"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "customData": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": [
+              "key",
+              "value"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "outcome"
+      ]
+    },
+    "links": {
+      "type": "array",
+      "contains": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "enum": [
+              "ACTIVITY_EXECUTION"
+            ]
+          }
+        }
+      },
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "domainId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "target"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "meta",
+    "data",
+    "links"
+  ],
+  "additionalProperties": false
+}
