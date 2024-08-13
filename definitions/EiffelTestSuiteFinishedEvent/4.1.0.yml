@@ -64,7 +64,7 @@ properties:
             type: string
         additionalProperties: false
       persistentLogs:
-        $ref: ../EiffelPersistentLogs/1.0.0.yml
+        $ref: ../EiffelPersistentLogsProperty/1.0.0.yml
       customData:
         type: array
         items:

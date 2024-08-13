@@ -14,7 +14,7 @@
 # limitations under the License.
 ---
 $schema: https://json-schema.org/draft/draft-2020-12/schema#
-_name: EiffelPersistentLogs
+_name: EiffelPersistentLogsProperty
 _version: 1.0.0
 _description: An array of persistent log files generated during
   execution.
@@ -42,7 +42,7 @@ items:
       _description: The URI at which the log can be retrieved.
       type: string
     integrityProtection:
-      $ref: ../EiffelIntegrityProtection/1.0.0.yml
+      $ref: ../EiffelIntegrityProtectionProperty/1.0.0.yml
   required:
     - name
     - uri

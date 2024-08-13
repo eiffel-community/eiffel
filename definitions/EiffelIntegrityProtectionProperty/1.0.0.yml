@@ -14,7 +14,7 @@
 # limitations under the License.
 ---
 $schema: https://json-schema.org/draft/draft-2020-12/schema#
-_name: EiffelIntegrityProtection
+_name: EiffelIntegrityProtectionProperty
 _version: 1.0.0
 _description: An optional object containing a digest of
   the file's contents, i.e. a checksum, computed using

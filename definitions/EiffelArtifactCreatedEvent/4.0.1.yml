@@ -55,7 +55,7 @@ properties:
               items:
                 type: string
             integrityProtection:
-              $ref: ../EiffelIntegrityProtection/1.0.0.yml
+              $ref: ../EiffelIntegrityProtectionProperty/1.0.0.yml
           required:
             - name
           additionalProperties: false
