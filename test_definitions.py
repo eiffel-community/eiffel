@@ -120,8 +120,8 @@ def test_filename_matches_type_version_fields(definition_file):
 
 @pytest.mark.parametrize(
     "definition_file",
-    EVENT_DEFINITIONS + OTHER_DEFINITIONS,
-    ids=EVENT_DEFINITION_IDS + OTHER_DEFINITION_IDS,
+    EVENT_DEFINITIONS_W_LINKS_REQUIRED + OTHER_DEFINITIONS,
+    ids=EVENT_DEFINITION_W_LINKS_REQUIRED_IDS + OTHER_DEFINITION_IDS,
 )
 def test_schema_validation(definition_file):
     # If you try to just add on to the meta schema it doesn't work see this for more info
@@ -131,8 +131,7 @@ def test_schema_validation(definition_file):
     # https://stackoverflow.com/questions/64138556/how-do-i-define-my-own-json-schema-keyword-and-vocabulary
     # https://json-schema.org/draft/2019-09/json-schema-core#rfc.appendix.D
 
-    # PLEASE NOTE: The current definition schema has extensions for the incorrectly spelled "additonalProperties"
-    # ALso note that additionalProperties and properties have been included again. Assuming in the meta schema these
+    # Note that additionalProperties and properties have been included again. Assuming that in the meta schema these
     # properties can only reside in certain places not valid for our definition files
     YAML_VALIDATOR.validate(definition_file.definition)
 

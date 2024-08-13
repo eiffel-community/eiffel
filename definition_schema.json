@@ -69,9 +69,6 @@
     "additionalProperties": {
       "type": "boolean"
     },
-    "additonalProperties": {
-      "type": "boolean"
-    },
     "_format": {
       "type": "string"
     },
