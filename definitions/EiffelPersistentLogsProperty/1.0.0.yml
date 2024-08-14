@@ -1,0 +1,49 @@
+# Copyright 2024 Ericsson AB.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: https://json-schema.org/draft/draft-2020-12/schema#
+_name: EiffelPersistentLogsProperty
+_version: 1.0.0
+_description: An array of persistent log files generated during
+  execution.
+type: array
+items:
+  type: object
+  properties:
+    mediaType:
+      _description: The [media type](https://en.wikipedia.org/wiki/Media_type)
+        of the URI's payload. Can be used to differentiate
+        between various representations of the same log, e.g.
+        text/html for human consumption and text/plain or application/json
+        for the machine-readable form.
+      type: string
+    name:
+      _description: The name of the log file.
+      type: string
+    tags:
+      _description: Arbitrary tags and keywords that describe
+        this log.
+      type: array
+      items:
+        type: string
+    uri:
+      _description: The URI at which the log can be retrieved.
+      type: string
+    integrityProtection:
+      $ref: ../EiffelIntegrityProtectionProperty/1.0.0.yml
+  required:
+    - name
+    - uri
+  additionalProperties: false

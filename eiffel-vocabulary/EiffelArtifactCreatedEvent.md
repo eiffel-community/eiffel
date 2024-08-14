@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelArtifactCreatedEvent/4.0.0.yml.
+   This file was generated from ../definitions/EiffelArtifactCreatedEvent/4.0.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -255,6 +255,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 4.0.1 | Not yet released in an edition | Use common fragment for Integrity Protection. |
 | 4.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 3.3.0 | [edition-arica](../../../tree/edition-arica) | Added data.fileInformation.integrityProtection member (see [Issue 290](https://github.com/eiffel-community/eiffel/issues/290)). |
 | 3.2.0 | [edition-arica](../../../tree/edition-arica) | Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)). |
