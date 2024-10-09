@@ -1,7 +1,5 @@
 # Eiffel and Cloud Events
 
-***Not ready for merge*** This document contains two alternatives that need a decision before merging
-
 This document describes using Eiffel on Cloud Events.
 Much inspiration is taken from the [CDEvents](https://cdevents.dev) and their idea on
 [cloud event binding](https://github.com/cdevents/spec/blob/main/cloudevents-binding.md).
@@ -17,7 +15,9 @@ Following how CDEvents has done it, we select the needed parameters from the `me
 
 Looking at the mandatory parameters from Cloud Events, we have to fill in:
 
-- `type` - See discussion on alternatives
+- `type` - Use the reverse DNS name `io.github.eiffel-community.<Eiffel type>` where:
+  - `io.github.eiffel-community` corresponds to the reverse DNS of our website
+  - `<Eiffel type>` - Use the value from `meta.type`
 - `source` - Cloud Events requires a *URI-reference*. Use `meta.source.uri` making this field mandatory when sending
   Eiffel on top of Cloud Events.
 - `id` - Use the value from `meta.id`
@@ -52,8 +52,8 @@ The cloud event in structured format would look like this (excluding `type`):
 ```JSON
 {
     "specversion": "1.0",
-    "type": "<See alternatives>",
-    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info"   ,  # Same as data.meta.source.uri
+    "type": "io.github.eiffel-community.EiffelArtifactCreatedEvent",    # Same as meta.type prefixed with our reverse DNS
+    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
     "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
     "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format,
     "dataschema": "https://schemas.myorg.org/OurArtCEvent-1.0.json",    # Same as data.meta.schemaUri (optional)
@@ -71,73 +71,6 @@ The cloud event in structured format would look like this (excluding `type`):
         },
         "data": {
             "identity": "pkg:maven/com.mycompany.myproduct/artifact-name@2.1.7"
-        },
-        "links": []
-    }
-}
-```
-
-## Type alternatives
-
-<https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md#type> states:
-
-> SHOULD be prefixed with a reverse-DNS name.
-> The prefixed domain dictates the organization which defines the semantics of this event type.
-
-### Alternative 1
-
-We try to satisfy the reverse DNS name and create one
-
-`io.github.eiffel-community.<Category>.<Eiffel type>`
-
-Where:
-
-- `io.github.eiffel-community` is the reverse DNS of our website
-- `<Category>` is taken from [Event Categories](event-categories.md) but lowercase
-- `<Eiffel type>` is the value from `meta.type` replacing capital letter with lowercase and hyphen
-
-Example:
-
-```JSON
-{
-    "specversion": "1.0",
-    "type": "io.github.eiffel-community.artifact.eiffel-artifact-created-event",
-    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
-    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
-    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format
-    "datacontenttype": "application/json",
-    "data": {
-        "meta": {
-            "type": "EiffelArtifactCreatedEvent",
-            ...
-        },
-        "data": {
-            ...
-        },
-        "links": []
-    }
-}
-```
-
-### Alternative 2
-
-We ignore the recommendation from Cloud Events on reverse DNS and use the `meta.type`
-
-```JSON
-{
-    "specversion": "1.0",
-    "type": "EiffelArtifactCreatedEvent",                               # Same as data.meta.type
-    "source": "https://ci.internal.myorg.org/ArtifactBuilder/info",     # Same as data.meta.source.uri
-    "id": "aaaaaaaa-bbbb-5ccc-8ddd-eeeeeeeeeee0",                       # Same as data.meta.id
-    "time": "2024-07-10T12:27:14+00:00",                                # NOTE: different format
-    "datacontenttype": "application/json",
-    "data": {
-        "meta": {
-            "type": "EiffelArtifactCreatedEvent",
-            ...
-        },
-        "data": {
-            ...
         },
         "links": []
     }
