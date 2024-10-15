@@ -48,29 +48,103 @@
     "_abbrev": {
       "type": "string"
     },
-    "_examples": {
-      "type": "array"
-    },
-    "_history": {
-      "type": "array"
-    },
-    "_links": {
-      "type": "object"
-    },
     "_name": {
       "type": "string"
     },
     "_version": {
       "type": "string"
     },
-    "properties": {
-      "type": "object"
-    },
     "additionalProperties": {
       "type": "boolean"
     },
     "_format": {
       "type": "string"
+    },
+    "_examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
+        "required": [
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "introduced_in": {
+            "type": "string"
+          },
+          "changes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version"
+        ]
+      }
+    },
+    "_links": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_]+$": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "multiple": {
+              "type": "boolean"
+            },
+            "targets": {
+              "type": "object",
+              "properties": {
+                "any_type": {
+                  "type": "boolean"
+                },
+                "types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "any_type",
+                "types"
+              ]
+            }
+          },
+          "required": [
+            "description",
+            "required",
+            "multiple",
+            "targets"
+          ]
+        }
+      }
+    },
+    "properties": {
+      "type": "object"
     },
     "definitions": {
       "$comment": "\"definitions\" has been replaced by \"$defs\".",
