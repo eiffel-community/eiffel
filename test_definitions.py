@@ -50,8 +50,11 @@ OTHER_DEFINITIONS = [
 ]
 OTHER_DEFINITION_IDS = [d.id for d in OTHER_DEFINITIONS]
 
-DEFINITION_SCHEMA = json.load(open("definition_schema.json"))
-YAML_VALIDATOR = jsonschema.Draft202012Validator(DEFINITION_SCHEMA)
+
+@pytest.fixture(scope="session")
+def yaml_validator():
+    definition_schema = json.load(open("definition_schema.json"))
+    return jsonschema.Draft202012Validator(definition_schema)
 
 
 @pytest.fixture(scope="session")
@@ -123,7 +126,7 @@ def test_filename_matches_type_version_fields(definition_file):
     EVENT_DEFINITIONS_W_LINKS_REQUIRED + OTHER_DEFINITIONS,
     ids=EVENT_DEFINITION_W_LINKS_REQUIRED_IDS + OTHER_DEFINITION_IDS,
 )
-def test_schema_validation(definition_file):
+def test_schema_validation(definition_file, yaml_validator):
     # If you try to just add on to the meta schema it doesn't work see this for more info
     # https://stackoverflow.com/questions/54719010/how-do-you-extend-json-schema-meta-schema-to-support-new-properties
     #
@@ -133,7 +136,7 @@ def test_schema_validation(definition_file):
 
     # Note that additionalProperties and properties have been included again. Assuming that in the meta schema these
     # properties can only reside in certain places not valid for our definition files
-    YAML_VALIDATOR.validate(definition_file.definition)
+    yaml_validator.validate(definition_file.definition)
 
 
 @pytest.mark.parametrize(
