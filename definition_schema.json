@@ -96,8 +96,10 @@
           }
         },
         "required": [
-          "version"
-        ]
+          "version",
+          "changes"
+        ],
+        "additionalProperties": false
       }
     },
     "_links": {
@@ -113,6 +115,9 @@
               "type": "boolean"
             },
             "multiple": {
+              "type": "boolean"
+            },
+            "experimental": {
               "type": "boolean"
             },
             "targets": {
@@ -131,6 +136,32 @@
               "required": [
                 "any_type",
                 "types"
+              ],
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "any_type": {
+                        "const": true
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "types": {
+                        "maxItems": 0
+                      }
+                    }
+                  },
+                  "else": {
+                    "properties": {
+                      "types": {
+                        "minItems": 1
+                      }
+                    }
+                  }
+                }
               ]
             }
           },
@@ -139,7 +170,8 @@
             "required",
             "multiple",
             "targets"
-          ]
+          ],
+          "additionalProperties": false
         }
       }
     },
