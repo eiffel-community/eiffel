@@ -31,8 +31,8 @@ Both schemas and documentation files are generated from _schema definition files
 | `_description`  | An overall description of the event.                                                                                                                   |
 | `_links`        | An object describing the valid link types for the event.                                                                                               |
 | `_links.<link type>.description`  | A description of the link type.                                                                                                                        |
-| `_links.<link type>.required`     | A boolean value indicating whether a link of this type is required. Default false.                                                                     |
-| `_links.<link type>.multiple`     | A boolean value indicating whether multiple links of this type is allowed. Default false.                                                              |
+| `_links.<link type>.required`     | A boolean value indicating whether a link of this type is required.                                                                  |
+| `_links.<link type>.multiple`     | A boolean value indicating whether multiple links of this type is allowed.                                                           |
 | `_links.<link type>.experimental` | A boolean value indicating whether the link type is experimental, i.e. the only valid target is an experimental event type. Optional, default false.   |
 | `_links.<link type>.targets.any_type`  | A boolean value indicating whether the link can point to an event of any type.                                                                         |
 | `_links.<link type>.targets.types`     | A string array of event names that the link type may point to. Must be non-empty if `any_type` is false, and must be empty if `any_type` is true.      |
