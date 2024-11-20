@@ -23,26 +23,26 @@ The documentation of each event is available in a Markdown file that covers the 
 
 Both schemas and documentation files are generated from _schema definition files_; YAML files with a custom schema based on the JSON schema specification. Like the schema files themselves there's one file per event and version, e.g. [definitions/EiffelCompositionDefinedEvent/3.2.0.yml](../definitions/EiffelCompositionDefinedEvent/3.2.0.yml). The main difference between these files and normal JSON schema files, apart from the YAML representation, is an additional set of keys with an underscore prefix that contains additional metadata that can't be part of the JSON schema itself. Those keys are used when generating the documentation and are simply ignored when the schema definition files are turned into schema files. The following table describes these additional top-level keys.
 
-| Key             | Description             |
-| --------------- | ----------------------- |
-| `_name`         | The name of the type, e.g. "EiffelCompositionDefinedEvent". This string must match the name of the parent directory. |
-| `_version`      | The version of the event or other type, e.g. "3.1.0". This string must match the name of the definition file, except for the filename suffix. |
-| `_abbrev`       | The abbreviation of the event name, e.g. "CD" for EiffelCompositionDefinedEvent. |
-| `_description`  | An overall description of the event. |
-| `_links`        | An object describing the valid link types for the event. |
-| `_links.<link type>.description`  | A description of the link type. |
-| `_links.<link type>.required`     | A boolean value indicating whether a link of this type is required. Optional, default false. |
-| `_links.<link type>.multiple`     | A boolean value indicating whether multiple links of this type is allowed. Optional, default false. |
-| `_links.<link type>.experimental` | A boolean value indicating whether the link type is experimental, i.e. the only valid target is an experimental event type. Optional, default false. |
-| `_links.<link type>.targets.any_type`  | A boolean value indicating whether the link can point to an event of any type. |
-| `_links.<link type>.targets.types`     | A string array of event names that the link type may point to. Must be non-empty if `any_type` is false, and must be empty if `any_type` is true. |
+| Key             | Description                                                                                                                                            |
+| --------------- |--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `_name`         | The name of the type, e.g. "EiffelCompositionDefinedEvent". This string must match the name of the parent directory.                                   |
+| `_version`      | The version of the event or other type, e.g. "3.1.0". This string must match the name of the definition file, except for the filename suffix.          |
+| `_abbrev`       | The abbreviation of the event name, e.g. "CD" for EiffelCompositionDefinedEvent.                                                                       |
+| `_description`  | An overall description of the event.                                                                                                                   |
+| `_links`        | An object describing the valid link types for the event.                                                                                               |
+| `_links.<link type>.description`  | A description of the link type.                                                                                                                        |
+| `_links.<link type>.required`     | A boolean value indicating whether a link of this type is required.                                                                  |
+| `_links.<link type>.multiple`     | A boolean value indicating whether multiple links of this type is allowed.                                                           |
+| `_links.<link type>.experimental` | A boolean value indicating whether the link type is experimental, i.e. the only valid target is an experimental event type. Optional, default false.   |
+| `_links.<link type>.targets.any_type`  | A boolean value indicating whether the link can point to an event of any type.                                                                         |
+| `_links.<link type>.targets.types`     | A string array of event names that the link type may point to. Must be non-empty if `any_type` is false, and must be empty if `any_type` is true.      |
 | `_history`      | An array of objects describing the event type's version history, up to and including the current version. The items should be sorted in reverse order. |
-| `_history.version`        | The event version described in this item. |
-| `_history.introduced_in`  | The Git tag of the first edition where this version was available, or null if the version hasn't been released in a protocol edition. |
-| `_history.changes`        | A short description of the changes in this item's event version. |
-| `_examples`     | An array of objects describing examples of this event. |
-| `_examples.title`         | The name of the example. |
-| `_examples.url`           | The URL of the example. |
+| `_history.version`        | The event version described in this item.                                                                                                              |
+| `_history.introduced_in`  | The Git tag of the first edition where this version was available, or null if the version hasn't been released in a protocol edition.                  |
+| `_history.changes`        | A short description of the changes in this item's event version.                                                                                       |
+| `_examples`     | An array of objects describing examples of this event.                                                                                                 |
+| `_examples.title`         | The name of the example.                                                                                                                               |
+| `_examples.url`           | The URL of the example.                                                                                                                                |
 
 In addition, the object that describes each property in the schema supports a few additional keys that are specific to the schema definition format and will be omitted when the schema file is produced:
 

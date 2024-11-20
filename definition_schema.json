@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://json-schema.org/draft/2020-12/schema",
+  "$vocabulary": {
+    "https://json-schema.org/draft/2020-12/vocab/core": true,
+    "https://json-schema.org/draft/2020-12/vocab/applicator": true,
+    "https://json-schema.org/draft/2020-12/vocab/unevaluated": true,
+    "https://json-schema.org/draft/2020-12/vocab/validation": true,
+    "https://json-schema.org/draft/2020-12/vocab/meta-data": true,
+    "https://json-schema.org/draft/2020-12/vocab/format-annotation": true,
+    "https://json-schema.org/draft/2020-12/vocab/content": true
+  },
+  "$dynamicAnchor": "meta",
+  "title": "Core and Validation specifications meta-schema",
+  "allOf": [
+    {
+      "$ref": "meta/core"
+    },
+    {
+      "$ref": "meta/applicator"
+    },
+    {
+      "$ref": "meta/unevaluated"
+    },
+    {
+      "$ref": "meta/validation"
+    },
+    {
+      "$ref": "meta/meta-data"
+    },
+    {
+      "$ref": "meta/format-annotation"
+    },
+    {
+      "$ref": "meta/content"
+    }
+  ],
+  "unevaluatedProperties": false,
+  "type": [
+    "object",
+    "boolean"
+  ],
+  "$comment": "This meta schema for the Eiffel Definitions files is a copy of a meta schema with some additions.",
+  "properties": {
+    "_description": {
+      "type": "string"
+    },
+    "_abbrev": {
+      "type": "string"
+    },
+    "_name": {
+      "type": "string"
+    },
+    "_version": {
+      "type": "string"
+    },
+    "additionalProperties": {
+      "type": "boolean"
+    },
+    "_format": {
+      "type": "string"
+    },
+    "_examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
+        "required": [
+          "title",
+          "url"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "_history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string"
+          },
+          "introduced_in": {
+            "type": "string"
+          },
+          "changes": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "version",
+          "changes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "_links": {
+      "type": "object",
+      "patternProperties": {
+        "^[A-Z_]+$": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "required": {
+              "type": "boolean"
+            },
+            "multiple": {
+              "type": "boolean"
+            },
+            "experimental": {
+              "type": "boolean"
+            },
+            "targets": {
+              "type": "object",
+              "properties": {
+                "any_type": {
+                  "type": "boolean"
+                },
+                "types": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "any_type",
+                "types"
+              ],
+              "additionalProperties": false,
+              "allOf": [
+                {
+                  "if": {
+                    "properties": {
+                      "any_type": {
+                        "const": true
+                      }
+                    }
+                  },
+                  "then": {
+                    "properties": {
+                      "types": {
+                        "maxItems": 0
+                      }
+                    }
+                  },
+                  "else": {
+                    "properties": {
+                      "types": {
+                        "minItems": 1
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "description",
+            "required",
+            "multiple",
+            "targets"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "properties": {
+      "type": "object"
+    },
+    "definitions": {
+      "$comment": "\"definitions\" has been replaced by \"$defs\".",
+      "type": "object",
+      "additionalProperties": {
+        "$dynamicRef": "#meta"
+      },
+      "deprecated": true,
+      "default": {}
+    },
+    "dependencies": {
+      "$comment": "\"dependencies\" has been split and replaced by \"dependentSchemas\" and \"dependentRequired\" in order to serve their differing semantics.",
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$dynamicRef": "#meta"
+          },
+          {
+            "$ref": "meta/validation#/$defs/stringArray"
+          }
+        ]
+      },
+      "deprecated": true,
+      "default": {}
+    },
+    "$recursiveAnchor": {
+      "$comment": "\"$recursiveAnchor\" has been replaced by \"$dynamicAnchor\".",
+      "$ref": "meta/core#/$defs/anchorString",
+      "deprecated": true
+    },
+    "$recursiveRef": {
+      "$comment": "\"$recursiveRef\" has been replaced by \"$dynamicRef\".",
+      "$ref": "meta/core#/$defs/uriReferenceString",
+      "deprecated": true
+    }
+  }
+}
