@@ -27,13 +27,16 @@ import sys
 import time
 from pathlib import Path
 from typing import List
+from typing import Optional
 
 import semver
 
 import versions
 
 
-def _bump_versions(root: Path, position: str, pattern: str) -> List[Path]:
+def _bump_versions(
+    root: Path, position: str, pattern: str, history_entry: Optional[str] = None
+) -> List[Path]:
     """Find definition files in the given directory, match their types
     against the given glob pattern, and create new files with version
     bumps in the selected position. Return the paths of the created
@@ -48,7 +51,11 @@ def _bump_versions(root: Path, position: str, pattern: str) -> List[Path]:
         new_version = getattr(version, "bump_" + position)()
         new_path = old_path.with_name(f"{new_version}.yml")
         new_path.write_text(
-            _transform_definition(old_path.read_text(encoding="utf-8"), new_version),
+            _transform_definition(
+                old_path.read_text(encoding="utf-8"),
+                new_version,
+                history_entry=history_entry,
+            ),
             encoding="utf-8",
         )
         result.append(new_path)
@@ -56,10 +63,13 @@ def _bump_versions(root: Path, position: str, pattern: str) -> List[Path]:
 
 
 def _transform_definition(
-    old_definition: str, version: semver.version.Version, copyright_year: int = None
+    old_definition: str,
+    version: semver.version.Version,
+    history_entry: Optional[str] = None,
+    copyright_year: int = None,
 ) -> str:
     """Return an updated type definition with the new version and
-    copyright year patched in.
+    copyright year patched in, and a new entry in the history table.
     """
     result = re.sub(
         r"^_version: (.*)$", f"_version: {version}", old_definition, flags=re.M
@@ -85,6 +95,14 @@ def _transform_definition(
     ):
         result = re.sub(expr, repl, result, flags=re.M)
 
+    history_entry = history_entry or "PLEASE UPDATE"
+    result = re.sub(
+        r"^_history:$",
+        f"_history:\n  - version: {version}\n    changes: {history_entry}",
+        result,
+        flags=re.M,
+    )
+
     return result
 
 
@@ -101,6 +119,16 @@ if __name__ == "__main__":
         metavar="TYPE_PATTERN",
         help="a glob pattern that selects which types should be bumped",
     )
+    argparser.add_argument(
+        "--history-entry",
+        metavar="TEXT",
+        help="the text that should be added to the new version's history table",
+    )
     args = argparser.parse_args(sys.argv[1:])
-    for path in _bump_versions(Path("definitions"), args.position, args.pattern):
+    for path in _bump_versions(
+        Path("definitions"),
+        args.position,
+        args.pattern,
+        history_entry=args.history_entry,
+    ):
         print(path)
