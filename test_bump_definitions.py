@@ -49,11 +49,11 @@ def test_transform_definition_updates_range():
                 """
             ),
             semver.VersionInfo.parse("2.0.0"),
-            copyright_year=2025,
+            copyright_year=2023
         )
         == textwrap.dedent(
             """\
-            # Copyright 2020-2025 Company Name, Inc.
+            # Copyright 2020-2023 Company Name, Inc.
             """
         )
     )
@@ -68,11 +68,11 @@ def test_transform_definition_turn_year_into_range():
                 """
             ),
             semver.VersionInfo.parse("2.0.0"),
-            copyright_year=2025,
+            copyright_year=2023,
         )
         == textwrap.dedent(
             """\
-            # Copyright 2020-2025 Company Name, Inc.
+            # Copyright 2020-2023 Company Name, Inc.
             """
         )
     )
