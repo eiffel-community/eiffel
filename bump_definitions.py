@@ -35,8 +35,8 @@ import versions
 
 def _bump_versions(root: Path, position: str, pattern: str) -> List[Path]:
     """Find definition files in the given directory, match their types
-    against the given glob pnattern, and create new files with version
-    bumps in the selected position. Returns the paths of the created
+    against the given glob pattern, and create new files with version
+    bumps in the selected position. Return the paths of the created
     files.
     """
     result = []
@@ -99,7 +99,7 @@ if __name__ == "__main__":
     argparser.add_argument(
         "pattern",
         metavar="TYPE_PATTERN",
-        help="XXX",
+        help="a glob pattern that selects which types should be bumped",
     )
     args = argparser.parse_args(sys.argv[1:])
     for path in _bump_versions(Path("definitions"), args.position, args.pattern):
