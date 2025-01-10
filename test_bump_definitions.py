@@ -49,7 +49,7 @@ def test_transform_definition_updates_range():
                 """
             ),
             semver.VersionInfo.parse("2.0.0"),
-            copyright_year=2023
+            copyright_year=2023,
         )
         == textwrap.dedent(
             """\
