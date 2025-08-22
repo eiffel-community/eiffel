@@ -1,5 +1,5 @@
 <!---
-   This file was generated from ../definitions/EiffelIssueVerifiedEvent/5.0.0.yml.
+   This file was generated from ../definitions/EiffelIssueVerifiedEvent/5.0.1.yml.
    See that file for a copyright notice.
 --->
 
@@ -165,6 +165,7 @@ To verify the integrity of the event, the consumer then resets __meta.security.i
 
 ##### meta.security.integrityProtection.signature
 __Type:__ String  
+__Format:__ A Base64-encoded representation of the signature. How those bytes should be interpreted depends on the chosen algorithm.  
 __Required:__ Yes  
 __Description:__ The signature produced by the signing algorithm.
 
@@ -176,6 +177,7 @@ __Description:__ The cryptographic algorithm used to digitally sign the event. I
 
 ##### meta.security.integrityProtection.publicKey
 __Type:__ String  
+__Format:__ A Base64-encoded public key in DER (Distinguished Encoding Rules) format.  
 __Required:__ No  
 __Description:__ The producer of the event may include the relevant public key for convenience, rather than relying a separate key distribution mechanism. Note that this property, along with the rest of the event, is encompassed by the integrity protection offered via __meta.security.integrityProtection__.
 
@@ -204,6 +206,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 5.0.1 | Not yet released in an edition | Detail the expected representation of public key and signature in meta.security  (see [Issue 375](https://github.com/eiffel-community/eiffel/issues/375)). |
 | 5.0.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 4.3.1 | Not yet released in an edition | Change IUT to Implementation Under Test (see [Issue 235](https://github.com/eiffel-community/eiffel/issues/359)). |
 | 4.3.0 | [edition-orizaba](../../../tree/edition-orizaba) | Add artifact deployed event as legal IUT target (see [Issue 239](https://github.com/eiffel-community/eiffel/issues/239)). |

@@ -1,0 +1,233 @@
+# Copyright 2017-2025 Ericsson AB and others.
+# For a full list of individual contributors, please see the commit history.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+---
+$schema: https://json-schema.org/draft/2020-12/schema#
+_name: EiffelSourceChangeSubmittedEvent
+_version: 4.0.1
+_abbrev: SCS
+_description: |-
+  The EiffelSourceChangeSubmittedEvent declares that a change has been integrated into to a shared source branch of interest (e.g. "master", "dev" or "mainline") as opposed to a private or local branch. Note that it does not describe what has changed, but instead uses the __CHANGE__ link type to reference [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md).
+
+  Typical use cases for EiffelSourceChangeSubmittedEvent is to signal that a patch has passed code review and been submitted or that a feature/topic/team branch has been merged into the mainline/trunk/master. Where changes are made directly on the mainline, it is recommended to send both [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md) and EiffelSourceChangeSubmittedEvent together for information completeness.
+
+  Even though multiple types of identifiers are available (see below), the event SHOULD include one and SHALL not include more than one; changes to multiple repositories are represented by multiple events.
+type: object
+properties:
+  meta:
+    $ref: ../EiffelMetaProperty/4.0.1.yml
+  data:
+    type: object
+    properties:
+      submitter:
+        _description: The agent (individual, group or machine) submitting
+          the change. This is crucially different from the __data.author__
+          field of [EiffelSourceChangeCreatedEvent](./EiffelSourceChangeCreatedEvent.md).
+        type: object
+        properties:
+          name:
+            _description: The name of the submitter.
+            type: string
+          email:
+            _description: The email address of the submitter.
+            type: string
+          id:
+            _description: Any identity, username or alias of the submitter.
+            type: string
+          group:
+            _description: Any group or organization to which the submitter
+              belongs.
+            type: string
+        additionalProperties: false
+      gitIdentifier:
+        _description: Identifier of a Git change.
+        type: object
+        properties:
+          commitId:
+            _description: The commit identity (hash) of the change.
+            type: string
+          branch:
+            _description: The name of the branch where the change was
+              made.
+            type: string
+          repoName:
+            _description: The name of the repository containing the
+              change.
+            type: string
+          repoUri:
+            _description: The URI of the repository containing the
+              change.
+            type: string
+        required:
+          - commitId
+          - repoUri
+        additionalProperties: false
+      svnIdentifier:
+        _description: Identifier of a Subversion change.
+        type: object
+        properties:
+          revision:
+            _description: The revision of the change.
+            type: integer
+          directory:
+            _description: The directory (branch/tag) of the change.
+            type: string
+          repoName:
+            _description: The name of the repository containing the
+              change.
+            type: string
+          repoUri:
+            _description: The URI of the repository containing the
+              change.
+            type: string
+        required:
+          - revision
+          - directory
+          - repoUri
+        additionalProperties: false
+      ccCompositeIdentifier:
+        _description: Identifier of a composite ClearCase change –
+          in other words, not single file commit, but analogous of
+          repository-wide commits of e.g. SVN or Git.
+        type: object
+        properties:
+          vobs:
+            _description: The names of the changed ClearCase VOBs.
+            type: array
+            items:
+              type: string
+          branch:
+            _description: The branch of the change.
+            type: string
+          configSpec:
+            _description: The URI of the relevant ClearCase config
+              spec.
+            type: string
+        required:
+          - vobs
+          - branch
+          - configSpec
+        additionalProperties: false
+      hgIdentifier:
+        _description: Identifier of a Mercurial change.
+        type: object
+        properties:
+          commitId:
+            _description: The commit identity (hash) of the change.
+            type: string
+          branch:
+            _description: The branch of the change.
+            type: string
+          repoName:
+            _description: The name of the repo.
+            type: string
+          repoUri:
+            _description: The URI of the repo.
+            type: string
+        required:
+          - commitId
+          - repoUri
+        additionalProperties: false
+      customData:
+        type: array
+        items:
+          $ref: ../EiffelCustomDataProperty/2.0.0.yml
+    additionalProperties: false
+  links:
+    type: array
+    items:
+      $ref: ../EiffelEventLink/2.0.0.yml
+required:
+  - meta
+  - data
+  - links
+additionalProperties: false
+_links:
+  CAUSE:
+    description: 'Identifies a cause of the event occurring. SHOULD
+      not be used in conjunction with __CONTEXT__: individual events
+      providing __CAUSE__ within a larger context gives rise to ambiguity.
+      It is instead recommended to let the root event of the context
+      declare __CAUSE__.'
+    required: false
+    multiple: true
+    targets:
+      any_type: true
+      types: []
+  CHANGE:
+    description: Identifies the change that was submitted.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelSourceChangeCreatedEvent
+  CONTEXT:
+    description: Identifies the activity or test suite of which this
+      event constitutes a part.
+    required: false
+    multiple: false
+    targets:
+      any_type: false
+      types:
+        - EiffelActivityTriggeredEvent
+        - EiffelTestSuiteStartedEvent
+  FLOW_CONTEXT:
+    description: 'Identifies the flow context of the event: which is
+      the continuous integration and delivery flow in which this occurred
+      – e.g. which product, project, track or version this is applicable
+      to.'
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelFlowContextDefinedEvent
+  PREVIOUS_VERSION:
+    description: Identifies a latest previous version (there may be
+      more than one in case of merges) of the submitted source change.
+    required: false
+    multiple: true
+    targets:
+      any_type: false
+      types:
+        - EiffelSourceChangeSubmittedEvent
+_history:
+  - version: 4.0.1
+    changes: Detail the expected representation of public key and signature in meta.security  (see [Issue 375](https://github.com/eiffel-community/eiffel/issues/375)).
+  - version: 4.0.0
+    changes: Update meta schema to Draft 2020-12 and add link validation.
+  - version: 3.2.0
+    introduced_in: edition-arica
+    changes: Add schema URL to the meta object (see [Issue 280](https://github.com/eiffel-community/eiffel/issues/280)).
+  - version: 3.1.0
+    introduced_in: edition-lyon
+    changes: Add links.domainId member (see [Issue 233](https://github.com/eiffel-community/eiffel/issues/233)).
+  - version: 3.0.0
+    introduced_in: edition-agen
+    changes: Improved information integrity protection (see [Issue
+      185](https://github.com/eiffel-community/eiffel/issues/185)).
+  - version: 2.0.0
+    introduced_in: edition-agen
+    changes: Introduced purl identifiers instead of GAVs (see [Issue
+      182](https://github.com/eiffel-community/eiffel/issues/182))
+  - version: 1.1.0
+    introduced_in: edition-toulouse
+    changes: Multiple links of type FLOW_CONTEXT allowed.
+  - version: 1.0.0
+    introduced_in: edition-bordeaux
+    changes: Initial version.
+_examples:
+  - title: Simple example
+    url: ../examples/events/EiffelSourceChangeSubmittedEvent/simple.json
