@@ -115,7 +115,7 @@ _links:
         - EiffelAnnouncementPublishedEvent
 _history:
   - version: 4.0.1
-    changes: foo bar baz
+    changes: Detail the expected representation of public key and signature in meta.security  (see [Issue 375](https://github.com/eiffel-community/eiffel/issues/375)).
   - version: 4.0.0
     changes: Update meta schema to Draft 2020-12 and add link validation.
   - version: 3.2.0
