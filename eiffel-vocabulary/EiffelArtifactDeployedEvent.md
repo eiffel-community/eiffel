@@ -1,10 +1,10 @@
 <!---
-   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.2.0.yml.
+   This file was generated from ../definitions/EiffelArtifactDeployedEvent/0.2.1.yml.
    See that file for a copyright notice.
 --->
 
 # EiffelArtifactDeployedEvent (ArtD)
-> :warning: This event type is currently at version 0.2.0 and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incompatible changes. It might also be deprecated and never reach 1.0.0.
+> :warning: This event type is currently at version 0.2.1 and is therefore experimental. Until it has reached version 1.0.0 it may undergo any number of backwards incompatible changes. It might also be deprecated and never reach 1.0.0.
 
 The EiffelArtifactDeployedEvent states that a software artifact had been deployed into a specified environment or that the configuration of the artifact has been changed. The exact meaning of an artifact deployment is implementation-defined. Progressive deployments like e.g. canaries can be described with an EiffelArtifactDeployedEvent every time the deployment advances or a single EiffelArtifactDeployedEvent once the artifact has been fully deployed.
 
@@ -157,6 +157,7 @@ To verify the integrity of the event, the consumer then resets __meta.security.i
 
 ##### meta.security.integrityProtection.signature
 __Type:__ String  
+__Format:__ A Base64-encoded representation of the signature. How those bytes should be interpreted depends on the chosen algorithm.  
 __Required:__ Yes  
 __Description:__ The signature produced by the signing algorithm.
 
@@ -168,6 +169,7 @@ __Description:__ The cryptographic algorithm used to digitally sign the event. I
 
 ##### meta.security.integrityProtection.publicKey
 __Type:__ String  
+__Format:__ A Base64-encoded public key in DER (Distinguished Encoding Rules) format.  
 __Required:__ No  
 __Description:__ The producer of the event may include the relevant public key for convenience, rather than relying a separate key distribution mechanism. Note that this property, along with the rest of the event, is encompassed by the integrity protection offered via __meta.security.integrityProtection__.
 
@@ -196,6 +198,7 @@ __Description:__ A URI pointing at a location from where the schema used when cr
 
 | Version | Introduced in | Changes |
 | ------- | ------------- | ------- |
+| 0.2.1 | Not yet released in an edition | Detail the expected representation of public key and signature in meta.security  (see [Issue 375](https://github.com/eiffel-community/eiffel/issues/375)). |
 | 0.2.0 | Not yet released in an edition | Update meta schema to Draft 2020-12 and add link validation. |
 | 0.1.0 | [edition-orizaba](../../../tree/edition-orizaba) | Initial version. |
 
